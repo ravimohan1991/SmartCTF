@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSOnslaughtGame</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onsonslaughtgame.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSOnslaughtGame">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsnodehealeffect.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onsonslaughtmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onsonslaughtgame.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSOnslaughtGame</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xgame/xteamgame.html">xTeamGame</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/info.html">Info</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/gameinfo.html">GameInfo</a>
+         |   
+         +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/unrealmpgameinfo.html">UnrealMPGameInfo</a>
+            |   
+            +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/deathmatch.html">DeathMatch</a>
+               |   
+               +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/teamgame.html">TeamGame</a>
+                  |   
+                  +-- <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xteamgame.html">xTeamGame</a>
+                     |   
+                     +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsonslaughtgame.html">ONSOnslaughtGame</a>
+</pre>
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+<tr><td width="40%"><a href="#_ONSPROPNUM" name="ONSPROPNUM" title="go to the details">ONSPROPNUM</a></td><td width="10%">=</td><td width="50%">3</td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Contants from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/teamgame.html">TeamGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/teamgame.html#TGPROPNUM">TGPROPNUM</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bCurrentSetupIsOfficial" name="bCurrentSetupIsOfficial" title="go to the details">bCurrentSetupIsOfficial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bRandSetupAfterReset" name="bRandSetupAfterReset" title="go to the details">bRandSetupAfterReset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bSidesAreSwitched" name="bSidesAreSwitched" title="go to the details">bSidesAreSwitched</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bSwapSidesAfterReset" name="bSwapSidesAfterReset" title="go to the details">bSwapSidesAfterReset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_CurrentSetupName" name="CurrentSetupName" title="go to the details">CurrentSetupName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onspowerlinkcustomsetup.html">ONSPowerLinkCustomSetup</a>&gt;</td><td width="66%"><a href="#_CustomPowerLinkSetups" name="CustomPowerLinkSetups" title="go to the details">CustomPowerLinkSetups</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_FinalCore[2]" name="FinalCore[2]" title="go to the details">FinalCore[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onspowerlinkofficialsetup.html">ONSPowerLinkOfficialSetup</a>&gt;</td><td width="66%"><a href="#_OfficialPowerLinkSetups" name="OfficialPowerLinkSetups" title="go to the details">OfficialPowerLinkSetups</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_ONSPropDescText[ONSPROPNUM]" name="ONSPropDescText[ONSPROPNUM]" title="go to the details">ONSPropDescText[ONSPROPNUM]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_ONSPropsDisplayText[ONSPROPNUM]" name="ONSPropsDisplayText[ONSPROPNUM]" title="go to the details">ONSPropsDisplayText[ONSPROPNUM]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_OvertimeCoreDrainPerSec" name="OvertimeCoreDrainPerSec" title="go to the details">OvertimeCoreDrainPerSec</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onspowercore.html">ONSPowerCore</a>&gt;</td><td width="66%"><a href="#_PowerCores" name="PowerCores" title="go to the details">PowerCores</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/powerlink.html">PowerLink</a>&gt;</td><td width="66%"><a href="#_PowerLinks" name="PowerLinks" title="go to the details">PowerLinks</a></td></tr>
+<tr><th colspan="2" class="small">LoadingHints</th></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;string&gt;</td><td width="66%"><a href="#_ONSHints" name="ONSHints" title="go to the details">ONSHints</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/teamgame.html">TeamGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/teamgame.html#ADR_Control">ADR_Control</a>, <a href="../unrealgame/teamgame.html#ADR_Goal">ADR_Goal</a>, <a href="../unrealgame/teamgame.html#ADR_Return">ADR_Return</a>, <a href="../unrealgame/teamgame.html#bAllowNonTeamChat">bAllowNonTeamChat</a>, <a href="../unrealgame/teamgame.html#BareHanded">BareHanded</a>, <a href="../unrealgame/teamgame.html#bBalanceTeams">bBalanceTeams</a>, <a href="../unrealgame/teamgame.html#BlueTeamName">BlueTeamName</a>, <a href="../unrealgame/teamgame.html#bPlayersBalanceTeams">bPlayersBalanceTeams</a>, <a href="../unrealgame/teamgame.html#bScoreTeamKills">bScoreTeamKills</a>, <a href="../unrealgame/teamgame.html#bScoreVictimsTarget">bScoreVictimsTarget</a>, <a href="../unrealgame/teamgame.html#bSpawnInTeamArea">bSpawnInTeamArea</a>, <a href="../unrealgame/teamgame.html#CaptureSoundName[2]">CaptureSoundName[2]</a>, <a href="../unrealgame/teamgame.html#EndGameCommented[10]">EndGameCommented[10]</a>, <a href="../unrealgame/teamgame.html#EndGameComments[10]">EndGameComments[10]</a>, <a href="../unrealgame/teamgame.html#EndGameLossRemarks[10]">EndGameLossRemarks[10]</a>, <a href="../unrealgame/teamgame.html#EndGameRemark[10]">EndGameRemark[10]</a>, <a href="../unrealgame/teamgame.html#EndGameResponses[10]">EndGameResponses[10]</a>, <a href="../unrealgame/teamgame.html#EndGameTaunts[10]">EndGameTaunts[10]</a>, <a href="../unrealgame/teamgame.html#EndGameVictoryRemarks[10]">EndGameVictoryRemarks[10]</a>, <a href="../unrealgame/teamgame.html#FriendlyFireScale">FriendlyFireScale</a>, <a href="../unrealgame/teamgame.html#IncreaseLeadName[2]">IncreaseLeadName[2]</a>, <a href="../unrealgame/teamgame.html#LastEndGameComment">LastEndGameComment</a>, <a href="../unrealgame/teamgame.html#LastEndGameRemark">LastEndGameRemark</a>, <a href="../unrealgame/teamgame.html#LastEndGameResponse">LastEndGameResponse</a>, <a href="../unrealgame/teamgame.html#LastEndGameTauntTime">LastEndGameTauntTime</a>, <a href="../unrealgame/teamgame.html#MaxTeamSize">MaxTeamSize</a>, <a href="../unrealgame/teamgame.html#NearString">NearString</a>, <a href="../unrealgame/teamgame.html#PathWhisps[2]">PathWhisps[2]</a>, <a href="../unrealgame/teamgame.html#RedTeamName">RedTeamName</a>, <a href="../unrealgame/teamgame.html#TakeLeadName[2]">TakeLeadName[2]</a>, <a href="../unrealgame/teamgame.html#TeamAIType[2]">TeamAIType[2]</a>, <a href="../unrealgame/teamgame.html#TeammateBoost">TeammateBoost</a>, <a href="../unrealgame/teamgame.html#Teams[2]">Teams[2]</a>, <a href="../unrealgame/teamgame.html#TempSymbols[2]">TempSymbols[2]</a>, <a href="../unrealgame/teamgame.html#TGHints">TGHints</a>, <a href="../unrealgame/teamgame.html#TGPropDescText[TGPROPNUM]">TGPropDescText[TGPROPNUM]</a>, <a href="../unrealgame/teamgame.html#TGPropsDisplayText[TGPROPNUM]">TGPropsDisplayText[TGPROPNUM]</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+<tr><td><a href="#_PowerLinkSetup" name="PowerLinkSetup" title="go to the details">PowerLinkSetup</a><br /><span class="small">BaseNode, LinkedNodes</span></td></tr>
+
+</table>
+
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>bool&nbsp;</td><td><a href="#_AcceptPlayInfoProperty-" name="AcceptPlayInfoProperty" title="go to the details">AcceptPlayInfoProperty</a> (string PropertyName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_AddLink-" name="AddLink" title="go to the details">AddLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_AllowMutator-" name="AllowMutator" title="go to the details">AllowMutator</a> (string MutatorClassName ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_AllowTransloc-" name="AllowTransloc" title="go to the details">AllowTransloc</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ApplyOrder-" name="ApplyOrder" title="go to the details">ApplyOrder</a> (<a href="../engine/playercontroller.html">PlayerController</a> Sender, int RecipientID, int OrderID ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ChangeTeam-" name="ChangeTeam" title="go to the details">ChangeTeam</a> (<a href="../engine/controller.html">Controller</a> Other, int num, bool bNewTeam))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CheckEndGame-" name="CheckEndGame" title="go to the details">CheckEndGame</a> (<a href="../engine/playerreplicationinfo.html">PlayerReplicationInfo</a> Winner, string Reason))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CheckScore-" name="CheckScore" title="go to the details">CheckScore</a> (<a href="../engine/playerreplicationinfo.html">PlayerReplicationInfo</a> Scorer))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClearLinks-" name="ClearLinks" title="go to the details">ClearLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CriticalPlayer-" name="CriticalPlayer" title="go to the details">CriticalPlayer</a> (<a href="../engine/controller.html">Controller</a> Other))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DeadUse-" name="DeadUse" title="go to the details">DeadUse</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_DeletePowerLinkSetup-" name="DeletePowerLinkSetup" title="go to the details">DeletePowerLinkSetup</a> (string SetupName, <a href="../engine/playercontroller.html">PlayerController</a> Caller))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ExistsLinkPathTo-" name="ExistsLinkPathTo" title="go to the details">ExistsLinkPathTo</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> Start, <a href="../onslaught/onspowercore.html">ONSPowerCore</a> Destination, out array&lt;<a href="../onslaught/onspowercore.html">ONSPowerCore</a>&gt; Traveled))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_FillPlayInfo-" name="FillPlayInfo" title="go to the details">FillPlayInfo</a> (<a href="../engine/playinfo.html">PlayInfo</a> PlayInfo))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_FindLinkSetup-" name="FindLinkSetup" title="go to the details">FindLinkSetup</a> (optional string IgnoredSetup))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/navigationpoint.html">NavigationPoint</a>&nbsp;</td><td><a href="#_FindPlayerStart-" name="FindPlayerStart" title="go to the details">FindPlayerStart</a> (<a href="../engine/controller.html">Controller</a> Player, optional byte InTeam, optional string incomingName ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>array&lt;string&gt;&nbsp;</td><td><a href="#_GetAllLoadHints-" name="GetAllLoadHints" title="go to the details">GetAllLoadHints</a> (optional bool bThisClassOnly))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>string&nbsp;</td><td><a href="#_GetDescriptionText-" name="GetDescriptionText" title="go to the details">GetDescriptionText</a> (string PropName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_GetServerDetails-" name="GetServerDetails" title="go to the details">GetServerDetails</a> (out <a href="../engine/gameinfo.html#ServerResponseLine">ServerResponseLine</a> ServerState))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_GetServerInfo-" name="GetServerInfo" title="go to the details">GetServerInfo</a> (out <a href="../engine/gameinfo.html#ServerResponseLine">ServerResponseLine</a> ServerState))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasLink-" name="HasLink" title="go to the details">HasLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_InitGame-" name="InitGame" title="go to the details">InitGame</a> (string Options, out string Error))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Killed-" name="Killed" title="go to the details">Killed</a> (<a href="../engine/controller.html">Controller</a> Killer, <a href="../engine/controller.html">Controller</a> Killed, <a href="../engine/pawn.html">Pawn</a> KilledPawn, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_MainCoreDestroyed-" name="MainCoreDestroyed" title="go to the details">MainCoreDestroyed</a> (byte T))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_NeverAllowTransloc-" name="NeverAllowTransloc" title="go to the details">NeverAllowTransloc</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_ParseOrder-" name="ParseOrder" title="go to the details">ParseOrder</a> (string OrderString))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayStartupMessage-" name="PlayStartupMessage" title="go to the details">PlayStartupMessage</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostLogin-" name="PostLogin" title="go to the details">PostLogin</a> (<a href="../engine/playercontroller.html">PlayerController</a> NewPlayer))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PrecacheGameAnnouncements-" name="PrecacheGameAnnouncements" title="go to the details">PrecacheGameAnnouncements</a> (<a href="../engine/announcervoice.html">AnnouncerVoice</a> V, bool bRewardSounds))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_RemoveLink-" name="RemoveLink" title="go to the details">RemoveLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Reset-" name="Reset" title="go to the details">Reset</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ResetPowerLinks-" name="ResetPowerLinks" title="go to the details">ResetPowerLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_SavePowerLinkSetup-" name="SavePowerLinkSetup" title="go to the details">SavePowerLinkSetup</a> (string SetupName, <a href="../engine/playercontroller.html">PlayerController</a> Caller))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ScoreObjective-" name="ScoreObjective" title="go to the details">ScoreObjective</a> (<a href="../engine/playerreplicationinfo.html">PlayerReplicationInfo</a> Scorer, float Score))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetCoreDistance-" name="SetCoreDistance" title="go to the details">SetCoreDistance</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC, byte T, byte Distance))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetEndGameFocus-" name="SetEndGameFocus" title="go to the details">SetEndGameFocus</a> (<a href="../engine/playerreplicationinfo.html">PlayerReplicationInfo</a> Winner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_SetGrammar-" name="SetGrammar" title="go to the details">SetGrammar</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetInitialState-" name="SetInitialState" title="go to the details">SetInitialState</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_SetPowerLinkSetup-" name="SetPowerLinkSetup" title="go to the details">SetPowerLinkSetup</a> (string SetupName, <a href="../engine/playercontroller.html">PlayerController</a> Caller))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_SetupExists-" name="SetupExists" title="go to the details">SetupExists</a> (string SetupName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetupLinks-" name="SetupLinks" title="go to the details">SetupLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Sever-" name="Sever" title="go to the details">Sever</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC, int TeamIndex))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ShowPathTo-" name="ShowPathTo" title="go to the details">ShowPathTo</a> (<a href="../engine/playercontroller.html">PlayerController</a> P, int TeamNum))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_StartMatch-" name="StartMatch" title="go to the details">StartMatch</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Timer-MatchInProgress" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state">MatchInProgress</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateLinks-" name="UpdateLinks" title="go to the details">UpdateLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateSeveredLinks-" name="UpdateSeveredLinks" title="go to the details">UpdateSeveredLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ValidSpawnPoint-" name="ValidSpawnPoint" title="go to the details">ValidSpawnPoint</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC, int TeamIndex))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xteamgame.html">xTeamGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xgame/xteamgame.html#PrecacheGameStaticMeshes">PrecacheGameStaticMeshes</a>, <a href="../xgame/xteamgame.html#PrecacheGameTextures">PrecacheGameTextures</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/teamgame.html">TeamGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/teamgame.html#AcceptPlayInfoProperty">AcceptPlayInfoProperty</a>, <a href="../unrealgame/teamgame.html#AnnounceScore">AnnounceScore</a>, <a href="../unrealgame/teamgame.html#ApplyOrder">ApplyOrder</a>, <a href="../unrealgame/teamgame.html#BallCarrierMessage">BallCarrierMessage</a>, <a href="../unrealgame/teamgame.html#CanShowPathTo">CanShowPathTo</a>, <a href="../unrealgame/teamgame.html#CanSpectate">CanSpectate</a>, <a href="../unrealgame/teamgame.html#ChangeTeam">ChangeTeam</a>, <a href="../unrealgame/teamgame.html#CheckEndGame">CheckEndGame</a>, <a href="../unrealgame/teamgame.html#CheckMaxLives">CheckMaxLives</a>, <a href="../unrealgame/teamgame.html#CheckScore">CheckScore</a>, <a href="../unrealgame/teamgame.html#CriticalPlayer">CriticalPlayer</a>, <a href="../unrealgame/teamgame.html#EndGameCommentFor">EndGameCommentFor</a>, <a href="../unrealgame/teamgame.html#EndGameTauntFor">EndGameTauntFor</a>, <a href="../unrealgame/teamgame.html#FillPlayInfo">FillPlayInfo</a>, <a href="../unrealgame/teamgame.html#FindNewObjectives">FindNewObjectives</a>, <a href="../unrealgame/teamgame.html#FindTeamDesignation">FindTeamDesignation</a>, <a href="../unrealgame/teamgame.html#FindTeamFor">FindTeamFor</a>, <a href="../unrealgame/teamgame.html#FindVictimsTarget">FindVictimsTarget</a>, <a href="../unrealgame/teamgame.html#GetAllLoadHints">GetAllLoadHints</a>, <a href="../unrealgame/teamgame.html#GetBlueTeam">GetBlueTeam</a>, <a href="../unrealgame/teamgame.html#GetBotTeam">GetBotTeam</a>, <a href="../unrealgame/teamgame.html#GetDescriptionText">GetDescriptionText</a>, <a href="../unrealgame/teamgame.html#GetMinPlayers">GetMinPlayers</a>, <a href="../unrealgame/teamgame.html#GetRedTeam">GetRedTeam</a>, <a href="../unrealgame/teamgame.html#GetServerDetails">GetServerDetails</a>, <a href="../unrealgame/teamgame.html#GetStatus">GetStatus</a>, <a href="../unrealgame/teamgame.html#IncrementGoalsScored">IncrementGoalsScored</a>, <a href="../unrealgame/teamgame.html#InitGame">InitGame</a>, <a href="../unrealgame/teamgame.html#InitTeamSymbols">InitTeamSymbols</a>, <a href="../unrealgame/teamgame.html#InitVoiceReplicationInfo">InitVoiceReplicationInfo</a>, <a href="../unrealgame/teamgame.html#NearGoal">NearGoal</a>, <a href="../unrealgame/teamgame.html#NotifyKilled">NotifyKilled</a>, <a href="../unrealgame/teamgame.html#OtherTeam">OtherTeam</a>, <a href="../unrealgame/teamgame.html#OverrideInitialBots">OverrideInitialBots</a>, <a href="../unrealgame/teamgame.html#ParseChatPercVar">ParseChatPercVar</a>, <a href="../unrealgame/teamgame.html#ParseMessageString">ParseMessageString</a>, <a href="../unrealgame/teamgame.html#ParseOrder">ParseOrder</a>, <a href="../unrealgame/teamgame.html#ParseRecipient">ParseRecipient</a>, <a href="../unrealgame/teamgame.html#ParseRecipients">ParseRecipients</a>, <a href="../unrealgame/teamgame.html#ParseVoiceCommand">ParseVoiceCommand</a>, <a href="../unrealgame/teamgame.html#PickEndGameTauntFor">PickEndGameTauntFor</a>, <a href="../unrealgame/teamgame.html#PickTeam">PickTeam</a>, <a href="../unrealgame/teamgame.html#PlayEndOfMatchMessage">PlayEndOfMatchMessage</a>, <a href="../unrealgame/teamgame.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/teamgame.html#PostLogin">PostLogin</a>, <a href="../unrealgame/teamgame.html#PrecacheGameAnnouncements">PrecacheGameAnnouncements</a>, <a href="../unrealgame/teamgame.html#PreLoadBot">PreLoadBot</a>, <a href="../unrealgame/teamgame.html#PreLoadNamedBot">PreLoadNamedBot</a>, <a href="../unrealgame/teamgame.html#RatePlayerStart">RatePlayerStart</a>, <a href="../unrealgame/teamgame.html#ReduceDamage">ReduceDamage</a>, <a href="../unrealgame/teamgame.html#RestartPlayer">RestartPlayer</a>, <a href="../unrealgame/teamgame.html#SameTeam">SameTeam</a>, <a href="../unrealgame/teamgame.html#ScoreKill">ScoreKill</a>, <a href="../unrealgame/teamgame.html#SetEndGameFocus">SetEndGameFocus</a>, <a href="../unrealgame/teamgame.html#SetGrammar">SetGrammar</a>, <a href="../unrealgame/teamgame.html#ShowPathTo">ShowPathTo</a>, <a href="../unrealgame/teamgame.html#TooManyBots">TooManyBots</a>, <a href="../unrealgame/teamgame.html#UpdateAnnouncements">UpdateAnnouncements</a>, <a href="../unrealgame/teamgame.html#WeakObjectives">WeakObjectives</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">States Summary</th>
+</tr>
+</table>
+
+<table>
+<tr>
+	<th>MatchInProgress <a href="../Source_onslaught/onsonslaughtgame.html#592" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> MatchInProgress <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_Timer+MatchInProgress">Timer</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ONSPROPNUM" class="hidden"></a>ONSPROPNUM <a href="../Source_onslaught/onsonslaughtgame.html#31" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">const</span> ONSPROPNUM = <span class="source_int">3</span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bCurrentSetupIsOfficial" class="hidden"></a>bCurrentSetupIsOfficial <a href="../Source_onslaught/onsonslaughtgame.html#27" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bCurrentSetupIsOfficial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bRandSetupAfterReset" class="hidden"></a>bRandSetupAfterReset <a href="../Source_onslaught/onsonslaughtgame.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">bool</span> bRandSetupAfterReset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bSidesAreSwitched" class="hidden"></a>bSidesAreSwitched <a href="../Source_onslaught/onsonslaughtgame.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bSidesAreSwitched;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bSwapSidesAfterReset" class="hidden"></a>bSwapSidesAfterReset <a href="../Source_onslaught/onsonslaughtgame.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">bool</span> bSwapSidesAfterReset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CurrentSetupName" class="hidden"></a>CurrentSetupName <a href="../Source_onslaught/onsonslaughtgame.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> CurrentSetupName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CustomPowerLinkSetups" class="hidden"></a>CustomPowerLinkSetups <a href="../Source_onslaught/onsonslaughtgame.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onspowerlinkcustomsetup.html" class="source">ONSPowerLinkCustomSetup</a></span>&gt; CustomPowerLinkSetups;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FinalCore[2]" class="hidden"></a>FinalCore[2] <a href="../Source_onslaught/onsonslaughtgame.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> FinalCore[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OfficialPowerLinkSetups" class="hidden"></a>OfficialPowerLinkSetups <a href="../Source_onslaught/onsonslaughtgame.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onspowerlinkofficialsetup.html" class="source">ONSPowerLinkOfficialSetup</a></span>&gt; OfficialPowerLinkSetups;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ONSPropDescText[ONSPROPNUM]" class="hidden"></a>ONSPropDescText[ONSPROPNUM] <a href="../Source_onslaught/onsonslaughtgame.html#33" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> ONSPropDescText[ONSPROPNUM];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ONSPropsDisplayText[ONSPROPNUM]" class="hidden"></a>ONSPropsDisplayText[ONSPROPNUM] <a href="../Source_onslaught/onsonslaughtgame.html#32" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> ONSPropsDisplayText[ONSPROPNUM];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OvertimeCoreDrainPerSec" class="hidden"></a>OvertimeCoreDrainPerSec <a href="../Source_onslaught/onsonslaughtgame.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">int</span> OvertimeCoreDrainPerSec;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCores" class="hidden"></a>PowerCores <a href="../Source_onslaught/onsonslaughtgame.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>&gt; PowerCores;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerLinks" class="hidden"></a>PowerLinks <a href="../Source_onslaught/onsonslaughtgame.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/powerlink.html" class="source">PowerLink</a></span>&gt; PowerLinks;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">LoadingHints</h3>
+<h4><a name="_ONSHints" class="hidden"></a>ONSHints <a href="../Source_onslaught/onsonslaughtgame.html#35" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LoadingHints) <span class="source_keyword2">private</span> <span class="source_keyword2">localized</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; ONSHints;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Structures Detail</th>
+</tr>
+</table>
+
+<h4><a name="_PowerLinkSetup" class="hidden"></a>PowerLinkSetup <a href="../Source_onslaught/onsonslaughtgame.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_type"><a href="../onslaught/onsonslaughtgame.html#PowerLinkSetup" class="source">PowerLinkSetup</a></span><br />
+{<blockquote><span class="source_keyword">var</span> <span class="source_keyword">name</span> BaseNode;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">name</span>&gt; LinkedNodes;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AcceptPlayInfoProperty-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> AcceptPlayInfoProperty <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1076" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">event</span> <span class="source_keyword">bool</span> AcceptPlayInfoProperty ( <span class="source_keyword">string</span> PropertyName) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AddLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AddLink <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1146" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> AddLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AllowMutator-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AllowMutator <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#47" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> AllowMutator ( <span class="source_keyword">string</span> <span class="source_type">MutatorClassName</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AllowTransloc-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AllowTransloc <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#37" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> AllowTransloc ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ApplyOrder-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ApplyOrder <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#65" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ApplyOrder ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">Sender</span>, <span class="source_keyword">int</span> RecipientID, <span class="source_keyword">int</span> <span class="source_type">OrderID</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeTeam-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChangeTeam <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1032" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ChangeTeam ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">Other</span>, <span class="source_keyword">int</span> num, <span class="source_keyword">bool</span> bNewTeam) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CheckEndGame-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CheckEndGame <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#772" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CheckEndGame ( <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> Winner, <span class="source_keyword">string</span> <span class="source_type">Reason</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CheckScore-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CheckScore <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#760" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  CheckScore ( <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> Scorer) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClearLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClearLinks <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#294" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ClearLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CriticalPlayer-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CriticalPlayer <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#833" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CriticalPlayer ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DeadUse-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DeadUse <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1218" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DeadUse ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DeletePowerLinkSetup-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DeletePowerLinkSetup <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#386" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> DeletePowerLinkSetup ( <span class="source_keyword">string</span> SetupName, <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> Caller) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Destroyed <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1121" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExistsLinkPathTo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ExistsLinkPathTo <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#441" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ExistsLinkPathTo ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Start</span>, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> Destination, <span class="source_keyword2">out</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>&gt; Traveled) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FillPlayInfo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FillPlayInfo <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1084" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span>  FillPlayInfo ( <span class="source_type"><a href="../engine/playinfo.html" class="source">PlayInfo</a></span> <span class="source_type"><a href="../engine/playinfo.html" class="source">PlayInfo</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FindLinkSetup-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FindLinkSetup <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#414" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  FindLinkSetup ( <span class="source_keyword2">optional</span> <span class="source_keyword">string</span> IgnoredSetup) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FindPlayerStart-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FindPlayerStart <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#855" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/navigationpoint.html" class="source">NavigationPoint</a></span> FindPlayerStart ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type"><a href="../engine/player.html" class="source">Player</a></span>, <span class="source_keyword2">optional</span> <span class="source_keyword">byte</span> InTeam, <span class="source_keyword2">optional</span> <span class="source_keyword">string</span> <span class="source_type">incomingName</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetAllLoadHints-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetAllLoadHints <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1107" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; GetAllLoadHints ( <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bThisClassOnly) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetDescriptionText-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> GetDescriptionText <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1095" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">event</span> <span class="source_keyword">string</span> GetDescriptionText ( <span class="source_keyword">string</span> <span class="source_type">PropName</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetServerDetails-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetServerDetails <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1025" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  GetServerDetails ( <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/gameinfo.html#ServerResponseLine" class="source">ServerResponseLine</a></span> <span class="source_type">ServerState</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetServerInfo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetServerInfo <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1017" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  GetServerInfo ( <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/gameinfo.html#ServerResponseLine" class="source">ServerResponseLine</a></span> <span class="source_type">ServerState</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasLink <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1191" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitGame-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> InitGame <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#129" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  InitGame ( <span class="source_keyword">string</span> Options, <span class="source_keyword2">out</span> <span class="source_keyword">string</span> <span class="source_type">Error</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Killed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Killed <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#825" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Killed ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killer, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killed, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">KilledPawn</span>, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MainCoreDestroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> MainCoreDestroyed <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#713" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  MainCoreDestroyed ( <span class="source_keyword">byte</span> <span class="source_type">T</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NeverAllowTransloc-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NeverAllowTransloc <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> NeverAllowTransloc ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ParseOrder-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ParseOrder <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#87" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">int</span> ParseOrder ( <span class="source_keyword">string</span> OrderString) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayStartupMessage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayStartupMessage <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1059" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PlayStartupMessage ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#204" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostLogin-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostLogin <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1210" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  PostLogin ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">NewPlayer</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrecacheGameAnnouncements-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PrecacheGameAnnouncements <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#94" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span>  PrecacheGameAnnouncements ( <span class="source_type"><a href="../engine/announcervoice.html" class="source">AnnouncerVoice</a></span> <span class="source_type">V</span>, <span class="source_keyword">bool</span> <span class="source_type">bRewardSounds</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RemoveLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RemoveLink <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1164" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> RemoveLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Reset-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Reset <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#557" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Reset ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ResetPowerLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ResetPowerLinks <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#305" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ResetPowerLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SavePowerLinkSetup-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SavePowerLinkSetup <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#334" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> SavePowerLinkSetup ( <span class="source_keyword">string</span> SetupName, <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> Caller) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ScoreObjective-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ScoreObjective <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1067" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ScoreObjective ( <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> Scorer, <span class="source_keyword">float</span> <span class="source_type">Score</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetCoreDistance-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetCoreDistance <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#471" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetCoreDistance ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>, <span class="source_keyword">byte</span> <span class="source_type">T</span>, <span class="source_keyword">byte</span> <span class="source_type">Distance</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetEndGameFocus-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetEndGameFocus <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#788" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetEndGameFocus ( <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> Winner) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetGrammar-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> SetGrammar <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#60" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  SetGrammar ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetInitialState-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetInitialState <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#119" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetInitialState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetPowerLinkSetup-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetPowerLinkSetup <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#225" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> SetPowerLinkSetup ( <span class="source_keyword">string</span> SetupName, <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> Caller) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetupExists-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetupExists <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#210" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> SetupExists ( <span class="source_keyword">string</span> SetupName) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetupLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetupLinks <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#1128" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetupLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Sever-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Sever <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#546" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Sever ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>, <span class="source_keyword">int</span> TeamIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShowPathTo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShowPathTo <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#995" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ShowPathTo ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">P</span>, <span class="source_keyword">int</span> <span class="source_type">TeamNum</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartMatch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> StartMatch <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#563" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  StartMatch ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-MatchInProgress" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Timer <span class="function_state">MatchInProgress</span> <a href="../Source_onslaught/onsonslaughtgame.html#594" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateLinks <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#484" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateSeveredLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateSeveredLinks <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#522" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateSeveredLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ValidSpawnPoint-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ValidSpawnPoint <span class="function_state"></span> <a href="../Source_onslaught/onsonslaughtgame.html#848" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ValidSpawnPoint ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>, <span class="source_keyword">int</span> TeamIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     OvertimeCoreDrainPerSec=<span class="source_int">20</span>
+     bSwapSidesAfterReset=<span class="source_keyword">True</span>
+     ONSPropsDisplayText(<span class="source_int">0</span>)=<span class="source_string">"Core Drain in Overtime"</span>
+     ONSPropsDisplayText(<span class="source_int">1</span>)=<span class="source_string">"Random Link Setup After Reset"</span>
+     ONSPropsDisplayText(<span class="source_int">2</span>)=<span class="source_string">"Teams Swap Sides After Reset"</span>
+     ONSPropDescText(<span class="source_int">0</span>)=<span class="source_string">"In overtime, PowerCores lose a maximum of this much health every second."</span>
+     ONSPropDescText(<span class="source_int">1</span>)=<span class="source_string">"After a reset, a new link setup will be chosen at random."</span>
+     ONSPropDescText(<span class="source_int">2</span>)=<span class="source_string">"After a reset, teams will switch sides so they are defending the PowerCore they were previously attacking."</span>
+     ONSHints(<span class="source_int">0</span>)=<span class="source_string">"If you receive a missile lock warning, try to get out of sight quickly!"</span>
+     ONSHints(<span class="source_int">1</span>)=<span class="source_string">"The Raptor's missiles will automatically lock onto Mantas and other Raptors."</span>
+     ONSHints(<span class="source_int">2</span>)=<span class="source_string">"In the Raptor press %JUMP% to fly higher and %DUCK% to fly lower."</span>
+     ONSHints(<span class="source_int">3</span>)=<span class="source_string">"The Manta can rapidly descend to smash your enemies by pressing %DUCK% or %ALTFIRE%."</span>
+     ONSHints(<span class="source_int">4</span>)=<span class="source_string">"Press %JUMP% to perform a 180 spin out in the Hellbender or Scorpion."</span>
+     ONSHints(<span class="source_int">5</span>)=<span class="source_string">"The Manta is the only vehicle that has the ability to jump."</span>
+     ONSHints(<span class="source_int">6</span>)=<span class="source_string">"When deployed, the Leviathan is highly vulnerable to air attacks."</span>
+     ONSHints(<span class="source_int">7</span>)=<span class="source_string">"You can heal a friendly vehicle with the link gun alt-fire."</span>
+     ONSHints(<span class="source_int">8</span>)=<span class="source_string">"You can heal a friendly PowerNode with the link gun alt-fire."</span>
+     ONSHints(<span class="source_int">9</span>)=<span class="source_string">"It is impossible to heal the final PowerCore, so defend it at all costs!"</span>
+     ONSHints(<span class="source_int">10</span>)=<span class="source_string">"Press %TOGGLERADARMAP% to toggle the radar map on and off."</span>
+     ONSHints(<span class="source_int">11</span>)=<span class="source_string">"You can be hurt or killed by vehicles exploding near you."</span>
+     ONSHints(<span class="source_int">12</span>)=<span class="source_string">"Enemy Spider Mines can be destroyed, but some weapons are better against them than others."</span>
+     ONSHints(<span class="source_int">13</span>)=<span class="source_string">"Pressing %USE% on a PowerNode allows you to teleport to any PowerNode your team controls."</span>
+     ONSHints(<span class="source_int">14</span>)=<span class="source_string">"You won't be able to spawn at a PowerNode that is under attack, even if your team controls it."</span>
+     ONSHints(<span class="source_int">15</span>)=<span class="source_string">"If you die, any Spider Mines or Grenades you fired will explode."</span>
+     ONSHints(<span class="source_int">16</span>)=<span class="source_string">"Press %VOICETALK% to voice chat with your team."</span>
+     ONSHints(<span class="source_int">17</span>)=<span class="source_string">"%BASEPATH 0% will show the way to the nearest PowerNode or PowerCore the Red Team can attack, while %BASEPATH 1% will do the same for the Blue Team."</span>
+     ONSHints(<span class="source_int">18</span>)=<span class="source_string">"Press %TOGGLEBEHINDVIEW% to switch between 1st and 3rd person mode in vehicles."</span>
+     ONSHints(<span class="source_int">19</span>)=<span class="source_string">"AVRiL rockets will home into an occupied enemy vehicle as long as you keep your crosshair on it."</span>
+     ONSHints(<span class="source_int">20</span>)=<span class="source_string">"When you find a target with the AVRiL, press alt-fire to zoom and lock your view to that target."</span>
+     ONSHints(<span class="source_int">21</span>)=<span class="source_string">"The green light on top of the weaponlockers indicates that additional ammo is available at that locker."</span>
+     ONSHints(<span class="source_int">22</span>)=<span class="source_string">"Attack PowerNodes that have the enemy team color sky beams above them."</span>
+     ONSHints(<span class="source_int">23</span>)=<span class="source_string">"You cannot attack the PowerCore or PowerNodes if there is an energy shield present. Remove the shield by controlling a node that is linked to it."</span>
+     ONSHints(<span class="source_int">24</span>)=<span class="source_string">"The Grenade Launcher shoots sticky grenades that attach themselves to vehicles and players. You must detonate them yourself with the alternate fire (press %ALTFIRE%)"</span>
+     ONSHints(<span class="source_int">25</span>)=<span class="source_string">"The bomber that the Target Painter calls in can be shot down by enemy fire."</span>
+     ONSHints(<span class="source_int">26</span>)=<span class="source_string">"In Onslaught, your team earns 2 points for winning before overtime and 1 point for a win during overtime."</span>
+     bScoreTeamKills=<span class="source_keyword">False</span>
+     bSpawnInTeamArea=<span class="source_keyword">True</span>
+     TeamAIType(<span class="source_int">0</span>)=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSTeamAI'</span>
+     TeamAIType(<span class="source_int">1</span>)=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSTeamAI'</span>
+     NetWait=<span class="source_int">15</span>
+     bAlwaysShowLoginMenu=<span class="source_keyword">True</span>
+     DefaultEnemyRosterClass=<span class="source_string">"XGame.xTeamRoster"</span>
+     ADR_Kill=<span class="source_int">2.000000</span>
+     LoginMenuClass=<span class="source_string">"GUI2K4.UT2K4OnslaughtLoginMenu"</span>
+     bAllowVehicles=<span class="source_keyword">True</span>
+     bLiberalVehiclePaths=<span class="source_keyword">True</span>
+     GameUMenuType=<span class="source_string">"GUI2K4.UT2K4OnslaughtLoginMenu"</span>
+     HUDSettingsMenu=<span class="source_string">"GUI2K4.CustomHUDMenuOnslaught"</span>
+     HUDType=<span class="source_string">"Onslaught.ONSHUDOnslaught"</span>
+     MapListType=<span class="source_string">"Onslaught.ONSMapListOnslaught"</span>
+     MapPrefix=<span class="source_string">"ONS"</span>
+     BeaconName=<span class="source_string">"ONS"</span>
+     ResetTimeDelay=<span class="source_int">11</span>
+     GoalScore=<span class="source_int">3</span>
+     <span class="source_type">MutatorClass</span>=<span class="source_string">"Onslaught.ONSDefaultMut"</span>
+     GameName=<span class="source_string">"Onslaught"</span>
+     Description=<span class="source_string">"Your team must take control over PowerNodes in a 'connect the dots' fashion to establish a direct line to the enemy PowerCore. Once you establish a link to the next PowerNode, you can destroy it if controlled by the enemy. Control the PowerNode for your team by touching it to start the build process (Use the linkgun alt-fire to speed things up). Once your team has a link to the enemy PowerCore, attack and destroy it."</span>
+     ScreenShotName=<span class="source_string">"UT2004Thumbnails.OnslaughtShots"</span>
+     DecoTextName=<span class="source_string">"Onslaught.ONSOnslaughtGame"</span>
+     Acronym=<span class="source_string">"ONS"</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onsonslaughtgame.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSOnslaughtGame">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsnodehealeffect.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onsonslaughtmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:03.030 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

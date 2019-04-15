@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - GUI2K4.UT2K4SPTab_TeamManagement</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4sptab_teammanagement.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SPTab_TeamManagement">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4sptab_singleladder.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4sptab_teamqualification.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#gui2k4/ut2k4sptab_teammanagement.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.UT2K4SPTab_TeamManagement</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k4tabpanel.html">UT2K4TabPanel</a>
+                  |   
+                  +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a>
+                     |   
+                     +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_teammanagement.html">UT2K4SPTab_TeamManagement</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_AccuracyCaption" name="AccuracyCaption" title="go to the details">AccuracyCaption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_ActiveBotPos" name="ActiveBotPos" title="go to the details">ActiveBotPos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xgame/xutil.html#PlayerRecord">xUtil.PlayerRecord</a></td><td width="66%"><a href="#_ActivePR" name="ActivePR" title="go to the details">ActivePR</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_ActiveTreatmentCost" name="ActiveTreatmentCost" title="go to the details">ActiveTreatmentCost</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_AggressionCaption" name="AggressionCaption" title="go to the details">AggressionCaption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_AgilityCaption" name="AgilityCaption" title="go to the details">AgilityCaption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHasFullTeam" name="bHasFullTeam" title="go to the details">bHasFullTeam</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bInitialDraft" name="bInitialDraft" title="go to the details">bInitialDraft</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnAutoMake" name="btnAutoMake" title="go to the details">btnAutoMake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnFire" name="btnFire" title="go to the details">btnFire</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnHire" name="btnHire" title="go to the details">btnHire</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnLeft" name="btnLeft" title="go to the details">btnLeft</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnRight" name="btnRight" title="go to the details">btnRight</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnTreat" name="btnTreat" title="go to the details">btnTreat</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnTreatAll" name="btnTreatAll" title="go to the details">btnTreatAll</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guicharacterlistteam.html">GUICharacterListTeam</a></td><td width="66%"><a href="#_clFreeAgents" name="clFreeAgents" title="go to the details">clFreeAgents</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/moeditbox.html">moEditBox</a></td><td width="66%"><a href="#_edBalance" name="edBalance" title="go to the details">edBalance</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_EmptySlotImage" name="EmptySlotImage" title="go to the details">EmptySlotImage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_FeeCaption" name="FeeCaption" title="go to the details">FeeCaption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_HealthCaption" name="HealthCaption" title="go to the details">HealthCaption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_HealthHint" name="HealthHint" title="go to the details">HealthHint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_imgSelectionFace" name="imgSelectionFace" title="go to the details">imgSelectionFace</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_imgSelectionFaceBg" name="imgSelectionFaceBg" title="go to the details">imgSelectionFaceBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilabel.html">GUILabel</a></td><td width="66%"><a href="#_lblTeam" name="lblTeam" title="go to the details">lblTeam</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_msgFirstDraftYourTeam" name="msgFirstDraftYourTeam" title="go to the details">msgFirstDraftYourTeam</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_NameTitle" name="NameTitle" title="go to the details">NameTitle</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;string&gt;</td><td width="66%"><a href="#_NewTeam" name="NewTeam" title="go to the details">NewTeam</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_NoTeamEditing" name="NoTeamEditing" title="go to the details">NoTeamEditing</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiscrolltextbox.html">GUIScrollTextBox</a></td><td width="66%"><a href="#_sbDescription" name="sbDescription" title="go to the details">sbDescription</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiscrolltextbox.html">GUIScrollTextBox</a></td><td width="66%"><a href="#_sbDetails" name="sbDetails" title="go to the details">sbDetails</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guisectionbackground.html">GUISectionBackground</a></td><td width="66%"><a href="#_sbgFreeAgentBg" name="sbgFreeAgentBg" title="go to the details">sbgFreeAgentBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guisectionbackground.html">GUISectionBackground</a></td><td width="66%"><a href="#_sbgOverviewBg" name="sbgOverviewBg" title="go to the details">sbgOverviewBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guisectionbackground.html">GUISectionBackground</a></td><td width="66%"><a href="#_sbgSelectionBg" name="sbgSelectionBg" title="go to the details">sbgSelectionBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guisectionbackground.html">GUISectionBackground</a></td><td width="66%"><a href="#_sbgTeamBg" name="sbgTeamBg" title="go to the details">sbgTeamBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_TacticsCaption" name="TacticsCaption" title="go to the details">TacticsCaption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../xinterface/guiimage.html">GUIImage</a>&gt;</td><td width="66%"><a href="#_TeamFaces" name="TeamFaces" title="go to the details">TeamFaces</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../xinterface/guiprogressbar.html">GUIProgressBar</a>&gt;</td><td width="66%"><a href="#_TeamHealth" name="TeamHealth" title="go to the details">TeamHealth</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_TotalTreatmentCost" name="TotalTreatmentCost" title="go to the details">TotalTreatmentCost</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/ut2k4sptab_base.html#CaptionBack">CaptionBack</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionCancel">CaptionCancel</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionCreate">CaptionCreate</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionDone">CaptionDone</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionLoad">CaptionLoad</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionPlay">CaptionPlay</a>, <a href="../gui2k4/ut2k4sptab_base.html#GP">GP</a>, <a href="../gui2k4/ut2k4sptab_base.html#LogPrefix">LogPrefix</a>, <a href="../gui2k4/ut2k4sptab_base.html#MainWindow">MainWindow</a>, <a href="../gui2k4/ut2k4sptab_base.html#ProfileClass">ProfileClass</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CreateTeamButtons-" name="CreateTeamButtons" title="go to the details">CreateTeamButtons</a> (int cols, int rows, optional float topOffset))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_FillFreeAgentsList-" name="FillFreeAgentsList" title="go to the details">FillFreeAgentsList</a> (<a href="../xinterface/guicharacterlistteam.html">GUICharacterListTeam</a> cl))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_FireBot-" name="FireBot" title="go to the details">FireBot</a> (string botname, optional bool bUpdateList))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_FreeAgentOnBeginDrag-" name="FreeAgentOnBeginDrag" title="go to the details">FreeAgentOnBeginDrag</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HireBot-" name="HireBot" title="go to the details">HireBot</a> (string botname, optional bool bUpdateList))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> MyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LockManagementTools-" name="LockManagementTools" title="go to the details">LockManagementTools</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onAutoMakeClick-" name="onAutoMakeClick" title="go to the details">onAutoMakeClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onBackClick-" name="onBackClick" title="go to the details">onBackClick</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onFireClick-" name="onFireClick" title="go to the details">onFireClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_onFreeAgentChange-" name="onFreeAgentChange" title="go to the details">onFreeAgentChange</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onFreeAgentScroll-" name="onFreeAgentScroll" title="go to the details">onFreeAgentScroll</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onHireClick-" name="onHireClick" title="go to the details">onHireClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onPlayClick-" name="onPlayClick" title="go to the details">onPlayClick</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onTeamOnClick-" name="onTeamOnClick" title="go to the details">onTeamOnClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onTreatAllClick-" name="onTreatAllClick" title="go to the details">onTreatAllClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_onTreatClick-" name="onTreatClick" title="go to the details">onTreatClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ShowPanel-" name="ShowPanel" title="go to the details">ShowPanel</a> (bool bShow))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_showPlayerDetails-" name="showPlayerDetails" title="go to the details">showPlayerDetails</a> (optional bool bIsTeamMate))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_TeamMemberOnDragDrop-" name="TeamMemberOnDragDrop" title="go to the details">TeamMemberOnDragDrop</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Target))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateTeamList-" name="UpdateTeamList" title="go to the details">UpdateTeamList</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/ut2k4sptab_base.html#btnPlayEnabled">btnPlayEnabled</a>, <a href="../gui2k4/ut2k4sptab_base.html#CanClose">CanClose</a>, <a href="../gui2k4/ut2k4sptab_base.html#GetMainWindow">GetMainWindow</a>, <a href="../gui2k4/ut2k4sptab_base.html#getProfileName">getProfileName</a>, <a href="../gui2k4/ut2k4sptab_base.html#InitComponent">InitComponent</a>, <a href="../gui2k4/ut2k4sptab_base.html#onBackClick">onBackClick</a>, <a href="../gui2k4/ut2k4sptab_base.html#onPlayClick">onPlayClick</a>, <a href="../gui2k4/ut2k4sptab_base.html#ShowPanel">ShowPanel</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AccuracyCaption" class="hidden"></a>AccuracyCaption <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> AccuracyCaption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ActiveBotPos" class="hidden"></a>ActiveBotPos <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#34" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> ActiveBotPos;</div>
+<blockquote class="comment">
+Position of the currently selected bot in the bot stats list
+</blockquote>
+<hr class="small" />
+<h4><a name="_ActivePR" class="hidden"></a>ActivePR <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#32" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xgame/xutil.html" class="source">xUtil</a></span>.<span class="source_type"><a href="../xgame/xutil.html#PlayerRecord" class="source">PlayerRecord</a></span> ActivePR;</div>
+<blockquote class="comment">
+The PR of the currentl selected player 
+</blockquote>
+<hr class="small" />
+<h4><a name="_ActiveTreatmentCost" class="hidden"></a>ActiveTreatmentCost <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> ActiveTreatmentCost;</div>
+<blockquote class="comment">
+cost to heal selected player(s) 
+</blockquote>
+<hr class="small" />
+<h4><a name="_AggressionCaption" class="hidden"></a>AggressionCaption <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> AggressionCaption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AgilityCaption" class="hidden"></a>AgilityCaption <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> AgilityCaption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHasFullTeam" class="hidden"></a>bHasFullTeam <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHasFullTeam;</div>
+<blockquote class="comment">
+true when the team is full, only used with bInitialDraft 
+</blockquote>
+<hr class="small" />
+<h4><a name="_bInitialDraft" class="hidden"></a>bInitialDraft <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#26" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bInitialDraft;</div>
+<blockquote class="comment">
+Initial team draft 
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnAutoMake" class="hidden"></a>btnAutoMake <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnAutoMake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnFire" class="hidden"></a>btnFire <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnFire;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnHire" class="hidden"></a>btnHire <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnHire;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnLeft" class="hidden"></a>btnLeft <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnLeft;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnRight" class="hidden"></a>btnRight <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnRight;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnTreat" class="hidden"></a>btnTreat <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnTreat;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnTreatAll" class="hidden"></a>btnTreatAll <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnTreatAll;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_clFreeAgents" class="hidden"></a>clFreeAgents <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span> clFreeAgents;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_edBalance" class="hidden"></a>edBalance <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span> edBalance;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EmptySlotImage" class="hidden"></a>EmptySlotImage <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#29" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> EmptySlotImage;</div>
+<blockquote class="comment">
+Used for empty slots 
+</blockquote>
+<hr class="small" />
+<h4><a name="_FeeCaption" class="hidden"></a>FeeCaption <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> FeeCaption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthCaption" class="hidden"></a>HealthCaption <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> HealthCaption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthHint" class="hidden"></a>HealthHint <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> HealthHint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_imgSelectionFace" class="hidden"></a>imgSelectionFace <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> imgSelectionFace;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_imgSelectionFaceBg" class="hidden"></a>imgSelectionFaceBg <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> imgSelectionFaceBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_lblTeam" class="hidden"></a>lblTeam <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> lblTeam;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_msgFirstDraftYourTeam" class="hidden"></a>msgFirstDraftYourTeam <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> msgFirstDraftYourTeam;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NameTitle" class="hidden"></a>NameTitle <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> NameTitle;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NewTeam" class="hidden"></a>NewTeam <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#45" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; <span class="source_type">NewTeam</span>;</div>
+<blockquote class="comment">
+names in this list will be refunded when fired 
+</blockquote>
+<hr class="small" />
+<h4><a name="_NoTeamEditing" class="hidden"></a>NoTeamEditing <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> NoTeamEditing;</div>
+<blockquote class="comment">
+hire/fire options are locked 
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbDescription" class="hidden"></a>sbDescription <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span> sbDescription;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbDetails" class="hidden"></a>sbDetails <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span> sbDetails;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbgFreeAgentBg" class="hidden"></a>sbgFreeAgentBg <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> sbgFreeAgentBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbgOverviewBg" class="hidden"></a>sbgOverviewBg <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> sbgOverviewBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbgSelectionBg" class="hidden"></a>sbgSelectionBg <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> sbgSelectionBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbgTeamBg" class="hidden"></a>sbgTeamBg <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> sbgTeamBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TacticsCaption" class="hidden"></a>TacticsCaption <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> TacticsCaption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamFaces" class="hidden"></a>TeamFaces <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span>&gt; TeamFaces;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamHealth" class="hidden"></a>TeamHealth <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/guiprogressbar.html" class="source">GUIProgressBar</a></span>&gt; TeamHealth;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TotalTreatmentCost" class="hidden"></a>TotalTreatmentCost <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> TotalTreatmentCost;</div>
+<blockquote class="comment">
+cost to heal selected player(s) 
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_CreateTeamButtons-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CreateTeamButtons <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#76" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  CreateTeamButtons ( <span class="source_keyword">int</span> cols, <span class="source_keyword">int</span> rows, <span class="source_keyword2">optional</span> <span class="source_keyword">float</span> topOffset) )</div>
+<blockquote class="comment">
+
+Create the buttons for the team mates
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FillFreeAgentsList-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FillFreeAgentsList <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#463" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  FillFreeAgentsList ( <span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span> cl) )</div>
+<blockquote class="comment">
+
+Fills the character list with all available free agents
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FireBot-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FireBot <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#390" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> FireBot ( <span class="source_keyword">string</span> botname, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bUpdateList) )</div>
+<blockquote class="comment">
+
+fire a bot by name
+refund the cash when the player is in the dirty list
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FreeAgentOnBeginDrag-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FreeAgentOnBeginDrag <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#542" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> FreeAgentOnBeginDrag ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HireBot-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HireBot <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#343" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HireBot ( <span class="source_keyword">string</span> botname, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bUpdateList) )</div>
+<blockquote class="comment">
+hire a bot by name and update the balance 
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#47" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LockManagementTools-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LockManagementTools <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#549" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LockManagementTools ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onAutoMakeClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onAutoMakeClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#558" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onAutoMakeClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onBackClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onBackClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#579" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onBackClick ( ) )</div>
+<blockquote class="comment">
+
+Go back to the main menu when there are not proflies
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onFireClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onFireClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#374" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onFireClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onFreeAgentChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onFreeAgentChange <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#249" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  onFreeAgentChange ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onFreeAgentScroll-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onFreeAgentScroll <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#274" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onFreeAgentScroll ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+Scroll the free agent list
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onHireClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onHireClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#331" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onHireClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onPlayClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onPlayClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#427" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onPlayClick ( ) )</div>
+<blockquote class="comment">
+Play the selected match 
+</blockquote>
+<hr class="small" />
+<h4><a name="_onTeamOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onTeamOnClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#229" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onTeamOnClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onTreatAllClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onTreatAllClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#500" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onTreatAllClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_onTreatClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> onTreatClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#491" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> onTreatClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+heal the active player 
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShowPanel-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShowPanel <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#53" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ShowPanel ( <span class="source_keyword">bool</span> <span class="source_type">bShow</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_showPlayerDetails-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> showPlayerDetails <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#292" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  showPlayerDetails ( <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bIsTeamMate) )</div>
+<blockquote class="comment">
+
+Display details about the selected player, the "details" contain the players
+stats and price/fee
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamMemberOnDragDrop-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TeamMemberOnDragDrop <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#513" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> TeamMemberOnDragDrop ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Target</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateTeamList-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateTeamList <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_teammanagement.html#186" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateTeamList ( ) )</div>
+<blockquote class="comment">
+
+Update team listing
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../gui2k4/altsectionbackground.html" class="source">AltSectionBackground</a></span> <span class="source_keyword">Name</span>=SPLsbgTeamBg
+         <span class="source_type">Caption</span>=<span class="source_string">"Your team"</span>
+         WinTop=<span class="source_int">0.016667</span>
+         WinLeft=<span class="source_int">0.006173</span>
+         WinWidth=<span class="source_int">0.318750</span>
+         WinHeight=<span class="source_int">0.968750</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnPreDraw=SPLsbgTeamBg.InternalPreDraw
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbgTeamBg=<span class="source_type"><a href="../gui2k4/altsectionbackground.html" class="source">AltSectionBackground</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPLsbgTeamBg'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> <span class="source_keyword">Name</span>=SPLsbgSelectionBg
+         <span class="source_type">Caption</span>=<span class="source_string">"Selection"</span>
+         WinTop=<span class="source_int">0.016667</span>
+         WinLeft=<span class="source_int">0.562500</span>
+         WinWidth=<span class="source_int">0.425000</span>
+         WinHeight=<span class="source_int">0.662500</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnPreDraw=SPLsbgSelectionBg.InternalPreDraw
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbgSelectionBg=<span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPLsbgSelectionBg'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> <span class="source_keyword">Name</span>=SPLsbgFreeAgentBg
+         <span class="source_type">Caption</span>=<span class="source_string">"Free agents"</span>
+         WinTop=<span class="source_int">0.700000</span>
+         WinLeft=<span class="source_int">0.334872</span>
+         WinWidth=<span class="source_int">0.662755</span>
+         WinHeight=<span class="source_int">0.287500</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnPreDraw=SPLsbgFreeAgentBg.InternalPreDraw
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbgFreeAgentBg=<span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPLsbgFreeAgentBg'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../gui2k4/altsectionbackground.html" class="source">AltSectionBackground</a></span> <span class="source_keyword">Name</span>=SPLsbgOverviewBg
+         WinTop=<span class="source_int">0.208333</span>
+         WinLeft=<span class="source_int">0.337372</span>
+         WinWidth=<span class="source_int">0.212628</span>
+         WinHeight=<span class="source_int">0.468750</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnPreDraw=SPLsbgOverviewBg.InternalPreDraw
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbgOverviewBg=<span class="source_type"><a href="../gui2k4/altsectionbackground.html" class="source">AltSectionBackground</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPLsbgOverviewBg'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPTMimgSelectionFaceBg
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'2K4Menus.Controls.sectionback'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.081284</span>
+         WinLeft=<span class="source_int">0.589082</span>
+         WinWidth=<span class="source_int">0.095000</span>
+         WinHeight=<span class="source_int">0.300000</span>
+         RenderWeight=<span class="source_int">0.110000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     imgSelectionFaceBg=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPTMimgSelectionFaceBg'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPTMimgSelectionFace
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'PlayerPictures.cDefault'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.088182</span>
+         WinLeft=<span class="source_int">0.590332</span>
+         WinWidth=<span class="source_int">0.092500</span>
+         WinHeight=<span class="source_int">0.290000</span>
+         RenderWeight=<span class="source_int">0.120000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     imgSelectionFace=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPTMimgSelectionFace'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span> <span class="source_keyword">Name</span>=SPTMsbDescription
+         CharDelay=<span class="source_int">0.002500</span>
+         EOLDelay=<span class="source_int">0.500000</span>
+         bVisibleWhenEmpty=<span class="source_keyword">True</span>
+         OnCreateComponent=SPTMsbDescription.InternalOnCreateComponent
+         WinTop=<span class="source_int">0.380130</span>
+         WinLeft=<span class="source_int">0.585256</span>
+         WinWidth=<span class="source_int">0.382041</span>
+         WinHeight=<span class="source_int">0.274745</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">4</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbDescription=<span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPTMsbDescription'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span> <span class="source_keyword">Name</span>=SPTMsbDetails
+         bNoTeletype=<span class="source_keyword">True</span>
+         bVisibleWhenEmpty=<span class="source_keyword">True</span>
+         OnCreateComponent=SPTMsbDetails.InternalOnCreateComponent
+         WinTop=<span class="source_int">0.081284</span>
+         WinLeft=<span class="source_int">0.689005</span>
+         WinWidth=<span class="source_int">0.278316</span>
+         WinHeight=<span class="source_int">0.280867</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">3</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbDetails=<span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPTMsbDetails'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span> <span class="source_keyword">Name</span>=SPNclFreeAgents
+         bMultiSelect=<span class="source_keyword">False</span>
+         StyleName=<span class="source_string">"CharButton"</span>
+         WinTop=<span class="source_int">0.762721</span>
+         WinLeft=<span class="source_int">0.386122</span>
+         WinWidth=<span class="source_int">0.561505</span>
+         WinHeight=<span class="source_int">0.204490</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">4</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         bDropSource=<span class="source_keyword">True</span>
+         bDropTarget=<span class="source_keyword">True</span>
+         OnClick=SPNclFreeAgents.InternalOnClick
+         OnRightClick=SPNclFreeAgents.InternalOnRightClick
+         OnMousePressed=SPNclFreeAgents.InternalOnMousePressed
+         OnMouseRelease=SPNclFreeAgents.InternalOnMouseRelease
+         OnChange=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onFreeAgentChange
+         OnKeyEvent=SPNclFreeAgents.InternalOnKeyEvent
+         OnBeginDrag=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.FreeAgentOnBeginDrag
+         OnEndDrag=SPNclFreeAgents.InternalOnEndDrag
+         OnDragDrop=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.TeamMemberOnDragDrop
+         OnDragEnter=SPNclFreeAgents.InternalOnDragEnter
+         OnDragLeave=SPNclFreeAgents.InternalOnDragLeave
+         OnDragOver=SPNclFreeAgents.InternalOnDragOver
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     clFreeAgents=<span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPNclFreeAgents'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPPbtnHire
+         <span class="source_type">Caption</span>=<span class="source_string">"HIRE"</span>
+         MenuState=MSAT_Disabled
+         FontScale=FNS_Small
+         Hint=<span class="source_string">"Hire the selected player"</span>
+         WinTop=<span class="source_int">0.033333</span>
+         WinLeft=<span class="source_int">0.341199</span>
+         WinWidth=<span class="source_int">0.206250</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">1</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onHireClick
+         OnKeyEvent=SPPbtnHire.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnHire=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPPbtnHire'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPPbtnFire
+         <span class="source_type">Caption</span>=<span class="source_string">"RELEASE"</span>
+         MenuState=MSAT_Disabled
+         FontScale=FNS_Small
+         Hint=<span class="source_string">"Fire this team mate"</span>
+         WinTop=<span class="source_int">0.091667</span>
+         WinLeft=<span class="source_int">0.341199</span>
+         WinWidth=<span class="source_int">0.206250</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">2</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onFireClick
+         OnKeyEvent=SPPbtnFire.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnFire=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPPbtnFire'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPNbtnLeft
+         StyleName=<span class="source_string">"ArrowLeft"</span>
+         WinTop=<span class="source_int">0.806154</span>
+         WinLeft=<span class="source_int">0.343750</span>
+         WinWidth=<span class="source_int">0.050000</span>
+         WinHeight=<span class="source_int">0.090000</span>
+         TabOrder=<span class="source_int">5</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         bRepeatClick=<span class="source_keyword">True</span>
+         OnClickSound=CS_Down
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onFreeAgentScroll
+         OnKeyEvent=SPNbtnLeft.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnLeft=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPNbtnLeft'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPNbtnRight
+         StyleName=<span class="source_string">"ArrowRight"</span>
+         WinTop=<span class="source_int">0.806154</span>
+         WinLeft=<span class="source_int">0.938750</span>
+         WinWidth=<span class="source_int">0.050000</span>
+         WinHeight=<span class="source_int">0.090000</span>
+         TabOrder=<span class="source_int">6</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         bRepeatClick=<span class="source_keyword">True</span>
+         OnClickSound=CS_Up
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onFreeAgentScroll
+         OnKeyEvent=SPNbtnRight.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnRight=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPNbtnRight'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPPbtnTreat
+         <span class="source_type">Caption</span>=<span class="source_string">"TREAT INJURIES"</span>
+         MenuState=MSAT_Disabled
+         FontScale=FNS_Small
+         Hint=<span class="source_string">"Treat the injuries of the current player"</span>
+         WinTop=<span class="source_int">0.521536</span>
+         WinLeft=<span class="source_int">0.352550</span>
+         WinWidth=<span class="source_int">0.184821</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">5</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onTreatClick
+         OnKeyEvent=SPPbtnTreat.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnTreat=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPPbtnTreat'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPPbtnTreatAll
+         <span class="source_type">Caption</span>=<span class="source_string">"TREAT ALL"</span>
+         FontScale=FNS_Small
+         Hint=<span class="source_string">"Treat the injuries of all your team mates"</span>
+         WinTop=<span class="source_int">0.570382</span>
+         WinLeft=<span class="source_int">0.352550</span>
+         WinWidth=<span class="source_int">0.184821</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">6</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onTreatAllClick
+         OnKeyEvent=SPPbtnTreatAll.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnTreatAll=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPPbtnTreatAll'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPPbtnAutoMake
+         <span class="source_type">Caption</span>=<span class="source_string">"AUTO FILL"</span>
+         FontScale=FNS_Small
+         Hint=<span class="source_string">"Automatically fill your team"</span>
+         WinTop=<span class="source_int">0.150000</span>
+         WinLeft=<span class="source_int">0.341199</span>
+         WinWidth=<span class="source_int">0.206250</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         TabOrder=<span class="source_int">3</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>.onAutoMakeClick
+         OnKeyEvent=SPPbtnAutoMake.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnAutoMake=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPPbtnAutoMake'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span> <span class="source_keyword">Name</span>=SPTMedBalance
+         bReadOnly=<span class="source_keyword">True</span>
+         bVerticalLayout=<span class="source_keyword">True</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Balance:"</span>
+         OnCreateComponent=SPTMedBalance.InternalOnCreateComponent
+         WinTop=<span class="source_int">0.271283</span>
+         WinLeft=<span class="source_int">0.355102</span>
+         WinWidth=<span class="source_int">0.179694</span>
+         WinHeight=<span class="source_int">0.034156</span>
+         TabOrder=<span class="source_int">4</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     edBalance=<span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_TeamManagement.SPTMedBalance'</span>
+
+     HealthHint=<span class="source_string">"%player%'s health is at %health%%"</span>
+     NameTitle=<span class="source_string">"Name:"</span>
+     AggressionCaption=<span class="source_string">"Aggressiveness:"</span>
+     AccuracyCaption=<span class="source_string">"Accuracy:"</span>
+     AgilityCaption=<span class="source_string">"Agility:"</span>
+     TacticsCaption=<span class="source_string">"Tactics:"</span>
+     FeeCaption=<span class="source_string">"Fee:"</span>
+     HealthCaption=<span class="source_string">"Health:"</span>
+     msgFirstDraftYourTeam=<span class="source_string">"First draft your team."</span>
+     EmptySlotImage=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'PlayerPictures.cDefault'</span>
+     PanelCaption=<span class="source_string">"Team Management"</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4sptab_teammanagement.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SPTab_TeamManagement">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4sptab_singleladder.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4sptab_teamqualification.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:06.863 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

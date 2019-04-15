@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSHUDOnslaught</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onshudonslaught.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSHUDOnslaught">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onshovertankcannon.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onshudoverlay.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onshudonslaught.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSHUDOnslaught</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/hudcteamdeathmatch.html">HudCTeamDeathMatch</a></dd>
+<dt>Modifiers</dt><dd>config ( user ) </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/hud.html">Hud</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudbase.html">HudBase</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcdeathmatch.html">HudCDeathMatch</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcteamdeathmatch.html">HudCTeamDeathMatch</a>
+               |   
+               +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onshudonslaught.html">ONSHUDOnslaught</a>
+</pre>
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Contants from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcdeathmatch.html">HudCDeathMatch</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/hudcdeathmatch.html#WEAPON_BAR_SIZE">WEAPON_BAR_SIZE</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bMapDisabled" name="bMapDisabled" title="go to the details">bMapDisabled</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bReceivedLinks" name="bReceivedLinks" title="go to the details">bReceivedLinks</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ColorPercent" name="ColorPercent" title="go to the details">ColorPercent</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onspowercore.html">ONSPowerCore</a></td><td width="66%"><a href="#_FinalCore[2]" name="FinalCore[2]" title="go to the details">FinalCore[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_IconScale" name="IconScale" title="go to the details">IconScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_MapCenter" name="MapCenter" title="go to the details">MapCenter</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onspowercore.html">ONSPowerCore</a></td><td width="66%"><a href="#_Node" name="Node" title="go to the details">Node</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsplayerreplicationinfo.html">ONSPlayerReplicationInfo</a></td><td width="66%"><a href="#_OwnerPRI" name="OwnerPRI" title="go to the details">OwnerPRI</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/powerlink.html">PowerLink</a>&gt;</td><td width="66%"><a href="#_PowerLinks" name="PowerLinks" title="go to the details">PowerLinks</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RadarMaxRange" name="RadarMaxRange" title="go to the details">RadarMaxRange</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RadarPosX" name="RadarPosX" title="go to the details">RadarPosX</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RadarPosY" name="RadarPosY" title="go to the details">RadarPosY</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RadarRange" name="RadarRange" title="go to the details">RadarRange</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RadarScale" name="RadarScale" title="go to the details">RadarScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RadarTrans" name="RadarTrans" title="go to the details">RadarTrans</a></td></tr>
+<tr><th colspan="2" class="small">ONSHUDOnslaught</th></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_AttackColorA" name="AttackColorA" title="go to the details">AttackColorA</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_AttackColorB" name="AttackColorB" title="go to the details">AttackColorB</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_BorderMat" name="BorderMat" title="go to the details">BorderMat</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/hudbase.html#NumericWidget">NumericWidget</a></td><td width="66%"><a href="#_CoreHealthWidgets[2]" name="CoreHealthWidgets[2]" title="go to the details">CoreHealthWidgets[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/hudbase.html#SpriteWidget">SpriteWidget</a></td><td width="66%"><a href="#_CoreWidgets[2]" name="CoreWidgets[2]" title="go to the details">CoreWidgets[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_HealthBarBackMat" name="HealthBarBackMat" title="go to the details">HealthBarBackMat</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HealthBarHeight" name="HealthBarHeight" title="go to the details">HealthBarHeight</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_HealthBarMat" name="HealthBarMat" title="go to the details">HealthBarMat</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HealthBarPosition" name="HealthBarPosition" title="go to the details">HealthBarPosition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HealthBarViewDist" name="HealthBarViewDist" title="go to the details">HealthBarViewDist</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HealthBarWidth" name="HealthBarWidth" title="go to the details">HealthBarWidth</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_LinkColor[3]" name="LinkColor[3]" title="go to the details">LinkColor[3]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_NeutralColor" name="NeutralColor" title="go to the details">NeutralColor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/hudbase.html#NumericWidget">NumericWidget</a></td><td width="66%"><a href="#_NodeLabelWidget" name="NodeLabelWidget" title="go to the details">NodeLabelWidget</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_SeveredColorA" name="SeveredColorA" title="go to the details">SeveredColorA</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_SeveredColorB" name="SeveredColorB" title="go to the details">SeveredColorB</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/hudbase.html#SpriteWidget">SpriteWidget</a></td><td width="66%"><a href="#_SymbolGB[2]" name="SymbolGB[2]" title="go to the details">SymbolGB[2]</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcteamdeathmatch.html">HudCTeamDeathMatch</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/hudcteamdeathmatch.html#CarriersLocation">CarriersLocation</a>, <a href="../xinterface/hudcteamdeathmatch.html#CarriersName">CarriersName</a>, <a href="../xinterface/hudcteamdeathmatch.html#CarrierTextColor1">CarrierTextColor1</a>, <a href="../xinterface/hudcteamdeathmatch.html#CarrierTextColor2">CarrierTextColor2</a>, <a href="../xinterface/hudcteamdeathmatch.html#CarrierTextColor3">CarrierTextColor3</a>, <a href="../xinterface/hudcteamdeathmatch.html#CNPosX">CNPosX</a>, <a href="../xinterface/hudcteamdeathmatch.html#CNPosY">CNPosY</a>, <a href="../xinterface/hudcteamdeathmatch.html#LinkEstablishedMessage">LinkEstablishedMessage</a>, <a href="../xinterface/hudcteamdeathmatch.html#LinkIcon">LinkIcon</a>, <a href="../xinterface/hudcteamdeathmatch.html#Links">Links</a>, <a href="../xinterface/hudcteamdeathmatch.html#ScoreTeam[2]">ScoreTeam[2]</a>, <a href="../xinterface/hudcteamdeathmatch.html#TeamScoreBackGroundDisc[2]">TeamScoreBackGroundDisc[2]</a>, <a href="../xinterface/hudcteamdeathmatch.html#TeamScoreBackGround[2]">TeamScoreBackGround[2]</a>, <a href="../xinterface/hudcteamdeathmatch.html#TeamSymbols[2]">TeamSymbols[2]</a>, <a href="../xinterface/hudcteamdeathmatch.html#totalLinks">totalLinks</a>, <a href="../xinterface/hudcteamdeathmatch.html#VersusSymbol">VersusSymbol</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcdeathmatch.html">HudCDeathMatch</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/hudcdeathmatch.html#AdrenalineAlert">AdrenalineAlert</a>, <a href="../xinterface/hudcdeathmatch.html#AdrenalineBackground">AdrenalineBackground</a>, <a href="../xinterface/hudcdeathmatch.html#AdrenalineBackgroundDisc">AdrenalineBackgroundDisc</a>, <a href="../xinterface/hudcdeathmatch.html#AdrenalineCount">AdrenalineCount</a>, <a href="../xinterface/hudcdeathmatch.html#AdrenalineIcon">AdrenalineIcon</a>, <a href="../xinterface/hudcdeathmatch.html#AmmoIcon">AmmoIcon</a>, <a href="../xinterface/hudcdeathmatch.html#BarAmmoIcon[WEAPON_BAR_SIZE]">BarAmmoIcon[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BarBorderAmmoIndicator[WEAPON_BAR_SIZE]">BarBorderAmmoIndicator[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BarBorderScaledPosition[WEAPON_BAR_SIZE]">BarBorderScaledPosition[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BarBorder[WEAPON_BAR_SIZE]">BarBorder[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BarWeaponIconAnim[WEAPON_BAR_SIZE]">BarWeaponIconAnim[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BarWeaponIcon[WEAPON_BAR_SIZE]">BarWeaponIcon[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BarWeaponStates[WEAPON_BAR_SIZE]">BarWeaponStates[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#BaseWeapons[WEAPON_BAR_SIZE]">BaseWeapons[WEAPON_BAR_SIZE]</a>, <a href="../xinterface/hudcdeathmatch.html#bDrawTimer">bDrawTimer</a>, <a href="../xinterface/hudcdeathmatch.html#bShowMissingWeaponInfo">bShowMissingWeaponInfo</a>, <a href="../xinterface/hudcdeathmatch.html#CountDownName[10]">CountDownName[10]</a>, <a href="../xinterface/hudcdeathmatch.html#CurAmmoPrimary">CurAmmoPrimary</a>, <a href="../xinterface/hudcdeathmatch.html#CurEnergy">CurEnergy</a>, <a href="../xinterface/hudcdeathmatch.html#CurHealth">CurHealth</a>, <a href="../xinterface/hudcdeathmatch.html#CurRank">CurRank</a>, <a href="../xinterface/hudcdeathmatch.html#CurScore">CurScore</a>, <a href="../xinterface/hudcdeathmatch.html#CurShield">CurShield</a>, <a href="../xinterface/hudcdeathmatch.html#CurVehicleHealth">CurVehicleHealth</a>, <a href="../xinterface/hudcdeathmatch.html#CustomHUDHighlightColor">CustomHUDHighlightColor</a>, <a href="../xinterface/hudcdeathmatch.html#DigitsAmmo">DigitsAmmo</a>, <a href="../xinterface/hudcdeathmatch.html#DigitsBig">DigitsBig</a>, <a href="../xinterface/hudcdeathmatch.html#DigitsBigPulse">DigitsBigPulse</a>, <a href="../xinterface/hudcdeathmatch.html#DigitsHealth">DigitsHealth</a>, <a href="../xinterface/hudcdeathmatch.html#DigitsShield">DigitsShield</a>, <a href="../xinterface/hudcdeathmatch.html#DigitsVehicleHealth">DigitsVehicleHealth</a>, <a href="../xinterface/hudcdeathmatch.html#FadeTime">FadeTime</a>, <a href="../xinterface/hudcdeathmatch.html#HudAmmoALERT">HudAmmoALERT</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderAmmo">HudBorderAmmo</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderHealth">HudBorderHealth</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderHealthIcon">HudBorderHealthIcon</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderShield">HudBorderShield</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderShieldIcon">HudBorderShieldIcon</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderVehicleHealth">HudBorderVehicleHealth</a>, <a href="../xinterface/hudcdeathmatch.html#HudBorderVehicleHealthIcon">HudBorderVehicleHealthIcon</a>, <a href="../xinterface/hudcdeathmatch.html#HudColorBlack">HudColorBlack</a>, <a href="../xinterface/hudcdeathmatch.html#HudColorBlue">HudColorBlue</a>, <a href="../xinterface/hudcdeathmatch.html#HudColorHighLight">HudColorHighLight</a>, <a href="../xinterface/hudcdeathmatch.html#HudColorNormal">HudColorNormal</a>, <a href="../xinterface/hudcdeathmatch.html#HudColorRed">HudColorRed</a>, <a href="../xinterface/hudcdeathmatch.html#HudColorTeam[2]">HudColorTeam[2]</a>, <a href="../xinterface/hudcdeathmatch.html#HudHealthALERT">HudHealthALERT</a>, <a href="../xinterface/hudcdeathmatch.html#HudVehicleHealthALERT">HudVehicleHealthALERT</a>, <a href="../xinterface/hudcdeathmatch.html#LastAdrenalineTime">LastAdrenalineTime</a>, <a href="../xinterface/hudcdeathmatch.html#LastDamagedHealth">LastDamagedHealth</a>, <a href="../xinterface/hudcdeathmatch.html#LastDamagedVehicleHealth">LastDamagedVehicleHealth</a>, <a href="../xinterface/hudcdeathmatch.html#LastEnergy">LastEnergy</a>, <a href="../xinterface/hudcdeathmatch.html#LastHealth">LastHealth</a>, <a href="../xinterface/hudcdeathmatch.html#LastShield">LastShield</a>, <a href="../xinterface/hudcdeathmatch.html#LastVehicleHealth">LastVehicleHealth</a>, <a href="../xinterface/hudcdeathmatch.html#LevelActionFontColor">LevelActionFontColor</a>, <a href="../xinterface/hudcdeathmatch.html#LevelActionFontFont">LevelActionFontFont</a>, <a href="../xinterface/hudcdeathmatch.html#LevelActionPositionX">LevelActionPositionX</a>, <a href="../xinterface/hudcdeathmatch.html#LevelActionPositionY">LevelActionPositionY</a>, <a href="../xinterface/hudcdeathmatch.html#LongCountName[10]">LongCountName[10]</a>, <a href="../xinterface/hudcdeathmatch.html#MaxAmmoPrimary">MaxAmmoPrimary</a>, <a href="../xinterface/hudcdeathmatch.html#MaxEnergy">MaxEnergy</a>, <a href="../xinterface/hudcdeathmatch.html#MaxShield">MaxShield</a>, <a href="../xinterface/hudcdeathmatch.html#myRank">myRank</a>, <a href="../xinterface/hudcdeathmatch.html#MySceneManagers">MySceneManagers</a>, <a href="../xinterface/hudcdeathmatch.html#myScore">myScore</a>, <a href="../xinterface/hudcdeathmatch.html#MyScoreBackground">MyScoreBackground</a>, <a href="../xinterface/hudcdeathmatch.html#MyScoreIcon">MyScoreIcon</a>, <a href="../xinterface/hudcdeathmatch.html#mySpread">mySpread</a>, <a href="../xinterface/hudcdeathmatch.html#NamedPlayer">NamedPlayer</a>, <a href="../xinterface/hudcdeathmatch.html#NameTime">NameTime</a>, <a href="../xinterface/hudcdeathmatch.html#OldPawn">OldPawn</a>, <a href="../xinterface/hudcdeathmatch.html#OldRemainingTime">OldRemainingTime</a>, <a href="../xinterface/hudcdeathmatch.html#Portrait">Portrait</a>, <a href="../xinterface/hudcdeathmatch.html#PortraitTime">PortraitTime</a>, <a href="../xinterface/hudcdeathmatch.html#PortraitX">PortraitX</a>, <a href="../xinterface/hudcdeathmatch.html#RechargeBar">RechargeBar</a>, <a href="../xinterface/hudcdeathmatch.html#ScoreDiff">ScoreDiff</a>, <a href="../xinterface/hudcdeathmatch.html#TeamLinked">TeamLinked</a>, <a href="../xinterface/hudcdeathmatch.html#TimerBackground">TimerBackground</a>, <a href="../xinterface/hudcdeathmatch.html#TimerBackgroundDisc">TimerBackgroundDisc</a>, <a href="../xinterface/hudcdeathmatch.html#TimerDigitSpacer[2]">TimerDigitSpacer[2]</a>, <a href="../xinterface/hudcdeathmatch.html#TimerHours">TimerHours</a>, <a href="../xinterface/hudcdeathmatch.html#TimerIcon">TimerIcon</a>, <a href="../xinterface/hudcdeathmatch.html#TimerMinutes">TimerMinutes</a>, <a href="../xinterface/hudcdeathmatch.html#TimerSeconds">TimerSeconds</a>, <a href="../xinterface/hudcdeathmatch.html#UDamageIcon">UDamageIcon</a>, <a href="../xinterface/hudcdeathmatch.html#UDamageTime">UDamageTime</a>, <a href="../xinterface/hudcdeathmatch.html#VehicleDrawTimer">VehicleDrawTimer</a>, <a href="../xinterface/hudcdeathmatch.html#VehicleName">VehicleName</a>, <a href="../xinterface/hudcdeathmatch.html#ZoomToggleTime">ZoomToggleTime</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcdeathmatch.html">HudCDeathMatch</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/hudcdeathmatch.html#WeaponState">WeaponState</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_AddLink-" name="AddLink" title="go to the details">AddLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClearLinks-" name="ClearLinks" title="go to the details">ClearLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CopyLinkSetup-" name="CopyLinkSetup" title="go to the details">CopyLinkSetup</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CoreWorldToScreen-" name="CoreWorldToScreen" title="go to the details">CoreWorldToScreen</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> Core, out <a href="../core/object.html#Vector">vector</a> ScreenPos, float ScreenX, float ScreenY, float RadarWidth, float Range, <a href="../core/object.html#Vector">vector</a> Center, optional bool bIgnoreRange ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawAttackIcon-" name="DrawAttackIcon" title="go to the details">DrawAttackIcon</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../onslaught/onspowercore.html">ONSPowerCore</a> CurCore, <a href="../core/object.html#Vector">vector</a> HUDLocation, float IconScaling, float HUDScaling, float ColorPercentage ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawCoreIcon-" name="DrawCoreIcon" title="go to the details">DrawCoreIcon</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../core/object.html#Vector">vector</a> HUDLocation, bool bAttackable, float IconScaling, float HUDScaling, float ColorPercentage ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawHealthBar-" name="DrawHealthBar" title="go to the details">DrawHealthBar</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../engine/actor.html">Actor</a> A, int Health, int MaxHealth, float Height))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawMapImage-" name="DrawMapImage" title="go to the details">DrawMapImage</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../engine/material.html">Material</a> Image, float MapX, float MapY, float PlayerX, float PlayerY, vector Dimensions ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawNodeIcon-" name="DrawNodeIcon" title="go to the details">DrawNodeIcon</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../core/object.html#Vector">vector</a> HUDLocation, bool bAttackable, byte Stage, float IconScaling, float HUDScaling, float ColorPercentage ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawNodeLabel-" name="DrawNodeLabel" title="go to the details">DrawNodeLabel</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../core/object.html#Vector">vector</a> HUDLocation, float IconScaling, float HUDScaling, <a href="../core/object.html#Color">Color</a> LabelColor, int Num))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawRadarMap-" name="DrawRadarMap" title="go to the details">DrawRadarMap</a> (<a href="../engine/canvas.html">Canvas</a> C, float CenterPosX, float CenterPosY, float RadarWidth, bool bShowDisabledNodes))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawSelectionIcon-" name="DrawSelectionIcon" title="go to the details">DrawSelectionIcon</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../core/object.html#Vector">vector</a> HUDLocation, <a href="../core/object.html#Color">color</a> IconColor, float IconScaling, float HUDScaling ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawSpawnIcon-" name="DrawSpawnIcon" title="go to the details">DrawSpawnIcon</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../core/object.html#Vector">vector</a> HUDLocation, bool bFinalCore, float IconScaling, float HUDScaling ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasLink-" name="HasLink" title="go to the details">HasLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LinkDesigner-" name="LinkDesigner" title="go to the details">LinkDesigner</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../onslaught/onspowercore.html">ONSPowerCore</a>&nbsp;</td><td><a href="#_LocatePowerCore-" name="LocatePowerCore" title="go to the details">LocatePowerCore</a> (float PosX, float PosY, float RadarWidth))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PowerCoreAttackable-" name="PowerCoreAttackable" title="go to the details">PowerCoreAttackable</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ReceiveLink-" name="ReceiveLink" title="go to the details">ReceiveLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_RemoveLink-" name="RemoveLink" title="go to the details">RemoveLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> A, ONSPowerCore B ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_RequestPowerLinks-" name="RequestPowerLinks" title="go to the details">RequestPowerLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ResetLinks-" name="ResetLinks" title="go to the details">ResetLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetupLinks-" name="SetupLinks" title="go to the details">SetupLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ShowTeamScorePassA-" name="ShowTeamScorePassA" title="go to the details">ShowTeamScorePassA</a> (<a href="../engine/canvas.html">Canvas</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ShowTeamScorePassC-" name="ShowTeamScorePassC" title="go to the details">ShowTeamScorePassC</a> (<a href="../engine/canvas.html">Canvas</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float deltaTime))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Timer-" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ToggleRadarMap-" name="ToggleRadarMap" title="go to the details">ToggleRadarMap</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheMaterials-" name="UpdatePrecacheMaterials" title="go to the details">UpdatePrecacheMaterials</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcteamdeathmatch.html">HudCTeamDeathMatch</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/hudcteamdeathmatch.html#CustomHUDColorAllowed">CustomHUDColorAllowed</a>, <a href="../xinterface/hudcteamdeathmatch.html#DrawHudPassA">DrawHudPassA</a>, <a href="../xinterface/hudcteamdeathmatch.html#DrawHudPassC">DrawHudPassC</a>, <a href="../xinterface/hudcteamdeathmatch.html#drawLinkText">drawLinkText</a>, <a href="../xinterface/hudcteamdeathmatch.html#DrawMyScore">DrawMyScore</a>, <a href="../xinterface/hudcteamdeathmatch.html#DrawSpectatingHud">DrawSpectatingHud</a>, <a href="../xinterface/hudcteamdeathmatch.html#DrawTeamOverlay">DrawTeamOverlay</a>, <a href="../xinterface/hudcteamdeathmatch.html#showLinks">showLinks</a>, <a href="../xinterface/hudcteamdeathmatch.html#ShowTeamScorePassA">ShowTeamScorePassA</a>, <a href="../xinterface/hudcteamdeathmatch.html#ShowTeamScorePassC">ShowTeamScorePassC</a>, <a href="../xinterface/hudcteamdeathmatch.html#ShowVersusIcon">ShowVersusIcon</a>, <a href="../xinterface/hudcteamdeathmatch.html#TeamScoreOffset">TeamScoreOffset</a>, <a href="../xinterface/hudcteamdeathmatch.html#Tick">Tick</a>, <a href="../xinterface/hudcteamdeathmatch.html#UpdateHud">UpdateHud</a>, <a href="../xinterface/hudcteamdeathmatch.html#UpdateRankAndSpread">UpdateRankAndSpread</a>, <a href="../xinterface/hudcteamdeathmatch.html#UpdateTeamHud">UpdateTeamHud</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/hudcdeathmatch.html">HudCDeathMatch</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/hudcdeathmatch.html#CalculateAmmo">CalculateAmmo</a>, <a href="../xinterface/hudcdeathmatch.html#CalculateEnergy">CalculateEnergy</a>, <a href="../xinterface/hudcdeathmatch.html#CalculateHealth">CalculateHealth</a>, <a href="../xinterface/hudcdeathmatch.html#CalculateScore">CalculateScore</a>, <a href="../xinterface/hudcdeathmatch.html#CalculateShield">CalculateShield</a>, <a href="../xinterface/hudcdeathmatch.html#CheckCountdown">CheckCountdown</a>, <a href="../xinterface/hudcdeathmatch.html#CustomCrosshairColorAllowed">CustomCrosshairColorAllowed</a>, <a href="../xinterface/hudcdeathmatch.html#CustomCrosshairsAllowed">CustomCrosshairsAllowed</a>, <a href="../xinterface/hudcdeathmatch.html#CustomHUDColorAllowed">CustomHUDColorAllowed</a>, <a href="../xinterface/hudcdeathmatch.html#DisplayEnemyName">DisplayEnemyName</a>, <a href="../xinterface/hudcdeathmatch.html#DisplayPortrait">DisplayPortrait</a>, <a href="../xinterface/hudcdeathmatch.html#DisplayVoiceGain">DisplayVoiceGain</a>, <a href="../xinterface/hudcdeathmatch.html#DrawAdrenaline">DrawAdrenaline</a>, <a href="../xinterface/hudcdeathmatch.html#DrawChargeBar">DrawChargeBar</a>, <a href="../xinterface/hudcdeathmatch.html#DrawCrosshair">DrawCrosshair</a>, <a href="../xinterface/hudcdeathmatch.html#DrawEnemyName">DrawEnemyName</a>, <a href="../xinterface/hudcdeathmatch.html#DrawHUDAnimDigit">DrawHUDAnimDigit</a>, <a href="../xinterface/hudcdeathmatch.html#DrawHUDAnimWidget">DrawHUDAnimWidget</a>, <a href="../xinterface/hudcdeathmatch.html#DrawHudPassA">DrawHudPassA</a>, <a href="../xinterface/hudcdeathmatch.html#DrawHudPassC">DrawHudPassC</a>, <a href="../xinterface/hudcdeathmatch.html#DrawLevelAction">DrawLevelAction</a>, <a href="../xinterface/hudcdeathmatch.html#DrawSpectatingHud">DrawSpectatingHud</a>, <a href="../xinterface/hudcdeathmatch.html#DrawTimer">DrawTimer</a>, <a href="../xinterface/hudcdeathmatch.html#DrawUDamage">DrawUDamage</a>, <a href="../xinterface/hudcdeathmatch.html#DrawVehicleChargeBar">DrawVehicleChargeBar</a>, <a href="../xinterface/hudcdeathmatch.html#DrawVehicleName">DrawVehicleName</a>, <a href="../xinterface/hudcdeathmatch.html#DrawWeaponBar">DrawWeaponBar</a>, <a href="../xinterface/hudcdeathmatch.html#FadeZoom">FadeZoom</a>, <a href="../xinterface/hudcdeathmatch.html#GetInfoString">GetInfoString</a>, <a href="../xinterface/hudcdeathmatch.html#GetScoreTagLine">GetScoreTagLine</a>, <a href="../xinterface/hudcdeathmatch.html#GetScoreText">GetScoreText</a>, <a href="../xinterface/hudcdeathmatch.html#GetScoreValue">GetScoreValue</a>, <a href="../xinterface/hudcdeathmatch.html#GetTeamColor">GetTeamColor</a>, <a href="../xinterface/hudcdeathmatch.html#GrowHUD">GrowHUD</a>, <a href="../xinterface/hudcdeathmatch.html#IsInCinematic">IsInCinematic</a>, <a href="../xinterface/hudcdeathmatch.html#LoadLevelActionFont">LoadLevelActionFont</a>, <a href="../xinterface/hudcdeathmatch.html#PostBeginPlay">PostBeginPlay</a>, <a href="../xinterface/hudcdeathmatch.html#SetCustomCrosshairColors">SetCustomCrosshairColors</a>, <a href="../xinterface/hudcdeathmatch.html#SetCustomCrosshairs">SetCustomCrosshairs</a>, <a href="../xinterface/hudcdeathmatch.html#SetCustomHUDColor">SetCustomHUDColor</a>, <a href="../xinterface/hudcdeathmatch.html#ShowReloadingPulse">ShowReloadingPulse</a>, <a href="../xinterface/hudcdeathmatch.html#ShrinkHUD">ShrinkHUD</a>, <a href="../xinterface/hudcdeathmatch.html#Tick">Tick</a>, <a href="../xinterface/hudcdeathmatch.html#UpdateHud">UpdateHud</a>, <a href="../xinterface/hudcdeathmatch.html#UpdatePrecacheMaterials">UpdatePrecacheMaterials</a>, <a href="../xinterface/hudcdeathmatch.html#UpdateRankAndSpread">UpdateRankAndSpread</a>, <a href="../xinterface/hudcdeathmatch.html#ZoomFadeOut">ZoomFadeOut</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bMapDisabled" class="hidden"></a>bMapDisabled <a href="../Source_onslaught/onshudonslaught.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bMapDisabled;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bReceivedLinks" class="hidden"></a>bReceivedLinks <a href="../Source_onslaught/onshudonslaught.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bReceivedLinks;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ColorPercent" class="hidden"></a>ColorPercent <a href="../Source_onslaught/onshudonslaught.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ColorPercent;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FinalCore[2]" class="hidden"></a>FinalCore[2] <a href="../Source_onslaught/onshudonslaught.html#9" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> FinalCore[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IconScale" class="hidden"></a>IconScale <a href="../Source_onslaught/onshudonslaught.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> IconScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MapCenter" class="hidden"></a>MapCenter <a href="../Source_onslaught/onshudonslaught.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> MapCenter;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Node" class="hidden"></a>Node <a href="../Source_onslaught/onshudonslaught.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OwnerPRI" class="hidden"></a>OwnerPRI <a href="../Source_onslaught/onshudonslaught.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsplayerreplicationinfo.html" class="source">ONSPlayerReplicationInfo</a></span> OwnerPRI;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerLinks" class="hidden"></a>PowerLinks <a href="../Source_onslaught/onshudonslaught.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">protected</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/powerlink.html" class="source">PowerLink</a></span>&gt; PowerLinks;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RadarMaxRange" class="hidden"></a>RadarMaxRange <a href="../Source_onslaught/onshudonslaught.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RadarMaxRange;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RadarPosX" class="hidden"></a>RadarPosX <a href="../Source_onslaught/onshudonslaught.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> RadarPosX;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RadarPosY" class="hidden"></a>RadarPosY <a href="../Source_onslaught/onshudonslaught.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> RadarPosY;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RadarRange" class="hidden"></a>RadarRange <a href="../Source_onslaught/onshudonslaught.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RadarRange;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RadarScale" class="hidden"></a>RadarScale <a href="../Source_onslaught/onshudonslaught.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> RadarScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RadarTrans" class="hidden"></a>RadarTrans <a href="../Source_onslaught/onshudonslaught.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> RadarTrans;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">ONSHUDOnslaught</h3>
+<h4><a name="_AttackColorA" class="hidden"></a>AttackColorA <a href="../Source_onslaught/onshudonslaught.html#27" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> AttackColorA;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AttackColorB" class="hidden"></a>AttackColorB <a href="../Source_onslaught/onshudonslaught.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> AttackColorB;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BorderMat" class="hidden"></a>BorderMat <a href="../Source_onslaught/onshudonslaught.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> BorderMat;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CoreHealthWidgets[2]" class="hidden"></a>CoreHealthWidgets[2] <a href="../Source_onslaught/onshudonslaught.html#35" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../xinterface/hudbase.html#NumericWidget" class="source">NumericWidget</a></span> CoreHealthWidgets[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CoreWidgets[2]" class="hidden"></a>CoreWidgets[2] <a href="../Source_onslaught/onshudonslaught.html#34" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../xinterface/hudbase.html#SpriteWidget" class="source">SpriteWidget</a></span> CoreWidgets[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthBarBackMat" class="hidden"></a>HealthBarBackMat <a href="../Source_onslaught/onshudonslaught.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> HealthBarBackMat;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthBarHeight" class="hidden"></a>HealthBarHeight <a href="../Source_onslaught/onshudonslaught.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_keyword">float</span> HealthBarHeight;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthBarMat" class="hidden"></a>HealthBarMat <a href="../Source_onslaught/onshudonslaught.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> HealthBarMat;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthBarPosition" class="hidden"></a>HealthBarPosition <a href="../Source_onslaught/onshudonslaught.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_keyword">float</span> HealthBarPosition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthBarViewDist" class="hidden"></a>HealthBarViewDist <a href="../Source_onslaught/onshudonslaught.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_keyword">float</span> HealthBarViewDist;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealthBarWidth" class="hidden"></a>HealthBarWidth <a href="../Source_onslaught/onshudonslaught.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_keyword">float</span> HealthBarWidth;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LinkColor[3]" class="hidden"></a>LinkColor[3] <a href="../Source_onslaught/onshudonslaught.html#31" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> LinkColor[<span class="source_int">3</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NeutralColor" class="hidden"></a>NeutralColor <a href="../Source_onslaught/onshudonslaught.html#26" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> NeutralColor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NodeLabelWidget" class="hidden"></a>NodeLabelWidget <a href="../Source_onslaught/onshudonslaught.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../xinterface/hudbase.html#NumericWidget" class="source">NumericWidget</a></span> NodeLabelWidget;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SeveredColorA" class="hidden"></a>SeveredColorA <a href="../Source_onslaught/onshudonslaught.html#29" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> SeveredColorA;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SeveredColorB" class="hidden"></a>SeveredColorB <a href="../Source_onslaught/onshudonslaught.html#30" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> SeveredColorB;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SymbolGB[2]" class="hidden"></a>SymbolGB[2] <a href="../Source_onslaught/onshudonslaught.html#33" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onshudonslaught.html" class="source">ONSHUDOnslaught</a></span>) <span class="source_type"><a href="../xinterface/hudbase.html#SpriteWidget" class="source">SpriteWidget</a></span> SymbolGB[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AddLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AddLink <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#117" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  AddLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClearLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClearLinks <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#191" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClearLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CopyLinkSetup-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CopyLinkSetup <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#650" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">exec</span> <span class="source_keyword">function</span>  CopyLinkSetup ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CoreWorldToScreen-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CoreWorldToScreen <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#686" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CoreWorldToScreen ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> Core, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">ScreenPos</span>, <span class="source_keyword">float</span> ScreenX, <span class="source_keyword">float</span> ScreenY, <span class="source_keyword">float</span> RadarWidth, <span class="source_keyword">float</span> <span class="source_type"><a href="../core/object.html#Range" class="source">Range</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Center, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> <span class="source_type">bIgnoreRange</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawAttackIcon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawAttackIcon <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#740" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span>  DrawAttackIcon ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> CurCore, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation, <span class="source_keyword">float</span> IconScaling, <span class="source_keyword">float</span> <span class="source_type">HUDScaling</span>, <span class="source_keyword">float</span> <span class="source_type">ColorPercentage</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawCoreIcon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawCoreIcon <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#767" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span>  DrawCoreIcon ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation, <span class="source_keyword">bool</span> bAttackable, <span class="source_keyword">float</span> IconScaling, <span class="source_keyword">float</span> <span class="source_type">HUDScaling</span>, <span class="source_keyword">float</span> <span class="source_type">ColorPercentage</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawHealthBar-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawHealthBar <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#522" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DrawHealthBar ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> A, <span class="source_keyword">int</span> Health, <span class="source_keyword">int</span> MaxHealth, <span class="source_keyword">float</span> Height) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawMapImage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawMapImage <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#708" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span>  DrawMapImage ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> <span class="source_type">Image</span>, <span class="source_keyword">float</span> MapX, <span class="source_keyword">float</span> MapY, <span class="source_keyword">float</span> PlayerX, <span class="source_keyword">float</span> PlayerY, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">Dimensions</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawNodeIcon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawNodeIcon <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#787" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span>  DrawNodeIcon ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation, <span class="source_keyword">bool</span> bAttackable, <span class="source_keyword">byte</span> Stage, <span class="source_keyword">float</span> IconScaling, <span class="source_keyword">float</span> <span class="source_type">HUDScaling</span>, <span class="source_keyword">float</span> <span class="source_type">ColorPercentage</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawNodeLabel-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawNodeLabel <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#470" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DrawNodeLabel ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation, <span class="source_keyword">float</span> IconScaling, <span class="source_keyword">float</span> <span class="source_type">HUDScaling</span>, <span class="source_type"><a href="../core/object.html#Color" class="source">Color</a></span> LabelColor, <span class="source_keyword">int</span> Num) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawRadarMap-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawRadarMap <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#239" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DrawRadarMap ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_keyword">float</span> CenterPosX, <span class="source_keyword">float</span> CenterPosY, <span class="source_keyword">float</span> RadarWidth, <span class="source_keyword">bool</span> bShowDisabledNodes) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawSelectionIcon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawSelectionIcon <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#851" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span>  DrawSelectionIcon ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation, <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> IconColor, <span class="source_keyword">float</span> IconScaling, <span class="source_keyword">float</span> <span class="source_type">HUDScaling</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawSpawnIcon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawSpawnIcon <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#826" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">static</span> <span class="source_keyword">function</span>  DrawSpawnIcon ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation, <span class="source_keyword">bool</span> bFinalCore, <span class="source_keyword">float</span> IconScaling, <span class="source_keyword">float</span> <span class="source_type">HUDScaling</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasLink <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#172" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LinkDesigner-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LinkDesigner <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#644" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">exec</span> <span class="source_keyword">function</span>  LinkDesigner ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LocatePowerCore-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LocatePowerCore <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#205" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> LocatePowerCore ( <span class="source_keyword">float</span> PosX, <span class="source_keyword">float</span> PosY, <span class="source_keyword">float</span> RadarWidth) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#40" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreAttackable-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreAttackable <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#407" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PowerCoreAttackable ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ReceiveLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ReceiveLink <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#108" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ReceiveLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RemoveLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RemoveLink <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#130" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  RemoveLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> A, <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">B</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RequestPowerLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RequestPowerLinks <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#617" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  RequestPowerLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ResetLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ResetLinks <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#153" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ResetLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetupLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetupLinks <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#89" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  SetupLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShowTeamScorePassA-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShowTeamScorePassA <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#425" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ShowTeamScorePassA ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShowTeamScorePassC-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShowTeamScorePassC <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#457" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ShowTeamScorePassC ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#592" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">deltaTime</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Timer <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#580" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ToggleRadarMap-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ToggleRadarMap <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#629" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">exec</span> <span class="source_keyword">function</span>  ToggleRadarMap ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheMaterials-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheMaterials <span class="function_state"></span> <a href="../Source_onslaught/onshudonslaught.html#673" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheMaterials ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     RadarScale=<span class="source_int">0.200000</span>
+     RadarTrans=<span class="source_int">255.000000</span>
+     IconScale=<span class="source_int">1.000000</span>
+     RadarPosX=<span class="source_int">1.000000</span>
+     RadarPosY=<span class="source_int">0.100000</span>
+     RadarMaxRange=<span class="source_int">500000.000000</span>
+     HealthBarBackMat=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxD'</span>
+     HealthBarMat=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSInterface-TX.HealthBar'</span>
+     HealthBarWidth=<span class="source_int">75.000000</span>
+     HealthBarHeight=<span class="source_int">8.000000</span>
+     HealthBarPosition=<span class="source_int">485.000000</span>
+     HealthBarViewDist=<span class="source_int">4000.000000</span>
+     BorderMat=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSInterface-TX.MapBorderTEX'</span>
+     AttackColorA=(G=<span class="source_int">189</span>,<span class="source_type">R</span>=<span class="source_int">244</span>,A=<span class="source_int">255</span>)
+     AttackColorB=(<span class="source_type">B</span>=<span class="source_int">11</span>,G=<span class="source_int">162</span>,<span class="source_type">R</span>=<span class="source_int">234</span>,A=<span class="source_int">255</span>)
+     SeveredColorA=(<span class="source_type">B</span>=<span class="source_int">192</span>,G=<span class="source_int">192</span>,<span class="source_type">R</span>=<span class="source_int">192</span>,A=<span class="source_int">255</span>)
+     SeveredColorB=(<span class="source_type">B</span>=<span class="source_int">128</span>,G=<span class="source_int">128</span>,<span class="source_type">R</span>=<span class="source_int">128</span>,A=<span class="source_int">255</span>)
+     LinkColor(<span class="source_int">0</span>)=(<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>)
+     LinkColor(<span class="source_int">1</span>)=(<span class="source_type">B</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>)
+     LinkColor(<span class="source_int">2</span>)=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>)
+     SymbolGB(<span class="source_int">0</span>)=(WidgetTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'HUDContent.Generic.HUD'</span>,RenderStyle=STY_Alpha,TextureCoords=(X1=<span class="source_int">119</span>,Y1=<span class="source_int">258</span>,X2=<span class="source_int">173</span>,Y2=<span class="source_int">313</span>),TextureScale=<span class="source_int">0.600000</span>,DrawPivot=DP_UpperRight,PosX=<span class="source_int">0.500000</span>,OffsetX=-<span class="source_int">32</span>,<span class="source_type">OffsetY</span>=<span class="source_int">7</span>,ScaleMode=SM_Right,<span class="source_type"><a href="../core/object.html#Scale" class="source">Scale</a></span>=<span class="source_int">1.000000</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>))
+     SymbolGB(<span class="source_int">1</span>)=(WidgetTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'HUDContent.Generic.HUD'</span>,RenderStyle=STY_Alpha,TextureCoords=(X1=<span class="source_int">119</span>,Y1=<span class="source_int">258</span>,X2=<span class="source_int">173</span>,Y2=<span class="source_int">313</span>),TextureScale=<span class="source_int">0.600000</span>,PosX=<span class="source_int">0.500000</span>,OffsetX=<span class="source_int">32</span>,<span class="source_type">OffsetY</span>=<span class="source_int">7</span>,ScaleMode=SM_Right,<span class="source_type"><a href="../core/object.html#Scale" class="source">Scale</a></span>=<span class="source_int">1.000000</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>))
+     CoreWidgets(<span class="source_int">0</span>)=(WidgetTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'HUDContent.Generic.HUD'</span>,RenderStyle=STY_Alpha,TextureCoords=(X1=<span class="source_int">365</span>,Y1=<span class="source_int">233</span>,X2=<span class="source_int">432</span>,Y2=<span class="source_int">313</span>),TextureScale=<span class="source_int">0.250000</span>,DrawPivot=DP_UpperRight,PosX=<span class="source_int">0.500000</span>,OffsetX=-<span class="source_int">110</span>,<span class="source_type">OffsetY</span>=<span class="source_int">45</span>,ScaleMode=SM_Right,<span class="source_type"><a href="../core/object.html#Scale" class="source">Scale</a></span>=<span class="source_int">1.000000</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">100</span>,G=<span class="source_int">100</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">200</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">32</span>,G=<span class="source_int">32</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">200</span>))
+     CoreWidgets(<span class="source_int">1</span>)=(WidgetTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'HUDContent.Generic.HUD'</span>,RenderStyle=STY_Alpha,TextureCoords=(X1=<span class="source_int">365</span>,Y1=<span class="source_int">233</span>,X2=<span class="source_int">432</span>,Y2=<span class="source_int">313</span>),TextureScale=<span class="source_int">0.250000</span>,PosX=<span class="source_int">0.500000</span>,OffsetX=<span class="source_int">110</span>,<span class="source_type">OffsetY</span>=<span class="source_int">45</span>,ScaleMode=SM_Right,<span class="source_type"><a href="../core/object.html#Scale" class="source">Scale</a></span>=<span class="source_int">1.000000</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">128</span>,A=<span class="source_int">200</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">210</span>,<span class="source_type">R</span>=<span class="source_int">32</span>,A=<span class="source_int">200</span>))
+     CoreHealthWidgets(<span class="source_int">0</span>)=(RenderStyle=STY_Alpha,MinDigitCount=<span class="source_int">1</span>,TextureScale=<span class="source_int">0.240000</span>,DrawPivot=DP_MiddleMiddle,PosX=<span class="source_int">0.500000</span>,OffsetX=-<span class="source_int">149</span>,<span class="source_type">OffsetY</span>=<span class="source_int">88</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>))
+     CoreHealthWidgets(<span class="source_int">1</span>)=(RenderStyle=STY_Alpha,MinDigitCount=<span class="source_int">1</span>,TextureScale=<span class="source_int">0.240000</span>,DrawPivot=DP_MiddleMiddle,PosX=<span class="source_int">0.500000</span>,OffsetX=<span class="source_int">149</span>,<span class="source_type">OffsetY</span>=<span class="source_int">88</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>))
+     NodeLabelWidget=(RenderStyle=STY_Alpha,MinDigitCount=<span class="source_int">1</span>,TextureScale=<span class="source_int">0.240000</span>,DrawPivot=DP_MiddleMiddle,PosX=<span class="source_int">0.500000</span>,Tints[<span class="source_int">0</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>),Tints[<span class="source_int">1</span>]=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,A=<span class="source_int">255</span>))
+     ScoreTeam(<span class="source_int">0</span>)=(MinDigitCount=<span class="source_int">2</span>,PosX=<span class="source_int">0.442000</span>)
+     ScoreTeam(<span class="source_int">1</span>)=(MinDigitCount=<span class="source_int">2</span>,PosX=<span class="source_int">0.558000</span>)
+     TeamScoreBackGround(<span class="source_int">0</span>)=(PosX=<span class="source_int">0.442000</span>)
+     TeamScoreBackGround(<span class="source_int">1</span>)=(PosX=<span class="source_int">0.558000</span>)
+     TeamScoreBackGroundDisc(<span class="source_int">0</span>)=(PosX=<span class="source_int">0.442000</span>)
+     TeamScoreBackGroundDisc(<span class="source_int">1</span>)=(PosX=<span class="source_int">0.558000</span>)
+     TeamSymbols(<span class="source_int">0</span>)=(PosX=<span class="source_int">0.442000</span>)
+     TeamSymbols(<span class="source_int">1</span>)=(PosX=<span class="source_int">0.558000</span>)
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onshudonslaught.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSHUDOnslaught">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onshovertankcannon.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onshudoverlay.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:02.827 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: UT2k4AssaultFull.FM_SpaceFighter_InstantHitLaser</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../ut2k4assaultfull/ut2k4assaultfull-overview.html">Package</a></td>
+	<td class="header"><a href="../ut2k4assaultfull/fm_spacefighter_instanthitlaser.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#FM_SpaceFighter_InstantHitLaser">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_ut2k4assaultfull/fm_spacefighter_altfire.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_ut2k4assaultfull/fm_turret_altfire_shield.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_ut2k4assaultfull/fm_spacefighter_instanthitlaser.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../ut2k4assaultfull/ut2k4assaultfull-overview.html">UT2k4AssaultFull</a>.<a href="../ut2k4assaultfull/fm_spacefighter_instanthitlaser.html">FM_SpaceFighter_InstantHitLaser</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105</span></td>
+<td class="source"><pre class="source"><a name="1"></a><span class="source_comment">//=============================================================================
+</span><a name="2"></a><span class="source_comment">// FM_SpaceFighter_InstantHitLaser
+</span><a name="3"></a><span class="source_comment">//=============================================================================
+</span><a name="4"></a><span class="source_comment">// Created by Laurent Delayen
+</span><a name="5"></a><span class="source_comment">// © 2003, Epic Games, Inc.  All Rights Reserved
+</span><a name="6"></a><span class="source_comment">//=============================================================================
+</span><a name="7"></a>
+<a name="8"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../ut2k4assaultfull/fm_spacefighter_instanthitlaser.html" class="source">FM_SpaceFighter_InstantHitLaser</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../xweapons/instantfire.html" class="source">InstantFire</a></span>;
+<a name="9"></a>
+<a name="10"></a><span class="source_keyword">var</span>	<span class="source_keyword">bool</span>				bSwitch;
+<a name="11"></a><span class="source_keyword">var</span> <span class="source_keyword">name</span>				FireAnimLeft, FireAnimRight;
+<a name="12"></a><span class="source_keyword">var</span>	<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span>				FireSounds[<span class="source_int">2</span>];
+<a name="13"></a>
+<a name="14"></a>
+<a name="15"></a><span class="source_keyword">event</span> ModeDoFire()
+<a name="16"></a>{
+<a name="17"></a>	bSwitch = ( (<span class="source_type"><a href="../engine/weaponattachment.html" class="source">WeaponAttachment</a></span>(<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.ThirdPersonActor).FlashCount % <span class="source_int">2</span>) == <span class="source_int">1</span> );
+<a name="18"></a>	<span class="source_keyword">super</span>.ModeDoFire();
+<a name="19"></a>}
+<a name="20"></a>
+<a name="21"></a><span class="source_keyword">function</span> DoFireEffect()
+<a name="22"></a>{
+<a name="23"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span>	StartTrace, HL, HN;
+<a name="24"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span>	<span class="source_type">R</span>;
+<a name="25"></a>
+<a name="26"></a>	<span class="source_keyword">if</span> ( <span class="source_type">Instigator</span> == <span class="source_keyword">None</span> || !<span class="source_type">Instigator</span>.IsA(<span class="source_name">'ASVehicle'</span>) )
+<a name="27"></a>	{
+<a name="28"></a>		<span class="source_keyword">super</span>.DoFireEffect();
+<a name="29"></a>		<span class="source_keyword">return</span>;
+<a name="30"></a>	}
+<a name="31"></a>
+<a name="32"></a>	<span class="source_keyword">if</span> ( <span class="source_type"><a href="../ut2k4assaultfull/asvehicle_spacefighter_skaarj.html" class="source">ASVehicle_SpaceFighter_Skaarj</a></span>(<span class="source_type">Instigator</span>) != <span class="source_keyword">None</span> )	<span class="source_comment">// hack for Skaarj SF damagetype
+</span><a name="33"></a>		<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span> = <span class="source_keyword">class</span><span class="source_name">'DamTypeSpaceFighterLaser_Skaarj'</span>;
+<a name="34"></a>
+<a name="35"></a>    <span class="source_type">Instigator</span>.MakeNoise(<span class="source_int">1.0</span>);
+<a name="36"></a>
+<a name="37"></a>    StartTrace	= <span class="source_type"><a href="../ut2k4assault/asvehicle.html" class="source">ASVehicle</a></span>(<span class="source_type">Instigator</span>).GetFireStart();
+<a name="38"></a>	<span class="source_type"><a href="../ut2k4assault/asvehicle.html" class="source">ASVehicle</a></span>(<span class="source_type">Instigator</span>).CalcWeaponFire( HL, HN );
+<a name="39"></a>
+<a name="40"></a>    <span class="source_type">R</span> = <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span>( Normal(HL-StartTrace) );
+<a name="41"></a>
+<a name="42"></a>	DoTrace(StartTrace, <span class="source_type">R</span>);
+<a name="43"></a>}
+<a name="44"></a>
+<a name="45"></a><span class="source_keyword">function</span> PlayFiring()
+<a name="46"></a>{
+<a name="47"></a>	<span class="source_keyword">if</span> ( <span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.<span class="source_type">Mesh</span> != <span class="source_keyword">None</span> )
+<a name="48"></a>	{
+<a name="49"></a>		<span class="source_keyword">if</span> ( bSwitch && <span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.HasAnim(FireAnimRight) )
+<a name="50"></a>			FireAnim = FireAnimRight;
+<a name="51"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> ( !bSwitch && <span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.HasAnim(FireAnimLeft) )
+<a name="52"></a>			FireAnim = FireAnimLeft;
+<a name="53"></a>	}
+<a name="54"></a>
+<a name="55"></a>	UpdateFireSound();
+<a name="56"></a>
+<a name="57"></a>	<span class="source_keyword">super</span>.PlayFiring();
+<a name="58"></a>}
+<a name="59"></a>
+<a name="60"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> UpdateFireSound()
+<a name="61"></a>{
+<a name="62"></a>	<span class="source_keyword">if</span> ( <span class="source_type">Instigator</span>.IsA(<span class="source_name">'ASTurret'</span>) || <span class="source_type">Instigator</span>.IsA(<span class="source_name">'ASVehicle_SpaceFighter_Skaarj'</span>) )
+<a name="63"></a>		FireSound = FireSounds[<span class="source_int">0</span>];
+<a name="64"></a>	<span class="source_keyword">else</span>
+<a name="65"></a>		FireSound = FireSounds[<span class="source_int">1</span>];
+<a name="66"></a>}
+<a name="67"></a>
+<a name="68"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> AllowFire()
+<a name="69"></a>{
+<a name="70"></a>    <span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="71"></a>}
+<a name="72"></a>
+<a name="73"></a><span class="source_comment">//=============================================================================
+</span><a name="74"></a><span class="source_comment">// defaultproperties
+</span><a name="75"></a><span class="source_comment">//=============================================================================
+</span><a name="76"></a>
+<a name="77"></a><span class="source_keyword">defaultproperties</span>
+<a name="78"></a>{
+<a name="79"></a>     FireAnimLeft=<span class="source_string">"FireL"</span>
+<a name="80"></a>     FireAnimRight=<span class="source_string">"FireR"</span>
+<a name="81"></a>     FireSounds(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.LaserSounds.Laser02'</span>
+<a name="82"></a>     FireSounds(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'AssaultSounds.HumanShip.HnShipFire01'</span>
+<a name="83"></a>     <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>=<span class="source_keyword">Class</span><span class="source_name">'UT2k4AssaultFull.DamTypeSpaceFighterLaser'</span>
+<a name="84"></a>     DamageMin=<span class="source_int">30</span>
+<a name="85"></a>     DamageMax=<span class="source_int">40</span>
+<a name="86"></a>     TraceRange=<span class="source_int">65536.000000</span>
+<a name="87"></a>     FireLoopAnim=
+<a name="88"></a>     FireEndAnim=
+<a name="89"></a>     FireAnimRate=<span class="source_int">0.450000</span>
+<a name="90"></a>     TweenTime=<span class="source_int">0.000000</span>
+<a name="91"></a>     FireSound=<span class="source_type"><a href="../engine/soundgroup.html" class="source">SoundGroup</a></span><span class="source_name">'WeaponSounds.PulseRifle.PulseRifleFire'</span>
+<a name="92"></a>     FireForce=<span class="source_string">"TranslocatorFire"</span>
+<a name="93"></a>     FireRate=<span class="source_int">0.200000</span>
+<a name="94"></a>     AmmoClass=<span class="source_keyword">Class</span><span class="source_name">'UT2k4Assault.Ammo_Dummy'</span>
+<a name="95"></a>     ShakeRotMag=(<span class="source_type">X</span>=<span class="source_int">40.000000</span>)
+<a name="96"></a>     ShakeRotRate=(<span class="source_type">X</span>=<span class="source_int">2000.000000</span>)
+<a name="97"></a>     ShakeRotTime=<span class="source_int">2.000000</span>
+<a name="98"></a>     ShakeOffsetMag=(<span class="source_type">Y</span>=<span class="source_int">1.000000</span>)
+<a name="99"></a>     ShakeOffsetRate=(<span class="source_type">Y</span>=-<span class="source_int">2000.000000</span>)
+<a name="100"></a>     ShakeOffsetTime=<span class="source_int">4.000000</span>
+<a name="101"></a>     BotRefireRate=<span class="source_int">0.990000</span>
+<a name="102"></a>     WarnTargetPct=<span class="source_int">0.200000</span>
+<a name="103"></a>     aimerror=<span class="source_int">800.000000</span>
+<a name="104"></a>}
+<a name="105"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../ut2k4assaultfull/ut2k4assaultfull-overview.html">Package</a></td>
+	<td class="header"><a href="../ut2k4assaultfull/fm_spacefighter_instanthitlaser.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#FM_SpaceFighter_InstantHitLaser">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_ut2k4assaultfull/fm_spacefighter_altfire.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_ut2k4assaultfull/fm_turret_altfire_shield.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:18.000 - Creation time: Mon 15/4/2019 10:25:10.322 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

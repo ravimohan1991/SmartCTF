@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XInterface.UT2MultiplayerHostPage</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/ut2multiplayerhostpage.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2MultiplayerHostPage">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/ut2midgamemenu.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/ut2musicmanager.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xinterface/ut2multiplayerhostpage.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xinterface/xinterface-overview.html">XInterface</a>.UT2MultiplayerHostPage</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/ut2k3guipage.html">UT2K3GUIPage</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipage.html">GUIPage</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k3guipage.html">UT2K3GUIPage</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2multiplayerhostpage.html">UT2MultiplayerHostPage</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_BotTabHint" name="BotTabHint" title="go to the details">BotTabHint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_BotTabLabel" name="BotTabLabel" title="go to the details">BotTabLabel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_MainTabHint" name="MainTabHint" title="go to the details">MainTabHint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_MainTabLabel" name="MainTabLabel" title="go to the details">MainTabLabel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_MutatorsTabHint" name="MutatorsTabHint" title="go to the details">MutatorsTabHint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_MutatorsTabLabel" name="MutatorsTabLabel" title="go to the details">MutatorsTabLabel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guitabcontrol.html">GUITabControl</a></td><td width="66%"><a href="#_MyTabs" name="MyTabs" title="go to the details">MyTabs</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/tab_instantactionbotconfig.html">Tab_InstantActionBotConfig</a></td><td width="66%"><a href="#_pBotConfig" name="pBotConfig" title="go to the details">pBotConfig</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/tab_multiplayerhostmain.html">Tab_MultiplayerHostMain</a></td><td width="66%"><a href="#_pMain" name="pMain" title="go to the details">pMain</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/tab_instantactionmutators.html">Tab_InstantActionMutators</a></td><td width="66%"><a href="#_pMutators" name="pMutators" title="go to the details">pMutators</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/tab_instantactionbaserules.html">Tab_InstantActionBaseRules</a></td><td width="66%"><a href="#_pRules" name="pRules" title="go to the details">pRules</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/tab_multiplayerhostserversettings.html">Tab_MultiplayerHostServerSettings</a></td><td width="66%"><a href="#_pServer" name="pServer" title="go to the details">pServer</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_RulesTabHint" name="RulesTabHint" title="go to the details">RulesTabHint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_RulesTabLabel" name="RulesTabLabel" title="go to the details">RulesTabLabel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_ServerTabHint" name="ServerTabHint" title="go to the details">ServerTabHint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_ServerTabLabel" name="ServerTabLabel" title="go to the details">ServerTabLabel</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipage.html">GUIPage</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/guipage.html#Background">Background</a>, <a href="../xinterface/guipage.html#BackgroundColor">BackgroundColor</a>, <a href="../xinterface/guipage.html#BackgroundRStyle">BackgroundRStyle</a>, <a href="../xinterface/guipage.html#bAllowedAsLast">bAllowedAsLast</a>, <a href="../xinterface/guipage.html#bCaptureInput">bCaptureInput</a>, <a href="../xinterface/guipage.html#bCheckResolution">bCheckResolution</a>, <a href="../xinterface/guipage.html#bDisconnectOnOpen">bDisconnectOnOpen</a>, <a href="../xinterface/guipage.html#bPauseIfPossible">bPauseIfPossible</a>, <a href="../xinterface/guipage.html#bPersistent">bPersistent</a>, <a href="../xinterface/guipage.html#bRenderWorld">bRenderWorld</a>, <a href="../xinterface/guipage.html#bRequire640x480">bRequire640x480</a>, <a href="../xinterface/guipage.html#bRestorable">bRestorable</a>, <a href="../xinterface/guipage.html#CloseSound">CloseSound</a>, <a href="../xinterface/guipage.html#InactiveFadeColor">InactiveFadeColor</a>, <a href="../xinterface/guipage.html#OpenSound">OpenSound</a>, <a href="../xinterface/guipage.html#ParentPage">ParentPage</a>, <a href="../xinterface/guipage.html#Timers">Timers</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_BackButtonClick-" name="BackButtonClick" title="go to the details">BackButtonClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ChangeCustomBots-" name="ChangeCustomBots" title="go to the details">ChangeCustomBots</a> (bool Enable))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ChangeGameType-" name="ChangeGameType" title="go to the details">ChangeGameType</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_ChangeHint-" name="ChangeHint" title="go to the details">ChangeHint</a> (string NewHint))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> MyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InternalOnReOpen-" name="InternalOnReOpen" title="go to the details">InternalOnReOpen</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PlayButtonClick-" name="PlayButtonClick" title="go to the details">PlayButtonClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TabChange-" name="TabChange" title="go to the details">TabChange</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipage.html">GUIPage</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/guipage.html#AllowOpen">AllowOpen</a>, <a href="../xinterface/guipage.html#ChangeHint">ChangeHint</a>, <a href="../xinterface/guipage.html#CheckResolution">CheckResolution</a>, <a href="../xinterface/guipage.html#Closed">Closed</a>, <a href="../xinterface/guipage.html#Free">Free</a>, <a href="../xinterface/guipage.html#GetDataString">GetDataString</a>, <a href="../xinterface/guipage.html#GetRestoreParams">GetRestoreParams</a>, <a href="../xinterface/guipage.html#HandleObject">HandleObject</a>, <a href="../xinterface/guipage.html#HandleParameters">HandleParameters</a>, <a href="../xinterface/guipage.html#InitComponent">InitComponent</a>, <a href="../xinterface/guipage.html#IsOpen">IsOpen</a>, <a href="../xinterface/guipage.html#NotifyLevelChange">NotifyLevelChange</a>, <a href="../xinterface/guipage.html#PlayCloseSound">PlayCloseSound</a>, <a href="../xinterface/guipage.html#PlayOpenSound">PlayOpenSound</a>, <a href="../xinterface/guipage.html#SetDataString">SetDataString</a>, <a href="../xinterface/guipage.html#SetFocus">SetFocus</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BotTabHint" class="hidden"></a>BotTabHint <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> BotTabHint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BotTabLabel" class="hidden"></a>BotTabLabel <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> BotTabLabel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MainTabHint" class="hidden"></a>MainTabHint <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> MainTabHint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MainTabLabel" class="hidden"></a>MainTabLabel <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> MainTabLabel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MutatorsTabHint" class="hidden"></a>MutatorsTabHint <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> MutatorsTabHint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MutatorsTabLabel" class="hidden"></a>MutatorsTabLabel <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> MutatorsTabLabel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyTabs" class="hidden"></a>MyTabs <a href="../Source_xinterface/ut2multiplayerhostpage.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guitabcontrol.html" class="source">GUITabControl</a></span> MyTabs;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_pBotConfig" class="hidden"></a>pBotConfig <a href="../Source_xinterface/ut2multiplayerhostpage.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span> pBotConfig;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_pMain" class="hidden"></a>pMain <a href="../Source_xinterface/ut2multiplayerhostpage.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/tab_multiplayerhostmain.html" class="source">Tab_MultiplayerHostMain</a></span> pMain;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_pMutators" class="hidden"></a>pMutators <a href="../Source_xinterface/ut2multiplayerhostpage.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/tab_instantactionmutators.html" class="source">Tab_InstantActionMutators</a></span> pMutators;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_pRules" class="hidden"></a>pRules <a href="../Source_xinterface/ut2multiplayerhostpage.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/tab_instantactionbaserules.html" class="source">Tab_InstantActionBaseRules</a></span> pRules;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_pServer" class="hidden"></a>pServer <a href="../Source_xinterface/ut2multiplayerhostpage.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/tab_multiplayerhostserversettings.html" class="source">Tab_MultiplayerHostServerSettings</a></span> pServer;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RulesTabHint" class="hidden"></a>RulesTabHint <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> RulesTabHint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RulesTabLabel" class="hidden"></a>RulesTabLabel <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> RulesTabLabel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerTabHint" class="hidden"></a>ServerTabHint <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> ServerTabHint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerTabLabel" class="hidden"></a>ServerTabLabel <a href="../Source_xinterface/ut2multiplayerhostpage.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> ServerTabLabel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BackButtonClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BackButtonClick <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#60" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> BackButtonClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeCustomBots-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChangeCustomBots <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#134" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ChangeCustomBots ( <span class="source_keyword">bool</span> Enable) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeGameType-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChangeGameType <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#122" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ChangeGameType ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeHint-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> ChangeHint <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#112" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  ChangeHint ( <span class="source_keyword">string</span> NewHint) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#30" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalOnReOpen-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalOnReOpen <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#118" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InternalOnReOpen ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayButtonClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayButtonClick <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#66" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PlayButtonClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TabChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TabChange <span class="function_state"></span> <a href="../Source_xinterface/ut2multiplayerhostpage.html#104" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TabChange ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     MainTabLabel=<span class="source_string">"Game & Map"</span>
+     MainTabHint=<span class="source_string">"Choose the starting map and game type to play..."</span>
+     RulesTabLabel=<span class="source_string">"Game Rules"</span>
+     RulesTabHint=<span class="source_string">"Configure the current game type..."</span>
+     MutatorsTabLabel=<span class="source_string">"Mutators"</span>
+     MutatorsTabHint=<span class="source_string">"Select and configure any mutators to use..."</span>
+     ServerTabLabel=<span class="source_string">"Server"</span>
+     ServerTabHint=<span class="source_string">"Configure all server specific settings..."</span>
+     BotTabLabel=<span class="source_string">"Bot Config"</span>
+     BotTabHint=<span class="source_string">"Configure any bots that will be in the session..."</span>
+     Background=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Backgrounds.bg11'</span>
+     OnReOpen=<span class="source_type"><a href="../xinterface/ut2multiplayerhostpage.html" class="source">UT2MultiplayerHostPage</a></span>.InternalOnReOpen
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guititlebar.html" class="source">GUITitleBar</a></span> <span class="source_keyword">Name</span>=HostHeader
+         Effect=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.Menu.CO_Final'</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Host Multiplayer Game"</span>
+         StyleName=<span class="source_string">"Header"</span>
+         WinTop=<span class="source_int">0.036406</span>
+         WinHeight=<span class="source_int">46.000000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">0</span>)=<span class="source_type"><a href="../xinterface/guititlebar.html" class="source">GUITitleBar</a></span><span class="source_name">'XInterface.UT2MultiplayerHostPage.HostHeader'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guitabcontrol.html" class="source">GUITabControl</a></span> <span class="source_keyword">Name</span>=HostTabs
+         TabHeight=<span class="source_int">0.040000</span>
+         WinTop=<span class="source_int">0.250000</span>
+         WinHeight=<span class="source_int">48.000000</span>
+         bAcceptsInput=<span class="source_keyword">True</span>
+         OnActivate=HostTabs.InternalOnActivate
+         OnChange=<span class="source_type"><a href="../xinterface/ut2multiplayerhostpage.html" class="source">UT2MultiplayerHostPage</a></span>.TabChange
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">1</span>)=<span class="source_type"><a href="../xinterface/guitabcontrol.html" class="source">GUITabControl</a></span><span class="source_name">'XInterface.UT2MultiplayerHostPage.HostTabs'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guititlebar.html" class="source">GUITitleBar</a></span> <span class="source_keyword">Name</span>=HostFooter
+         bUseTextHeight=<span class="source_keyword">False</span>
+         StyleName=<span class="source_string">"Footer"</span>
+         WinTop=<span class="source_int">0.930000</span>
+         WinLeft=<span class="source_int">0.120000</span>
+         WinWidth=<span class="source_int">0.760000</span>
+         WinHeight=<span class="source_int">0.055000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">2</span>)=<span class="source_type"><a href="../xinterface/guititlebar.html" class="source">GUITitleBar</a></span><span class="source_name">'XInterface.UT2MultiplayerHostPage.HostFooter'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=HostPlayButton
+         <span class="source_type">Caption</span>=<span class="source_string">"START"</span>
+         StyleName=<span class="source_string">"SquareMenuButton"</span>
+         Hint=<span class="source_string">"Start the server"</span>
+         WinTop=<span class="source_int">0.930000</span>
+         WinLeft=<span class="source_int">0.880000</span>
+         WinWidth=<span class="source_int">0.120000</span>
+         WinHeight=<span class="source_int">0.055000</span>
+         OnClick=<span class="source_type"><a href="../xinterface/ut2multiplayerhostpage.html" class="source">UT2MultiplayerHostPage</a></span>.PlayButtonClick
+         OnKeyEvent=HostPlayButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">3</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.UT2MultiplayerHostPage.HostPlayButton'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=HostBackButton
+         <span class="source_type">Caption</span>=<span class="source_string">"BACK"</span>
+         StyleName=<span class="source_string">"SquareMenuButton"</span>
+         Hint=<span class="source_string">"Cancel Changes and Return to Previous Menu"</span>
+         WinTop=<span class="source_int">0.930000</span>
+         WinWidth=<span class="source_int">0.120000</span>
+         WinHeight=<span class="source_int">0.055000</span>
+         OnClick=<span class="source_type"><a href="../xinterface/ut2multiplayerhostpage.html" class="source">UT2MultiplayerHostPage</a></span>.BackButtonClick
+         OnKeyEvent=HostBackButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">4</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.UT2MultiplayerHostPage.HostBackButton'</span>
+
+     WinHeight=<span class="source_int">1.000000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/ut2multiplayerhostpage.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2MultiplayerHostPage">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/ut2midgamemenu.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/ut2musicmanager.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:07.262 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

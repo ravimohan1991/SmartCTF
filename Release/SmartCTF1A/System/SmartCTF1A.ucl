@@ -1,0 +1,2 @@
+Mutator=(ClassName=SmartCTF1A.LinkActor,IconMaterialName=MutatorArt.nosym,FriendlyName=SmartCTF1A.LinkActor.FriendlyName,Description=SmartCTF1A.LinkActor.Description,FallbackName="LinkActor",FallbackDesc="LinkActor")
+Mutator=(ClassName=SmartCTF1A.SmartCTF,IconMaterialName=MutatorArt.nosym,FriendlyName=SmartCTF1A.SmartCTF.FriendlyName,Description=SmartCTF1A.SmartCTF.Description,FallbackName="SmartCTF",FallbackDesc="SmartCTF")

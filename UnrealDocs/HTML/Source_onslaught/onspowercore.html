@@ -1,0 +1,1529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: Onslaught.ONSPowerCore</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header"><a href="../onslaught/onspowercore.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#ONSPowerCore">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_onslaught/onsplayerreplicationinfo.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_onslaught/onspowercoreblue.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_onslaught/onspowercore.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onspowercore.html">ONSPowerCore</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105<br />00106<br />00107<br />00108<br />00109<br />00110<br />00111<br />00112<br />00113<br />00114<br />00115<br />00116<br />00117<br />00118<br />00119<br />00120<br />
+00121<br />00122<br />00123<br />00124<br />00125<br />00126<br />00127<br />00128<br />00129<br />00130<br />00131<br />00132<br />00133<br />00134<br />00135<br />00136<br />00137<br />00138<br />00139<br />00140<br />
+00141<br />00142<br />00143<br />00144<br />00145<br />00146<br />00147<br />00148<br />00149<br />00150<br />00151<br />00152<br />00153<br />00154<br />00155<br />00156<br />00157<br />00158<br />00159<br />00160<br />
+00161<br />00162<br />00163<br />00164<br />00165<br />00166<br />00167<br />00168<br />00169<br />00170<br />00171<br />00172<br />00173<br />00174<br />00175<br />00176<br />00177<br />00178<br />00179<br />00180<br />
+00181<br />00182<br />00183<br />00184<br />00185<br />00186<br />00187<br />00188<br />00189<br />00190<br />00191<br />00192<br />00193<br />00194<br />00195<br />00196<br />00197<br />00198<br />00199<br />00200<br />
+00201<br />00202<br />00203<br />00204<br />00205<br />00206<br />00207<br />00208<br />00209<br />00210<br />00211<br />00212<br />00213<br />00214<br />00215<br />00216<br />00217<br />00218<br />00219<br />00220<br />
+00221<br />00222<br />00223<br />00224<br />00225<br />00226<br />00227<br />00228<br />00229<br />00230<br />00231<br />00232<br />00233<br />00234<br />00235<br />00236<br />00237<br />00238<br />00239<br />00240<br />
+00241<br />00242<br />00243<br />00244<br />00245<br />00246<br />00247<br />00248<br />00249<br />00250<br />00251<br />00252<br />00253<br />00254<br />00255<br />00256<br />00257<br />00258<br />00259<br />00260<br />
+00261<br />00262<br />00263<br />00264<br />00265<br />00266<br />00267<br />00268<br />00269<br />00270<br />00271<br />00272<br />00273<br />00274<br />00275<br />00276<br />00277<br />00278<br />00279<br />00280<br />
+00281<br />00282<br />00283<br />00284<br />00285<br />00286<br />00287<br />00288<br />00289<br />00290<br />00291<br />00292<br />00293<br />00294<br />00295<br />00296<br />00297<br />00298<br />00299<br />00300<br />
+00301<br />00302<br />00303<br />00304<br />00305<br />00306<br />00307<br />00308<br />00309<br />00310<br />00311<br />00312<br />00313<br />00314<br />00315<br />00316<br />00317<br />00318<br />00319<br />00320<br />
+00321<br />00322<br />00323<br />00324<br />00325<br />00326<br />00327<br />00328<br />00329<br />00330<br />00331<br />00332<br />00333<br />00334<br />00335<br />00336<br />00337<br />00338<br />00339<br />00340<br />
+00341<br />00342<br />00343<br />00344<br />00345<br />00346<br />00347<br />00348<br />00349<br />00350<br />00351<br />00352<br />00353<br />00354<br />00355<br />00356<br />00357<br />00358<br />00359<br />00360<br />
+00361<br />00362<br />00363<br />00364<br />00365<br />00366<br />00367<br />00368<br />00369<br />00370<br />00371<br />00372<br />00373<br />00374<br />00375<br />00376<br />00377<br />00378<br />00379<br />00380<br />
+00381<br />00382<br />00383<br />00384<br />00385<br />00386<br />00387<br />00388<br />00389<br />00390<br />00391<br />00392<br />00393<br />00394<br />00395<br />00396<br />00397<br />00398<br />00399<br />00400<br />
+00401<br />00402<br />00403<br />00404<br />00405<br />00406<br />00407<br />00408<br />00409<br />00410<br />00411<br />00412<br />00413<br />00414<br />00415<br />00416<br />00417<br />00418<br />00419<br />00420<br />
+00421<br />00422<br />00423<br />00424<br />00425<br />00426<br />00427<br />00428<br />00429<br />00430<br />00431<br />00432<br />00433<br />00434<br />00435<br />00436<br />00437<br />00438<br />00439<br />00440<br />
+00441<br />00442<br />00443<br />00444<br />00445<br />00446<br />00447<br />00448<br />00449<br />00450<br />00451<br />00452<br />00453<br />00454<br />00455<br />00456<br />00457<br />00458<br />00459<br />00460<br />
+00461<br />00462<br />00463<br />00464<br />00465<br />00466<br />00467<br />00468<br />00469<br />00470<br />00471<br />00472<br />00473<br />00474<br />00475<br />00476<br />00477<br />00478<br />00479<br />00480<br />
+00481<br />00482<br />00483<br />00484<br />00485<br />00486<br />00487<br />00488<br />00489<br />00490<br />00491<br />00492<br />00493<br />00494<br />00495<br />00496<br />00497<br />00498<br />00499<br />00500<br />
+00501<br />00502<br />00503<br />00504<br />00505<br />00506<br />00507<br />00508<br />00509<br />00510<br />00511<br />00512<br />00513<br />00514<br />00515<br />00516<br />00517<br />00518<br />00519<br />00520<br />
+00521<br />00522<br />00523<br />00524<br />00525<br />00526<br />00527<br />00528<br />00529<br />00530<br />00531<br />00532<br />00533<br />00534<br />00535<br />00536<br />00537<br />00538<br />00539<br />00540<br />
+00541<br />00542<br />00543<br />00544<br />00545<br />00546<br />00547<br />00548<br />00549<br />00550<br />00551<br />00552<br />00553<br />00554<br />00555<br />00556<br />00557<br />00558<br />00559<br />00560<br />
+00561<br />00562<br />00563<br />00564<br />00565<br />00566<br />00567<br />00568<br />00569<br />00570<br />00571<br />00572<br />00573<br />00574<br />00575<br />00576<br />00577<br />00578<br />00579<br />00580<br />
+00581<br />00582<br />00583<br />00584<br />00585<br />00586<br />00587<br />00588<br />00589<br />00590<br />00591<br />00592<br />00593<br />00594<br />00595<br />00596<br />00597<br />00598<br />00599<br />00600<br />
+00601<br />00602<br />00603<br />00604<br />00605<br />00606<br />00607<br />00608<br />00609<br />00610<br />00611<br />00612<br />00613<br />00614<br />00615<br />00616<br />00617<br />00618<br />00619<br />00620<br />
+00621<br />00622<br />00623<br />00624<br />00625<br />00626<br />00627<br />00628<br />00629<br />00630<br />00631<br />00632<br />00633<br />00634<br />00635<br />00636<br />00637<br />00638<br />00639<br />00640<br />
+00641<br />00642<br />00643<br />00644<br />00645<br />00646<br />00647<br />00648<br />00649<br />00650<br />00651<br />00652<br />00653<br />00654<br />00655<br />00656<br />00657<br />00658<br />00659<br />00660<br />
+00661<br />00662<br />00663<br />00664<br />00665<br />00666<br />00667<br />00668<br />00669<br />00670<br />00671<br />00672<br />00673<br />00674<br />00675<br />00676<br />00677<br />00678<br />00679<br />00680<br />
+00681<br />00682<br />00683<br />00684<br />00685<br />00686<br />00687<br />00688<br />00689<br />00690<br />00691<br />00692<br />00693<br />00694<br />00695<br />00696<br />00697<br />00698<br />00699<br />00700<br />
+00701<br />00702<br />00703<br />00704<br />00705<br />00706<br />00707<br />00708<br />00709<br />00710<br />00711<br />00712<br />00713<br />00714<br />00715<br />00716<br />00717<br />00718<br />00719<br />00720<br />
+00721<br />00722<br />00723<br />00724<br />00725<br />00726<br />00727<br />00728<br />00729<br />00730<br />00731<br />00732<br />00733<br />00734<br />00735<br />00736<br />00737<br />00738<br />00739<br />00740<br />
+00741<br />00742<br />00743<br />00744<br />00745<br />00746<br />00747<br />00748<br />00749<br />00750<br />00751<br />00752<br />00753<br />00754<br />00755<br />00756<br />00757<br />00758<br />00759<br />00760<br />
+00761<br />00762<br />00763<br />00764<br />00765<br />00766<br />00767<br />00768<br />00769<br />00770<br />00771<br />00772<br />00773<br />00774<br />00775<br />00776<br />00777<br />00778<br />00779<br />00780<br />
+00781<br />00782<br />00783<br />00784<br />00785<br />00786<br />00787<br />00788<br />00789<br />00790<br />00791<br />00792<br />00793<br />00794<br />00795<br />00796<br />00797<br />00798<br />00799<br />00800<br />
+00801<br />00802<br />00803<br />00804<br />00805<br />00806<br />00807<br />00808<br />00809<br />00810<br />00811<br />00812<br />00813<br />00814<br />00815<br />00816<br />00817<br />00818<br />00819<br />00820<br />
+00821<br />00822<br />00823<br />00824<br />00825<br />00826<br />00827<br />00828<br />00829<br />00830<br />00831<br />00832<br />00833<br />00834<br />00835<br />00836<br />00837<br />00838<br />00839<br />00840<br />
+00841<br />00842<br />00843<br />00844<br />00845<br />00846<br />00847<br />00848<br />00849<br />00850<br />00851<br />00852<br />00853<br />00854<br />00855<br />00856<br />00857<br />00858<br />00859<br />00860<br />
+00861<br />00862<br />00863<br />00864<br />00865<br />00866<br />00867<br />00868<br />00869<br />00870<br />00871<br />00872<br />00873<br />00874<br />00875<br />00876<br />00877<br />00878<br />00879<br />00880<br />
+00881<br />00882<br />00883<br />00884<br />00885<br />00886<br />00887<br />00888<br />00889<br />00890<br />00891<br />00892<br />00893<br />00894<br />00895<br />00896<br />00897<br />00898<br />00899<br />00900<br />
+00901<br />00902<br />00903<br />00904<br />00905<br />00906<br />00907<br />00908<br />00909<br />00910<br />00911<br />00912<br />00913<br />00914<br />00915<br />00916<br />00917<br />00918<br />00919<br />00920<br />
+00921<br />00922<br />00923<br />00924<br />00925<br />00926<br />00927<br />00928<br />00929<br />00930<br />00931<br />00932<br />00933<br />00934<br />00935<br />00936<br />00937<br />00938<br />00939<br />00940<br />
+00941<br />00942<br />00943<br />00944<br />00945<br />00946<br />00947<br />00948<br />00949<br />00950<br />00951<br />00952<br />00953<br />00954<br />00955<br />00956<br />00957<br />00958<br />00959<br />00960<br />
+00961<br />00962<br />00963<br />00964<br />00965<br />00966<br />00967<br />00968<br />00969<br />00970<br />00971<br />00972<br />00973<br />00974<br />00975<br />00976<br />00977<br />00978<br />00979<br />00980<br />
+00981<br />00982<br />00983<br />00984<br />00985<br />00986<br />00987<br />00988<br />00989<br />00990<br />00991<br />00992<br />00993<br />00994<br />00995<br />00996<br />00997<br />00998<br />00999<br />01000<br />
+01001<br />01002<br />01003<br />01004<br />01005<br />01006<br />01007<br />01008<br />01009<br />01010<br />01011<br />01012<br />01013<br />01014<br />01015<br />01016<br />01017<br />01018<br />01019<br />01020<br />
+01021<br />01022<br />01023<br />01024<br />01025<br />01026<br />01027<br />01028<br />01029<br />01030<br />01031<br />01032<br />01033<br />01034<br />01035<br />01036<br />01037<br />01038<br />01039<br />01040<br />
+01041<br />01042<br />01043<br />01044<br />01045<br />01046<br />01047<br />01048<br />01049<br />01050<br />01051<br />01052<br />01053<br />01054<br />01055<br />01056<br />01057<br />01058<br />01059<br />01060<br />
+01061<br />01062<br />01063<br />01064<br />01065<br />01066<br />01067<br />01068<br />01069<br />01070<br />01071<br />01072<br />01073<br />01074<br />01075<br />01076<br />01077<br />01078<br />01079<br />01080<br />
+01081<br />01082<br />01083<br />01084<br />01085<br />01086<br />01087<br />01088<br />01089<br />01090<br />01091<br />01092<br />01093<br />01094<br />01095<br />01096<br />01097<br />01098<br />01099<br />01100<br />
+01101<br />01102<br />01103<br />01104<br />01105<br />01106<br />01107<br />01108<br />01109<br />01110<br />01111<br />01112<br />01113<br />01114<br />01115<br />01116<br />01117<br />01118<br />01119<br />01120<br />
+01121<br />01122<br />01123<br />01124<br />01125<br />01126<br />01127<br />01128<br />01129<br />01130<br />01131<br />01132<br />01133<br />01134<br />01135<br />01136<br />01137<br />01138<br />01139<br />01140<br />
+01141<br />01142<br />01143<br />01144<br />01145<br />01146<br />01147<br />01148<br />01149<br />01150<br />01151<br />01152<br />01153<br />01154<br />01155<br />01156<br />01157<br />01158<br />01159<br />01160<br />
+01161<br />01162<br />01163<br />01164<br />01165<br />01166<br />01167<br />01168<br />01169<br />01170<br />01171<br />01172<br />01173<br />01174<br />01175<br />01176<br />01177<br />01178<br />01179<br />01180<br />
+01181<br />01182<br />01183<br />01184<br />01185<br />01186<br />01187<br />01188<br />01189<br />01190<br />01191<br />01192<br />01193<br />01194<br />01195<br />01196<br />01197<br />01198<br />01199<br />01200<br />
+01201<br />01202<br />01203<br />01204<br />01205<br />01206<br />01207<br />01208<br />01209<br />01210<br />01211<br />01212<br />01213<br />01214<br />01215<br />01216<br />01217<br />01218<br />01219<br />01220<br />
+01221<br />01222<br />01223<br />01224<br />01225<br />01226<br />01227<br />01228<br />01229<br />01230<br />01231<br />01232<br />01233<br />01234<br />01235<br />01236<br />01237<br />01238<br />01239<br />01240<br />
+01241<br />01242<br />01243<br />01244<br />01245<br />01246<br />01247<br />01248<br />01249<br />01250<br />01251<br />01252<br />01253<br />01254<br />01255<br />01256<br />01257<br />01258<br />01259<br />01260<br />
+01261<br />01262<br />01263<br />01264<br />01265<br />01266<br />01267<br />01268<br />01269<br />01270<br />01271<br />01272<br />01273<br />01274<br />01275<br />01276<br />01277<br />01278<br />01279<br />01280<br />
+01281<br />01282<br />01283<br />01284<br />01285<br />01286<br />01287<br />01288<br />01289<br />01290<br />01291<br />01292<br />01293<br />01294<br />01295<br />01296<br />01297<br />01298<br />01299<br />01300<br />
+01301<br />01302<br />01303<br />01304<br />01305<br />01306<br />01307<br />01308<br />01309<br />01310<br />01311<br />01312<br />01313<br />01314<br />01315<br />01316<br />01317<br />01318<br />01319<br />01320<br />
+01321<br />01322<br />01323<br />01324<br />01325<br />01326<br />01327<br />01328<br />01329<br />01330<br />01331<br />01332<br />01333<br />01334<br />01335<br />01336<br />01337<br />01338<br />01339<br />01340<br />
+01341<br />01342<br />01343<br />01344<br />01345<br />01346<br />01347<br />01348<br />01349<br />01350<br />01351<br />01352<br />01353<br />01354<br />01355<br />01356<br />01357<br />01358<br />01359<br />01360<br />
+01361<br />01362<br />01363<br />01364<br />01365<br />01366<br />01367<br />01368<br />01369<br />01370<br />01371<br />01372<br />01373<br />01374<br />01375<br />01376<br />01377<br />01378<br />01379<br />01380<br />
+01381<br />01382<br />01383<br />01384<br />01385<br />01386<br />01387<br />01388<br />01389<br />01390<br />01391<br />01392<br />01393<br />01394<br />01395<br />01396<br />01397<br />01398<br />01399<br />01400<br />
+01401</span></td>
+<td class="source"><pre class="source"><a name="0"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../unrealgame/destroyableobjective.html" class="source">DestroyableObjective</a></span>
+<a name="2"></a>	<span class="source_keyword2">hidecategories</span>(<span class="source_type"><a href="../unrealgame/destroyableobjective.html" class="source">DestroyableObjective</a></span>)
+<a name="3"></a>	<span class="source_keyword2">abstract</span>;
+<a name="4"></a>
+<a name="5"></a><span class="source_macro">#exec OBJ LOAD FILE="..\StaticMeshes\VMStructures.usx"
+</span><a name="6"></a><span class="source_macro">#exec OBJ LOAD FILE="..\Textures\ONSstructureTextures.utx"
+</span><a name="7"></a>
+<a name="8"></a>
+<a name="9"></a><span class="source_keyword">var</span>(Events) <span class="source_keyword">name</span>            RedActivationEventName;
+<a name="10"></a><span class="source_keyword">var</span>(Events) <span class="source_keyword">name</span>            BlueActivationEventName;
+<a name="11"></a><span class="source_keyword">var</span>(Events) <span class="source_keyword">name</span>            DestroyedEventName;
+<a name="12"></a>
+<a name="13"></a><span class="source_keyword">var</span>()   <span class="source_keyword">float</span>               ConstructionTime;
+<a name="14"></a><span class="source_keyword">var</span>()   <span class="source_type">StaticMesh</span>          DeadStaticMesh;
+<a name="15"></a><span class="source_keyword">var</span>()   <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>               DestroyedSound;
+<a name="16"></a><span class="source_keyword">var</span>()	<span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>				ConstructedSound;
+<a name="17"></a><span class="source_keyword">var</span>()	<span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>				StartConstructionSound;
+<a name="18"></a><span class="source_keyword">var</span>()   <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>               ActiveSound;
+<a name="19"></a><span class="source_keyword">var</span>()   <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>               NeutralSound;
+<a name="20"></a><span class="source_keyword">var</span>()   <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>               HealingSound;
+<a name="21"></a><span class="source_keyword">var</span>()   <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>               HealedSound;
+<a name="22"></a><span class="source_keyword">var</span>()   <span class="source_keyword">bool</span>                bStartNeutral;
+<a name="23"></a><span class="source_keyword">var</span>()   <span class="source_keyword">bool</span>                bPowered;
+<a name="24"></a><span class="source_keyword">var</span>()   <span class="source_keyword">bool</span>                bFinalCore;
+<a name="25"></a>
+<a name="26"></a><span class="source_keyword">var</span>     <span class="source_keyword">bool</span>                bPoweredByRed;
+<a name="27"></a><span class="source_keyword">var</span>     <span class="source_keyword">bool</span>                bPoweredByBlue;
+<a name="28"></a><span class="source_keyword">var</span>     <span class="source_keyword">bool</span>                bSevered;
+<a name="29"></a><span class="source_keyword">var</span>     <span class="source_keyword">bool</span>                bUnderAttack;
+<a name="30"></a><span class="source_keyword">var</span>     <span class="source_keyword">bool</span>                bOldUnderAttack;
+<a name="31"></a>
+<a name="32"></a><span class="source_keyword">var</span>     <span class="source_keyword2">globalconfig</span>  <span class="source_keyword">bool</span>        bShowNodeBeams;
+<a name="33"></a>
+<a name="34"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">name</span>&gt; LinkedNodes;
+<a name="35"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>&gt; PowerLinks;
+<a name="36"></a>
+<a name="37"></a><span class="source_comment">// Internal
+</span><a name="38"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; RedConstructingSkins;
+<a name="39"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; BlueConstructingSkins;
+<a name="40"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; RedActiveSkins;
+<a name="41"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; BlueActiveSkins;
+<a name="42"></a><span class="source_keyword">var</span> <span class="source_keyword">byte</span>            CoreStage;
+<a name="43"></a><span class="source_keyword">var</span> <span class="source_keyword">byte</span>            LastCoreStage;
+<a name="44"></a><span class="source_keyword">var</span> <span class="source_keyword">byte</span>            FinalCoreDistance[<span class="source_int">2</span>];
+<a name="45"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           ConstructionTimeElapsed;
+<a name="46"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           LastAttackTime;
+<a name="47"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           LastAttackExpirationTime;
+<a name="48"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           LastAttackAnnouncementTime;
+<a name="49"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           LastAttackMessageTime;
+<a name="50"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           SeveredDamagePerSecond;
+<a name="51"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span>           HealingTime;
+<a name="52"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span>&gt;    CloseActors;
+<a name="53"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsteleportpad.html" class="source">ONSTeleportPad</a></span>&gt; TeleportPads;
+<a name="54"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/triggers.html" class="source">Triggers</a></span> TeleportTrigger;
+<a name="55"></a><span class="source_keyword">var</span> <span class="source_keyword">int</span> DestructionMessageIndex; <span class="source_comment">//base switch for ONSOnslaughtMessage
+</span><a name="56"></a><span class="source_keyword">var</span> <span class="source_keyword">string</span> DestroyedEvent[<span class="source_int">4</span>];
+<a name="57"></a><span class="source_keyword">var</span> <span class="source_keyword">string</span> ConstructedEvent[<span class="source_int">2</span>];
+<a name="58"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Constructor; <span class="source_comment">//player who touched me to start construction
+</span><a name="59"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> LastHealedBy;
+<a name="60"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsnodehealeffect.html" class="source">ONSNodeHealEffect</a></span> NodeHealEffect;
+<a name="61"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> NodeBeamEffect;
+<a name="62"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> ExplosionEffect;
+<a name="63"></a>
+<a name="64"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsfreeroamingenergyeffect.html" class="source">ONSFreeRoamingEnergyEffect</a></span>  RoamingEnergy;
+<a name="65"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercoreshield.html" class="source">ONSPowerCoreShield</a></span>          Shield;
+<a name="66"></a><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onspowercoreshield.html" class="source">ONSPowerCoreShield</a></span>&gt;   ShieldClass;
+<a name="67"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span>			ShieldOffset;
+<a name="68"></a>
+<a name="69"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> LastDamagedBy;
+<a name="70"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> LastAttacker;
+<a name="71"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> NextCore;	<span class="source_comment">// link it :P  -- rjp
+</span><a name="72"></a>
+<a name="73"></a><span class="source_keyword">var</span> <span class="source_keyword">byte</span> LastDefenderTeamIndex;
+<a name="74"></a><span class="source_keyword">var</span>(<span class="source_type"><a href="../engine/hud.html" class="source">HUD</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation;
+<a name="75"></a><span class="source_keyword">var</span> <span class="source_keyword">int</span> NodeNum;
+<a name="76"></a>
+<a name="77"></a><span class="source_keyword">replication</span>
+<a name="78"></a>{
+<a name="79"></a>	<span class="source_keyword">reliable</span> <span class="source_keyword">if</span> (bNetDirty && Role == ROLE_Authority)
+<a name="80"></a>		CoreStage, bUnderAttack, bPoweredByRed, bPoweredByBlue, bSevered;
+<a name="81"></a>}
+<a name="82"></a>
+<a name="83"></a><span class="source_keyword">delegate</span> UpdateLinkState(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span>);
+<a name="84"></a><span class="source_keyword">delegate</span> NotifyUpdateLinks();
+<a name="85"></a><span class="source_keyword">delegate</span> OnCoreDestroyed( <span class="source_keyword">byte</span> DestroyedCoreIndex );
+<a name="86"></a>
+<a name="87"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> UpdatePrecacheMaterials()
+<a name="88"></a>{
+<a name="89"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="90"></a>
+<a name="91"></a>	<span class="source_keyword">for</span> ( <span class="source_type">i</span>=<span class="source_int">0</span>; <span class="source_type">i</span>&lt;RedConstructingSkins.Length; <span class="source_type">i</span>++ )
+<a name="92"></a>		<span class="source_type">Level</span>.AddPrecacheMaterial(RedConstructingSkins[<span class="source_type">i</span>]);
+<a name="93"></a>
+<a name="94"></a>	<span class="source_keyword">for</span> ( <span class="source_type">i</span>=<span class="source_int">0</span>; <span class="source_type">i</span>&lt;BlueConstructingSkins.Length; <span class="source_type">i</span>++ )
+<a name="95"></a>		<span class="source_type">Level</span>.AddPrecacheMaterial(BlueConstructingSkins[<span class="source_type">i</span>]);
+<a name="96"></a>
+<a name="97"></a>	<span class="source_keyword">for</span> ( <span class="source_type">i</span>=<span class="source_int">0</span>; <span class="source_type">i</span>&lt;RedActiveSkins.Length; <span class="source_type">i</span>++ )
+<a name="98"></a>		<span class="source_type">Level</span>.AddPrecacheMaterial(RedActiveSkins[<span class="source_type">i</span>]);
+<a name="99"></a>
+<a name="100"></a>	<span class="source_keyword">for</span> ( <span class="source_type">i</span>=<span class="source_int">0</span>; <span class="source_type">i</span>&lt;BlueActiveSkins.Length; <span class="source_type">i</span>++ )
+<a name="101"></a>		<span class="source_type">Level</span>.AddPrecacheMaterial(BlueActiveSkins[<span class="source_type">i</span>]);
+<a name="102"></a>
+<a name="103"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AW-2004Particles.Energy.AirBlast'</span>);
+<a name="104"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AW-2004Particles.Energy.PowerBeam'</span>);
+<a name="105"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'ONSstructureTextures.CoreBreachGroup.exp7_framesBLUE'</span>);
+<a name="106"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'ONSstructureTextures.CoreBreachGroup.coreBreachACCRETIONblue'</span>);
+<a name="107"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'ONSstructureTextures.CoreBreachGroup.CoreBreachShockRingTRANS'</span>);
+<a name="108"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'ONSstructureTextures.CoreBreachGroup.CoreBreachShockRINGedge'</span>);
+<a name="109"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'VMParticleTextures.PowerNodeEXP.powerNodeEXPblueTEX'</span>);
+<a name="110"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'ONSstructureTextures.CoreBreachGroup.coreBreachACCRETIONred'</span>);
+<a name="111"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'VMParticleTextures.PowerNodeEXP.powerNodeEXPredTEX'</span>);
+<a name="112"></a>
+<a name="113"></a>    <span class="source_keyword">Super</span>.UpdatePrecacheMaterials();
+<a name="114"></a>}
+<a name="115"></a>
+<a name="116"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> UpdatePrecacheStaticMeshes()
+<a name="117"></a>{
+<a name="118"></a>    <span class="source_keyword">if</span> (DeadStaticMesh != <span class="source_keyword">None</span>)
+<a name="119"></a>	   <span class="source_type">Level</span>.AddPrecacheStaticMesh(DeadStaticMesh);
+<a name="120"></a>
+<a name="121"></a>	<span class="source_keyword">Super</span>.UpdatePrecacheStaticMeshes();
+<a name="122"></a>}
+<a name="123"></a>
+<a name="124"></a><span class="source_keyword">event</span> SetInitialState()
+<a name="125"></a>{
+<a name="126"></a>    Disable(<span class="source_name">'Tick'</span>);
+<a name="127"></a>
+<a name="128"></a>	InitialState = <span class="source_name">''</span>;
+<a name="129"></a>
+<a name="130"></a>    <span class="source_keyword">if</span> (PowerLinks.length == <span class="source_int">0</span>)
+<a name="131"></a>    {
+<a name="132"></a>        CoreStage = <span class="source_int">255</span>;
+<a name="133"></a>        PowerCoreDisabled();
+<a name="134"></a>        InitialState = <span class="source_name">'DisabledCore'</span>;
+<a name="135"></a>    }
+<a name="136"></a>    <span class="source_keyword">else</span> <span class="source_keyword">if</span> (bStartNeutral)
+<a name="137"></a>    {
+<a name="138"></a>        CoreStage = <span class="source_int">4</span>;
+<a name="139"></a>        PowerCoreNeutral();
+<a name="140"></a>        InitialState = <span class="source_name">'NeutralCore'</span>;
+<a name="141"></a>    }
+<a name="142"></a>    <span class="source_keyword">else</span>
+<a name="143"></a>    {
+<a name="144"></a>		CoreStage = <span class="source_int">0</span>;
+<a name="145"></a>        PowerCoreActive();
+<a name="146"></a>    }
+<a name="147"></a>
+<a name="148"></a>    <span class="source_keyword">Super</span>.SetInitialState();
+<a name="149"></a>}
+<a name="150"></a>
+<a name="151"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> BeginPlay()
+<a name="152"></a>{
+<a name="153"></a>    PowerLinks.Length = <span class="source_int">0</span>;
+<a name="154"></a>}
+<a name="155"></a>
+<a name="156"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> PostBeginPlay()
+<a name="157"></a>{
+<a name="158"></a>    <span class="source_keyword">local</span> <span class="source_keyword">bool</span> bWasDisabled;
+<a name="159"></a>
+<a name="160"></a>    bWasDisabled = bDisabled;
+<a name="161"></a>    <span class="source_keyword">Super</span>.PostBeginPlay();
+<a name="162"></a>    bDisabled = bWasDisabled;
+<a name="163"></a>
+<a name="164"></a>    Shield = Spawn(ShieldClass, self,, Location + ShieldOffset);
+<a name="165"></a>
+<a name="166"></a>    SetupPowerLinks();
+<a name="167"></a>
+<a name="168"></a>    <span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="169"></a>    	SpawnNodeTeleportTrigger();
+<a name="170"></a>}
+<a name="171"></a>
+<a name="172"></a><span class="source_keyword">function</span> SpawnNodeTeleportTrigger()
+<a name="173"></a>{
+<a name="174"></a>	TeleportTrigger = spawn(<span class="source_keyword">class</span><span class="source_name">'ONSPCTeleportTrigger'</span>, self);
+<a name="175"></a>}
+<a name="176"></a>
+<a name="177"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> PostNetBeginPlay()
+<a name="178"></a>{
+<a name="179"></a>    FindCloseActors();
+<a name="180"></a>    CheckShield();
+<a name="181"></a>}
+<a name="182"></a>
+<a name="183"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> ClosestTo(<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">A</span>)
+<a name="184"></a>{
+<a name="185"></a>    <span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Distance</span>, BestDistance;
+<a name="186"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">C</span>, Best;
+<a name="187"></a>
+<a name="188"></a>	BestDistance = VSize(<span class="source_type">A</span>.Location - Location);
+<a name="189"></a>	Best = Self;
+<a name="190"></a>
+<a name="191"></a>	<span class="source_keyword">for</span> ( <span class="source_type">C</span> = NextCore; <span class="source_type">C</span> != Self && <span class="source_type">C</span> != <span class="source_keyword">None</span>; <span class="source_type">C</span> = <span class="source_type">C</span>.NextCore )
+<a name="192"></a>	{
+<a name="193"></a>		<span class="source_type">Distance</span> = VSize(<span class="source_type">A</span>.Location - <span class="source_type">C</span>.Location);
+<a name="194"></a>		<span class="source_keyword">if</span> ( <span class="source_type">Distance</span> &lt; BestDistance )
+<a name="195"></a>		{
+<a name="196"></a>			BestDistance = <span class="source_type">Distance</span>;
+<a name="197"></a>			Best = <span class="source_type">C</span>;
+<a name="198"></a>		}
+<a name="199"></a>	}
+<a name="200"></a>
+<a name="201"></a>	<span class="source_keyword">return</span> Best;
+<a name="202"></a>}
+<a name="203"></a>
+<a name="204"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> FindCloseActors()
+<a name="205"></a>{
+<a name="206"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">A</span>;
+<a name="207"></a>
+<a name="208"></a>	CloseActors.Length = <span class="source_int">0</span>;
+<a name="209"></a>
+<a name="210"></a>	<span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="211"></a>	{
+<a name="212"></a>		<span class="source_keyword">foreach</span> AllActors(<span class="source_keyword">class</span> <span class="source_name">'Actor'</span>, <span class="source_type">A</span>)
+<a name="213"></a>			<span class="source_keyword">if</span> ( (<span class="source_type">A</span>.IsA(<span class="source_name">'PlayerStart'</span>) || <span class="source_type">A</span>.IsA(<span class="source_name">'ONSVehicleFactory'</span>) || <span class="source_type">A</span>.IsA(<span class="source_name">'ONSStationaryWeaponPawn'</span>) || <span class="source_type">A</span>.IsA(<span class="source_name">'xTeamBanner'</span>) || <span class="source_type">A</span>.IsA(<span class="source_name">'ONSTeleportPad'</span>))
+<a name="214"></a>			     && ClosestTo(<span class="source_type">A</span>) == self )
+<a name="215"></a>			{
+<a name="216"></a>				<span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'ONSTeleportPad'</span>))
+<a name="217"></a>				{
+<a name="218"></a>					<span class="source_type">A</span>.SetOwner(self);
+<a name="219"></a>					TeleportPads[TeleportPads.length] = <span class="source_type"><a href="../onslaught/onsteleportpad.html" class="source">ONSTeleportPad</a></span>(<span class="source_type">A</span>);
+<a name="220"></a>				}
+<a name="221"></a>				<span class="source_keyword">else</span>
+<a name="222"></a>					CloseActors[CloseActors.Length] = <span class="source_type">A</span>;
+<a name="223"></a>			}
+<a name="224"></a>	}
+<a name="225"></a>	<span class="source_keyword">else</span>
+<a name="226"></a>	{
+<a name="227"></a>		<span class="source_keyword">foreach</span> AllActors(<span class="source_keyword">class</span><span class="source_name">'Actor'</span>, <span class="source_type">A</span>)
+<a name="228"></a>			<span class="source_keyword">if</span> ((<span class="source_type">A</span>.IsA(<span class="source_name">'xTeamBanner'</span>) || <span class="source_type">A</span>.IsA(<span class="source_name">'ONSTeleportPad'</span>)) && ClosestTo(<span class="source_type">A</span>) == self)
+<a name="229"></a>			{
+<a name="230"></a>				<span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'ONSTeleportPad'</span>))
+<a name="231"></a>				{
+<a name="232"></a>					<span class="source_type">A</span>.SetOwner(self);
+<a name="233"></a>					TeleportPads[TeleportPads.length] = <span class="source_type"><a href="../onslaught/onsteleportpad.html" class="source">ONSTeleportPad</a></span>(<span class="source_type">A</span>);
+<a name="234"></a>				}
+<a name="235"></a>				<span class="source_keyword">else</span>
+<a name="236"></a>					CloseActors[CloseActors.Length] = <span class="source_type">A</span>;
+<a name="237"></a>			}
+<a name="238"></a>	}
+<a name="239"></a>}
+<a name="240"></a>
+<a name="241"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> SetupPowerLinks()
+<a name="242"></a>{
+<a name="243"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>;
+<a name="244"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../engine/navigationpoint.html" class="source">NavigationPoint</a></span> <span class="source_type">N</span>;
+<a name="245"></a>
+<a name="246"></a><span class="source_comment">//	log(Name@"SetupPowerLinks()");
+</span><a name="247"></a>    <span class="source_keyword">for</span> ( <span class="source_type">N</span> = <span class="source_type">Level</span>.NavigationPointList; <span class="source_type">N</span> != <span class="source_keyword">None</span>; <span class="source_type">N</span> = <span class="source_type">N</span>.nextNavigationPoint )
+<a name="248"></a>    {
+<a name="249"></a>    	<span class="source_type">PC</span> = <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>(<span class="source_type">N</span>);
+<a name="250"></a>    	<span class="source_keyword">if</span> ( <span class="source_type">PC</span> != <span class="source_keyword">None</span> )
+<a name="251"></a>    	{
+<a name="252"></a>    		<span class="source_keyword">if</span> ( NextCore == <span class="source_keyword">None</span> )
+<a name="253"></a>    		{
+<a name="254"></a>				<span class="source_keyword">if</span> ( <span class="source_type">PC</span>.NextCore == <span class="source_keyword">None</span> )
+<a name="255"></a>					NextCore = <span class="source_type">PC</span>;
+<a name="256"></a>				<span class="source_keyword">else</span> NextCore = <span class="source_type">PC</span>.NextCore;
+<a name="257"></a>				<span class="source_type">PC</span>.NextCore = Self;
+<a name="258"></a>			}
+<a name="259"></a>
+<a name="260"></a>			<span class="source_keyword">if</span> ( ShouldLinkTo(<span class="source_type">PC</span>) )
+<a name="261"></a>				AddPowerLink(<span class="source_type">PC</span>);
+<a name="262"></a>		}
+<a name="263"></a>	}
+<a name="264"></a>}
+<a name="265"></a>
+<a name="266"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> ResetLinks()
+<a name="267"></a>{
+<a name="268"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Core</span>;
+<a name="269"></a>
+<a name="270"></a>	PowerLinks.Remove(<span class="source_int">0</span>,PowerLinks.Length);
+<a name="271"></a>	<span class="source_type">Core</span> = NextCore;
+<a name="272"></a>	do
+<a name="273"></a>	{
+<a name="274"></a>		<span class="source_keyword">if</span> ( ShouldLinkTo(<span class="source_type">Core</span>) )
+<a name="275"></a>			AddPowerLink(<span class="source_type">Core</span>);
+<a name="276"></a>
+<a name="277"></a>		<span class="source_type">Core</span> = <span class="source_type">Core</span>.NextCore;
+<a name="278"></a>	}
+<a name="279"></a>	until ( <span class="source_type">Core</span> == <span class="source_keyword">None</span> || <span class="source_type">Core</span> == Self );
+<a name="280"></a>
+<a name="281"></a>	SetInitialState();
+<a name="282"></a>}
+<a name="283"></a>
+<a name="284"></a><span class="source_keyword">function</span> Sever()
+<a name="285"></a>{
+<a name="286"></a>	<span class="source_keyword">if</span> (<span class="source_type">Level</span>.Game.ResetCountDown &lt;= <span class="source_int">0</span> && !<span class="source_type">Level</span>.Game.bGameEnded)
+<a name="287"></a>	{
+<a name="288"></a>		SetTimer(<span class="source_int">1.0</span>, <span class="source_keyword">True</span>);
+<a name="289"></a>		<span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">0</span>)
+<a name="290"></a>			BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">27</span>);
+<a name="291"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">1</span>)
+<a name="292"></a>			BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">28</span>);
+<a name="293"></a>	}
+<a name="294"></a>}
+<a name="295"></a>
+<a name="296"></a><span class="source_keyword">function</span> UnSever()
+<a name="297"></a>{
+<a name="298"></a>    SetTimer(<span class="source_int">0</span>, <span class="source_keyword">false</span>);
+<a name="299"></a>}
+<a name="300"></a>
+<a name="301"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> AddPowerLink(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>)
+<a name="302"></a>{
+<a name="303"></a>    <span class="source_keyword">if</span> ( <span class="source_type">PC</span> == self || LinkedTo(<span class="source_type">PC</span>) )
+<a name="304"></a>    	<span class="source_keyword">return</span>;
+<a name="305"></a>
+<a name="306"></a>    PowerLinks[PowerLinks.Length] = <span class="source_type">PC</span>;
+<a name="307"></a>	<span class="source_keyword">if</span> ( <span class="source_type">PC</span>.bFinalCore )
+<a name="308"></a>		DefensePriority = <span class="source_type">Max</span>(DefensePriority, <span class="source_int">5</span>);
+<a name="309"></a>
+<a name="310"></a>	<span class="source_type">PC</span>.AddPowerLink(Self);
+<a name="311"></a>}
+<a name="312"></a>
+<a name="313"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> RemovePowerLink(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>)
+<a name="314"></a>{
+<a name="315"></a>    <span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="316"></a>
+<a name="317"></a>	<span class="source_type">i</span> = FindNodeLinkIndex(<span class="source_type">PC</span>);
+<a name="318"></a>
+<a name="319"></a><span class="source_comment">//	log(Name@"RemovePowerLink "@PC.Name);
+</span><a name="320"></a>	<span class="source_keyword">if</span> ( <span class="source_type">i</span> != -<span class="source_int">1</span> )
+<a name="321"></a>	{
+<a name="322"></a>		PowerLinks.Remove(<span class="source_type">i</span>,<span class="source_int">1</span>);
+<a name="323"></a>		<span class="source_keyword">if</span> ( bFinalCore )
+<a name="324"></a>			<span class="source_type">PC</span>.RemovedCoreLink();
+<a name="325"></a><span class="source_comment">//		PC.RemovePowerLink(self);
+</span><a name="326"></a>	}
+<a name="327"></a>}
+<a name="328"></a>
+<a name="329"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> RemovedCoreLink()
+<a name="330"></a>{
+<a name="331"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="332"></a>
+<a name="333"></a>	<span class="source_keyword">for</span> ( <span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; PowerLinks.Length; <span class="source_type">i</span>++ )
+<a name="334"></a>		<span class="source_keyword">if</span> ( PowerLinks[<span class="source_type">i</span>].bFinalCore )
+<a name="335"></a>			<span class="source_keyword">return</span>;
+<a name="336"></a>
+<a name="337"></a>	DefensePriority = default.DefensePriority;
+<a name="338"></a>}
+<a name="339"></a>
+<a name="340"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword2">protected</span> <span class="source_keyword">bool</span> ShouldLinkTo( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span> )
+<a name="341"></a>{
+<a name="342"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="343"></a>
+<a name="344"></a>	<span class="source_keyword">if</span> ( <span class="source_type">Node</span> == <span class="source_keyword">None</span> )
+<a name="345"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="346"></a>
+<a name="347"></a>    <span class="source_keyword">for</span> (<span class="source_type">i</span>=<span class="source_int">0</span>; <span class="source_type">i</span>&lt;LinkedNodes.Length; <span class="source_type">i</span>++)
+<a name="348"></a>    	<span class="source_keyword">if</span> ( <span class="source_type">Node</span>.<span class="source_keyword">Name</span> == LinkedNodes[<span class="source_type">i</span>] )
+<a name="349"></a>    		<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="350"></a>
+<a name="351"></a>    <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="352"></a>}
+<a name="353"></a>
+<a name="354"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> LinkedTo(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>)
+<a name="355"></a>{
+<a name="356"></a>	<span class="source_keyword">return</span> FindNodeLinkIndex(<span class="source_type">PC</span>) != -<span class="source_int">1</span>;
+<a name="357"></a>}
+<a name="358"></a>
+<a name="359"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">int</span> FindNodeLinkIndex( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span> )
+<a name="360"></a>{
+<a name="361"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="362"></a>
+<a name="363"></a>	<span class="source_keyword">if</span> ( <span class="source_type">Node</span> == <span class="source_keyword">None</span> )
+<a name="364"></a>		<span class="source_keyword">return</span> -<span class="source_int">1</span>;
+<a name="365"></a>
+<a name="366"></a>	<span class="source_keyword">for</span> ( <span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; PowerLinks.Length; <span class="source_type">i</span>++ )
+<a name="367"></a>		<span class="source_keyword">if</span> ( PowerLinks[<span class="source_type">i</span>] == <span class="source_type">Node</span> )
+<a name="368"></a>			<span class="source_keyword">return</span> <span class="source_type">i</span>;
+<a name="369"></a>
+<a name="370"></a>	<span class="source_keyword">return</span> -<span class="source_int">1</span>;
+<a name="371"></a>}
+<a name="372"></a>
+<a name="373"></a><span class="source_keyword">function</span> DisableObjective(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">Instigator</span>)
+<a name="374"></a>{
+<a name="375"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>	PRI;
+<a name="376"></a>
+<a name="377"></a>	<span class="source_keyword">if</span> (CoreStage != <span class="source_int">5</span>)
+<a name="378"></a>	{
+<a name="379"></a>		<span class="source_keyword">if</span> ( <span class="source_type">Instigator</span> != <span class="source_keyword">None</span> )
+<a name="380"></a>			PRI = <span class="source_type">Instigator</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>;
+<a name="381"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> ( DelayedDamageInstigatorController != <span class="source_keyword">None</span> )
+<a name="382"></a>			PRI = DelayedDamageInstigatorController.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>;
+<a name="383"></a>
+<a name="384"></a>		BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, DestructionMessageIndex + DefenderTeamIndex, PRI);
+<a name="385"></a>
+<a name="386"></a>		<span class="source_keyword">if</span> ( bAccruePoints )
+<a name="387"></a>			<span class="source_type">Level</span>.Game.ScoreObjective( PRI, <span class="source_int">0</span> );
+<a name="388"></a>		<span class="source_keyword">else</span>
+<a name="389"></a>		{
+<a name="390"></a>			<span class="source_keyword">if</span> (CoreStage == <span class="source_int">0</span>)
+<a name="391"></a>				ShareScore(<span class="source_type">Score</span>, DestroyedEvent[DefenderTeamIndex]);
+<a name="392"></a>			<span class="source_keyword">else</span>
+<a name="393"></a>				ShareScore(<span class="source_type">Score</span>, DestroyedEvent[<span class="source_int">2</span>+DefenderTeamIndex]);
+<a name="394"></a>		}
+<a name="395"></a>	}
+<a name="396"></a>
+<a name="397"></a>	CoreStage = <span class="source_int">1</span>;
+<a name="398"></a>	TriggerEvent(DestroyedEventName, self, <span class="source_keyword">None</span>);
+<a name="399"></a>
+<a name="400"></a>	PowerCoreDestroyed();
+<a name="401"></a>
+<a name="402"></a>	<span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).ObjectiveDisabled(Self);
+<a name="403"></a>	<span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).FindNewObjectives(Self);
+<a name="404"></a>	TriggerEvent(<span class="source_keyword">Event</span>, self, <span class="source_type">Instigator</span>);
+<a name="405"></a>}
+<a name="406"></a>
+<a name="407"></a><span class="source_keyword">function</span> TakeDamage(<span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>)
+<a name="408"></a>{
+<a name="409"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> InstigatorController;
+<a name="410"></a>
+<a name="411"></a>	<span class="source_comment">//if (instigatedBy != None && ScriptedController(instigatedBy.Controller) != None)
+</span><a name="412"></a>	<span class="source_comment">//	Log("SCRIPTED DAMAGE:"@Damage@"CORESTAGE:"@CoreStage@"HEALTH:"@Health@"POWEREDBYINSTIGATED:"@PoweredBy(instigatedBy.GetTeamNum()));
+</span><a name="413"></a>
+<a name="414"></a>	<span class="source_keyword">if</span> (CoreStage == <span class="source_int">4</span> || CoreStage == <span class="source_int">1</span> || <span class="source_type">Damage</span> &lt;= <span class="source_int">0</span> || <span class="source_type">Level</span>.Game.ResetCountdown &gt; <span class="source_int">0</span> || <span class="source_type">Level</span>.Game.bGameEnded)
+<a name="415"></a>		<span class="source_keyword">return</span>;
+<a name="416"></a>
+<a name="417"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span> == <span class="source_keyword">None</span> || !<span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>.default.bDelayedDamage)
+<a name="418"></a>		DelayedDamageInstigatorController = <span class="source_keyword">None</span>;
+<a name="419"></a>	<span class="source_keyword">if</span> (instigatedBy != <span class="source_keyword">None</span> && instigatedBy.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> != <span class="source_keyword">None</span>)
+<a name="420"></a>		InstigatorController = instigatedBy.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>;
+<a name="421"></a>	<span class="source_keyword">else</span>
+<a name="422"></a>		InstigatorController = DelayedDamageInstigatorController;
+<a name="423"></a>
+<a name="424"></a>	<span class="source_keyword">if</span> (InstigatorController == <span class="source_keyword">None</span> && <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span> != <span class="source_keyword">None</span>)
+<a name="425"></a>		<span class="source_keyword">return</span>;
+<a name="426"></a>
+<a name="427"></a>    <span class="source_keyword">if</span> (<span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span> != <span class="source_keyword">None</span>)
+<a name="428"></a>		<span class="source_type">Damage</span> *= <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>.default.VehicleDamageScaling;
+<a name="429"></a>    <span class="source_keyword">if</span> (instigatedBy != <span class="source_keyword">None</span>)
+<a name="430"></a>    {
+<a name="431"></a>    	<span class="source_keyword">if</span> (instigatedBy.HasUDamage())
+<a name="432"></a>		<span class="source_type">Damage</span> *= <span class="source_int">2</span>;
+<a name="433"></a>		<span class="source_type">Damage</span> *= instigatedBy.DamageScaling;
+<a name="434"></a>    }
+<a name="435"></a>
+<a name="436"></a>    <span class="source_keyword">if</span> ( InstigatorController == <span class="source_keyword">None</span> || (InstigatorController.GetTeamNum() != DefenderTeamIndex && PoweredBy(InstigatorController.GetTeamNum())) )
+<a name="437"></a>    {
+<a name="438"></a>		NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="439"></a>    	AccumulatedDamage += <span class="source_type">Damage</span>;
+<a name="440"></a>    	<span class="source_keyword">if</span> ((DamageEventThreshold &gt; <span class="source_int">0</span>) && (AccumulatedDamage &gt;= DamageEventThreshold))
+<a name="441"></a>    	{
+<a name="442"></a>    		TriggerEvent(TakeDamageEvent,self, InstigatedBy);
+<a name="443"></a>    		AccumulatedDamage = <span class="source_int">0</span>;
+<a name="444"></a>    	}
+<a name="445"></a>	<span class="source_keyword">if</span> (InstigatorController != <span class="source_keyword">None</span>)
+<a name="446"></a>	{
+<a name="447"></a>		LastDamagedBy = InstigatorController.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>;
+<a name="448"></a>		LastAttacker = instigatedBy;
+<a name="449"></a>		AddScorer(InstigatorController, FMin(Health, <span class="source_type">Damage</span>) / DamageCapacity);
+<a name="450"></a>	}
+<a name="451"></a>	<span class="source_keyword">if</span> ( bFinalCore )
+<a name="452"></a>		NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="453"></a>    Health -= <span class="source_type">Damage</span>;
+<a name="454"></a>    <span class="source_keyword">if</span> ( Health &lt; <span class="source_int">0</span> )
+<a name="455"></a>    	DisableObjective(instigatedBy);
+<a name="456"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (<span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span> != <span class="source_keyword">None</span>)
+<a name="457"></a>	{
+<a name="458"></a>		<span class="source_comment">//attack notification
+</span><a name="459"></a>		<span class="source_keyword">if</span> (LastAttackMessageTime + <span class="source_int">1</span> &lt; <span class="source_type">Level</span>.TimeSeconds)
+<a name="460"></a>		{
+<a name="461"></a>			<span class="source_keyword">if</span> (bFinalCore)
+<a name="462"></a>			{
+<a name="463"></a>				<span class="source_keyword">if</span> (<span class="source_keyword">float</span>(Health) / DamageCapacity &gt; <span class="source_int">0.55</span>)
+<a name="464"></a>					BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">7</span> + DefenderTeamIndex,,, self);
+<a name="465"></a>				<span class="source_keyword">else</span> <span class="source_keyword">if</span> (<span class="source_keyword">float</span>(Health) / DamageCapacity &gt; <span class="source_int">0.45</span>)
+<a name="466"></a>					BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">25</span> + DefenderTeamIndex,,, self);
+<a name="467"></a>				<span class="source_keyword">else</span>
+<a name="468"></a>					BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">18</span> + DefenderTeamIndex,,, self);
+<a name="469"></a>			}
+<a name="470"></a>			<span class="source_keyword">else</span>
+<a name="471"></a>				BroadcastLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">9</span> + DefenderTeamIndex,,, self);
+<a name="472"></a>			<span class="source_type"><a href="../unrealgame/unrealteaminfo.html" class="source">UnrealTeamInfo</a></span>(<span class="source_type">Level</span>.GRI.Teams[DefenderTeamIndex]).AI.CriticalObjectiveWarning(self, instigatedBy);
+<a name="473"></a>			LastAttackMessageTime = <span class="source_type">Level</span>.TimeSeconds;
+<a name="474"></a>		}
+<a name="475"></a>		LastAttackTime = <span class="source_type">Level</span>.TimeSeconds;
+<a name="476"></a>	}
+<a name="477"></a>    }
+<a name="478"></a>    <span class="source_keyword">else</span> <span class="source_keyword">if</span> (<span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span>(InstigatorController) != <span class="source_keyword">None</span>)
+<a name="479"></a>    {
+<a name="480"></a>    	<span class="source_keyword">if</span> (InstigatorController.GetTeamNum() != DefenderTeamIndex)
+<a name="481"></a>	        <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span>(InstigatorController).ReceiveLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">5</span>);
+<a name="482"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (bFinalCore && <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span> == <span class="source_keyword">class</span><span class="source_name">'DamTypeLinkShaft'</span>)
+<a name="483"></a>			<span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span>(InstigatorController).ReceiveLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">30</span>);
+<a name="484"></a>    }
+<a name="485"></a>}
+<a name="486"></a>
+<a name="487"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> HealDamage(<span class="source_keyword">int</span> <span class="source_type">Amount</span>, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Healer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>)
+<a name="488"></a>{
+<a name="489"></a>	<span class="source_keyword">if</span> (CoreStage == <span class="source_int">4</span> || CoreStage == <span class="source_int">1</span> || Health &lt;= <span class="source_int">0</span> || <span class="source_type">Amount</span> &lt;= <span class="source_int">0</span> || Healer == <span class="source_keyword">None</span> || !TeamLink(Healer.GetTeamNum()))
+<a name="490"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="491"></a>
+<a name="492"></a>	<span class="source_keyword">if</span> (Health &gt;= DamageCapacity)
+<a name="493"></a>	{
+<a name="494"></a>        <span class="source_keyword">if</span> (<span class="source_type">Level</span>.TimeSeconds - HealingTime &lt; <span class="source_int">0.5</span>)
+<a name="495"></a>            PlaySound(HealedSound, SLOT_Misc, <span class="source_int">5.0</span>);
+<a name="496"></a>
+<a name="497"></a>        <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="498"></a>    }
+<a name="499"></a>
+<a name="500"></a>	<span class="source_type">Amount</span> = Min(<span class="source_type">Amount</span> * LinkHealMult, DamageCapacity - Health);
+<a name="501"></a>	Health += <span class="source_type">Amount</span>;
+<a name="502"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../onslaught/onsplayerreplicationinfo.html" class="source">ONSPlayerReplicationInfo</a></span>(Healer.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>) != <span class="source_keyword">None</span>)
+<a name="503"></a>		<span class="source_type"><a href="../onslaught/onsplayerreplicationinfo.html" class="source">ONSPlayerReplicationInfo</a></span>(Healer.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>).AddHealBonus(<span class="source_keyword">float</span>(<span class="source_type">Amount</span>) / DamageCapacity * <span class="source_type">Score</span>);
+<a name="504"></a>
+<a name="505"></a>	NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="506"></a>    HealingTime = <span class="source_type">Level</span>.TimeSeconds;
+<a name="507"></a>    LastHealedBy = Healer;
+<a name="508"></a>
+<a name="509"></a>    <span class="source_keyword">if</span> (NodeHealEffect == <span class="source_keyword">None</span>)
+<a name="510"></a>    {
+<a name="511"></a>        NodeHealEffect = Spawn(<span class="source_keyword">class</span><span class="source_name">'ONSNodeHealEffect'</span>, self,, Location + vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">363</span>));
+<a name="512"></a>        NodeHealEffect.<span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span> = HealingSound;
+<a name="513"></a>		<span class="source_keyword">if</span> ( <span class="source_type">Level</span>.NetMode == NM_DedicatedServer )
+<a name="514"></a>			NodeHealEffect.LifeSpan = <span class="source_int">5000.0</span>;
+<a name="515"></a>    }
+<a name="516"></a>
+<a name="517"></a>    Enable(<span class="source_name">'Tick'</span>);
+<a name="518"></a>
+<a name="519"></a>    <span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="520"></a>}
+<a name="521"></a>
+<a name="522"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> Tick(<span class="source_keyword">float</span> <span class="source_type">DT</span>)
+<a name="523"></a>{
+<a name="524"></a>    <span class="source_keyword">if</span> (<span class="source_type">Level</span>.TimeSeconds - HealingTime &gt; <span class="source_int">0.5</span>)
+<a name="525"></a>    {
+<a name="526"></a>        <span class="source_keyword">if</span> (NodeHealEffect != <span class="source_keyword">None</span>)
+<a name="527"></a>            NodeHealEffect.Destroy();
+<a name="528"></a>
+<a name="529"></a>		Disable(<span class="source_name">'Tick'</span>);
+<a name="530"></a>    }
+<a name="531"></a>}
+<a name="532"></a>
+<a name="533"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PoweredBy(<span class="source_keyword">byte</span> <span class="source_type">Team</span>)
+<a name="534"></a>{
+<a name="535"></a>    <span class="source_keyword">if</span> (<span class="source_type">Team</span> == <span class="source_int">0</span> && bPoweredByRed)
+<a name="536"></a>        <span class="source_keyword">return</span> <span class="source_keyword">True</span>;
+<a name="537"></a>    <span class="source_keyword">if</span> (<span class="source_type">Team</span> == <span class="source_int">1</span> && bPoweredByBlue)
+<a name="538"></a>        <span class="source_keyword">return</span> <span class="source_keyword">True</span>;
+<a name="539"></a>    <span class="source_keyword">return</span> <span class="source_keyword">False</span>;
+<a name="540"></a>}
+<a name="541"></a>
+<a name="542"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> LinkedToCoreConstructingFor(<span class="source_keyword">byte</span> <span class="source_type">Team</span>)
+<a name="543"></a>{
+<a name="544"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="545"></a>
+<a name="546"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; PowerLinks.length; <span class="source_type">i</span>++)
+<a name="547"></a>		<span class="source_keyword">if</span> ( (PowerLinks[<span class="source_type">i</span>].DefenderTeamIndex == <span class="source_type">Team</span>) && ((PowerLinks[<span class="source_type">i</span>].CoreStage == <span class="source_int">2</span>) || (PowerLinks[<span class="source_type">i</span>].CoreStage == <span class="source_int">5</span>)) )
+<a name="548"></a>			<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="549"></a>
+<a name="550"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="551"></a>}
+<a name="552"></a>
+<a name="553"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> PostNetReceive()
+<a name="554"></a>{
+<a name="555"></a>    <span class="source_keyword">if</span> (CoreStage != LastCoreStage)
+<a name="556"></a>    {
+<a name="557"></a><span class="source_comment">//    	log(Name@"CoreStage changed from "$LastCoreStage@"to"@CoreStage);
+</span><a name="558"></a>	   LastCoreStage = CoreStage;
+<a name="559"></a>       <span class="source_keyword">switch</span>(CoreStage)
+<a name="560"></a>        {
+<a name="561"></a>            <span class="source_keyword">case</span> <span class="source_int">0</span>:
+<a name="562"></a>                PowerCoreActive();
+<a name="563"></a>                <span class="source_keyword">break</span>;
+<a name="564"></a>            <span class="source_keyword">case</span> <span class="source_int">1</span>:
+<a name="565"></a>                PowerCoreDestroyed();
+<a name="566"></a>                <span class="source_keyword">break</span>;
+<a name="567"></a>            <span class="source_keyword">case</span> <span class="source_int">2</span>:
+<a name="568"></a>                PowerCoreConstructing();
+<a name="569"></a>                <span class="source_keyword">break</span>;
+<a name="570"></a>            <span class="source_keyword">case</span> <span class="source_int">3</span>:
+<a name="571"></a>                PowerCoreReset();
+<a name="572"></a>                <span class="source_keyword">break</span>;
+<a name="573"></a>            <span class="source_keyword">case</span> <span class="source_int">4</span>:
+<a name="574"></a>                PowerCoreNeutral();
+<a name="575"></a>                <span class="source_keyword">break</span>;
+<a name="576"></a>            <span class="source_keyword">case</span> <span class="source_int">5</span>:
+<a name="577"></a>                PowerCoreReconstitution();
+<a name="578"></a>            	<span class="source_keyword">break</span>;
+<a name="579"></a>            <span class="source_keyword">case</span> <span class="source_int">255</span>:
+<a name="580"></a>            	PowerCoreDisabled();
+<a name="581"></a>            	<span class="source_keyword">break</span>;
+<a name="582"></a>        }
+<a name="583"></a><span class="source_comment">//        UpdateLinkState(Self);
+</span><a name="584"></a>    }
+<a name="585"></a>
+<a name="586"></a>    <span class="source_keyword">if</span> (bUnderAttack != bOldUnderAttack)
+<a name="587"></a>    {
+<a name="588"></a><span class="source_comment">//    	log(Name@"UnderAttackChanged to"@bUnderAttack);
+</span><a name="589"></a>        UnderAttackChange();
+<a name="590"></a>        bOldUnderAttack = bUnderAttack;
+<a name="591"></a>    }
+<a name="592"></a>
+<a name="593"></a>    <span class="source_keyword">if</span> ( DefenderTeamIndex != LastDefenderTeamIndex )
+<a name="594"></a>    {
+<a name="595"></a><span class="source_comment">//    	log(Name@"DefenderTeamIndex changed from "$LastDefenderTeamIndex@"to"@DefenderTeamIndex);
+</span><a name="596"></a>    	LastDefenderTeamIndex = DefenderTeamIndex;
+<a name="597"></a>    	UpdateLinkState(Self);
+<a name="598"></a>    }
+<a name="599"></a>
+<a name="600"></a>    CheckShield();
+<a name="601"></a>}
+<a name="602"></a>
+<a name="603"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> NotifyLocalPlayerTeamReceived()
+<a name="604"></a>{
+<a name="605"></a>	CheckShield();
+<a name="606"></a>}
+<a name="607"></a>
+<a name="608"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> UnderAttackChange()
+<a name="609"></a>{
+<a name="610"></a>    <span class="source_keyword">if</span> (NodeBeamEffect != <span class="source_keyword">None</span> && NodeBeamEffect.Emitters[<span class="source_int">2</span>] != <span class="source_keyword">None</span>)
+<a name="611"></a>        NodeBeamEffect.Emitters[<span class="source_int">2</span>].Disabled = !bUnderAttack;
+<a name="612"></a>}
+<a name="613"></a>
+<a name="614"></a><span class="source_comment">// Hide/UnHide Shield Effect
+</span><a name="615"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> CheckShield()
+<a name="616"></a>{
+<a name="617"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>;
+<a name="618"></a>
+<a name="619"></a>	UpdateLocationName();
+<a name="620"></a>
+<a name="621"></a>	<span class="source_keyword">if</span> ( NodeBeamEffect != <span class="source_keyword">None</span> )
+<a name="622"></a>	{
+<a name="623"></a>		NodeBeamEffect.bHidden = !bShowNodeBeams;
+<a name="624"></a>
+<a name="625"></a>		<span class="source_keyword">if</span> ( (CoreStage != <span class="source_int">0</span> || (NodeBeamEffect.IsA(<span class="source_name">'ONSNodeBeamRedEffect'</span>) && DefenderTeamIndex == <span class="source_int">1</span>) || (NodeBeamEffect.IsA(<span class="source_name">'ONSNodeBeamBlueEffect'</span>) && DefenderTeamIndex == <span class="source_int">0</span>)))
+<a name="626"></a>			NodeBeamEffect.Destroy();
+<a name="627"></a>	}
+<a name="628"></a>	<span class="source_keyword">if</span> (PoweredBy(<span class="source_int">1</span> - DefenderTeamIndex))
+<a name="629"></a>	{
+<a name="630"></a>        Shield.bHidden = <span class="source_keyword">true</span>;
+<a name="631"></a>		Shield.SetCollision(<span class="source_keyword">false</span>);
+<a name="632"></a>
+<a name="633"></a>        <span class="source_keyword">if</span> ( (<span class="source_type">Level</span>.NetMode != NM_DedicatedServer) && bShowNodeBeams && CoreStage == <span class="source_int">0</span> && NodeBeamEffect == <span class="source_keyword">None</span>)
+<a name="634"></a>        {
+<a name="635"></a>            <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">0</span>)
+<a name="636"></a>                NodeBeamEffect = spawn(<span class="source_keyword">class</span><span class="source_name">'ONSNodeBeamRedEffect'</span>);
+<a name="637"></a>            <span class="source_keyword">else</span>
+<a name="638"></a>                NodeBeamEffect = spawn(<span class="source_keyword">class</span><span class="source_name">'ONSNodeBeamBlueEffect'</span>);
+<a name="639"></a>        }
+<a name="640"></a>	}
+<a name="641"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CoreStage != <span class="source_int">0</span> && CoreStage != <span class="source_int">2</span>)
+<a name="642"></a>    {
+<a name="643"></a>        Shield.bHidden = <span class="source_keyword">true</span>;
+<a name="644"></a>		Shield.SetCollision(<span class="source_keyword">false</span>);
+<a name="645"></a>		<span class="source_keyword">if</span> (NodeBeamEffect != <span class="source_keyword">None</span>)
+<a name="646"></a>            NodeBeamEffect.Destroy();
+<a name="647"></a>	}
+<a name="648"></a>	<span class="source_keyword">else</span>
+<a name="649"></a>	{
+<a name="650"></a>		Shield.bHidden = <span class="source_keyword">false</span>;
+<a name="651"></a>		Shield.SetCollision(<span class="source_keyword">true</span>);
+<a name="652"></a>		Shield.SetTeam(DefenderTeamIndex);
+<a name="653"></a>		<span class="source_keyword">if</span> (NodeBeamEffect != <span class="source_keyword">None</span>)
+<a name="654"></a>            NodeBeamEffect.Destroy();
+<a name="655"></a>	}
+<a name="656"></a>
+<a name="657"></a>	<span class="source_keyword">if</span> (<span class="source_type">Level</span>.NetMode == NM_DedicatedServer || CoreStage != <span class="source_int">4</span>)
+<a name="658"></a>		<span class="source_keyword">return</span>;
+<a name="659"></a>
+<a name="660"></a>	<span class="source_type">PC</span> = <span class="source_type">Level</span>.GetLocalPlayerController();
+<a name="661"></a>	<span class="source_keyword">if</span> (<span class="source_type">PC</span> == <span class="source_keyword">None</span> || <span class="source_type">PC</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> == <span class="source_keyword">None</span> || (!<span class="source_type">PC</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.bOnlySpectator && <span class="source_type">PC</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span> == <span class="source_keyword">None</span>))
+<a name="662"></a>		<span class="source_keyword">return</span>;
+<a name="663"></a>
+<a name="664"></a>	<span class="source_keyword">if</span> (PoweredBy(<span class="source_type">PC</span>.GetTeamNum()))
+<a name="665"></a>	{
+<a name="666"></a>		<span class="source_keyword">if</span> (RoamingEnergy == <span class="source_keyword">None</span>)
+<a name="667"></a>		        RoamingEnergy = spawn(<span class="source_keyword">class</span><span class="source_name">'ONSFreeRoamingEnergyEffect'</span>,self,, Location + vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">30</span>) + PrePivot * -<span class="source_int">2</span>);
+<a name="668"></a>	}
+<a name="669"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (RoamingEnergy != <span class="source_keyword">None</span>)
+<a name="670"></a>	{
+<a name="671"></a>		RoamingEnergy.Kill();
+<a name="672"></a>		RoamingEnergy = <span class="source_keyword">None</span>;
+<a name="673"></a>	}
+<a name="674"></a>}
+<a name="675"></a>
+<a name="676"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreDisabled()
+<a name="677"></a>{
+<a name="678"></a><span class="source_comment">//	log(Name@"PowerCoreDisabled");
+</span><a name="679"></a>    bHidden = <span class="source_keyword">True</span>;
+<a name="680"></a>    bPowered = <span class="source_keyword">False</span>;
+<a name="681"></a>
+<a name="682"></a>    <span class="source_keyword">if</span> (RoamingEnergy != <span class="source_keyword">None</span>)
+<a name="683"></a>        RoamingEnergy.Destroy();
+<a name="684"></a>
+<a name="685"></a>    CheckShield();
+<a name="686"></a>
+<a name="687"></a>    UpdateLinkState(Self);
+<a name="688"></a>}
+<a name="689"></a>
+<a name="690"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreNeutral()
+<a name="691"></a>{
+<a name="692"></a>    <span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span> = NeutralSound;
+<a name="693"></a>
+<a name="694"></a><span class="source_comment">//	log(Name@"PowerCoreNeutral");
+</span><a name="695"></a>    Health = <span class="source_int">0</span>;
+<a name="696"></a>    bPowered = <span class="source_keyword">False</span>;
+<a name="697"></a>    DefenderTeamIndex = <span class="source_int">2</span>;
+<a name="698"></a>	NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="699"></a>
+<a name="700"></a>    <span class="source_keyword">if</span> (<span class="source_type">Level</span>.NetMode != NM_DedicatedServer)
+<a name="701"></a>        UpdateTeamBanners();
+<a name="702"></a>
+<a name="703"></a>    <span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="704"></a>    {
+<a name="705"></a>    	NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="706"></a>	   	NotifyUpdateLinks();
+<a name="707"></a>	}
+<a name="708"></a>
+<a name="709"></a>	UpdateLinkState(Self);
+<a name="710"></a>}
+<a name="711"></a>
+<a name="712"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreReconstitution()
+<a name="713"></a>{
+<a name="714"></a>    <span class="source_keyword">if</span> (<span class="source_type">Level</span>.NetMode != NM_DedicatedServer)
+<a name="715"></a>    {
+<a name="716"></a>    	<span class="source_keyword">if</span> (RoamingEnergy != <span class="source_keyword">None</span>)
+<a name="717"></a>	    RoamingEnergy.Destroy();
+<a name="718"></a>
+<a name="719"></a>        <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">0</span>)
+<a name="720"></a>            Spawn(<span class="source_keyword">class</span><span class="source_name">'ONSRedEnergyEffect'</span>,self,, Location + vect(<span class="source_int">0</span>,<span class="source_int">0</span>,-<span class="source_int">20</span>));
+<a name="721"></a>        <span class="source_keyword">else</span>
+<a name="722"></a>            Spawn(<span class="source_keyword">class</span><span class="source_name">'ONSBlueEnergyEffect'</span>,self,, Location + vect(<span class="source_int">0</span>,<span class="source_int">0</span>,-<span class="source_int">20</span>));
+<a name="723"></a>    }
+<a name="724"></a>}
+<a name="725"></a>
+<a name="726"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> LegitimateTargetOf(<span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>)
+<a name="727"></a>{
+<a name="728"></a>	<span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_type">B</span>.Squad.<span class="source_type">Team</span>.TeamIndex || CoreStage == <span class="source_int">4</span> || CoreStage == <span class="source_int">1</span> )
+<a name="729"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="730"></a>	<span class="source_keyword">return</span> <span class="source_keyword">Super</span>.LegitimateTargetOf(<span class="source_type">B</span>);
+<a name="731"></a>}
+<a name="732"></a>
+<a name="733"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreDestroyed()
+<a name="734"></a>{
+<a name="735"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>;
+<a name="736"></a>
+<a name="737"></a>    <span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span> = <span class="source_keyword">None</span>;
+<a name="738"></a><span class="source_comment">//	log(Name@"PowerCoreDestroyed");
+</span><a name="739"></a>    Health = <span class="source_int">0</span>;
+<a name="740"></a>
+<a name="741"></a>    <span class="source_keyword">if</span> (<span class="source_type">Level</span>.NetMode != NM_DedicatedServer)
+<a name="742"></a>    {
+<a name="743"></a>        <span class="source_type">PC</span> = <span class="source_type">Level</span>.GetLocalPlayerController();
+<a name="744"></a>        <span class="source_keyword">if</span> (<span class="source_type">PC</span> != <span class="source_keyword">None</span>)
+<a name="745"></a>            <span class="source_type">PC</span>.ClientPlaySound(DestroyedSound, <span class="source_keyword">False</span>, <span class="source_int">2.0</span>);
+<a name="746"></a>        <span class="source_keyword">else</span>
+<a name="747"></a>            PlaySound(DestroyedSound, SLOT_Misc, <span class="source_int">5.0</span>);
+<a name="748"></a>
+<a name="749"></a>        ExplosionEffect = spawn(<span class="source_keyword">class</span><span class="source_name">'ONSPowerCoreBreachEffect'</span>, self);
+<a name="750"></a>        Skins.length = <span class="source_int">0</span>;
+<a name="751"></a>    }
+<a name="752"></a>
+<a name="753"></a>    <span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="754"></a>    {
+<a name="755"></a>        NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="756"></a>        Scorers.length = <span class="source_int">0</span>;
+<a name="757"></a>        UpdateCloseActors();
+<a name="758"></a>        OnCoreDestroyed(DefenderTeamIndex);
+<a name="759"></a>        NotifyUpdateLinks();
+<a name="760"></a>        DefenderTeamIndex = <span class="source_int">2</span>;
+<a name="761"></a>        GotoState(<span class="source_name">'DestroyedCore'</span>);
+<a name="762"></a>    }
+<a name="763"></a>
+<a name="764"></a>	UpdateLinkState(Self);
+<a name="765"></a>}
+<a name="766"></a>
+<a name="767"></a><span class="source_keyword">function</span> UpdateCloseActors()
+<a name="768"></a>{
+<a name="769"></a>    <span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="770"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">A</span>;
+<a name="771"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span> <span class="source_type">V</span>;
+<a name="772"></a>
+<a name="773"></a>    <span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; CloseActors.Length; <span class="source_type">i</span>++)
+<a name="774"></a>    {
+<a name="775"></a>        <span class="source_type">A</span> = CloseActors[<span class="source_type">i</span>];
+<a name="776"></a>        <span class="source_comment">// Disable any playerstarts in the power radius
+</span><a name="777"></a>        <span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'PlayerStart'</span>))
+<a name="778"></a>            <span class="source_type"><a href="../engine/playerstart.html" class="source">PlayerStart</a></span>(<span class="source_type">A</span>).bEnabled = <span class="source_keyword">False</span>;
+<a name="779"></a>
+<a name="780"></a>        <span class="source_comment">// Disable any vehicle factories in the power radius
+</span><a name="781"></a>        <span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'ONSVehicleFactory'</span>))
+<a name="782"></a>            <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(<span class="source_type">A</span>).Deactivate();
+<a name="783"></a>
+<a name="784"></a>        <span class="source_comment">// Disable any turrets in the power radius
+</span><a name="785"></a>        <span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'ONSStationaryWeaponPawn'</span>) && !bFinalCore)
+<a name="786"></a>        {
+<a name="787"></a>            <span class="source_type"><a href="../onslaught/onsstationaryweaponpawn.html" class="source">ONSStationaryWeaponPawn</a></span>(<span class="source_type">A</span>).bPowered = <span class="source_keyword">False</span>;
+<a name="788"></a>            <span class="source_type"><a href="../onslaught/onsstationaryweaponpawn.html" class="source">ONSStationaryWeaponPawn</a></span>(<span class="source_type">A</span>).KDriverLeave(<span class="source_keyword">True</span>);
+<a name="789"></a>            <span class="source_type"><a href="../onslaught/onsstationaryweaponpawn.html" class="source">ONSStationaryWeaponPawn</a></span>(<span class="source_type">A</span>).<span class="source_type">Team</span> = <span class="source_int">255</span>;
+<a name="790"></a>        }
+<a name="791"></a>    }
+<a name="792"></a>    <span class="source_keyword">foreach</span> DynamicActors(<span class="source_keyword">class</span><span class="source_name">'ONSVehicle'</span>, <span class="source_type">V</span>)
+<a name="793"></a>        <span class="source_keyword">if</span> (<span class="source_type">V</span>.bTeamLocked && <span class="source_type">V</span>.Health &gt; <span class="source_int">0</span> && ClosestTo(<span class="source_type">V</span>) == self)
+<a name="794"></a>            <span class="source_type">V</span>.Destroy();
+<a name="795"></a>}
+<a name="796"></a>
+<a name="797"></a><span class="source_comment">// Returns a rating based on nearby vehicles
+</span><a name="798"></a><span class="source_keyword">function</span> <span class="source_keyword">float</span> RateCore()
+<a name="799"></a>{
+<a name="800"></a>    <span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="801"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Result</span>;
+<a name="802"></a>
+<a name="803"></a>    <span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; CloseActors.Length; <span class="source_type">i</span>++)
+<a name="804"></a>    {
+<a name="805"></a>        <span class="source_keyword">if</span> ( <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(CloseActors[<span class="source_type">i</span>]) != <span class="source_keyword">None</span> )
+<a name="806"></a>		{
+<a name="807"></a>			<span class="source_type">Result</span> += (<span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(CloseActors[<span class="source_type">i</span>]).VehicleClass.Default.MaxDesireability * <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(CloseActors[<span class="source_type">i</span>]).VehicleClass.Default.MaxDesireability);
+<a name="808"></a>			<span class="source_keyword">if</span> ( <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(CloseActors[<span class="source_type">i</span>]).VehicleClass.Default.MaxDesireability &gt; <span class="source_int">0.6</span> )
+<a name="809"></a>				<span class="source_type">Result</span> += <span class="source_int">0.5</span>;
+<a name="810"></a>		}
+<a name="811"></a>	}
+<a name="812"></a>	<span class="source_keyword">return</span> <span class="source_type">Result</span>;
+<a name="813"></a>}
+<a name="814"></a>
+<a name="815"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreConstructing()
+<a name="816"></a>{
+<a name="817"></a><span class="source_comment">//	log(Name@"PowerCoreConstructing");
+</span><a name="818"></a>    <span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span> = HealingSound;
+<a name="819"></a>    <span class="source_keyword">if</span> (<span class="source_type">Level</span>.NetMode != NM_DedicatedServer)
+<a name="820"></a>    {
+<a name="821"></a>        <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">0</span>)
+<a name="822"></a>            Skins = RedConstructingSkins;
+<a name="823"></a>        <span class="source_keyword">else</span>
+<a name="824"></a>            Skins = BlueConstructingSkins;
+<a name="825"></a>
+<a name="826"></a>    	<span class="source_comment">// Update shield
+</span><a name="827"></a>       	Shield.SetTeam(DefenderTeamIndex);
+<a name="828"></a>
+<a name="829"></a>        UpdateTeamBanners();
+<a name="830"></a>    }
+<a name="831"></a>    bHidden = <span class="source_keyword">False</span>;
+<a name="832"></a>
+<a name="833"></a>    <span class="source_comment">// Update Links
+</span><a name="834"></a>    NotifyUpdateLinks();
+<a name="835"></a>	UpdateLinkState(Self);
+<a name="836"></a>}
+<a name="837"></a>
+<a name="838"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreActive()
+<a name="839"></a>{
+<a name="840"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">A</span>;
+<a name="841"></a>    <span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="842"></a>
+<a name="843"></a>    bHidden = <span class="source_keyword">False</span>;
+<a name="844"></a>    <span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span> = ActiveSound;
+<a name="845"></a>
+<a name="846"></a>	<span class="source_comment">//log(Name@"PowerCoreActive");
+</span><a name="847"></a>    <span class="source_comment">// Update Visuals
+</span><a name="848"></a>    <span class="source_keyword">if</span> (<span class="source_type">Level</span>.NetMode != NM_DedicatedServer)
+<a name="849"></a>    {
+<a name="850"></a>        <span class="source_keyword">if</span> (RoamingEnergy != <span class="source_keyword">None</span>)
+<a name="851"></a>            RoamingEnergy.Destroy();
+<a name="852"></a>
+<a name="853"></a>        <span class="source_keyword">if</span> (ExplosionEffect != <span class="source_keyword">None</span>)
+<a name="854"></a>            ExplosionEffect.Destroy();
+<a name="855"></a>
+<a name="856"></a>        <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">0</span>)
+<a name="857"></a>            Skins = RedActiveSkins;
+<a name="858"></a>        <span class="source_keyword">else</span>
+<a name="859"></a>            Skins = BlueActiveSkins;
+<a name="860"></a>
+<a name="861"></a>    	<span class="source_comment">// Update shield
+</span><a name="862"></a>    	<span class="source_keyword">if</span> (Shield != <span class="source_keyword">None</span>)
+<a name="863"></a>	        Shield.SetTeam(DefenderTeamIndex);
+<a name="864"></a>
+<a name="865"></a>        UpdateTeamBanners();
+<a name="866"></a>
+<a name="867"></a>		PlaySound(ConstructedSound, SLOT_Misc, <span class="source_int">5.0</span>);
+<a name="868"></a>    }
+<a name="869"></a>
+<a name="870"></a>    <span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="871"></a>    {
+<a name="872"></a>	    NotifyUpdateLinks();
+<a name="873"></a>	    Scorers.length = <span class="source_int">0</span>;
+<a name="874"></a>
+<a name="875"></a>        <span class="source_comment">// Update Nearby Powered Actors
+</span><a name="876"></a>        <span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; CloseActors.Length; <span class="source_type">i</span>++)
+<a name="877"></a>        {
+<a name="878"></a>            <span class="source_type">A</span> = CloseActors[<span class="source_type">i</span>];
+<a name="879"></a>
+<a name="880"></a>            <span class="source_comment">// Update any vehicle factories in the power radius to be owned by the controlling team
+</span><a name="881"></a>            <span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'ONSVehicleFactory'</span>))
+<a name="882"></a>                <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(<span class="source_type">A</span>).Activate(DefenderTeamIndex);
+<a name="883"></a>
+<a name="884"></a>            <span class="source_comment">// Update any playerstarts in the power radius to the be owned by the controlling team
+</span><a name="885"></a>            <span class="source_keyword">if</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'PlayerStart'</span>))
+<a name="886"></a>            {
+<a name="887"></a>                <span class="source_type"><a href="../engine/playerstart.html" class="source">PlayerStart</a></span>(<span class="source_type">A</span>).TeamNumber = DefenderTeamIndex;
+<a name="888"></a>                <span class="source_type"><a href="../engine/playerstart.html" class="source">PlayerStart</a></span>(<span class="source_type">A</span>).bEnabled = <span class="source_keyword">True</span>;
+<a name="889"></a>            }
+<a name="890"></a>
+<a name="891"></a>            <span class="source_comment">// Enable any turrets in the power radius
+</span><a name="892"></a>            <span class="source_keyword">If</span> (<span class="source_type">A</span>.IsA(<span class="source_name">'ONSStationaryWeaponPawn'</span>))
+<a name="893"></a>            {
+<a name="894"></a>                <span class="source_type"><a href="../onslaught/onsstationaryweaponpawn.html" class="source">ONSStationaryWeaponPawn</a></span>(<span class="source_type">A</span>).bPowered = <span class="source_keyword">True</span>;
+<a name="895"></a>                <span class="source_type"><a href="../onslaught/onsstationaryweaponpawn.html" class="source">ONSStationaryWeaponPawn</a></span>(<span class="source_type">A</span>).SetTeamNum(DefenderTeamIndex);
+<a name="896"></a>                <span class="source_type"><a href="../onslaught/onsstationaryweaponpawn.html" class="source">ONSStationaryWeaponPawn</a></span>(<span class="source_type">A</span>).PrevTeam = DefenderTeamIndex;
+<a name="897"></a>            }
+<a name="898"></a>        }
+<a name="899"></a>    }
+<a name="900"></a>
+<a name="901"></a>	UpdateLinkState(Self);
+<a name="902"></a>}
+<a name="903"></a>
+<a name="904"></a><span class="source_keyword">function</span> Reset()
+<a name="905"></a>{
+<a name="906"></a>	Health = DamageCapacity;
+<a name="907"></a>	PowerCoreReset();
+<a name="908"></a>}
+<a name="909"></a>
+<a name="910"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PowerCoreReset()
+<a name="911"></a>{
+<a name="912"></a><span class="source_comment">//	log(Name@"PowerCoreReset");
+</span><a name="913"></a>	<span class="source_keyword">if</span> (RoamingEnergy != <span class="source_keyword">None</span> && bScriptInitialized)
+<a name="914"></a>		RoamingEnergy.Destroy();
+<a name="915"></a>
+<a name="916"></a>	<span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="917"></a>	{
+<a name="918"></a>		SetStaticMesh(default.<span class="source_type">StaticMesh</span>);
+<a name="919"></a>		UpdateCloseActors();
+<a name="920"></a>		NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="921"></a>		<span class="source_keyword">if</span> (!bFinalCore)
+<a name="922"></a>            DefenderTeamIndex = default.DefenderTeamIndex;
+<a name="923"></a>
+<a name="924"></a>		<span class="source_keyword">if</span> ( bScriptInitialized )
+<a name="925"></a>			SetInitialState();
+<a name="926"></a>	}
+<a name="927"></a>
+<a name="928"></a>	UpdateLinkState(Self);
+<a name="929"></a>}
+<a name="930"></a>
+<a name="931"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> UpdateTeamBanners()
+<a name="932"></a>{
+<a name="933"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="934"></a>
+<a name="935"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; CloseActors.length; <span class="source_type">i</span>++)
+<a name="936"></a>        	<span class="source_keyword">if</span> (<span class="source_type"><a href="../xgame/xteambanner.html" class="source">xTeamBanner</a></span>(CloseActors[<span class="source_type">i</span>]) != <span class="source_keyword">None</span>)
+<a name="937"></a>        	{
+<a name="938"></a>        		<span class="source_keyword">if</span> (CoreStage == <span class="source_int">0</span>)
+<a name="939"></a>	        		<span class="source_type"><a href="../xgame/xteambanner.html" class="source">xTeamBanner</a></span>(CloseActors[<span class="source_type">i</span>]).<span class="source_type">Team</span> = DefenderTeamIndex;
+<a name="940"></a>	        	<span class="source_keyword">else</span>
+<a name="941"></a>	        		<span class="source_type"><a href="../xgame/xteambanner.html" class="source">xTeamBanner</a></span>(CloseActors[<span class="source_type">i</span>]).<span class="source_type">Team</span> = <span class="source_int">255</span>;
+<a name="942"></a>        		<span class="source_type"><a href="../xgame/xteambanner.html" class="source">xTeamBanner</a></span>(CloseActors[<span class="source_type">i</span>]).UpdateForTeam();
+<a name="943"></a>        	}
+<a name="944"></a>        <span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; TeleportPads.length; <span class="source_type">i</span>++)
+<a name="945"></a>	{
+<a name="946"></a>        	<span class="source_keyword">if</span> (CoreStage == <span class="source_int">0</span>)
+<a name="947"></a>        		TeleportPads[<span class="source_type">i</span>].SetTeam(DefenderTeamIndex);
+<a name="948"></a>        	<span class="source_keyword">else</span>
+<a name="949"></a>        		TeleportPads[<span class="source_type">i</span>].SetTeam(<span class="source_int">255</span>);
+<a name="950"></a>        }
+<a name="951"></a>}
+<a name="952"></a>
+<a name="953"></a><span class="source_keyword">function</span> <span class="source_keyword">float</span> TeleportRating(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Asker, <span class="source_keyword">byte</span> AskerTeam, <span class="source_keyword">byte</span> SourceDist)
+<a name="954"></a>{
+<a name="955"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="956"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span> <span class="source_type">F</span>;
+<a name="957"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>;
+<a name="958"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Rating</span>;
+<a name="959"></a>
+<a name="960"></a>	<span class="source_type">B</span> = <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span>(Asker);
+<a name="961"></a>
+<a name="962"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; CloseActors.length; <span class="source_type">i</span>++)
+<a name="963"></a>	{
+<a name="964"></a>		<span class="source_type">F</span> = <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(CloseActors[<span class="source_type">i</span>]);
+<a name="965"></a>		<span class="source_keyword">if</span> (<span class="source_type">F</span> != <span class="source_keyword">None</span> && <span class="source_type">F</span>.LastSpawned != <span class="source_keyword">None</span> && <span class="source_type">F</span>.LastSpawned.bTeamLocked && !<span class="source_type">F</span>.LastSpawned.SpokenFor(Asker))
+<a name="966"></a>		{
+<a name="967"></a>			<span class="source_keyword">if</span> (<span class="source_type">B</span> == <span class="source_keyword">None</span>)
+<a name="968"></a>				<span class="source_type">Rating</span> = FMax(<span class="source_type">Rating</span>, <span class="source_type">F</span>.LastSpawned.MaxDesireability);
+<a name="969"></a>			<span class="source_keyword">else</span>
+<a name="970"></a>				<span class="source_type">Rating</span> = FMax(<span class="source_type">Rating</span>, <span class="source_type">B</span>.Squad.VehicleDesireability(<span class="source_type">F</span>.LastSpawned, <span class="source_type">B</span>));
+<a name="971"></a>		}
+<a name="972"></a>	}
+<a name="973"></a>
+<a name="974"></a>	<span class="source_keyword">return</span> (<span class="source_type">Rating</span> - (FinalCoreDistance[Abs(<span class="source_int">1</span> - AskerTeam)] - SourceDist) * <span class="source_int">0.1</span>);
+<a name="975"></a>}
+<a name="976"></a>
+<a name="977"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasUsefulVehicles(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Asker)
+<a name="978"></a>{
+<a name="979"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="980"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span> <span class="source_type">F</span>;
+<a name="981"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>;
+<a name="982"></a>
+<a name="983"></a>	<span class="source_type">B</span> = <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span>(Asker);
+<a name="984"></a>
+<a name="985"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; CloseActors.length; <span class="source_type">i</span>++)
+<a name="986"></a>	{
+<a name="987"></a>		<span class="source_type">F</span> = <span class="source_type"><a href="../onslaught/onsvehiclefactory.html" class="source">ONSVehicleFactory</a></span>(CloseActors[<span class="source_type">i</span>]);
+<a name="988"></a>		<span class="source_keyword">if</span> ( <span class="source_type">F</span> != <span class="source_keyword">None</span> && <span class="source_type">F</span>.LastSpawned != <span class="source_keyword">None</span> && <span class="source_type">F</span>.LastSpawned.bTeamLocked
+<a name="989"></a>		     && (<span class="source_type">B</span> == <span class="source_keyword">None</span> || <span class="source_type">B</span>.Squad.VehicleDesireability(<span class="source_type">F</span>.LastSpawned, <span class="source_type">B</span>) &gt; <span class="source_int">0</span>) )
+<a name="990"></a>			<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="991"></a>	}
+<a name="992"></a>
+<a name="993"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="994"></a>}
+<a name="995"></a>
+<a name="996"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">string</span> GetHumanReadableName()
+<a name="997"></a>{
+<a name="998"></a>	<span class="source_keyword">if</span> ( DefenderTeamIndex &gt; <span class="source_int">1</span> )
+<a name="999"></a>		<span class="source_keyword">return</span> ObjectiveStringPrefix$<span class="source_keyword">class</span><span class="source_name">'TeamInfo'</span>.Default.ColorNames[Default.DefenderTeamIndex]$ObjectiveStringSuffix;
+<a name="1000"></a>	<span class="source_keyword">else</span>
+<a name="1001"></a>		<span class="source_keyword">return</span> ObjectiveStringPrefix$<span class="source_keyword">class</span><span class="source_name">'TeamInfo'</span>.Default.ColorNames[DefenderTeamIndex]$ObjectiveStringSuffix;
+<a name="1002"></a>}
+<a name="1003"></a>
+<a name="1004"></a><span class="source_keyword">function</span> UsedBy(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">User</span>)
+<a name="1005"></a>{
+<a name="1006"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">User</span>) == <span class="source_keyword">None</span> && <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span>(<span class="source_type">User</span>.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>) != <span class="source_keyword">None</span> && <span class="source_type">User</span>.GetTeamNum() == DefenderTeamIndex)
+<a name="1007"></a>	{
+<a name="1008"></a>		<span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span>(<span class="source_type">User</span>.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>).ClientOpenMenu(<span class="source_type">Level</span>.Game.GameUMenuType,,<span class="source_string">"TL"</span>);
+<a name="1009"></a>	}
+<a name="1010"></a>}
+<a name="1011"></a>
+<a name="1012"></a><span class="source_comment">// if bot is in important vehicle, and other bots can do the dirty work,
+</span><a name="1013"></a><span class="source_comment">// return false if within get out distance
+</span><a name="1014"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> StandGuard(<span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>)
+<a name="1015"></a>{
+<a name="1016"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../unrealgame/bot.html" class="source">bot</a></span> SquadMate;
+<a name="1017"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Dist</span>;
+<a name="1018"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="1019"></a>
+<a name="1020"></a>	<span class="source_keyword">if</span> ( (DefenderTeamIndex != <span class="source_type">B</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex) && (DefenderTeamIndex &lt; <span class="source_int">2</span>) )
+<a name="1021"></a>	{
+<a name="1022"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1023"></a>	}
+<a name="1024"></a>
+<a name="1025"></a>	<span class="source_keyword">if</span> ( (<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) != <span class="source_keyword">None</span>) && <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).ImportantVehicle() )
+<a name="1026"></a>	{
+<a name="1027"></a>		<span class="source_type">Dist</span> = VSize(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.Location - Location);
+<a name="1028"></a>		<span class="source_keyword">if</span> ( (<span class="source_type">Dist</span> &lt; <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).ObjectiveGetOutDist) && <span class="source_type">B</span>.LineOfSightTo(self) )
+<a name="1029"></a>		{
+<a name="1030"></a>			<span class="source_keyword">if</span> ( (<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) != <span class="source_keyword">None</span>) && <span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).bKeyVehicle && <span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.CanAttack(self) )
+<a name="1031"></a>			{
+<a name="1032"></a>				<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).Deploy();
+<a name="1033"></a>				<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1034"></a>			}
+<a name="1035"></a>			<span class="source_keyword">if</span> ( (DefenderTeamIndex == <span class="source_type">B</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex) || ((<span class="source_type">B</span>.Enemy != <span class="source_keyword">None</span>) && (<span class="source_type">Level</span>.TimeSeconds - <span class="source_type">B</span>.LastSeenTime &lt; <span class="source_int">2</span>)) )
+<a name="1036"></a>				<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1037"></a>
+<a name="1038"></a>			<span class="source_comment">// check if there's a passenger
+</span><a name="1039"></a>			<span class="source_keyword">if</span> ( <span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).WeaponPawns.Length &gt; <span class="source_int">0</span> )
+<a name="1040"></a>			{
+<a name="1041"></a>				<span class="source_keyword">for</span> ( <span class="source_type">i</span>=<span class="source_int">0</span>; <span class="source_type">i</span>&lt;<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).WeaponPawns.Length; <span class="source_type">i</span>++ )
+<a name="1042"></a>				{
+<a name="1043"></a>					SquadMate = <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).WeaponPawns[<span class="source_type">i</span>].<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>);
+<a name="1044"></a>					<span class="source_keyword">if</span> ( SquadMate != <span class="source_keyword">None</span> )
+<a name="1045"></a>					{
+<a name="1046"></a>						<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).WeaponPawns[<span class="source_type">i</span>].TeamUseTime = <span class="source_type">Level</span>.TimeSeconds + <span class="source_int">8</span>;
+<a name="1047"></a>						<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).WeaponPawns[<span class="source_type">i</span>].KDriverLeave(<span class="source_keyword">false</span>);
+<a name="1048"></a>						<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1049"></a>					}
+<a name="1050"></a>				}
+<a name="1051"></a>			}
+<a name="1052"></a>
+<a name="1053"></a>			<span class="source_comment">// check if there's another bot around to do it
+</span><a name="1054"></a>			<span class="source_keyword">for</span> ( SquadMate=<span class="source_type">B</span>.Squad.SquadMembers; SquadMate!=<span class="source_keyword">None</span>; SquadMate=SquadMate.NextSquadMember )
+<a name="1055"></a>			{
+<a name="1056"></a>				<span class="source_keyword">if</span> ( (SquadMate.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> != <span class="source_keyword">None</span>) && ((<span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(SquadMate.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) == <span class="source_keyword">None</span>) || !<span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(SquadMate.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).ImportantVehicle())
+<a name="1057"></a>					&& (VSize(SquadMate.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.Location - Location) &lt; <span class="source_type">Dist</span> + <span class="source_int">2000</span>) && (SquadMate.RouteGoal == self) )
+<a name="1058"></a>					<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1059"></a>			}
+<a name="1060"></a>		}
+<a name="1061"></a>	}
+<a name="1062"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1063"></a>}
+<a name="1064"></a>
+<a name="1065"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> TooClose(<span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>)
+<a name="1066"></a>{
+<a name="1067"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../unrealgame/bot.html" class="source">bot</a></span> SquadMate;
+<a name="1068"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">R</span>;
+<a name="1069"></a>
+<a name="1070"></a>	<span class="source_keyword">if</span> ( (VSize(Location - <span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.Location) &lt; <span class="source_int">2</span>*<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.CollisionRadius) && (PathList.Length &gt; <span class="source_int">1</span>) )
+<a name="1071"></a>	{
+<a name="1072"></a>		<span class="source_comment">//standing right on top of it, move away a little
+</span><a name="1073"></a>		<span class="source_type">B</span>.GoalString = <span class="source_string">"Move away from "</span>$self;
+<a name="1074"></a>		<span class="source_type">R</span> = Rand(PathList.Length-<span class="source_int">1</span>);
+<a name="1075"></a>		<span class="source_type">B</span>.MoveTarget = PathList[<span class="source_type">R</span>].End;
+<a name="1076"></a>		<span class="source_keyword">for</span> ( SquadMate=<span class="source_type">B</span>.Squad.SquadMembers; SquadMate!=<span class="source_keyword">None</span>; SquadMate=SquadMate.NextSquadMember )
+<a name="1077"></a>		{
+<a name="1078"></a>			<span class="source_keyword">if</span> ( (SquadMate.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> != <span class="source_keyword">None</span>) && (VSize(SquadMate.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.Location - <span class="source_type">B</span>.MoveTarget.Location) &lt; <span class="source_type">B</span>.CollisionRadius) )
+<a name="1079"></a>			{
+<a name="1080"></a>				<span class="source_type">B</span>.MoveTarget = PathList[<span class="source_type">R</span>+<span class="source_int">1</span>].End;
+<a name="1081"></a>				<span class="source_keyword">break</span>;
+<a name="1082"></a>			}
+<a name="1083"></a>		}
+<a name="1084"></a>		<span class="source_type">B</span>.SetAttractionState();
+<a name="1085"></a>		<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1086"></a>	}
+<a name="1087"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1088"></a>}
+<a name="1089"></a>
+<a name="1090"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> TellBotHowToDisable(<span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>)
+<a name="1091"></a>{
+<a name="1092"></a>	<span class="source_keyword">if</span> (CoreStage == <span class="source_int">4</span> || CoreStage == <span class="source_int">1</span>)
+<a name="1093"></a>	{
+<a name="1094"></a>		<span class="source_keyword">if</span> ( StandGuard(<span class="source_type">B</span>) )
+<a name="1095"></a>			<span class="source_keyword">return</span> TooClose(<span class="source_type">B</span>);
+<a name="1096"></a>
+<a name="1097"></a>		<span class="source_keyword">return</span> <span class="source_type">B</span>.Squad.FindPathToObjective(<span class="source_type">B</span>, self);
+<a name="1098"></a>	}
+<a name="1099"></a>
+<a name="1100"></a>	<span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_type">B</span>.Squad.<span class="source_type">Team</span>.TeamIndex)
+<a name="1101"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1102"></a>	<span class="source_keyword">if</span> (!PoweredBy(<span class="source_type">B</span>.Squad.<span class="source_type">Team</span>.TeamIndex))
+<a name="1103"></a>	{
+<a name="1104"></a>		<span class="source_keyword">if</span> (<span class="source_type">B</span>.CanAttack(self))
+<a name="1105"></a>			<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1106"></a>		<span class="source_keyword">else</span>
+<a name="1107"></a>			<span class="source_keyword">return</span> <span class="source_type">B</span>.Squad.FindPathToObjective(<span class="source_type">B</span>, self);
+<a name="1108"></a>	}
+<a name="1109"></a>
+<a name="1110"></a>	<span class="source_comment">//take out defensive turrets first
+</span><a name="1111"></a>	<span class="source_keyword">if</span> (<span class="source_type">B</span>.Enemy != <span class="source_keyword">None</span> && <span class="source_type">B</span>.Enemy.bStationary && <span class="source_type">B</span>.EnemyVisible() && <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.Enemy) != <span class="source_keyword">None</span> && <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.Enemy).bDefensive)
+<a name="1112"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1113"></a>
+<a name="1114"></a>	<span class="source_keyword">if</span> ( StandGuard(<span class="source_type">B</span>) )
+<a name="1115"></a>		<span class="source_keyword">return</span> TooClose(<span class="source_type">B</span>);
+<a name="1116"></a>
+<a name="1117"></a>	<span class="source_keyword">return</span> <span class="source_keyword">Super</span>.TellBotHowToDisable(<span class="source_type">B</span>);
+<a name="1118"></a>}
+<a name="1119"></a>
+<a name="1120"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> KillEnemyFirst(<span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>)
+<a name="1121"></a>{
+<a name="1122"></a>	<span class="source_keyword">if</span> ( bFinalCore || !bUnderAttack || Health &lt; DamageCapacity * <span class="source_int">0.25</span>
+<a name="1123"></a>	     || (<span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) != <span class="source_keyword">None</span> && <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).IndependentVehicle() && <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>).HasOccupiedTurret()) )
+<a name="1124"></a>		<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1125"></a>
+<a name="1126"></a>	<span class="source_keyword">if</span> (<span class="source_type">B</span>.Enemy != <span class="source_keyword">None</span> && <span class="source_type">B</span>.Enemy.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> != <span class="source_keyword">None</span> && <span class="source_type">B</span>.Enemy.CanAttack(<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) )
+<a name="1127"></a>	{
+<a name="1128"></a>		<span class="source_keyword">if</span> ( (<span class="source_type">B</span>.Aggressiveness &gt; <span class="source_int">0.4</span>) || (<span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.IsA(<span class="source_name">'ONSHoverBike'</span>) && (<span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">B</span>.Enemy) == <span class="source_keyword">None</span>) && (VSize(<span class="source_type">B</span>.Enemy.Location - <span class="source_type">B</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.Location) &lt; <span class="source_int">1500</span>)) )
+<a name="1129"></a>			<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1130"></a>
+<a name="1131"></a>		<span class="source_keyword">return</span> (<span class="source_type">B</span>.LastUnderFire &gt; <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>);
+<a name="1132"></a>	}
+<a name="1133"></a>
+<a name="1134"></a>	<span class="source_keyword">if</span> (<span class="source_type">Level</span>.TimeSeconds - HealingTime &lt; <span class="source_int">1</span> && LastHealedBy != <span class="source_keyword">None</span> && LastHealedBy.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> != <span class="source_keyword">None</span> && LastHealedBy.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.Health &gt; <span class="source_int">0</span>)
+<a name="1135"></a>	{
+<a name="1136"></a>		<span class="source_comment">//attack enemy healing me
+</span><a name="1137"></a>		<span class="source_keyword">if</span> ( <span class="source_type">B</span>.Squad.SetEnemy(<span class="source_type">B</span>,LastHealedBy.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) && (<span class="source_type">B</span>.Enemy == LastHealedBy.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>) )
+<a name="1138"></a>			<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1139"></a>	}
+<a name="1140"></a>
+<a name="1141"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="1142"></a>}
+<a name="1143"></a>
+<a name="1144"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> NearObjective(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>)
+<a name="1145"></a>{
+<a name="1146"></a>	<span class="source_keyword">if</span> (<span class="source_type">P</span>.CanAttack(GetShootTarget()))
+<a name="1147"></a>		<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="1148"></a>
+<a name="1149"></a>	<span class="source_keyword">return</span> (VSize(Location - <span class="source_type">P</span>.Location) &lt; BaseRadius && <span class="source_type">P</span>.LineOfSightTo(self));
+<a name="1150"></a>}
+<a name="1151"></a>
+<a name="1152"></a><span class="source_keyword">function</span> CheckTouching()
+<a name="1153"></a>{
+<a name="1154"></a>    	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>;
+<a name="1155"></a>
+<a name="1156"></a>    	<span class="source_keyword">foreach</span> BasedActors(<span class="source_keyword">class</span><span class="source_name">'Pawn'</span>, <span class="source_type">P</span>)
+<a name="1157"></a>    	{
+<a name="1158"></a>    		Bump(<span class="source_type">P</span>);
+<a name="1159"></a>    		<span class="source_keyword">return</span>;
+<a name="1160"></a>    	}
+<a name="1161"></a>}
+<a name="1162"></a>
+<a name="1163"></a><span class="source_keyword">state</span> NeutralCore
+<a name="1164"></a>{
+<a name="1165"></a>    <span class="source_keyword">function</span> TakeDamage( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>)
+<a name="1166"></a>	{
+<a name="1167"></a>	}
+<a name="1168"></a>
+<a name="1169"></a>    <span class="source_keyword">function</span> Bump(<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>)
+<a name="1170"></a>    {
+<a name="1171"></a>        <span class="source_keyword">if</span> ( (<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>) == <span class="source_keyword">None</span>) || !<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>).IsPlayerPawn() || <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>(<span class="source_type">Other</span>) != <span class="source_keyword">None</span> )
+<a name="1172"></a>    		<span class="source_keyword">return</span>;
+<a name="1173"></a>
+<a name="1174"></a>        <span class="source_keyword">if</span> (PoweredBy(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>).GetTeamNum()))
+<a name="1175"></a>        {
+<a name="1176"></a>		    NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="1177"></a>            DefenderTeamIndex = <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>).GetTeamNum();
+<a name="1178"></a>            Constructor = <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>).<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>;
+<a name="1179"></a>            GotoState(<span class="source_name">'Reconstruction'</span>);
+<a name="1180"></a>
+<a name="1181"></a>            <span class="source_comment">// Update Links
+</span><a name="1182"></a>            NotifyUpdateLinks();
+<a name="1183"></a>        }
+<a name="1184"></a>        <span class="source_keyword">else</span>
+<a name="1185"></a>            <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>).ReceiveLocalizedMessage(<span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">6</span>);
+<a name="1186"></a>    }
+<a name="1187"></a>
+<a name="1188"></a>    <span class="source_keyword">function</span> UsedBy(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">User</span>) {}
+<a name="1189"></a>
+<a name="1190"></a>    <span class="source_keyword">event</span> BeginState()
+<a name="1191"></a>    {
+<a name="1192"></a>        CheckTouching();
+<a name="1193"></a>    }
+<a name="1194"></a>
+<a name="1195"></a>Begin:
+<a name="1196"></a>	UpdateLinkState(Self);
+<a name="1197"></a>}
+<a name="1198"></a>
+<a name="1199"></a><span class="source_keyword">state</span> DestroyedCore
+<a name="1200"></a>{
+<a name="1201"></a>Begin:
+<a name="1202"></a>    sleep(<span class="source_int">2.0</span>);
+<a name="1203"></a>    <span class="source_keyword">if</span> (bFinalCore)
+<a name="1204"></a>        SetStaticMesh(DeadStaticMesh);
+<a name="1205"></a>    <span class="source_keyword">else</span>
+<a name="1206"></a>    {
+<a name="1207"></a>    	CoreStage = <span class="source_int">4</span>;
+<a name="1208"></a>    	PowerCoreNeutral();
+<a name="1209"></a>    	GotoState(<span class="source_name">'NeutralCore'</span>);
+<a name="1210"></a>    }
+<a name="1211"></a>
+<a name="1212"></a>   	UpdateLinkState(Self);
+<a name="1213"></a>}
+<a name="1214"></a>
+<a name="1215"></a>
+<a name="1216"></a><span class="source_keyword">event</span> Timer()
+<a name="1217"></a>{
+<a name="1218"></a>	<span class="source_keyword">if</span> (!bSevered || CoreStage == <span class="source_int">4</span>)
+<a name="1219"></a>	{
+<a name="1220"></a>		UnSever();
+<a name="1221"></a>		<span class="source_keyword">return</span>;
+<a name="1222"></a>	}
+<a name="1223"></a>
+<a name="1224"></a>        TakeDamage(SeveredDamagePerSecond, <span class="source_keyword">None</span>, vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>), vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>), <span class="source_keyword">None</span>);
+<a name="1225"></a>}
+<a name="1226"></a>
+<a name="1227"></a><span class="source_keyword">state</span> Reconstruction
+<a name="1228"></a>{
+<a name="1229"></a>    <span class="source_keyword">event</span> Timer()
+<a name="1230"></a>    {
+<a name="1231"></a>        <span class="source_keyword">if</span> (bSevered)
+<a name="1232"></a>        {
+<a name="1233"></a>            Global.Timer();
+<a name="1234"></a>            <span class="source_keyword">return</span>;
+<a name="1235"></a>        }
+<a name="1236"></a>    	<span class="source_keyword">if</span> (<span class="source_type">Level</span>.TimeSeconds &lt; LastAttackTime + <span class="source_int">1.0</span>)
+<a name="1237"></a>    		<span class="source_keyword">return</span>;
+<a name="1238"></a>
+<a name="1239"></a>        NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="1240"></a>
+<a name="1241"></a>        ConstructionTimeElapsed += <span class="source_int">1.0</span>;
+<a name="1242"></a>        Health += (<span class="source_int">1.0</span> / ConstructionTime) * DamageCapacity;
+<a name="1243"></a>
+<a name="1244"></a>        <span class="source_keyword">if</span> (Health &gt; DamageCapacity)
+<a name="1245"></a>        {
+<a name="1246"></a>            SetTimer(<span class="source_int">0.0</span>, <span class="source_keyword">False</span>);
+<a name="1247"></a>            Health = DamageCapacity;
+<a name="1248"></a>            CoreStage = <span class="source_int">0</span>;
+<a name="1249"></a>            <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">1</span>)
+<a name="1250"></a>                TriggerEvent(BlueActivationEventName, self, <span class="source_keyword">None</span>);
+<a name="1251"></a>            <span class="source_keyword">else</span>
+<a name="1252"></a>                TriggerEvent(RedActivationEventName, self, <span class="source_keyword">None</span>);
+<a name="1253"></a>            PowerCoreActive();
+<a name="1254"></a>            <span class="source_keyword">if</span> (DefenderTeamIndex == <span class="source_int">0</span>)
+<a name="1255"></a>                BroadcastLocalizedMessage( <span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">2</span>);
+<a name="1256"></a>            <span class="source_keyword">else</span>
+<a name="1257"></a>                BroadcastLocalizedMessage( <span class="source_keyword">class</span><span class="source_name">'ONSOnslaughtMessage'</span>, <span class="source_int">3</span>);
+<a name="1258"></a>            <span class="source_keyword">if</span> (Constructor != <span class="source_keyword">None</span> && Constructor.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> != <span class="source_keyword">None</span>)
+<a name="1259"></a>            {
+<a name="1260"></a>	            Constructor.AwardAdrenaline(<span class="source_type">Score</span>);
+<a name="1261"></a>		    <span class="source_type">Level</span>.Game.ScoreObjective(Constructor.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>, <span class="source_keyword">float</span>(<span class="source_type">Score</span>) / <span class="source_int">2.0</span>);
+<a name="1262"></a>        	    <span class="source_type">Level</span>.Game.ScoreEvent(Constructor.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>, <span class="source_keyword">float</span>(<span class="source_type">Score</span>) / <span class="source_int">2.0</span>, ConstructedEvent[DefenderTeamIndex]);
+<a name="1263"></a>            }
+<a name="1264"></a>            <span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).FindNewObjectives(self);
+<a name="1265"></a>            GotoState(<span class="source_name">''</span>);
+<a name="1266"></a>        }
+<a name="1267"></a>    }
+<a name="1268"></a>
+<a name="1269"></a>    <span class="source_keyword">function</span> BeginState()
+<a name="1270"></a>    {
+<a name="1271"></a>    	Scorers.length = <span class="source_int">0</span>;
+<a name="1272"></a>	PlaySound(StartConstructionSound, SLOT_Misc, <span class="source_int">5.0</span>);
+<a name="1273"></a>	CoreStage = <span class="source_int">5</span>;
+<a name="1274"></a>	PowerCoreReconstitution();
+<a name="1275"></a>    }
+<a name="1276"></a>
+<a name="1277"></a>    <span class="source_keyword">function</span> Bump(<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) {}
+<a name="1278"></a>    <span class="source_keyword">function</span> UsedBy(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">User</span>) {}
+<a name="1279"></a>    <span class="source_keyword">function</span> UnSever() {}
+<a name="1280"></a>
+<a name="1281"></a>Begin:
+<a name="1282"></a>    sleep(<span class="source_int">2.0</span>);
+<a name="1283"></a>    CoreStage = <span class="source_int">2</span>;
+<a name="1284"></a>    PowerCoreConstructing();
+<a name="1285"></a>    ConstructionTimeElapsed = <span class="source_int">0.0</span>;
+<a name="1286"></a>    SetTimer(<span class="source_int">1.0</span>, <span class="source_keyword">True</span>);
+<a name="1287"></a>}
+<a name="1288"></a>
+<a name="1289"></a><span class="source_keyword">state</span> DisabledCore
+<a name="1290"></a>{
+<a name="1291"></a>	<span class="source_keyword">event</span> BeginState()
+<a name="1292"></a>	{
+<a name="1293"></a>		NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="1294"></a>		SetCollision(<span class="source_keyword">false</span>, <span class="source_keyword">false</span>);
+<a name="1295"></a>		bDisabled = <span class="source_keyword">true</span>;
+<a name="1296"></a>		SetTimer(<span class="source_int">0</span>, <span class="source_keyword">false</span>);
+<a name="1297"></a>		NetUpdateFrequency = <span class="source_int">0.1</span>;
+<a name="1298"></a>	}
+<a name="1299"></a>
+<a name="1300"></a>	<span class="source_keyword">event</span> EndState()
+<a name="1301"></a>	{
+<a name="1302"></a>		NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="1303"></a>		SetCollision(default.bCollideActors, default.bBlockActors);
+<a name="1304"></a>		bDisabled = <span class="source_keyword">false</span>;
+<a name="1305"></a>		NetUpdateFrequency = default.NetUpdateFrequency;
+<a name="1306"></a>		<span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).FindNewObjectives(self);
+<a name="1307"></a>	}
+<a name="1308"></a>
+<a name="1309"></a>Begin:
+<a name="1310"></a>   	UpdateLinkState(Self);
+<a name="1311"></a>}
+<a name="1312"></a>
+<a name="1313"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasHealthBar()
+<a name="1314"></a>{
+<a name="1315"></a>	<span class="source_keyword">return</span> CoreStage == <span class="source_int">0</span> || CoreStage == <span class="source_int">2</span> || CoreStage == <span class="source_int">5</span>;
+<a name="1316"></a>}
+<a name="1317"></a>
+<a name="1318"></a><span class="source_keyword2">simulated</span> singular <span class="source_keyword">function</span> UpdateHUDLocation( <span class="source_keyword">float</span> ScreenX, <span class="source_keyword">float</span> ScreenY, <span class="source_keyword">float</span> RadarWidth, <span class="source_keyword">float</span> <span class="source_type"><a href="../core/object.html#Range" class="source">Range</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">Center</span> )
+<a name="1319"></a>{
+<a name="1320"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ScreenLocation;
+<a name="1321"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Dist</span>;
+<a name="1322"></a>
+<a name="1323"></a>    ScreenLocation = Location - <span class="source_type">Center</span>;
+<a name="1324"></a>    ScreenLocation.<span class="source_type">Z</span> = <span class="source_int">0</span>;
+<a name="1325"></a>	<span class="source_type">Dist</span> = VSize(ScreenLocation);
+<a name="1326"></a>
+<a name="1327"></a>    HUDLocation.<span class="source_type">X</span> = ScreenX + ScreenLocation.<span class="source_type">X</span> * (RadarWidth/<span class="source_type"><a href="../core/object.html#Range" class="source">Range</a></span>);
+<a name="1328"></a>    HUDLocation.<span class="source_type">Y</span> = ScreenY + ScreenLocation.<span class="source_type">Y</span> * (RadarWidth/<span class="source_type"><a href="../core/object.html#Range" class="source">Range</a></span>);
+<a name="1329"></a>
+<a name="1330"></a>    <span class="source_keyword">if</span> ( NextCore != <span class="source_keyword">None</span> )
+<a name="1331"></a>    	NextCore.UpdateHUDLocation(ScreenX, ScreenY, RadarWidth, <span class="source_type"><a href="../core/object.html#Range" class="source">Range</a></span>, <span class="source_type">Center</span>);
+<a name="1332"></a>}
+<a name="1333"></a>
+<a name="1334"></a><span class="source_keyword">function</span> SetTeam(<span class="source_keyword">byte</span> TeamIndex)
+<a name="1335"></a>{
+<a name="1336"></a>	<span class="source_keyword">Super</span>.SetTeam(TeamIndex);
+<a name="1337"></a>
+<a name="1338"></a>	<span class="source_keyword">if</span> (CoreStage == <span class="source_int">0</span>)
+<a name="1339"></a>		PowerCoreActive();
+<a name="1340"></a>}
+<a name="1341"></a>
+<a name="1342"></a><span class="source_keyword">defaultproperties</span>
+<a name="1343"></a>{
+<a name="1344"></a>     ConstructionTime=<span class="source_int">30.000000</span>
+<a name="1345"></a>     DeadStaticMesh=<span class="source_type">StaticMesh</span><span class="source_name">'VMStructures.CoreGroup.coreDead'</span>
+<a name="1346"></a>     DestroyedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerCore.PowerCoreExplosion01'</span>
+<a name="1347"></a>     ConstructedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.whooshthunk'</span>
+<a name="1348"></a>     StartConstructionSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeBuild02'</span>
+<a name="1349"></a>     ActiveSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeActive01'</span>
+<a name="1350"></a>     NeutralSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeNOTActive01'</span>
+<a name="1351"></a>     HealingSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeStartBuild03'</span>
+<a name="1352"></a>     HealedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeBuilt01'</span>
+<a name="1353"></a>     bPowered=<span class="source_keyword">True</span>
+<a name="1354"></a>     bFinalCore=<span class="source_keyword">True</span>
+<a name="1355"></a>     bShowNodeBeams=<span class="source_keyword">True</span>
+<a name="1356"></a>     RedConstructingSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreConstructionRed'</span>
+<a name="1357"></a>     RedConstructingSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.InvisibleFinal'</span>
+<a name="1358"></a>     BlueConstructingSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreConstructionBlue'</span>
+<a name="1359"></a>     BlueConstructingSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.InvisibleFinal'</span>
+<a name="1360"></a>     RedActiveSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreDiffTEX'</span>
+<a name="1361"></a>     RedActiveSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreLightShader'</span>
+<a name="1362"></a>     BlueActiveSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreDiffTEX'</span>
+<a name="1363"></a>     BlueActiveSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreLightShader'</span>
+<a name="1364"></a>     LastCoreStage=<span class="source_int">250</span>
+<a name="1365"></a>     FinalCoreDistance(<span class="source_int">0</span>)=<span class="source_int">255</span>
+<a name="1366"></a>     FinalCoreDistance(<span class="source_int">1</span>)=<span class="source_int">255</span>
+<a name="1367"></a>     LastAttackExpirationTime=<span class="source_int">5.000000</span>
+<a name="1368"></a>     SeveredDamagePerSecond=<span class="source_int">30.000000</span>
+<a name="1369"></a>     DestructionMessageIndex=<span class="source_int">14</span>
+<a name="1370"></a>     DestroyedEvent(<span class="source_int">0</span>)=<span class="source_string">"red_powercore_destroyed"</span>
+<a name="1371"></a>     DestroyedEvent(<span class="source_int">1</span>)=<span class="source_string">"blue_powercore_destroyed"</span>
+<a name="1372"></a>     DestroyedEvent(<span class="source_int">2</span>)=<span class="source_string">"red_constructing_powercore_destroyed"</span>
+<a name="1373"></a>     DestroyedEvent(<span class="source_int">3</span>)=<span class="source_string">"blue_constructing_powercore_destroyed"</span>
+<a name="1374"></a>     ConstructedEvent(<span class="source_int">0</span>)=<span class="source_string">"red_powercore_constructed"</span>
+<a name="1375"></a>     ConstructedEvent(<span class="source_int">1</span>)=<span class="source_string">"blue_powercore_constructed"</span>
+<a name="1376"></a>     ShieldClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSPowerCoreShield'</span>
+<a name="1377"></a>     LastDefenderTeamIndex=<span class="source_int">2</span>
+<a name="1378"></a>     DamageCapacity=<span class="source_int">4500</span>
+<a name="1379"></a>     bMonitorUnderAttack=<span class="source_keyword">False</span>
+<a name="1380"></a>     bPlayCriticalAssaultAlarm=<span class="source_keyword">False</span>
+<a name="1381"></a>     DefensePriority=<span class="source_int">10</span>
+<a name="1382"></a>     <span class="source_type">Score</span>=<span class="source_int">10</span>
+<a name="1383"></a>     DestructionMessage=
+<a name="1384"></a>     ObjectiveStringSuffix=<span class="source_string">" PowerCore"</span>
+<a name="1385"></a>     DrawType=DT_StaticMesh
+<a name="1386"></a>     <span class="source_type">StaticMesh</span>=<span class="source_type">StaticMesh</span><span class="source_name">'VMStructures.CoreGroup.CoreDivided'</span>
+<a name="1387"></a>     bHidden=<span class="source_keyword">False</span>
+<a name="1388"></a>     bIgnoreEncroachers=<span class="source_keyword">True</span>
+<a name="1389"></a>     bNotifyLocalPlayerTeamReceived=<span class="source_keyword">True</span>
+<a name="1390"></a>     SoundVolume=<span class="source_int">128</span>
+<a name="1391"></a>     SoundRadius=<span class="source_int">255.000000</span>
+<a name="1392"></a>     CollisionRadius=<span class="source_int">120.000000</span>
+<a name="1393"></a>     CollisionHeight=<span class="source_int">150.000000</span>
+<a name="1394"></a>     bCollideWorld=<span class="source_keyword">True</span>
+<a name="1395"></a>     bBlockActors=<span class="source_keyword">True</span>
+<a name="1396"></a>     bBlockKarma=<span class="source_keyword">True</span>
+<a name="1397"></a>     bBlocksTeleport=<span class="source_keyword">True</span>
+<a name="1398"></a>     bNetNotify=<span class="source_keyword">True</span>
+<a name="1399"></a>     bPathColliding=<span class="source_keyword">True</span>
+<a name="1400"></a>}
+<a name="1401"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header"><a href="../onslaught/onspowercore.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#ONSPowerCore">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_onslaught/onsplayerreplicationinfo.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_onslaught/onspowercoreblue.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:06.000 - Creation time: Mon 15/4/2019 10:25:11.760 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XInterface.Tab_InstantActionBotConfig</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_instantactionbotconfig.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_InstantActionBotConfig">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_instantactionbaserules.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_instantactionmain.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xinterface/tab_instantactionbotconfig.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xinterface/xinterface-overview.html">XInterface</a>.Tab_InstantActionBotConfig</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a>
+                  |   
+                  +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_instantactionbotconfig.html">Tab_InstantActionBotConfig</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bIgnoreListChange" name="bIgnoreListChange" title="go to the details">bIgnoreListChange</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bPlaySounds" name="bPlaySounds" title="go to the details">bPlaySounds</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bTeamGame" name="bTeamGame" title="go to the details">bTeamGame</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilistbox.html">GUIListBox</a></td><td width="66%"><a href="#_MyBlueTeam" name="MyBlueTeam" title="go to the details">MyBlueTeam</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guicharacterlist.html">GUICharacterList</a></td><td width="66%"><a href="#_MyBotList" name="MyBotList" title="go to the details">MyBotList</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_MyBotMaker" name="MyBotMaker" title="go to the details">MyBotMaker</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilabel.html">GUILabel</a></td><td width="66%"><a href="#_MyBotName" name="MyBotName" title="go to the details">MyBotName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_MyPortrait" name="MyPortrait" title="go to the details">MyPortrait</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilistbox.html">GUIListBox</a></td><td width="66%"><a href="#_MyRedTeam" name="MyRedTeam" title="go to the details">MyRedTeam</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/guitabpanel.html#bFillHeight">bFillHeight</a>, <a href="../xinterface/guitabpanel.html#FadeInTime">FadeInTime</a>, <a href="../xinterface/guitabpanel.html#MyButton">MyButton</a>, <a href="../xinterface/guitabpanel.html#PanelCaption">PanelCaption</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_BlueClickAdd-" name="BlueClickAdd" title="go to the details">BlueClickAdd</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_BlueClickRemove-" name="BlueClickRemove" title="go to the details">BlueClickRemove</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_BotConfigClick-" name="BotConfigClick" title="go to the details">BotConfigClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_BotInfoClick-" name="BotInfoClick" title="go to the details">BotInfoClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CharListChange-" name="CharListChange" title="go to the details">CharListChange</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> MyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_InternalOnClick-" name="InternalOnClick" title="go to the details">InternalOnClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ListChange-" name="ListChange" title="go to the details">ListChange</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>string&nbsp;</td><td><a href="#_Play-" name="Play" title="go to the details">Play</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_RedClickAdd-" name="RedClickAdd" title="go to the details">RedClickAdd</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_RedClickRemove-" name="RedClickRemove" title="go to the details">RedClickRemove</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetupBotLists-" name="SetupBotLists" title="go to the details">SetupBotLists</a> (bool bIsTeam))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ShowPanel-" name="ShowPanel" title="go to the details">ShowPanel</a> (bool bShow))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/guitabpanel.html#CanShowPanel">CanShowPanel</a>, <a href="../xinterface/guitabpanel.html#Free">Free</a>, <a href="../xinterface/guitabpanel.html#InitPanel">InitPanel</a>, <a href="../xinterface/guitabpanel.html#OnDestroyPanel">OnDestroyPanel</a>, <a href="../xinterface/guitabpanel.html#Refresh">Refresh</a>, <a href="../xinterface/guitabpanel.html#ShowPanel">ShowPanel</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bIgnoreListChange" class="hidden"></a>bIgnoreListChange <a href="../Source_xinterface/tab_instantactionbotconfig.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bIgnoreListChange;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bPlaySounds" class="hidden"></a>bPlaySounds <a href="../Source_xinterface/tab_instantactionbotconfig.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bPlaySounds;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bTeamGame" class="hidden"></a>bTeamGame <a href="../Source_xinterface/tab_instantactionbotconfig.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bTeamGame;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyBlueTeam" class="hidden"></a>MyBlueTeam <a href="../Source_xinterface/tab_instantactionbotconfig.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guilistbox.html" class="source">GUIListBox</a></span> MyBlueTeam;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyBotList" class="hidden"></a>MyBotList <a href="../Source_xinterface/tab_instantactionbotconfig.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guicharacterlist.html" class="source">GUICharacterList</a></span> MyBotList;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyBotMaker" class="hidden"></a>MyBotMaker <a href="../Source_xinterface/tab_instantactionbotconfig.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> MyBotMaker;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyBotName" class="hidden"></a>MyBotName <a href="../Source_xinterface/tab_instantactionbotconfig.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> MyBotName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyPortrait" class="hidden"></a>MyPortrait <a href="../Source_xinterface/tab_instantactionbotconfig.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> MyPortrait;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyRedTeam" class="hidden"></a>MyRedTeam <a href="../Source_xinterface/tab_instantactionbotconfig.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guilistbox.html" class="source">GUIListBox</a></span> MyRedTeam;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BlueClickAdd-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BlueClickAdd <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#202" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> BlueClickAdd ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BlueClickRemove-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BlueClickRemove <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#233" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> BlueClickRemove ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BotConfigClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BotConfigClick <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#295" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> BotConfigClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BotInfoClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BotInfoClick <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#287" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> BotInfoClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CharListChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CharListChange <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#176" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  CharListChange ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#21" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalOnClick <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#277" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> InternalOnClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ListChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ListChange <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#253" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ListChange ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Play-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Play <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#93" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">string</span> Play ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RedClickAdd-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RedClickAdd <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#191" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> RedClickAdd ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RedClickRemove-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RedClickRemove <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#213" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> RedClickRemove ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetupBotLists-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetupBotLists <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#46" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetupBotLists ( <span class="source_keyword">bool</span> bIsTeam) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShowPanel-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShowPanel <span class="function_state"></span> <a href="../Source_xinterface/tab_instantactionbotconfig.html#36" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ShowPanel ( <span class="source_keyword">bool</span> <span class="source_type">bShow</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=IABotConfigBK1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxD'</span>
+         ImageColor=(<span class="source_type">A</span>=<span class="source_int">160</span>)
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.630156</span>
+         WinLeft=<span class="source_int">0.016758</span>
+         WinWidth=<span class="source_int">0.962383</span>
+         WinHeight=<span class="source_int">0.370860</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">0</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigBK1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilistbox.html" class="source">GUIListBox</a></span> <span class="source_keyword">Name</span>=IABotConfigRedList
+         bVisibleWhenEmpty=<span class="source_keyword">True</span>
+         OnCreateComponent=IABotConfigRedList.InternalOnCreateComponent
+         StyleName=<span class="source_string">"SquareButton"</span>
+         Hint=<span class="source_string">"The Red Team's Roster."</span>
+         WinTop=<span class="source_int">0.115833</span>
+         WinLeft=<span class="source_int">0.026758</span>
+         WinWidth=<span class="source_int">0.324414</span>
+         WinHeight=<span class="source_int">0.458751</span>
+         OnChange=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.ListChange
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">1</span>)=<span class="source_type"><a href="../xinterface/guilistbox.html" class="source">GUIListBox</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigRedList'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span> <span class="source_keyword">Name</span>=IABotConfigRedAdd
+         LeftButton=<span class="source_keyword">True</span>
+         Hint=<span class="source_string">"Add Bot to Red Team"</span>
+         WinTop=<span class="source_int">0.208334</span>
+         WinLeft=<span class="source_int">0.357617</span>
+         WinWidth=<span class="source_int">0.064648</span>
+         WinHeight=<span class="source_int">0.079297</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.RedClickAdd
+         OnKeyEvent=IABotConfigRedAdd.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">2</span>)=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigRedAdd'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span> <span class="source_keyword">Name</span>=IABotConfigRedRemove
+         Hint=<span class="source_string">"Remove Bot from Red Team"</span>
+         WinTop=<span class="source_int">0.358073</span>
+         WinLeft=<span class="source_int">0.357617</span>
+         WinWidth=<span class="source_int">0.064648</span>
+         WinHeight=<span class="source_int">0.079297</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.RedClickRemove
+         OnKeyEvent=IABotConfigRedRemove.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">3</span>)=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigRedRemove'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=IABotConfigPortrait
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxD'</span>
+         ImageStyle=ISTY_Scaled
+         ImageRenderStyle=MSTY_Normal
+         WinTop=<span class="source_int">0.119166</span>
+         WinLeft=<span class="source_int">0.440547</span>
+         WinWidth=<span class="source_int">0.118711</span>
+         WinHeight=<span class="source_int">0.451251</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">4</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigPortrait'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=IABotConfigPortraitBorder
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxA1'</span>
+         ImageStyle=ISTY_Stretched
+         ImageRenderStyle=MSTY_Normal
+         WinTop=<span class="source_int">0.115833</span>
+         WinLeft=<span class="source_int">0.438047</span>
+         WinWidth=<span class="source_int">0.123711</span>
+         WinHeight=<span class="source_int">0.458751</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">5</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigPortraitBorder'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span> <span class="source_keyword">Name</span>=IABotConfigBlueAdd
+         Hint=<span class="source_string">"Add Bot to Blue Team"</span>
+         WinTop=<span class="source_int">0.208334</span>
+         WinLeft=<span class="source_int">0.577344</span>
+         WinWidth=<span class="source_int">0.064648</span>
+         WinHeight=<span class="source_int">0.079297</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.BlueClickAdd
+         OnKeyEvent=IABotConfigBlueAdd.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">6</span>)=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigBlueAdd'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span> <span class="source_keyword">Name</span>=IABotConfigBlueRemove
+         LeftButton=<span class="source_keyword">True</span>
+         Hint=<span class="source_string">"Remove Bot from Blue Team"</span>
+         WinTop=<span class="source_int">0.358073</span>
+         WinLeft=<span class="source_int">0.577344</span>
+         WinWidth=<span class="source_int">0.064648</span>
+         WinHeight=<span class="source_int">0.079297</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.BlueClickRemove
+         OnKeyEvent=IABotConfigBlueRemove.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">7</span>)=<span class="source_type"><a href="../xinterface/guihorzscrollbutton.html" class="source">GUIHorzScrollButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigBlueRemove'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilistbox.html" class="source">GUIListBox</a></span> <span class="source_keyword">Name</span>=IABotConfigBlueList
+         bVisibleWhenEmpty=<span class="source_keyword">True</span>
+         OnCreateComponent=IABotConfigBlueList.InternalOnCreateComponent
+         StyleName=<span class="source_string">"SquareButton"</span>
+         Hint=<span class="source_string">"The Blue Team's Roster."</span>
+         WinTop=<span class="source_int">0.115833</span>
+         WinLeft=<span class="source_int">0.647853</span>
+         WinWidth=<span class="source_int">0.324414</span>
+         WinHeight=<span class="source_int">0.463633</span>
+         OnChange=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.ListChange
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">8</span>)=<span class="source_type"><a href="../xinterface/guilistbox.html" class="source">GUIListBox</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigBlueList'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guicharacterlist.html" class="source">GUICharacterList</a></span> <span class="source_keyword">Name</span>=IABotConfigCharList
+         StyleName=<span class="source_string">"CharButton"</span>
+         Hint=<span class="source_string">"Select a bot to add to a team"</span>
+         WinTop=<span class="source_int">0.689897</span>
+         WinLeft=<span class="source_int">0.137890</span>
+         WinWidth=<span class="source_int">0.724609</span>
+         WinHeight=<span class="source_int">0.236758</span>
+         OnClick=IABotConfigCharList.InternalOnClick
+         OnRightClick=IABotConfigCharList.InternalOnRightClick
+         OnMousePressed=IABotConfigCharList.InternalOnMousePressed
+         OnMouseRelease=IABotConfigCharList.InternalOnMouseRelease
+         OnChange=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.CharListChange
+         OnKeyEvent=IABotConfigCharList.InternalOnKeyEvent
+         OnBeginDrag=IABotConfigCharList.InternalOnBeginDrag
+         OnEndDrag=IABotConfigCharList.InternalOnEndDrag
+         OnDragDrop=IABotConfigCharList.InternalOnDragDrop
+         OnDragEnter=IABotConfigCharList.InternalOnDragEnter
+         OnDragLeave=IABotConfigCharList.InternalOnDragLeave
+         OnDragOver=IABotConfigCharList.InternalOnDragOver
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">9</span>)=<span class="source_type"><a href="../xinterface/guicharacterlist.html" class="source">GUICharacterList</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigCharList'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=IABotConfigConfig
+         <span class="source_type">Caption</span>=<span class="source_string">"More Info"</span>
+         Hint=<span class="source_string">"Find out more info on this bot"</span>
+         WinTop=<span class="source_int">0.951199</span>
+         WinLeft=<span class="source_int">0.249806</span>
+         WinWidth=<span class="source_int">0.239063</span>
+         WinHeight=<span class="source_int">0.049765</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.BotInfoClick
+         OnKeyEvent=IABotConfigConfig.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">10</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigConfig'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=IABotConfigName
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">0</span>,G=<span class="source_int">180</span>,<span class="source_type">R</span>=<span class="source_int">220</span>)
+         TextFont=<span class="source_string">"UT2HeaderFont"</span>
+         WinTop=<span class="source_int">0.581770</span>
+         WinHeight=<span class="source_int">0.130000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">11</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=IABotConfigRedName
+         <span class="source_type">Caption</span>=<span class="source_string">"Red Team"</span>
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">0</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.027082</span>
+         WinLeft=<span class="source_int">0.039063</span>
+         WinWidth=<span class="source_int">0.250000</span>
+         WinHeight=<span class="source_int">0.130000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">12</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigRedName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=IABotConfigBlueName
+         <span class="source_type">Caption</span>=<span class="source_string">"Blue Team"</span>
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.027082</span>
+         WinLeft=<span class="source_int">0.655862</span>
+         WinWidth=<span class="source_int">0.250000</span>
+         WinHeight=<span class="source_int">0.130000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">13</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigBlueName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=IABotConfigDMName
+         <span class="source_type">Caption</span>=<span class="source_string">"Deathmatch"</span>
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">0</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.032552</span>
+         WinLeft=<span class="source_int">0.039063</span>
+         WinWidth=<span class="source_int">0.250000</span>
+         WinHeight=<span class="source_int">0.130000</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">14</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigDMName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=BotLeft
+         StyleName=<span class="source_string">"ArrowLeft"</span>
+         WinTop=<span class="source_int">0.775783</span>
+         WinLeft=<span class="source_int">0.108203</span>
+         WinWidth=<span class="source_int">0.043555</span>
+         WinHeight=<span class="source_int">0.084414</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         bRepeatClick=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.InternalOnClick
+         OnKeyEvent=BotLeft.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">15</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.BotLeft'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=BotRight
+         StyleName=<span class="source_string">"ArrowRight"</span>
+         WinTop=<span class="source_int">0.775783</span>
+         WinLeft=<span class="source_int">0.845899</span>
+         WinWidth=<span class="source_int">0.043555</span>
+         WinHeight=<span class="source_int">0.084414</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         bRepeatClick=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.InternalOnClick
+         OnKeyEvent=BotRight.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">16</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.BotRight'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=IABotConfigDoConfig
+         <span class="source_type">Caption</span>=<span class="source_string">"Customize"</span>
+         Hint=<span class="source_string">"Change the AI attributes for this bot"</span>
+         WinTop=<span class="source_int">0.951199</span>
+         WinLeft=<span class="source_int">0.491993</span>
+         WinWidth=<span class="source_int">0.239063</span>
+         WinHeight=<span class="source_int">0.049765</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_instantactionbotconfig.html" class="source">Tab_InstantActionBotConfig</a></span>.BotConfigClick
+         OnKeyEvent=IABotConfigDoConfig.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">17</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_InstantActionBotConfig.IABotConfigDoConfig'</span>
+
+     WinTop=<span class="source_int">0.150000</span>
+     WinHeight=<span class="source_int">0.770000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_instantactionbotconfig.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_InstantActionBotConfig">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_instantactionbaserules.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_instantactionmain.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:05.539 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

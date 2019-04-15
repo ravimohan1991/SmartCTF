@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: SkaarjPack.HUDInvasion</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../skaarjpack/skaarjpack-overview.html">Package</a></td>
+	<td class="header"><a href="../skaarjpack/hudinvasion.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#HUDInvasion">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_skaarjpack/gasbagbelch.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_skaarjpack/iceskaarj.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_skaarjpack/hudinvasion.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../skaarjpack/skaarjpack-overview.html">SkaarjPack</a>.<a href="../skaarjpack/hudinvasion.html">HUDInvasion</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105<br />00106<br />00107<br />00108<br />00109<br />00110<br />00111<br />00112<br />00113<br />00114<br />00115<br />00116<br />00117<br />00118<br />00119<br />00120<br />
+00121<br />00122<br />00123<br />00124<br />00125<br />00126<br />00127</span></td>
+<td class="source"><pre class="source"><a name="0"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../skaarjpack/hudinvasion.html" class="source">HUDInvasion</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../xinterface/hudcteamdeathmatch.html" class="source">HudCTeamDeathMatch</a></span>
+<a name="2"></a>	<span class="source_keyword2">config</span>(<span class="source_type">user</span>);
+<a name="3"></a>
+<a name="4"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span> RadarPulse,RadarScale;
+<a name="5"></a><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> RadarPosX, RadarPosY;
+<a name="6"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastDrawRadar;
+<a name="7"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span> MinEnemyDist;
+<a name="8"></a>
+<a name="9"></a><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">bool</span> bNoRadarSound;
+<a name="10"></a>
+<a name="11"></a><span class="source_macro">#EXEC OBJ LOAD FILE=InterfaceContent.utx
+</span><a name="12"></a><span class="source_macro">#EXEC OBJ LOAD FILE=AS_FX_TX.utx
+</span><a name="13"></a>
+<a name="14"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> UpdatePrecacheMaterials()
+<a name="15"></a>{
+<a name="16"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'InterfaceContent.HUD.SkinA'</span>);
+<a name="17"></a>	<span class="source_type">Level</span>.AddPrecacheMaterial(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AS_FX_TX.AssaultRadar'</span>);
+<a name="18"></a>	<span class="source_keyword">Super</span>.UpdatePrecacheMaterials();
+<a name="19"></a>}
+<a name="20"></a>
+<a name="21"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> ShowTeamScorePassA(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>)
+<a name="22"></a>{
+<a name="23"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> RadarWidth, PulseWidth, PulseBrightness;
+<a name="24"></a>
+<a name="25"></a>	RadarScale = Default.RadarScale * HUDScale;
+<a name="26"></a>	RadarWidth = <span class="source_int">0.5</span> * RadarScale * <span class="source_type">C</span>.ClipX;
+<a name="27"></a>	PulseWidth = RadarScale * <span class="source_type">C</span>.ClipX;
+<a name="28"></a>	<span class="source_type">C</span>.DrawColor = RedColor;
+<a name="29"></a>	<span class="source_type">C</span>.Style = <span class="source_type"><a href="../engine/actor.html#ERenderStyle" class="source">ERenderStyle</a></span>.STY_Translucent;
+<a name="30"></a>
+<a name="31"></a>	PulseBrightness = FMax(<span class="source_int">0</span>,(<span class="source_int">1</span> - <span class="source_int">2</span>*RadarPulse) * <span class="source_int">255.0</span>);
+<a name="32"></a>	<span class="source_type">C</span>.DrawColor.<span class="source_type">R</span> = PulseBrightness;
+<a name="33"></a>	<span class="source_type">C</span>.SetPos(RadarPosX*<span class="source_type">C</span>.ClipX - <span class="source_int">0.5</span>*PulseWidth,RadarPosY*<span class="source_type">C</span>.ClipY+RadarWidth-<span class="source_int">0.5</span>*PulseWidth);
+<a name="34"></a>	<span class="source_type">C</span>.DrawTile( <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'InterfaceContent.SkinA'</span>, PulseWidth, PulseWidth, <span class="source_int">0</span>, <span class="source_int">880</span>, <span class="source_int">142</span>, <span class="source_int">142</span>);
+<a name="35"></a>
+<a name="36"></a>	PulseWidth = RadarPulse * RadarScale * <span class="source_type">C</span>.ClipX;
+<a name="37"></a>	<span class="source_type">C</span>.DrawColor = RedColor;
+<a name="38"></a>	<span class="source_type">C</span>.SetPos(RadarPosX*<span class="source_type">C</span>.ClipX - <span class="source_int">0.5</span>*PulseWidth,RadarPosY*<span class="source_type">C</span>.ClipY+RadarWidth-<span class="source_int">0.5</span>*PulseWidth);
+<a name="39"></a>	<span class="source_type">C</span>.DrawTile( <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'InterfaceContent.SkinA'</span>, PulseWidth, PulseWidth, <span class="source_int">0</span>, <span class="source_int">880</span>, <span class="source_int">142</span>, <span class="source_int">142</span>);
+<a name="40"></a>
+<a name="41"></a>	<span class="source_type">C</span>.Style = <span class="source_type"><a href="../engine/actor.html#ERenderStyle" class="source">ERenderStyle</a></span>.STY_Alpha;
+<a name="42"></a>	<span class="source_type">C</span>.DrawColor = GetTeamColor( PawnOwner.GetTeamNum() );
+<a name="43"></a>	<span class="source_type">C</span>.SetPos(RadarPosX*<span class="source_type">C</span>.ClipX - RadarWidth,RadarPosY*<span class="source_type">C</span>.ClipY+RadarWidth);
+<a name="44"></a>	<span class="source_type">C</span>.DrawTile( <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AS_FX_TX.AssaultRadar'</span>, RadarWidth, RadarWidth, <span class="source_int">0</span>, <span class="source_int">512</span>, <span class="source_int">512</span>, -<span class="source_int">512</span>);
+<a name="45"></a>	<span class="source_type">C</span>.SetPos(RadarPosX*<span class="source_type">C</span>.ClipX,RadarPosY*<span class="source_type">C</span>.ClipY+RadarWidth);
+<a name="46"></a>	<span class="source_type">C</span>.DrawTile( <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AS_FX_TX.AssaultRadar'</span>, RadarWidth, RadarWidth, <span class="source_int">512</span>, <span class="source_int">512</span>, -<span class="source_int">512</span>, -<span class="source_int">512</span>);
+<a name="47"></a>	<span class="source_type">C</span>.SetPos(RadarPosX*<span class="source_type">C</span>.ClipX - RadarWidth,RadarPosY*<span class="source_type">C</span>.ClipY);
+<a name="48"></a>	<span class="source_type">C</span>.DrawTile( <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AS_FX_TX.AssaultRadar'</span>, RadarWidth, RadarWidth, <span class="source_int">0</span>, <span class="source_int">0</span>, <span class="source_int">512</span>, <span class="source_int">512</span>);
+<a name="49"></a>	<span class="source_type">C</span>.SetPos(RadarPosX*<span class="source_type">C</span>.ClipX,RadarPosY*<span class="source_type">C</span>.ClipY);
+<a name="50"></a>	<span class="source_type">C</span>.DrawTile( <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'AS_FX_TX.AssaultRadar'</span>, RadarWidth, RadarWidth, <span class="source_int">512</span>, <span class="source_int">0</span>, -<span class="source_int">512</span>, <span class="source_int">512</span>);
+<a name="51"></a>}
+<a name="52"></a>
+<a name="53"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> ShowTeamScorePassC(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>)
+<a name="54"></a>{
+<a name="55"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>;
+<a name="56"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Dist</span>, MaxDist, RadarWidth, PulseBrightness,Angle,DotSize,<span class="source_type">OffsetY</span>,OffsetScale;
+<a name="57"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> Dir;
+<a name="58"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">Start</span>;
+<a name="59"></a>	
+<a name="60"></a>	LastDrawRadar = <span class="source_type">Level</span>.TimeSeconds;
+<a name="61"></a>	RadarWidth = <span class="source_int">0.5</span> * RadarScale * <span class="source_type">C</span>.ClipX;
+<a name="62"></a>	DotSize = <span class="source_int">24</span>*<span class="source_type">C</span>.ClipX*HUDScale/<span class="source_int">1600</span>;
+<a name="63"></a>	<span class="source_keyword">if</span> ( PawnOwner == <span class="source_keyword">None</span> )
+<a name="64"></a>		<span class="source_type">Start</span> = PlayerOwner.Location;
+<a name="65"></a>	<span class="source_keyword">else</span>
+<a name="66"></a>		<span class="source_type">Start</span> = PawnOwner.Location;
+<a name="67"></a>	
+<a name="68"></a>	MaxDist = <span class="source_int">3000</span> * RadarPulse;
+<a name="69"></a>	<span class="source_type">C</span>.Style = <span class="source_type"><a href="../engine/actor.html#ERenderStyle" class="source">ERenderStyle</a></span>.STY_Translucent;
+<a name="70"></a>	<span class="source_type">OffsetY</span> = RadarPosY + RadarWidth/<span class="source_type">C</span>.ClipY;
+<a name="71"></a>	MinEnemyDist = <span class="source_int">3000</span>;
+<a name="72"></a>	<span class="source_keyword">ForEach</span> DynamicActors(<span class="source_keyword">class</span><span class="source_name">'Pawn'</span>,<span class="source_type">P</span>)
+<a name="73"></a>		<span class="source_keyword">if</span> ( <span class="source_type">P</span>.Health &gt; <span class="source_int">0</span> )
+<a name="74"></a>		{
+<a name="75"></a>			<span class="source_type">Dist</span> = VSize(<span class="source_type">Start</span> - <span class="source_type">P</span>.Location);
+<a name="76"></a>			<span class="source_keyword">if</span> ( <span class="source_type">Dist</span> &lt; <span class="source_int">3000</span> )
+<a name="77"></a>			{
+<a name="78"></a>				<span class="source_keyword">if</span> ( <span class="source_type">Dist</span> &lt; MaxDist )
+<a name="79"></a>					PulseBrightness = <span class="source_int">255</span> - <span class="source_int">255</span>*Abs(<span class="source_type">Dist</span>*<span class="source_int">0.00033</span> - RadarPulse);
+<a name="80"></a>				<span class="source_keyword">else</span>
+<a name="81"></a>					PulseBrightness = <span class="source_int">255</span> - <span class="source_int">255</span>*Abs(<span class="source_type">Dist</span>*<span class="source_int">0.00033</span> - RadarPulse - <span class="source_int">1</span>);
+<a name="82"></a>				<span class="source_keyword">if</span> ( <span class="source_type"><a href="../skaarjpack/monster.html" class="source">Monster</a></span>(<span class="source_type">P</span>) != <span class="source_keyword">None</span> )
+<a name="83"></a>				{
+<a name="84"></a>					MinEnemyDist = FMin(MinEnemyDist, <span class="source_type">Dist</span>);
+<a name="85"></a>					<span class="source_type">C</span>.DrawColor.<span class="source_type">R</span> = PulseBrightness;
+<a name="86"></a>					<span class="source_type">C</span>.DrawColor.G = PulseBrightness;
+<a name="87"></a>					<span class="source_type">C</span>.DrawColor.<span class="source_type">B</span> = <span class="source_int">0</span>;
+<a name="88"></a>				}
+<a name="89"></a>				<span class="source_keyword">else</span>
+<a name="90"></a>				{
+<a name="91"></a>					<span class="source_type">C</span>.DrawColor.<span class="source_type">R</span> = <span class="source_int">0</span>;
+<a name="92"></a>					<span class="source_type">C</span>.DrawColor.G = <span class="source_int">0</span>;
+<a name="93"></a>					<span class="source_type">C</span>.DrawColor.<span class="source_type">B</span> = PulseBrightness;
+<a name="94"></a>				}
+<a name="95"></a>				Dir = <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span>(<span class="source_type">P</span>.Location - <span class="source_type">Start</span>);
+<a name="96"></a>				OffsetScale = RadarScale*<span class="source_type">Dist</span>*<span class="source_int">0.000167</span>;
+<a name="97"></a>				<span class="source_keyword">if</span> ( PawnOwner == <span class="source_keyword">None</span> )
+<a name="98"></a>					Angle = ((Dir.Yaw - PlayerOwner.<span class="source_type">Rotation</span>.Yaw) & <span class="source_int">65535</span>) * <span class="source_int">6.2832</span>/<span class="source_int">65536</span>;
+<a name="99"></a>				<span class="source_keyword">else</span>
+<a name="100"></a>					Angle = ((Dir.Yaw - PawnOwner.<span class="source_type">Rotation</span>.Yaw) & <span class="source_int">65535</span>) * <span class="source_int">6.2832</span>/<span class="source_int">65536</span>;
+<a name="101"></a>				<span class="source_type">C</span>.SetPos(RadarPosX * <span class="source_type">C</span>.ClipX + OffsetScale * <span class="source_type">C</span>.ClipX * sin(Angle) - <span class="source_int">0.5</span>*DotSize,
+<a name="102"></a>						<span class="source_type">OffsetY</span> * <span class="source_type">C</span>.ClipY - OffsetScale * <span class="source_type">C</span>.ClipX * cos(Angle) - <span class="source_int">0.5</span>*DotSize);
+<a name="103"></a>				<span class="source_type">C</span>.DrawTile(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span><span class="source_name">'InterfaceContent.Hud.SkinA'</span>,DotSize,DotSize,<span class="source_int">838</span>,<span class="source_int">238</span>,<span class="source_int">144</span>,<span class="source_int">144</span>);
+<a name="104"></a>			}
+<a name="105"></a>		}			
+<a name="106"></a>}
+<a name="107"></a>
+<a name="108"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> Tick(<span class="source_keyword">float</span> <span class="source_type">DeltaTime</span>)
+<a name="109"></a>{
+<a name="110"></a>	<span class="source_keyword">Super</span>.Tick(<span class="source_type">DeltaTime</span>);
+<a name="111"></a>	RadarPulse = RadarPulse + <span class="source_int">0.5</span> * <span class="source_type">DeltaTime</span>;
+<a name="112"></a>	<span class="source_keyword">if</span> ( RadarPulse &gt;= <span class="source_int">1</span> )
+<a name="113"></a>	{
+<a name="114"></a>		<span class="source_keyword">if</span> ( !bNoRadarSound && (<span class="source_type">Level</span>.TimeSeconds - LastDrawRadar &lt; <span class="source_int">0.2</span>) )
+<a name="115"></a>			PlayerOwner.ClientPlaySound(<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'RadarPulseSound'</span>,<span class="source_keyword">true</span>,FMin(<span class="source_int">1.0</span>,<span class="source_int">300</span>/MinEnemyDist));
+<a name="116"></a>		RadarPulse = RadarPulse - <span class="source_int">1</span>;
+<a name="117"></a>	}
+<a name="118"></a>}
+<a name="119"></a>
+<a name="120"></a><span class="source_keyword">defaultproperties</span>
+<a name="121"></a>{
+<a name="122"></a>     RadarScale=<span class="source_int">0.200000</span>
+<a name="123"></a>     RadarPosX=<span class="source_int">0.900000</span>
+<a name="124"></a>     RadarPosY=<span class="source_int">0.250000</span>
+<a name="125"></a>     YouveLostTheMatch=<span class="source_string">"The Invasion Continues"</span>
+<a name="126"></a>}
+<a name="127"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../skaarjpack/skaarjpack-overview.html">Package</a></td>
+	<td class="header"><a href="../skaarjpack/hudinvasion.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#HUDInvasion">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_skaarjpack/gasbagbelch.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_skaarjpack/iceskaarj.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:12.000 - Creation time: Mon 15/4/2019 10:25:10.766 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

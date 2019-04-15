@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XWeapons.TransBeacon</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xweapons/xweapons-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xweapons/transbeacon.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#TransBeacon">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xweapons/transattachment.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xweapons/transbeaconteleporter.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xweapons/transbeacon.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xweapons/xweapons-overview.html">XWeapons</a>.TransBeacon</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../unrealgame/translocatorbeacon.html">TranslocatorBeacon</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/projectile.html">Projectile</a>
+      |   
+      +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/translocatorbeacon.html">TranslocatorBeacon</a>
+         |   
+         +-- <a href="../xweapons/xweapons-overview.html">XWeapons</a>.<a href="../xweapons/transbeacon.html">TransBeacon</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../xweapons/bluebeacon.html">BlueBeacon</a>, <a href="../utclassic/classictransbeacon.html">ClassicTransbeacon</a>, <a href="../xweapons/redbeacon.html">RedBeacon</a>
+</blockquote>
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bCanHitOwner" name="bCanHitOwner" title="go to the details">bCanHitOwner</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDamaged" name="bDamaged" title="go to the details">bDamaged</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHitWater" name="bHitWater" title="go to the details">bHitWater</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bNoAI" name="bNoAI" title="go to the details">bNoAI</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_Disruption" name="Disruption" title="go to the details">Disruption</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_DisruptionThreshold" name="DisruptionThreshold" title="go to the details">DisruptionThreshold</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/pawn.html">Pawn</a></td><td width="66%"><a href="#_Disruptor" name="Disruptor" title="go to the details">Disruptor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/xemitter.html">xEmitter</a></td><td width="66%"><a href="#_Flare" name="Flare" title="go to the details">Flare</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xeffects/transbeaconsparks.html">TransBeaconSparks</a></td><td width="66%"><a href="#_Sparks" name="Sparks" title="go to the details">Sparks</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/xemitter.html">xEmitter</a></td><td width="66%"><a href="#_Trail" name="Trail" title="go to the details">Trail</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../xeffects/transflareblue.html">TransFlareBlue</a>&gt;</td><td width="66%"><a href="#_TransFlareClass" name="TransFlareClass" title="go to the details">TransFlareClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/actor.html">Actor</a></td><td width="66%"><a href="#_TranslocationTarget" name="TranslocationTarget" title="go to the details">TranslocationTarget</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../xeffects/transtrail.html">TransTrail</a>&gt;</td><td width="66%"><a href="#_TransTrailClass" name="TransTrailClass" title="go to the details">TransTrailClass</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/translocatorbeacon.html">TranslocatorBeacon</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/translocatorbeacon.html#NextBeacon">NextBeacon</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/projectile.html">Projectile</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/projectile.html#bNoFX">bNoFX</a>, <a href="../engine/projectile.html#bReadyToSplash">bReadyToSplash</a>, <a href="../engine/projectile.html#bScriptPostRender">bScriptPostRender</a>, <a href="../engine/projectile.html#bSpecialCalcView">bSpecialCalcView</a>, <a href="../engine/projectile.html#bSwitchToZeroCollision">bSwitchToZeroCollision</a>, <a href="../engine/projectile.html#Damage">Damage</a>, <a href="../engine/projectile.html#DamageRadius">DamageRadius</a>, <a href="../engine/projectile.html#ExplosionDecal">ExplosionDecal</a>, <a href="../engine/projectile.html#ExploWallOut">ExploWallOut</a>, <a href="../engine/projectile.html#HurtWall">HurtWall</a>, <a href="../engine/projectile.html#ImpactSound">ImpactSound</a>, <a href="../engine/projectile.html#InstigatorController">InstigatorController</a>, <a href="../engine/projectile.html#LastTouched">LastTouched</a>, <a href="../engine/projectile.html#MaxEffectDistance">MaxEffectDistance</a>, <a href="../engine/projectile.html#MaxSpeed">MaxSpeed</a>, <a href="../engine/projectile.html#MomentumTransfer">MomentumTransfer</a>, <a href="../engine/projectile.html#MyDamageType">MyDamageType</a>, <a href="../engine/projectile.html#SpawnSound">SpawnSound</a>, <a href="../engine/projectile.html#Speed">Speed</a>, <a href="../engine/projectile.html#TossZ">TossZ</a>, <a href="../engine/projectile.html#ZeroCollider">ZeroCollider</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_AimUp-" name="AimUp" title="go to the details">AimUp</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BotTranslocate-" name="BotTranslocate" title="go to the details">BotTranslocate</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BotTranslocate-MonitoringThrow" name="BotTranslocate" title="go to the details">BotTranslocate</a> ()))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-MonitoringThrow" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_Disrupted-" name="Disrupted" title="go to the details">Disrupted</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_EncroachedBy-" name="EncroachedBy" title="go to the details">EncroachedBy</a> (actor Other ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndMonitoring-" name="EndMonitoring" title="go to the details">EndMonitoring</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndMonitoring-MonitoringThrow" name="EndMonitoring" title="go to the details">EndMonitoring</a> ()))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndState-MonitoringThrow" name="EndState" title="go to the details">EndState</a> ()))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_HitWall-" name="HitWall" title="go to the details">HitWall</a> (<a href="../core/object.html#Vector">vector</a> HitNormal, actor Wall ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_HitWall-MonitoringThrow" name="HitWall" title="go to the details">HitWall</a> (<a href="../core/object.html#Vector">vector</a> HitNormal, actor Wall ))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_IsMonitoring-" name="IsMonitoring" title="go to the details">IsMonitoring</a> (<a href="../engine/actor.html">actor</a> A))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_IsMonitoring-MonitoringThrow" name="IsMonitoring" title="go to the details">IsMonitoring</a> (<a href="../engine/actor.html">actor</a> A))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Landed-" name="Landed" title="go to the details">Landed</a> (vector HitNormal ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PhysicsVolumeChange-" name="PhysicsVolumeChange" title="go to the details">PhysicsVolumeChange</a> (PhysicsVolume <a href="../engine/volume.html">Volume</a> ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ProcessTouch-" name="ProcessTouch" title="go to the details">ProcessTouch</a> (<a href="../engine/actor.html">actor</a> Other, vector HitLocation ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetTranslocationTarget-" name="SetTranslocationTarget" title="go to the details">SetTranslocationTarget</a> (<a href="../engine/actor.html">actor</a> T))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> EventInstigator, <a href="../core/object.html#Vector">vector</a> HitLocation, <a href="../core/object.html#Vector">vector</a> Momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-MonitoringThrow" name="Tick" title="go to the details">Tick</a> (float DeltaTime))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Timer-" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Touch-MonitoringThrow" name="Touch" title="go to the details">Touch</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state">MonitoringThrow</span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/translocatorbeacon.html">TranslocatorBeacon</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/translocatorbeacon.html#Destroyed">Destroyed</a>, <a href="../unrealgame/translocatorbeacon.html#Disrupted">Disrupted</a>, <a href="../unrealgame/translocatorbeacon.html#PostBeginPlay">PostBeginPlay</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/projectile.html">Projectile</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/projectile.html#BlowUp">BlowUp</a>, <a href="../engine/projectile.html#CanSplash">CanSplash</a>, <a href="../engine/projectile.html#CheckMaxEffectDistance">CheckMaxEffectDistance</a>, <a href="../engine/projectile.html#ClientSideTouch">ClientSideTouch</a>, <a href="../engine/projectile.html#DelayedHurtRadius">DelayedHurtRadius</a>, <a href="../engine/projectile.html#EncroachingOn">EncroachingOn</a>, <a href="../engine/projectile.html#Explode">Explode</a>, <a href="../engine/projectile.html#GetRange">GetRange</a>, <a href="../engine/projectile.html#HitWall">HitWall</a>, <a href="../engine/projectile.html#HurtRadius">HurtRadius</a>, <a href="../engine/projectile.html#IsStationary">IsStationary</a>, <a href="../engine/projectile.html#PostBeginPlay">PostBeginPlay</a>, <a href="../engine/projectile.html#PostRender2D">PostRender2D</a>, <a href="../engine/projectile.html#ProcessTouch">ProcessTouch</a>, <a href="../engine/projectile.html#RandSpin">RandSpin</a>, <a href="../engine/projectile.html#Reset">Reset</a>, <a href="../engine/projectile.html#SpecialCalcView">SpecialCalcView</a>, <a href="../engine/projectile.html#Touch">Touch</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">States Summary</th>
+</tr>
+</table>
+
+<table>
+<tr>
+	<th>MonitoringThrow <a href="../Source_xweapons/transbeacon.html#218" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> MonitoringThrow <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BotTranslocate+MonitoringThrow">BotTranslocate</a>, <a href="#_Destroyed+MonitoringThrow">Destroyed</a>, <a href="#_EndMonitoring+MonitoringThrow">EndMonitoring</a>, <a href="#_EndState+MonitoringThrow">EndState</a>, <a href="#_HitWall+MonitoringThrow">HitWall</a>, <a href="#_IsMonitoring+MonitoringThrow">IsMonitoring</a>, <a href="#_Tick+MonitoringThrow">Tick</a>, <a href="#_Touch+MonitoringThrow">Touch</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bCanHitOwner" class="hidden"></a>bCanHitOwner <a href="../Source_xweapons/transbeacon.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bCanHitOwner;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bDamaged" class="hidden"></a>bDamaged <a href="../Source_xweapons/transbeacon.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bDamaged;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHitWater" class="hidden"></a>bHitWater <a href="../Source_xweapons/transbeacon.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHitWater;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bNoAI" class="hidden"></a>bNoAI <a href="../Source_xweapons/transbeacon.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bNoAI;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Disruption" class="hidden"></a>Disruption <a href="../Source_xweapons/transbeacon.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> Disruption;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisruptionThreshold" class="hidden"></a>DisruptionThreshold <a href="../Source_xweapons/transbeacon.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> DisruptionThreshold;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Disruptor" class="hidden"></a>Disruptor <a href="../Source_xweapons/transbeacon.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> Disruptor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Flare" class="hidden"></a>Flare <a href="../Source_xweapons/transbeacon.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/xemitter.html" class="source">xEmitter</a></span> Flare;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Sparks" class="hidden"></a>Sparks <a href="../Source_xweapons/transbeacon.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xeffects/transbeaconsparks.html" class="source">TransBeaconSparks</a></span> Sparks;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Trail" class="hidden"></a>Trail <a href="../Source_xweapons/transbeacon.html#9" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/xemitter.html" class="source">xEmitter</a></span> Trail;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TransFlareClass" class="hidden"></a>TransFlareClass <a href="../Source_xweapons/transbeacon.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../xeffects/transflareblue.html" class="source">TransFlareBlue</a></span>&gt; TransFlareClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TranslocationTarget" class="hidden"></a>TranslocationTarget <a href="../Source_xweapons/transbeacon.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> TranslocationTarget;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TransTrailClass" class="hidden"></a>TransTrailClass <a href="../Source_xweapons/transbeacon.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../xeffects/transtrail.html" class="source">TransTrail</a></span>&gt; TransTrailClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AimUp-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AimUp <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#80" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> AimUp ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BotTranslocate-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BotTranslocate <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#155" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BotTranslocate (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BotTranslocate-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BotTranslocate <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#282" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BotTranslocate ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#225" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Disrupted-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Disrupted <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#45" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> Disrupted ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EncroachedBy-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> EncroachedBy <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#39" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  EncroachedBy ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Other</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndMonitoring-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndMonitoring <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#216" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  EndMonitoring (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndMonitoring-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndMonitoring <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#240" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  EndMonitoring ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndState-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndState <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#245" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  EndState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HitWall-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HitWall <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#157" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  HitWall ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Wall</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HitWall-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HitWall <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#259" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  HitWall ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Wall</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsMonitoring-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> IsMonitoring <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#211" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsMonitoring ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">A</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsMonitoring-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> IsMonitoring <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#220" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsMonitoring ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">A</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Landed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Landed <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#92" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Landed ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PhysicsVolumeChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PhysicsVolumeChange <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#88" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PhysicsVolumeChange ( <span class="source_type"><a href="../engine/physicsvolume.html" class="source">PhysicsVolume</a></span> <span class="source_type"><a href="../engine/volume.html" class="source">Volume</a></span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#50" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ProcessTouch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ProcessTouch <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#97" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ProcessTouch ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Other</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetTranslocationTarget-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetTranslocationTarget <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#205" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetTranslocationTarget ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">T</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#140" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">EventInstigator</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#307" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">DeltaTime</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Timer <span class="function_state"></span> <a href="../Source_xweapons/transbeacon.html#118" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Touch-MonitoringThrow" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Touch <span class="function_state">MonitoringThrow</span> <a href="../Source_xweapons/transbeacon.html#289" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Touch ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     DisruptionThreshold=<span class="source_int">65</span>
+     TransTrailClass=<span class="source_keyword">Class</span><span class="source_name">'XEffects.TransTrail'</span>
+     TransFlareClass=<span class="source_keyword">Class</span><span class="source_name">'XEffects.TransFlareRed'</span>
+     Speed=<span class="source_int">1200.000000</span>
+     DamageRadius=<span class="source_int">100.000000</span>
+     MomentumTransfer=<span class="source_int">50000.000000</span>
+     MyDamageType=<span class="source_keyword">Class</span><span class="source_name">'XWeapons.DamTypeTeleFrag'</span>
+     ImpactSound=<span class="source_type"><a href="../engine/proceduralsound.html" class="source">ProceduralSound</a></span><span class="source_name">'WeaponSounds.PGrenFloor1.P1GrenFloor1'</span>
+     ExplosionDecal=<span class="source_keyword">Class</span><span class="source_name">'XEffects.RocketMark'</span>
+     DrawType=DT_StaticMesh
+     <span class="source_type">StaticMesh</span>=<span class="source_type">StaticMesh</span><span class="source_name">'WeaponStaticMesh.NEWTranslocatorPUCK'</span>
+     bNetTemporary=<span class="source_keyword">False</span>
+     bUpdateSimulatedPosition=<span class="source_keyword">True</span>
+     bOnlyDirtyReplication=<span class="source_keyword">True</span>
+     Physics=PHYS_Falling
+     NetUpdateFrequency=<span class="source_int">8.000000</span>
+     <span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span>=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.Misc.redeemer_flight'</span>
+     DrawScale=<span class="source_int">0.350000</span>
+     PrePivot=(Z=<span class="source_int">25.000000</span>)
+     AmbientGlow=<span class="source_int">64</span>
+     bUnlit=<span class="source_keyword">False</span>
+     bOwnerNoSee=<span class="source_keyword">True</span>
+     SoundVolume=<span class="source_int">250</span>
+     SoundPitch=<span class="source_int">128</span>
+     SoundRadius=<span class="source_int">7.000000</span>
+     CollisionRadius=<span class="source_int">10.000000</span>
+     CollisionHeight=<span class="source_int">10.000000</span>
+     bProjTarget=<span class="source_keyword">True</span>
+     bNetNotify=<span class="source_keyword">True</span>
+     bBounce=<span class="source_keyword">True</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xweapons/xweapons-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xweapons/transbeacon.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#TransBeacon">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xweapons/transattachment.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xweapons/transbeaconteleporter.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:05.958 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

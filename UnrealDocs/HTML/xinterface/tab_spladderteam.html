@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XInterface.Tab_SPLadderTeam</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_spladderteam.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_SPLadderTeam">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_spladderqualify.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_sppanelbase.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xinterface/tab_spladderteam.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xinterface/xinterface-overview.html">XInterface</a>.Tab_SPLadderTeam</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/tab_spladderbase.html">Tab_SPLadderBase</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a>
+                  |   
+                  +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a>
+                     |   
+                     +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_spladderbase.html">Tab_SPLadderBase</a>
+                        |   
+                        +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_spladderteam.html">Tab_SPLadderTeam</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt;</td><td width="66%"><a href="#_BRButtons" name="BRButtons" title="go to the details">BRButtons</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_ChampBorder" name="ChampBorder" title="go to the details">ChampBorder</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guigfxbutton.html">GUIGfxButton</a></td><td width="66%"><a href="#_ChampButton" name="ChampButton" title="go to the details">ChampButton</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt;</td><td width="66%"><a href="#_CTFButtons" name="CTFButtons" title="go to the details">CTFButtons</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt;</td><td width="66%"><a href="#_DOMButtons" name="DOMButtons" title="go to the details">DOMButtons</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;int&gt;</td><td width="66%"><a href="#_LockIndexes" name="LockIndexes" title="go to the details">LockIndexes</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt;</td><td width="66%"><a href="#_TDMButtons" name="TDMButtons" title="go to the details">TDMButtons</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_spladderbase.html">Tab_SPLadderBase</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/tab_spladderbase.html#ActiveLadderButton">ActiveLadderButton</a>, <a href="../xinterface/tab_spladderbase.html#MapNameLabel">MapNameLabel</a>, <a href="../xinterface/tab_spladderbase.html#MapPicHolder">MapPicHolder</a>, <a href="../xinterface/tab_spladderbase.html#ScrollInfo">ScrollInfo</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ChampMatch-" name="ChampMatch" title="go to the details">ChampMatch</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitPanel-" name="InitPanel" title="go to the details">InitPanel</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_OnProfileUpdated-" name="OnProfileUpdated" title="go to the details">OnProfileUpdated</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetChampionship-" name="SetChampionship" title="go to the details">SetChampionship</a> (bool bEnable))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_SetYellowBar-" name="SetYellowBar" title="go to the details">SetYellowBar</a> (int ladder, int index, out array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt; Buttons))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_spladderbase.html">Tab_SPLadderBase</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/tab_spladderbase.html#CanShowPanel">CanShowPanel</a>, <a href="../xinterface/tab_spladderbase.html#DLOMaterial">DLOMaterial</a>, <a href="../xinterface/tab_spladderbase.html#DoShowMatchInfo">DoShowMatchInfo</a>, <a href="../xinterface/tab_spladderbase.html#MatchButtonClick">MatchButtonClick</a>, <a href="../xinterface/tab_spladderbase.html#MatchDoubleClick">MatchDoubleClick</a>, <a href="../xinterface/tab_spladderbase.html#NewLadderButton">NewLadderButton</a>, <a href="../xinterface/tab_spladderbase.html#SetActiveMatch">SetActiveMatch</a>, <a href="../xinterface/tab_spladderbase.html#SetYellowBar">SetYellowBar</a>, <a href="../xinterface/tab_spladderbase.html#ShowMatchInfo">ShowMatchInfo</a>, <a href="../xinterface/tab_spladderbase.html#UpdateLadderButton">UpdateLadderButton</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/tab_sppanelbase.html#GetProfile">GetProfile</a>, <a href="../xinterface/tab_sppanelbase.html#MatchUpdated">MatchUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#MyTabControl">MyTabControl</a>, <a href="../xinterface/tab_sppanelbase.html#OnMatchUpdated">OnMatchUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#OnProfileUpdated">OnProfileUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#ProfileUpdated">ProfileUpdated</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BRButtons" class="hidden"></a>BRButtons <a href="../Source_xinterface/tab_spladderteam.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; BRButtons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChampBorder" class="hidden"></a>ChampBorder <a href="../Source_xinterface/tab_spladderteam.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> ChampBorder;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChampButton" class="hidden"></a>ChampButton <a href="../Source_xinterface/tab_spladderteam.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGfxButton</a></span> ChampButton;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CTFButtons" class="hidden"></a>CTFButtons <a href="../Source_xinterface/tab_spladderteam.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; CTFButtons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DOMButtons" class="hidden"></a>DOMButtons <a href="../Source_xinterface/tab_spladderteam.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; DOMButtons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LockIndexes" class="hidden"></a>LockIndexes <a href="../Source_xinterface/tab_spladderteam.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">int</span>&gt; LockIndexes;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TDMButtons" class="hidden"></a>TDMButtons <a href="../Source_xinterface/tab_spladderteam.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; TDMButtons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ChampMatch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChampMatch <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderteam.html#122" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ChampMatch ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitPanel-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitPanel <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderteam.html#19" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitPanel ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnProfileUpdated-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> OnProfileUpdated <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderteam.html#47" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  OnProfileUpdated ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetChampionship-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetChampionship <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderteam.html#147" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetChampionship ( <span class="source_keyword">bool</span> <span class="source_type">bEnable</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetYellowBar-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetYellowBar <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderteam.html#89" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">int</span> SetYellowBar ( <span class="source_keyword">int</span> <span class="source_type"><a href="../engine/ladder.html" class="source">ladder</a></span>, <span class="source_keyword">int</span> <span class="source_type">index</span>, <span class="source_keyword2">out</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; Buttons) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     LockIndexes(<span class="source_int">1</span>)=<span class="source_int">1</span>
+     LockIndexes(<span class="source_int">2</span>)=<span class="source_int">3</span>
+     LockIndexes(<span class="source_int">3</span>)=<span class="source_int">2</span>
+     LockIndexes(<span class="source_int">4</span>)=<span class="source_int">4</span>
+     bFillHeight=<span class="source_keyword">True</span>
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MapPicBack
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.EditBox'</span>
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.247917</span>
+         WinLeft=<span class="source_int">0.293164</span>
+         WinWidth=<span class="source_int">0.413281</span>
+         WinHeight=<span class="source_int">0.294141</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">0</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MapPicBack'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MapPic
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.NoLevelPreview'</span>
+         ImageStyle=ISTY_Justified
+         ImageAlign=IMGA_Center
+         WinTop=<span class="source_int">0.255313</span>
+         WinLeft=<span class="source_int">0.299219</span>
+         WinWidth=<span class="source_int">0.401563</span>
+         WinHeight=<span class="source_int">0.279493</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">1</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MapPic'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MapInfoBack
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.EditBox'</span>
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.551823</span>
+         WinLeft=<span class="source_int">0.294141</span>
+         WinWidth=<span class="source_int">0.412305</span>
+         WinHeight=<span class="source_int">0.361524</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">2</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MapInfoBack'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=MapInfoName
+         <span class="source_type">Caption</span>=<span class="source_string">"No Match Selected"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">0</span>,G=<span class="source_int">180</span>,<span class="source_type">R</span>=<span class="source_int">220</span>)
+         TextFont=<span class="source_string">"UT2HeaderFont"</span>
+         WinTop=<span class="source_int">0.562240</span>
+         WinLeft=<span class="source_int">0.301172</span>
+         WinWidth=<span class="source_int">0.396680</span>
+         WinHeight=<span class="source_int">0.051406</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">3</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MapInfoName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span> <span class="source_keyword">Name</span>=MapInfoScroll
+         CharDelay=<span class="source_int">0.002500</span>
+         EOLDelay=<span class="source_int">0.500000</span>
+         OnCreateComponent=MapInfoScroll.InternalOnCreateComponent
+         WinTop=<span class="source_int">0.616407</span>
+         WinLeft=<span class="source_int">0.299023</span>
+         WinWidth=<span class="source_int">0.402539</span>
+         WinHeight=<span class="source_int">0.290234</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">4</span>)=<span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MapInfoScroll'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=ImgLock1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.Lock1'</span>
+         ImageStyle=ISTY_Scaled
+         ImageAlign=IMGA_Center
+         WinTop=<span class="source_int">0.064322</span>
+         WinLeft=<span class="source_int">0.437695</span>
+         WinWidth=<span class="source_int">0.062891</span>
+         WinHeight=<span class="source_int">0.087305</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">5</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.ImgLock1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=ImgLock2
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.Lock2'</span>
+         ImageStyle=ISTY_Scaled
+         ImageAlign=IMGA_Center
+         WinTop=<span class="source_int">0.150260</span>
+         WinLeft=<span class="source_int">0.437695</span>
+         WinWidth=<span class="source_int">0.062891</span>
+         WinHeight=<span class="source_int">0.087305</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">6</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.ImgLock2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=ImgLock3
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.Lock3'</span>
+         ImageStyle=ISTY_Scaled
+         ImageAlign=IMGA_Center
+         WinTop=<span class="source_int">0.064322</span>
+         WinLeft=<span class="source_int">0.500195</span>
+         WinWidth=<span class="source_int">0.062891</span>
+         WinHeight=<span class="source_int">0.087305</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">7</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.ImgLock3'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=ImgLock4
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.Lock4'</span>
+         ImageStyle=ISTY_Scaled
+         ImageAlign=IMGA_Center
+         WinTop=<span class="source_int">0.150260</span>
+         WinLeft=<span class="source_int">0.500195</span>
+         WinWidth=<span class="source_int">0.062891</span>
+         WinHeight=<span class="source_int">0.087305</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">8</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.ImgLock4'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=TopLeftBar
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarHorizontal'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.105729</span>
+         WinLeft=<span class="source_int">0.099218</span>
+         WinWidth=<span class="source_int">0.338086</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">9</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TopLeftBar'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=TopLeftCorner
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarCornerLeft'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.105729</span>
+         WinLeft=<span class="source_int">0.095312</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">10</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TopLeftCorner'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=TDMBar1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVertical'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.109896</span>
+         WinLeft=<span class="source_int">0.095312</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.682227</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">11</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TDMBar1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=TDMBar2
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVerticalHi'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.109896</span>
+         WinLeft=<span class="source_int">0.095312</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.682227</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">12</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TDMBar2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=TopRightBar
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarHorizontal'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.105729</span>
+         WinLeft=<span class="source_int">0.563085</span>
+         WinWidth=<span class="source_int">0.338086</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">13</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TopRightBar'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=TopRightCorner
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarCornerRight'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.105729</span>
+         WinLeft=<span class="source_int">0.901171</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">14</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TopRightCorner'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=CTFBar1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVertical'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.109896</span>
+         WinLeft=<span class="source_int">0.901171</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.682227</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">15</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.CTFBar1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=CTFBar2
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVerticalHi'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.109896</span>
+         WinLeft=<span class="source_int">0.901171</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.682227</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">16</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.CTFBar2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MidLeftBar
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarHorizontal'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.194218</span>
+         WinLeft=<span class="source_int">0.222266</span>
+         WinWidth=<span class="source_int">0.215039</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">17</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MidLeftBar'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MidLeftCorner
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarCornerLeft'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.194218</span>
+         WinLeft=<span class="source_int">0.219336</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">18</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MidLeftCorner'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=DOMBar1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVertical'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.198125</span>
+         WinLeft=<span class="source_int">0.219336</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.594688</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">19</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.DOMBar1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=DOMBar2
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVerticalHi'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.198125</span>
+         WinLeft=<span class="source_int">0.219336</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.594688</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">20</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.DOMBar2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MidRightBar
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarHorizontal'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.194270</span>
+         WinLeft=<span class="source_int">0.563085</span>
+         WinWidth=<span class="source_int">0.213086</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">21</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MidRightBar'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=MidRightCorner
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarCornerRight'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.194271</span>
+         WinLeft=<span class="source_int">0.776171</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.003906</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">22</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.MidRightCorner'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=BRBar1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVertical'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.197970</span>
+         WinLeft=<span class="source_int">0.775976</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.594687</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">23</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.BRBar1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=BRBar2
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.BarVerticalHi'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.197970</span>
+         WinLeft=<span class="source_int">0.775976</span>
+         WinWidth=<span class="source_int">0.003906</span>
+         WinHeight=<span class="source_int">0.594687</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">24</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.BRBar2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=TDMLabel
+         <span class="source_type">Caption</span>=<span class="source_string">"TEAM DEATHMATCH"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">192</span>,G=<span class="source_int">192</span>,<span class="source_type">R</span>=<span class="source_int">192</span>)
+         BackColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.060833</span>
+         WinLeft=<span class="source_int">0.118437</span>
+         WinWidth=<span class="source_int">0.347500</span>
+         WinHeight=<span class="source_int">0.043125</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">25</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.TDMLabel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=CTFLabel
+         <span class="source_type">Caption</span>=<span class="source_string">"CAPTURE THE FLAG"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">192</span>,G=<span class="source_int">192</span>,<span class="source_type">R</span>=<span class="source_int">192</span>)
+         BackColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.060833</span>
+         WinLeft=<span class="source_int">0.544064</span>
+         WinWidth=<span class="source_int">0.346250</span>
+         WinHeight=<span class="source_int">0.043125</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">26</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.CTFLabel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=DOMLabel
+         <span class="source_type">Caption</span>=<span class="source_string">"DOMINATION"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">192</span>,G=<span class="source_int">192</span>,<span class="source_type">R</span>=<span class="source_int">192</span>)
+         BackColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.149167</span>
+         WinLeft=<span class="source_int">0.242813</span>
+         WinWidth=<span class="source_int">0.223122</span>
+         WinHeight=<span class="source_int">0.043125</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">27</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.DOMLabel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=BRLabel
+         <span class="source_type">Caption</span>=<span class="source_string">"BOMBING RUN"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">192</span>,G=<span class="source_int">192</span>,<span class="source_type">R</span>=<span class="source_int">192</span>)
+         BackColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.149166</span>
+         WinLeft=<span class="source_int">0.537818</span>
+         WinWidth=<span class="source_int">0.221874</span>
+         WinHeight=<span class="source_int">0.043125</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">28</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.BRLabel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span> <span class="source_keyword">Name</span>=SPLChampButton
+         Graphic=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.SPMenu.Lock1'</span>
+         Position=ICP_Scaled
+         WinTop=<span class="source_int">0.094322</span>
+         WinLeft=<span class="source_int">0.458633</span>
+         WinWidth=<span class="source_int">0.083925</span>
+         WinHeight=<span class="source_int">0.113688</span>
+         bVisible=<span class="source_keyword">False</span>
+         bAcceptsInput=<span class="source_keyword">False</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spladderteam.html" class="source">Tab_SPLadderTeam</a></span>.ChampMatch
+         OnDblClick=<span class="source_type"><a href="../xinterface/tab_spladderteam.html" class="source">Tab_SPLadderTeam</a></span>.MatchDoubleClick
+         OnKeyEvent=SPLChampButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">29</span>)=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.SPLChampButton'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPLChampBorder
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.SPMenu.SP_FinalButton'</span>
+         ImageStyle=ISTY_Scaled
+         WinTop=<span class="source_int">0.064895</span>
+         WinLeft=<span class="source_int">0.437930</span>
+         WinWidth=<span class="source_int">0.125722</span>
+         WinHeight=<span class="source_int">0.172673</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">30</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPLadderTeam.SPLChampBorder'</span>
+
+     WinTop=<span class="source_int">0.150000</span>
+     WinHeight=<span class="source_int">0.770000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_spladderteam.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_SPLadderTeam">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_spladderqualify.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_sppanelbase.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:05.611 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

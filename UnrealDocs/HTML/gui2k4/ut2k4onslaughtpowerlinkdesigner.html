@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - GUI2K4.UT2K4OnslaughtPowerLinkDesigner</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4OnslaughtPowerLinkDesigner">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4onslaughtloginmenu.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4ownage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#gui2k4/ut2k4onslaughtpowerlinkdesigner.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.UT2K4OnslaughtPowerLinkDesigner</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../gui2k4/largewindow.html">LargeWindow</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipage.html">GUIPage</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k4guipage.html">UT2K4GUIPage</a>
+               |   
+               +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/popuppagebase.html">PopupPageBase</a>
+                  |   
+                  +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/floatingwindow.html">FloatingWindow</a>
+                     |   
+                     +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/largewindow.html">LargeWindow</a>
+                        |   
+                        +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html">UT2K4OnslaughtPowerLinkDesigner</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_b_Clear" name="b_Clear" title="go to the details">b_Clear</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_b_DeleteSetup" name="b_DeleteSetup" title="go to the details">b_DeleteSetup</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_b_Export" name="b_Export" title="go to the details">b_Export</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_b_lClose" name="b_lClose" title="go to the details">b_lClose</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_b_SaveSetup" name="b_SaveSetup" title="go to the details">b_SaveSetup</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocombobox.html">moComboBox</a></td><td width="66%"><a href="#_co_SetupName" name="co_SetupName" title="go to the details">co_SetupName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_i_Map" name="i_Map" title="go to the details">i_Map</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OnslaughtMapCenterX" name="OnslaughtMapCenterX" title="go to the details">OnslaughtMapCenterX</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OnslaughtMapCenterY" name="OnslaughtMapCenterY" title="go to the details">OnslaughtMapCenterY</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OnslaughtMapRadius" name="OnslaughtMapRadius" title="go to the details">OnslaughtMapRadius</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsplayerreplicationinfo.html">ONSPlayerReplicationInfo</a></td><td width="66%"><a href="#_PRI" name="PRI" title="go to the details">PRI</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onspowercore.html">ONSPowerCore</a></td><td width="66%"><a href="#_SelectedCore" name="SelectedCore" title="go to the details">SelectedCore</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_SetupName" name="SetupName" title="go to the details">SetupName</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/floatingwindow.html">FloatingWindow</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/floatingwindow.html#BLSizing">BLSizing</a>, <a href="../gui2k4/floatingwindow.html#bMoveAllowed">bMoveAllowed</a>, <a href="../gui2k4/floatingwindow.html#bMoving">bMoving</a>, <a href="../gui2k4/floatingwindow.html#bResizeHeightAllowed">bResizeHeightAllowed</a>, <a href="../gui2k4/floatingwindow.html#bResizeWidthAllowed">bResizeWidthAllowed</a>, <a href="../gui2k4/floatingwindow.html#bResizing">bResizing</a>, <a href="../gui2k4/floatingwindow.html#BRSizing">BRSizing</a>, <a href="../gui2k4/floatingwindow.html#BtSizing">BtSizing</a>, <a href="../gui2k4/floatingwindow.html#b_ExitButton">b_ExitButton</a>, <a href="../gui2k4/floatingwindow.html#DefaultHeight">DefaultHeight</a>, <a href="../gui2k4/floatingwindow.html#DefaultLeft">DefaultLeft</a>, <a href="../gui2k4/floatingwindow.html#DefaultTop">DefaultTop</a>, <a href="../gui2k4/floatingwindow.html#DefaultWidth">DefaultWidth</a>, <a href="../gui2k4/floatingwindow.html#HeaderMouseCursorIndex">HeaderMouseCursorIndex</a>, <a href="../gui2k4/floatingwindow.html#LSizing">LSizing</a>, <a href="../gui2k4/floatingwindow.html#MaxPageHeight">MaxPageHeight</a>, <a href="../gui2k4/floatingwindow.html#MaxPageWidth">MaxPageWidth</a>, <a href="../gui2k4/floatingwindow.html#MinPageHeight">MinPageHeight</a>, <a href="../gui2k4/floatingwindow.html#MinPageWidth">MinPageWidth</a>, <a href="../gui2k4/floatingwindow.html#RSizing">RSizing</a>, <a href="../gui2k4/floatingwindow.html#TLSizing">TLSizing</a>, <a href="../gui2k4/floatingwindow.html#TRSizing">TRSizing</a>, <a href="../gui2k4/floatingwindow.html#TSizing">TSizing</a>, <a href="../gui2k4/floatingwindow.html#t_WindowTitle">t_WindowTitle</a>, <a href="../gui2k4/floatingwindow.html#WindowName">WindowName</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_AddSetupName-" name="AddSetupName" title="go to the details">AddSetupName</a> (string SetupName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_DrawMap-" name="DrawMap" title="go to the details">DrawMap</a> (<a href="../engine/canvas.html">Canvas</a> Canvas))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Free-" name="Free" title="go to the details">Free</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> MyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_InternalListClick-" name="InternalListClick" title="go to the details">InternalListClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InternalOnChange-" name="InternalOnChange" title="go to the details">InternalOnChange</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_InternalOnClick-" name="InternalOnClick" title="go to the details">InternalOnClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InternalOnMouseReleased-" name="InternalOnMouseReleased" title="go to the details">InternalOnMouseReleased</a> (GUIComponent Sender ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_RemoveSetupName-" name="RemoveSetupName" title="go to the details">RemoveSetupName</a> (string SetupName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ResolutionChanged-" name="ResolutionChanged" title="go to the details">ResolutionChanged</a> (int NewResX, int NewResY ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetCurrentSetup-" name="SetCurrentSetup" title="go to the details">SetCurrentSetup</a> (string SetupName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetDefaultPosition-" name="SetDefaultPosition" title="go to the details">SetDefaultPosition</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ShouldAnimate-" name="ShouldAnimate" title="go to the details">ShouldAnimate</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> C, optional bool bSetup))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateGUIMapLists-" name="UpdateGUIMapLists" title="go to the details">UpdateGUIMapLists</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/floatingwindow.html">FloatingWindow</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/floatingwindow.html#AddSystemMenu">AddSystemMenu</a>, <a href="../gui2k4/floatingwindow.html#AlignFrame">AlignFrame</a>, <a href="../gui2k4/floatingwindow.html#CheckBounds">CheckBounds</a>, <a href="../gui2k4/floatingwindow.html#FloatingHover">FloatingHover</a>, <a href="../gui2k4/floatingwindow.html#FloatingMousePressed">FloatingMousePressed</a>, <a href="../gui2k4/floatingwindow.html#FloatingMouseRelease">FloatingMouseRelease</a>, <a href="../gui2k4/floatingwindow.html#FloatingPreDraw">FloatingPreDraw</a>, <a href="../gui2k4/floatingwindow.html#FloatingRendered">FloatingRendered</a>, <a href="../gui2k4/floatingwindow.html#HoveringBottomBorder">HoveringBottomBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringBottomLeft">HoveringBottomLeft</a>, <a href="../gui2k4/floatingwindow.html#HoveringLeftBorder">HoveringLeftBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringRightBorder">HoveringRightBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringTopBorder">HoveringTopBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringTopLeft">HoveringTopLeft</a>, <a href="../gui2k4/floatingwindow.html#InitComponent">InitComponent</a>, <a href="../gui2k4/floatingwindow.html#InternalOnCreateComponent">InternalOnCreateComponent</a>, <a href="../gui2k4/floatingwindow.html#ResizeAllowed">ResizeAllowed</a>, <a href="../gui2k4/floatingwindow.html#ResizedBoth">ResizedBoth</a>, <a href="../gui2k4/floatingwindow.html#ResizedHeight">ResizedHeight</a>, <a href="../gui2k4/floatingwindow.html#ResizedWidth">ResizedWidth</a>, <a href="../gui2k4/floatingwindow.html#ResolutionChanged">ResolutionChanged</a>, <a href="../gui2k4/floatingwindow.html#SaveCurrentPosition">SaveCurrentPosition</a>, <a href="../gui2k4/floatingwindow.html#SetDefaultPosition">SetDefaultPosition</a>, <a href="../gui2k4/floatingwindow.html#SetFocus">SetFocus</a>, <a href="../gui2k4/floatingwindow.html#SetMouseCursorIndex">SetMouseCursorIndex</a>, <a href="../gui2k4/floatingwindow.html#SetPanelPosition">SetPanelPosition</a>, <a href="../gui2k4/floatingwindow.html#SystemMenuPreDraw">SystemMenuPreDraw</a>, <a href="../gui2k4/floatingwindow.html#XButtonClicked">XButtonClicked</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_b_Clear" class="hidden"></a>b_Clear <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> b_Clear;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_b_DeleteSetup" class="hidden"></a>b_DeleteSetup <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> b_DeleteSetup;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_b_Export" class="hidden"></a>b_Export <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> b_Export;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_b_lClose" class="hidden"></a>b_lClose <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> b_lClose;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_b_SaveSetup" class="hidden"></a>b_SaveSetup <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> b_SaveSetup;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_co_SetupName" class="hidden"></a>co_SetupName <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/mocombobox.html" class="source">moComboBox</a></span> co_SetupName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_i_Map" class="hidden"></a>i_Map <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> i_Map;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnslaughtMapCenterX" class="hidden"></a>OnslaughtMapCenterX <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OnslaughtMapCenterX;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnslaughtMapCenterY" class="hidden"></a>OnslaughtMapCenterY <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OnslaughtMapCenterY;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnslaughtMapRadius" class="hidden"></a>OnslaughtMapRadius <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OnslaughtMapRadius;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PRI" class="hidden"></a>PRI <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsplayerreplicationinfo.html" class="source">ONSPlayerReplicationInfo</a></span> PRI;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SelectedCore" class="hidden"></a>SelectedCore <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> SelectedCore;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetupName" class="hidden"></a>SetupName <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> SetupName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AddSetupName-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AddSetupName <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#43" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  AddSetupName ( <span class="source_keyword">string</span> SetupName) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawMap-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawMap <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#95" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> DrawMap ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Free-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Free <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#186" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Free ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#19" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalListClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalListClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#148" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> InternalListClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalOnChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalOnChange <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#137" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InternalOnChange ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalOnClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#113" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> InternalOnClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalOnMouseReleased-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalOnMouseReleased <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#160" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InternalOnMouseReleased ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RemoveSetupName-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RemoveSetupName <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#60" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  RemoveSetupName ( <span class="source_keyword">string</span> SetupName) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ResolutionChanged-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ResolutionChanged <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#86" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ResolutionChanged ( <span class="source_keyword">int</span> NewResX, <span class="source_keyword">int</span> <span class="source_type">NewResY</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetCurrentSetup-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetCurrentSetup <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#74" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetCurrentSetup ( <span class="source_keyword">string</span> SetupName) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetDefaultPosition-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetDefaultPosition <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#79" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetDefaultPosition ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShouldAnimate-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShouldAnimate <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#38" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ShouldAnimate ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">C</span>, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bSetup) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateGUIMapLists-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateGUIMapLists <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html#65" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateGUIMapLists ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=LinkDesignerMap
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'Engine.MenuWhite'</span>
+         ImageRenderStyle=MSTY_Normal
+         Hint=<span class="source_string">"Click on any PowerCore or PowerNode to select it, then click on another PowerCore or PowerNode to create a link between the two."</span>
+         OnDraw=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.DrawMap
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     i_Map=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.LinkDesignerMap'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocombobox.html" class="source">moComboBox</a></span> <span class="source_keyword">Name</span>=SetupNameBox
+         CaptionWidth=<span class="source_int">0.250000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Name"</span>
+         OnCreateComponent=SetupNameBox.InternalOnCreateComponent
+         MenuState=MSAT_Disabled
+         Hint=<span class="source_string">"The name of this Link Setup. Type a name and click Save to create a new link setup."</span>
+         WinTop=<span class="source_int">0.094531</span>
+         WinLeft=<span class="source_int">0.300000</span>
+         WinWidth=<span class="source_int">0.400000</span>
+         OnChange=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnChange
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     co_SetupName=<span class="source_type"><a href="../xinterface/mocombobox.html" class="source">moComboBox</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.SetupNameBox'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=DeleteSetupButton
+         <span class="source_type">Caption</span>=<span class="source_string">"Delete"</span>
+         MenuState=MSAT_Disabled
+         Hint=<span class="source_string">"Delete the currently selected Link Setup."</span>
+         WinTop=<span class="source_int">0.155000</span>
+         WinLeft=<span class="source_int">0.300000</span>
+         WinWidth=<span class="source_int">0.150000</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnClick
+         OnKeyEvent=DeleteSetupButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     b_DeleteSetup=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.DeleteSetupButton'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SaveSetupButton
+         <span class="source_type">Caption</span>=<span class="source_string">"Save"</span>
+         MenuState=MSAT_Disabled
+         Hint=<span class="source_string">"Save the current Link Setup."</span>
+         WinTop=<span class="source_int">0.155000</span>
+         WinLeft=<span class="source_int">0.550000</span>
+         WinWidth=<span class="source_int">0.150000</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnClick
+         OnKeyEvent=SaveSetupButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     b_SaveSetup=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.SaveSetupButton'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=CloseButton
+         <span class="source_type">Caption</span>=<span class="source_string">"Close"</span>
+         WinTop=<span class="source_int">0.861979</span>
+         WinLeft=<span class="source_int">0.425000</span>
+         WinWidth=<span class="source_int">0.150000</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnClick
+         OnKeyEvent=CloseButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     b_lClose=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.CloseButton'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=ClearButton
+         <span class="source_type">Caption</span>=<span class="source_string">"Clear Links"</span>
+         Hint=<span class="source_string">"Clear all links on the map."</span>
+         WinTop=<span class="source_int">0.731979</span>
+         WinLeft=<span class="source_int">0.400000</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnClick
+         OnKeyEvent=ClearButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     b_Clear=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.ClearButton'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=ExportButton
+         <span class="source_type">Caption</span>=<span class="source_string">"Export to UnrealEd"</span>
+         Hint=<span class="source_string">"LEVEL DESIGNERS ONLY: Export the current Link Setup to the clipboard. You can then open the map in UnrealEd and use Paste to create an Official Link Setup actor, making this Link Setup an Official Link Setup for your map."</span>
+         WinTop=<span class="source_int">0.791979</span>
+         WinLeft=<span class="source_int">0.400000</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         WinHeight=<span class="source_int">0.050000</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnClick
+         OnKeyEvent=ExportButton.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     b_Export=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.ExportButton'</span>
+
+     OnslaughtMapCenterX=<span class="source_int">0.500000</span>
+     OnslaughtMapCenterY=<span class="source_int">0.475000</span>
+     OnslaughtMapRadius=<span class="source_int">0.300000</span>
+     bAllowedAsLast=<span class="source_keyword">True</span>
+     Hint=<span class="source_string">"Click on any PowerCore or PowerNode to select it, then click on another PowerCore or PowerNode to create a link between the two."</span>
+     WinTop=<span class="source_int">0.050000</span>
+     WinHeight=<span class="source_int">0.900000</span>
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guitooltip.html" class="source">GUIToolTip</a></span> <span class="source_keyword">Name</span>=MapToolTip
+         ExpirationSeconds=<span class="source_int">5.000000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     ToolTip=<span class="source_type"><a href="../xinterface/guitooltip.html" class="source">GUIToolTip</a></span><span class="source_name">'GUI2K4.UT2K4OnslaughtPowerLinkDesigner.MapToolTip'</span>
+
+     OnMouseRelease=<span class="source_type"><a href="../gui2k4/ut2k4onslaughtpowerlinkdesigner.html" class="source">UT2K4OnslaughtPowerLinkDesigner</a></span>.InternalOnMouseReleased
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4onslaughtpowerlinkdesigner.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4OnslaughtPowerLinkDesigner">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4onslaughtloginmenu.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4ownage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:06.720 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

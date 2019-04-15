@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - GUI2K4.UT2K4SP_Injury</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4sp_injury.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SP_Injury">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4sp_highscores.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4sp_ladderloading.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#gui2k4/ut2k4sp_injury.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.UT2K4SP_Injury</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../gui2k4/largewindow.html">LargeWindow</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipage.html">GUIPage</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k4guipage.html">UT2K4GUIPage</a>
+               |   
+               +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/popuppagebase.html">PopupPageBase</a>
+                  |   
+                  +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/floatingwindow.html">FloatingWindow</a>
+                     |   
+                     +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/largewindow.html">LargeWindow</a>
+                        |   
+                        +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sp_injury.html">UT2K4SP_Injury</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnCancel" name="btnCancel" title="go to the details">btnCancel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guibutton.html">GUIButton</a></td><td width="66%"><a href="#_btnTreat" name="btnTreat" title="go to the details">btnTreat</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xgame/ut2k4gameprofile.html">UT2K4GameProfile</a></td><td width="66%"><a href="#_GP" name="GP" title="go to the details">GP</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_imgPicture" name="imgPicture" title="go to the details">imgPicture</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_imgPictureBg" name="imgPictureBg" title="go to the details">imgPictureBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_InjuredPlayer" name="InjuredPlayer" title="go to the details">InjuredPlayer</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilabel.html">GUILabel</a></td><td width="66%"><a href="#_lblMessage" name="lblMessage" title="go to the details">lblMessage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilabel.html">GUILabel</a></td><td width="66%"><a href="#_lblTitle" name="lblTitle" title="go to the details">lblTitle</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_TreatmentCost" name="TreatmentCost" title="go to the details">TreatmentCost</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/floatingwindow.html">FloatingWindow</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/floatingwindow.html#BLSizing">BLSizing</a>, <a href="../gui2k4/floatingwindow.html#bMoveAllowed">bMoveAllowed</a>, <a href="../gui2k4/floatingwindow.html#bMoving">bMoving</a>, <a href="../gui2k4/floatingwindow.html#bResizeHeightAllowed">bResizeHeightAllowed</a>, <a href="../gui2k4/floatingwindow.html#bResizeWidthAllowed">bResizeWidthAllowed</a>, <a href="../gui2k4/floatingwindow.html#bResizing">bResizing</a>, <a href="../gui2k4/floatingwindow.html#BRSizing">BRSizing</a>, <a href="../gui2k4/floatingwindow.html#BtSizing">BtSizing</a>, <a href="../gui2k4/floatingwindow.html#b_ExitButton">b_ExitButton</a>, <a href="../gui2k4/floatingwindow.html#DefaultHeight">DefaultHeight</a>, <a href="../gui2k4/floatingwindow.html#DefaultLeft">DefaultLeft</a>, <a href="../gui2k4/floatingwindow.html#DefaultTop">DefaultTop</a>, <a href="../gui2k4/floatingwindow.html#DefaultWidth">DefaultWidth</a>, <a href="../gui2k4/floatingwindow.html#HeaderMouseCursorIndex">HeaderMouseCursorIndex</a>, <a href="../gui2k4/floatingwindow.html#LSizing">LSizing</a>, <a href="../gui2k4/floatingwindow.html#MaxPageHeight">MaxPageHeight</a>, <a href="../gui2k4/floatingwindow.html#MaxPageWidth">MaxPageWidth</a>, <a href="../gui2k4/floatingwindow.html#MinPageHeight">MinPageHeight</a>, <a href="../gui2k4/floatingwindow.html#MinPageWidth">MinPageWidth</a>, <a href="../gui2k4/floatingwindow.html#RSizing">RSizing</a>, <a href="../gui2k4/floatingwindow.html#TLSizing">TLSizing</a>, <a href="../gui2k4/floatingwindow.html#TRSizing">TRSizing</a>, <a href="../gui2k4/floatingwindow.html#TSizing">TSizing</a>, <a href="../gui2k4/floatingwindow.html#t_WindowTitle">t_WindowTitle</a>, <a href="../gui2k4/floatingwindow.html#WindowName">WindowName</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_btnCancelOnClick-" name="btnCancelOnClick" title="go to the details">btnCancelOnClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_btnTreatOnClick-" name="btnTreatOnClick" title="go to the details">btnTreatOnClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_HandleParameters-" name="HandleParameters" title="go to the details">HandleParameters</a> (string Param1, string Param2))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/floatingwindow.html">FloatingWindow</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/floatingwindow.html#AddSystemMenu">AddSystemMenu</a>, <a href="../gui2k4/floatingwindow.html#AlignFrame">AlignFrame</a>, <a href="../gui2k4/floatingwindow.html#CheckBounds">CheckBounds</a>, <a href="../gui2k4/floatingwindow.html#FloatingHover">FloatingHover</a>, <a href="../gui2k4/floatingwindow.html#FloatingMousePressed">FloatingMousePressed</a>, <a href="../gui2k4/floatingwindow.html#FloatingMouseRelease">FloatingMouseRelease</a>, <a href="../gui2k4/floatingwindow.html#FloatingPreDraw">FloatingPreDraw</a>, <a href="../gui2k4/floatingwindow.html#FloatingRendered">FloatingRendered</a>, <a href="../gui2k4/floatingwindow.html#HoveringBottomBorder">HoveringBottomBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringBottomLeft">HoveringBottomLeft</a>, <a href="../gui2k4/floatingwindow.html#HoveringLeftBorder">HoveringLeftBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringRightBorder">HoveringRightBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringTopBorder">HoveringTopBorder</a>, <a href="../gui2k4/floatingwindow.html#HoveringTopLeft">HoveringTopLeft</a>, <a href="../gui2k4/floatingwindow.html#InitComponent">InitComponent</a>, <a href="../gui2k4/floatingwindow.html#InternalOnCreateComponent">InternalOnCreateComponent</a>, <a href="../gui2k4/floatingwindow.html#ResizeAllowed">ResizeAllowed</a>, <a href="../gui2k4/floatingwindow.html#ResizedBoth">ResizedBoth</a>, <a href="../gui2k4/floatingwindow.html#ResizedHeight">ResizedHeight</a>, <a href="../gui2k4/floatingwindow.html#ResizedWidth">ResizedWidth</a>, <a href="../gui2k4/floatingwindow.html#ResolutionChanged">ResolutionChanged</a>, <a href="../gui2k4/floatingwindow.html#SaveCurrentPosition">SaveCurrentPosition</a>, <a href="../gui2k4/floatingwindow.html#SetDefaultPosition">SetDefaultPosition</a>, <a href="../gui2k4/floatingwindow.html#SetFocus">SetFocus</a>, <a href="../gui2k4/floatingwindow.html#SetMouseCursorIndex">SetMouseCursorIndex</a>, <a href="../gui2k4/floatingwindow.html#SetPanelPosition">SetPanelPosition</a>, <a href="../gui2k4/floatingwindow.html#SystemMenuPreDraw">SystemMenuPreDraw</a>, <a href="../gui2k4/floatingwindow.html#XButtonClicked">XButtonClicked</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_btnCancel" class="hidden"></a>btnCancel <a href="../Source_gui2k4/ut2k4sp_injury.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnCancel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnTreat" class="hidden"></a>btnTreat <a href="../Source_gui2k4/ut2k4sp_injury.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnTreat;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GP" class="hidden"></a>GP <a href="../Source_gui2k4/ut2k4sp_injury.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xgame/ut2k4gameprofile.html" class="source">UT2K4GameProfile</a></span> GP;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_imgPicture" class="hidden"></a>imgPicture <a href="../Source_gui2k4/ut2k4sp_injury.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> imgPicture;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_imgPictureBg" class="hidden"></a>imgPictureBg <a href="../Source_gui2k4/ut2k4sp_injury.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> imgPictureBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InjuredPlayer" class="hidden"></a>InjuredPlayer <a href="../Source_gui2k4/ut2k4sp_injury.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> InjuredPlayer;</div>
+<blockquote class="comment">
+the offset in the GameProfile's botstats array, set in HandleParameters 
+</blockquote>
+<hr class="small" />
+<h4><a name="_lblMessage" class="hidden"></a>lblMessage <a href="../Source_gui2k4/ut2k4sp_injury.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> lblMessage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_lblTitle" class="hidden"></a>lblTitle <a href="../Source_gui2k4/ut2k4sp_injury.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> lblTitle;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TreatmentCost" class="hidden"></a>TreatmentCost <a href="../Source_gui2k4/ut2k4sp_injury.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> TreatmentCost;</div>
+<blockquote class="comment">
+price to heal the injured player 
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_btnCancelOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> btnCancelOnClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sp_injury.html#46" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> btnCancelOnClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_btnTreatOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> btnTreatOnClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sp_injury.html#52" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> btnTreatOnClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HandleParameters-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> HandleParameters <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sp_injury.html#20" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  HandleParameters ( <span class="source_keyword">string</span> Param1, <span class="source_keyword">string</span> <span class="source_type">Param2</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPMimgPictureBg
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'2K4Menus.Controls.sectionback'</span>
+         ImageStyle=ISTY_Scaled
+         ImageRenderStyle=MSTY_Normal
+         WinTop=<span class="source_int">0.136499</span>
+         WinLeft=<span class="source_int">0.057750</span>
+         WinWidth=<span class="source_int">0.177000</span>
+         WinHeight=<span class="source_int">0.464500</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     imgPictureBg=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4SP_Injury.SPMimgPictureBg'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPMimgPicture
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'2K4Menus.Controls.thinpipe_b'</span>
+         ImageStyle=ISTY_Scaled
+         ImageRenderStyle=MSTY_Normal
+         WinTop=<span class="source_int">0.146500</span>
+         WinLeft=<span class="source_int">0.059000</span>
+         WinWidth=<span class="source_int">0.174500</span>
+         WinHeight=<span class="source_int">0.452000</span>
+         RenderWeight=<span class="source_int">0.300000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     imgPicture=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4SP_Injury.SPMimgPicture'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPMbtnCancel
+         <span class="source_type">Caption</span>=<span class="source_string">"CANCEL"</span>
+         FontScale=FNS_Small
+         WinTop=<span class="source_int">0.857292</span>
+         WinLeft=<span class="source_int">0.051563</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_injury.html" class="source">UT2K4SP_Injury</a></span>.btnCancelOnClick
+         OnKeyEvent=SPMbtnCancel.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnCancel=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_Injury.SPMbtnCancel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPMbtnTreat
+         <span class="source_type">Caption</span>=<span class="source_string">"TREAT NOW"</span>
+         FontScale=FNS_Small
+         WinTop=<span class="source_int">0.857292</span>
+         WinLeft=<span class="source_int">0.664063</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_injury.html" class="source">UT2K4SP_Injury</a></span>.btnTreatOnClick
+         OnKeyEvent=SPMbtnTreat.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     btnTreat=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_Injury.SPMbtnTreat'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=SPLlblTitle
+         <span class="source_type">Caption</span>=<span class="source_string">"Injury"</span>
+         TextAlign=TXTA_Center
+         FontScale=FNS_Large
+         StyleName=<span class="source_string">"TextLabel"</span>
+         WinTop=<span class="source_int">0.051667</span>
+         WinLeft=<span class="source_int">0.028750</span>
+         WinWidth=<span class="source_int">0.661250</span>
+         WinHeight=<span class="source_int">0.072500</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     lblTitle=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'GUI2K4.UT2K4SP_Injury.SPLlblTitle'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=SPLlblMessage
+         <span class="source_type">Caption</span>=<span class="source_string">"%player% got injured in the last match.|%player%'s health is down to %health%%, treatment of the injuries costs %treatment%.|Balance: %balance%."</span>
+         bMultiLine=<span class="source_keyword">True</span>
+         StyleName=<span class="source_string">"TextLabel"</span>
+         WinTop=<span class="source_int">0.176667</span>
+         WinLeft=<span class="source_int">0.372500</span>
+         WinWidth=<span class="source_int">0.373749</span>
+         WinHeight=<span class="source_int">0.391250</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     lblMessage=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'GUI2K4.UT2K4SP_Injury.SPLlblMessage'</span>
+
+     DefaultLeft=<span class="source_int">0.150000</span>
+     DefaultTop=<span class="source_int">0.150000</span>
+     DefaultWidth=<span class="source_int">0.700000</span>
+     DefaultHeight=<span class="source_int">0.700000</span>
+     WinTop=<span class="source_int">0.150000</span>
+     WinLeft=<span class="source_int">0.150000</span>
+     WinWidth=<span class="source_int">0.700000</span>
+     WinHeight=<span class="source_int">0.700000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4sp_injury.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SP_Injury">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4sp_highscores.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4sp_ladderloading.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:06.924 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

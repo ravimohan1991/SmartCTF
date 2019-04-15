@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Installation}{}% 2
+\BOOKMARK [1][-]{section.3}{Configuration}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{SmartCTF.ini}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{IpToNation.ini}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Server.ini}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Features}{}% 7
+\BOOKMARK [1][-]{section.5}{Working}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Witness}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Covers/Seals}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.3}{Replication}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.4}{SmartScoreboard}{section.5}% 12
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Compression Scheme}{subsection.5.4}% 13
+\BOOKMARK [1][-]{section.6}{Developing}{}% 14
+\BOOKMARK [2][-]{subsection.6.1}{ScoreBoard}{section.6}% 15
+\BOOKMARK [1][-]{section.7}{TODO}{}% 16
+\BOOKMARK [1][-]{section.8}{Credits}{}% 17

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XGame.xVehicleCTFGame</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xgame/xgame-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xgame/xvehiclectfgame.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#xVehicleCTFGame">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xgame/xutil.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xgame/xvictimmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xgame/xvehiclectfgame.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xgame/xgame-overview.html">XGame</a>.xVehicleCTFGame</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xgame/xctfgame.html">xCTFGame</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/info.html">Info</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/gameinfo.html">GameInfo</a>
+         |   
+         +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/unrealmpgameinfo.html">UnrealMPGameInfo</a>
+            |   
+            +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/deathmatch.html">DeathMatch</a>
+               |   
+               +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/teamgame.html">TeamGame</a>
+                  |   
+                  +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/ctfgame.html">CTFGame</a>
+                     |   
+                     +-- <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xctfgame.html">xCTFGame</a>
+                        |   
+                        +-- <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xvehiclectfgame.html">xVehicleCTFGame</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><th colspan="2" class="small">LoadingHints</th></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;string&gt;</td><td width="66%"><a href="#_VCTFHints" name="VCTFHints" title="go to the details">VCTFHints</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/ctfgame.html">CTFGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/ctfgame.html#CTFHints">CTFHints</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_AllowTransloc-" name="AllowTransloc" title="go to the details">AllowTransloc</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>array&lt;string&gt;&nbsp;</td><td><a href="#_GetAllLoadHints-" name="GetAllLoadHints" title="go to the details">GetAllLoadHints</a> (optional bool bThisClassOnly))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_NeverAllowTransloc-" name="NeverAllowTransloc" title="go to the details">NeverAllowTransloc</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xctfgame.html">xCTFGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xgame/xctfgame.html#FindSpecGoalFor">FindSpecGoalFor</a>, <a href="../xgame/xctfgame.html#PrecacheGameStaticMeshes">PrecacheGameStaticMeshes</a>, <a href="../xgame/xctfgame.html#PrecacheGameTextures">PrecacheGameTextures</a>, <a href="../xgame/xctfgame.html#SetGrammar">SetGrammar</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/ctfgame.html">CTFGame</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/ctfgame.html#CheckEndGame">CheckEndGame</a>, <a href="../unrealgame/ctfgame.html#DiscardInventory">DiscardInventory</a>, <a href="../unrealgame/ctfgame.html#GetAllLoadHints">GetAllLoadHints</a>, <a href="../unrealgame/ctfgame.html#GetGameObject">GetGameObject</a>, <a href="../unrealgame/ctfgame.html#Logout">Logout</a>, <a href="../unrealgame/ctfgame.html#NearGoal">NearGoal</a>, <a href="../unrealgame/ctfgame.html#OrderToIndex">OrderToIndex</a>, <a href="../unrealgame/ctfgame.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/ctfgame.html#PrecacheGameAnnouncements">PrecacheGameAnnouncements</a>, <a href="../unrealgame/ctfgame.html#RegisterVehicle">RegisterVehicle</a>, <a href="../unrealgame/ctfgame.html#ScoreFlag">ScoreFlag</a>, <a href="../unrealgame/ctfgame.html#ScoreGameObject">ScoreGameObject</a>, <a href="../unrealgame/ctfgame.html#SetTeamFlags">SetTeamFlags</a>, <a href="../unrealgame/ctfgame.html#SpawnWait">SpawnWait</a>, <a href="../unrealgame/ctfgame.html#UpdateAnnouncements">UpdateAnnouncements</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h3 class="vartag">LoadingHints</h3>
+<h4><a name="_VCTFHints" class="hidden"></a>VCTFHints <a href="../Source_xgame/xvehiclectfgame.html#3" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LoadingHints) <span class="source_keyword2">private</span> <span class="source_keyword2">localized</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; VCTFHints;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AllowTransloc-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AllowTransloc <span class="function_state"></span> <a href="../Source_xgame/xvehiclectfgame.html#5" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> AllowTransloc ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetAllLoadHints-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetAllLoadHints <span class="function_state"></span> <a href="../Source_xgame/xvehiclectfgame.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; GetAllLoadHints ( <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bThisClassOnly) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NeverAllowTransloc-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NeverAllowTransloc <span class="function_state"></span> <a href="../Source_xgame/xvehiclectfgame.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> NeverAllowTransloc ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     VCTFHints(<span class="source_int">0</span>)=<span class="source_string">"You can't carry the flag in a Manta or a Raptor."</span>
+     bAllowTrans=<span class="source_keyword">False</span>
+     bDefaultTranslocator=<span class="source_keyword">False</span>
+     bAllowVehicles=<span class="source_keyword">True</span>
+     MapListType=<span class="source_string">"XInterface.MapListVehicleCTF"</span>
+     <span class="source_type">MapPrefix</span>=<span class="source_string">"VCTF"</span>
+     BeaconName=<span class="source_string">"VCTF"</span>
+     GameName=<span class="source_string">"Vehicle CTF"</span>
+     Description=<span class="source_string">"Like traditional Capture The Flag, only adding vehicles into the mix! Only ground-based vehicles can carry the flag."</span>
+     ScreenShotName=<span class="source_string">"UT2004Thumbnails.VCTFShots"</span>
+     DecoTextName=<span class="source_string">"XGame.xVehicleCTFGame"</span>
+     Acronym=<span class="source_string">"VCTF"</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xgame/xgame-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xgame/xvehiclectfgame.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#xVehicleCTFGame">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xgame/xutil.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xgame/xvictimmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:08.240 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

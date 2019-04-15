@@ -1,0 +1,1270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSPowerCore</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onspowercore.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSPowerCore">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsplayerreplicationinfo.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onspowercoreblue.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onspowercore.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSPowerCore</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></dd>
+<dt>Modifiers</dt><dd>hidecategories ( DestroyableObjective ) abstract </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/navigationpoint.html">NavigationPoint</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/jumpdest.html">JumpDest</a>
+         |   
+         +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/jumpspot.html">JumpSpot</a>
+            |   
+            +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobjective.html">GameObjective</a>
+               |   
+               +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a>
+                  |   
+                  +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onspowercore.html">ONSPowerCore</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../onslaught/onspowercoreblue.html">ONSPowerCoreBlue</a>, <a href="../onslaught/onspowercorered.html">ONSPowerCoreRed</a>, <a href="../onslaught/onspowernode.html">ONSPowerNode</a>
+</blockquote>
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/material.html">Material</a>&gt;</td><td width="66%"><a href="#_BlueActiveSkins" name="BlueActiveSkins" title="go to the details">BlueActiveSkins</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/material.html">Material</a>&gt;</td><td width="66%"><a href="#_BlueConstructingSkins" name="BlueConstructingSkins" title="go to the details">BlueConstructingSkins</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bOldUnderAttack" name="bOldUnderAttack" title="go to the details">bOldUnderAttack</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bPoweredByBlue" name="bPoweredByBlue" title="go to the details">bPoweredByBlue</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bPoweredByRed" name="bPoweredByRed" title="go to the details">bPoweredByRed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bSevered" name="bSevered" title="go to the details">bSevered</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bShowNodeBeams" name="bShowNodeBeams" title="go to the details">bShowNodeBeams</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bUnderAttack" name="bUnderAttack" title="go to the details">bUnderAttack</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/actor.html">Actor</a>&gt;</td><td width="66%"><a href="#_CloseActors" name="CloseActors" title="go to the details">CloseActors</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_ConstructedEvent[2]" name="ConstructedEvent[2]" title="go to the details">ConstructedEvent[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ConstructionTimeElapsed" name="ConstructionTimeElapsed" title="go to the details">ConstructionTimeElapsed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/controller.html">Controller</a></td><td width="66%"><a href="#_Constructor" name="Constructor" title="go to the details">Constructor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_CoreStage" name="CoreStage" title="go to the details">CoreStage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DestroyedEvent[4]" name="DestroyedEvent[4]" title="go to the details">DestroyedEvent[4]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_DestructionMessageIndex" name="DestructionMessageIndex" title="go to the details">DestructionMessageIndex</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/emitter.html">Emitter</a></td><td width="66%"><a href="#_ExplosionEffect" name="ExplosionEffect" title="go to the details">ExplosionEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_FinalCoreDistance[2]" name="FinalCoreDistance[2]" title="go to the details">FinalCoreDistance[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HealingTime" name="HealingTime" title="go to the details">HealingTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastAttackAnnouncementTime" name="LastAttackAnnouncementTime" title="go to the details">LastAttackAnnouncementTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/pawn.html">Pawn</a></td><td width="66%"><a href="#_LastAttacker" name="LastAttacker" title="go to the details">LastAttacker</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastAttackExpirationTime" name="LastAttackExpirationTime" title="go to the details">LastAttackExpirationTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastAttackMessageTime" name="LastAttackMessageTime" title="go to the details">LastAttackMessageTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastAttackTime" name="LastAttackTime" title="go to the details">LastAttackTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_LastCoreStage" name="LastCoreStage" title="go to the details">LastCoreStage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/playerreplicationinfo.html">PlayerReplicationInfo</a></td><td width="66%"><a href="#_LastDamagedBy" name="LastDamagedBy" title="go to the details">LastDamagedBy</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_LastDefenderTeamIndex" name="LastDefenderTeamIndex" title="go to the details">LastDefenderTeamIndex</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/controller.html">Controller</a></td><td width="66%"><a href="#_LastHealedBy" name="LastHealedBy" title="go to the details">LastHealedBy</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;name&gt;</td><td width="66%"><a href="#_LinkedNodes" name="LinkedNodes" title="go to the details">LinkedNodes</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onspowercore.html">ONSPowerCore</a></td><td width="66%"><a href="#_NextCore" name="NextCore" title="go to the details">NextCore</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/emitter.html">Emitter</a></td><td width="66%"><a href="#_NodeBeamEffect" name="NodeBeamEffect" title="go to the details">NodeBeamEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsnodehealeffect.html">ONSNodeHealEffect</a></td><td width="66%"><a href="#_NodeHealEffect" name="NodeHealEffect" title="go to the details">NodeHealEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_NodeNum" name="NodeNum" title="go to the details">NodeNum</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onspowercore.html">ONSPowerCore</a>&gt;</td><td width="66%"><a href="#_PowerLinks" name="PowerLinks" title="go to the details">PowerLinks</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/material.html">Material</a>&gt;</td><td width="66%"><a href="#_RedActiveSkins" name="RedActiveSkins" title="go to the details">RedActiveSkins</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/material.html">Material</a>&gt;</td><td width="66%"><a href="#_RedConstructingSkins" name="RedConstructingSkins" title="go to the details">RedConstructingSkins</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsfreeroamingenergyeffect.html">ONSFreeRoamingEnergyEffect</a></td><td width="66%"><a href="#_RoamingEnergy" name="RoamingEnergy" title="go to the details">RoamingEnergy</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SeveredDamagePerSecond" name="SeveredDamagePerSecond" title="go to the details">SeveredDamagePerSecond</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onspowercoreshield.html">ONSPowerCoreShield</a></td><td width="66%"><a href="#_Shield" name="Shield" title="go to the details">Shield</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../onslaught/onspowercoreshield.html">ONSPowerCoreShield</a>&gt;</td><td width="66%"><a href="#_ShieldClass" name="ShieldClass" title="go to the details">ShieldClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_ShieldOffset" name="ShieldOffset" title="go to the details">ShieldOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsteleportpad.html">ONSTeleportPad</a>&gt;</td><td width="66%"><a href="#_TeleportPads" name="TeleportPads" title="go to the details">TeleportPads</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/triggers.html">Triggers</a></td><td width="66%"><a href="#_TeleportTrigger" name="TeleportTrigger" title="go to the details">TeleportTrigger</a></td></tr>
+<tr><th colspan="2" class="small">Events</th></tr>
+<tr><td nowrap="nowrap" width="33%">name</td><td width="66%"><a href="#_BlueActivationEventName" name="BlueActivationEventName" title="go to the details">BlueActivationEventName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">name</td><td width="66%"><a href="#_DestroyedEventName" name="DestroyedEventName" title="go to the details">DestroyedEventName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">name</td><td width="66%"><a href="#_RedActivationEventName" name="RedActivationEventName" title="go to the details">RedActivationEventName</a></td></tr>
+<tr><th colspan="2" class="small">HUD</th></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_HUDLocation" name="HUDLocation" title="go to the details">HUDLocation</a></td></tr>
+<tr><th colspan="2" class="small">ONSPowerCore</th></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_ActiveSound" name="ActiveSound" title="go to the details">ActiveSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bFinalCore" name="bFinalCore" title="go to the details">bFinalCore</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bPowered" name="bPowered" title="go to the details">bPowered</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bStartNeutral" name="bStartNeutral" title="go to the details">bStartNeutral</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_ConstructedSound" name="ConstructedSound" title="go to the details">ConstructedSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ConstructionTime" name="ConstructionTime" title="go to the details">ConstructionTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">StaticMesh</td><td width="66%"><a href="#_DeadStaticMesh" name="DeadStaticMesh" title="go to the details">DeadStaticMesh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_DestroyedSound" name="DestroyedSound" title="go to the details">DestroyedSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_HealedSound" name="HealedSound" title="go to the details">HealedSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_HealingSound" name="HealingSound" title="go to the details">HealingSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_NeutralSound" name="NeutralSound" title="go to the details">NeutralSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_StartConstructionSound" name="StartConstructionSound" title="go to the details">StartConstructionSound</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/destroyableobjective.html#AccumulatedDamage">AccumulatedDamage</a>, <a href="../unrealgame/destroyableobjective.html#AIShootOffset">AIShootOffset</a>, <a href="../unrealgame/destroyableobjective.html#bCanDefenderDamage">bCanDefenderDamage</a>, <a href="../unrealgame/destroyableobjective.html#bIsUnderAttack">bIsUnderAttack</a>, <a href="../unrealgame/destroyableobjective.html#bMonitorUnderAttack">bMonitorUnderAttack</a>, <a href="../unrealgame/destroyableobjective.html#bReplicateHealth">bReplicateHealth</a>, <a href="../unrealgame/destroyableobjective.html#ConstraintInstigator">ConstraintInstigator</a>, <a href="../unrealgame/destroyableobjective.html#ConstraintPawnClass">ConstraintPawnClass</a>, <a href="../unrealgame/destroyableobjective.html#DamageCapacity">DamageCapacity</a>, <a href="../unrealgame/destroyableobjective.html#DamageEventThreshold">DamageEventThreshold</a>, <a href="../unrealgame/destroyableobjective.html#Health">Health</a>, <a href="../unrealgame/destroyableobjective.html#LastDamageTime">LastDamageTime</a>, <a href="../unrealgame/destroyableobjective.html#LastWarnTime">LastWarnTime</a>, <a href="../unrealgame/destroyableobjective.html#LinkHealMult">LinkHealMult</a>, <a href="../unrealgame/destroyableobjective.html#ShootTarget">ShootTarget</a>, <a href="../unrealgame/destroyableobjective.html#TakeDamageEvent">TakeDamageEvent</a>, <a href="../unrealgame/destroyableobjective.html#UnderAttackTimer">UnderAttackTimer</a>, <a href="../unrealgame/destroyableobjective.html#VehicleDamageScaling">VehicleDamageScaling</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobjective.html">GameObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/gameobjective.html#AlternatePaths">AlternatePaths</a>, <a href="../unrealgame/gameobjective.html#Announcer_DefendObjective">Announcer_DefendObjective</a>, <a href="../unrealgame/gameobjective.html#Announcer_DisabledObjective">Announcer_DisabledObjective</a>, <a href="../unrealgame/gameobjective.html#Announcer_ObjectiveInfo">Announcer_ObjectiveInfo</a>, <a href="../unrealgame/gameobjective.html#AreaVolumeTag">AreaVolumeTag</a>, <a href="../unrealgame/gameobjective.html#bAccruePoints">bAccruePoints</a>, <a href="../unrealgame/gameobjective.html#bActive">bActive</a>, <a href="../unrealgame/gameobjective.html#bAnnounceNextObjective">bAnnounceNextObjective</a>, <a href="../unrealgame/gameobjective.html#BaseExitTime">BaseExitTime</a>, <a href="../unrealgame/gameobjective.html#BaseRadius">BaseRadius</a>, <a href="../unrealgame/gameobjective.html#bBotOnlyObjective">bBotOnlyObjective</a>, <a href="../unrealgame/gameobjective.html#bClearInstigator">bClearInstigator</a>, <a href="../unrealgame/gameobjective.html#bDisabled">bDisabled</a>, <a href="../unrealgame/gameobjective.html#bFirstObjective">bFirstObjective</a>, <a href="../unrealgame/gameobjective.html#bHasShootSpots">bHasShootSpots</a>, <a href="../unrealgame/gameobjective.html#bHighlightPhysicalObjective">bHighlightPhysicalObjective</a>, <a href="../unrealgame/gameobjective.html#bIgnoredObjective">bIgnoredObjective</a>, <a href="../unrealgame/gameobjective.html#bInitiallyActive">bInitiallyActive</a>, <a href="../unrealgame/gameobjective.html#bIsBeingAttacked">bIsBeingAttacked</a>, <a href="../unrealgame/gameobjective.html#bIsCritical">bIsCritical</a>, <a href="../unrealgame/gameobjective.html#bMustBoardVehicleFirst">bMustBoardVehicleFirst</a>, <a href="../unrealgame/gameobjective.html#bOldCritical">bOldCritical</a>, <a href="../unrealgame/gameobjective.html#bOldDisabled">bOldDisabled</a>, <a href="../unrealgame/gameobjective.html#bOldHighlightPhysicalObjective">bOldHighlightPhysicalObjective</a>, <a href="../unrealgame/gameobjective.html#bOptionalObjective">bOptionalObjective</a>, <a href="../unrealgame/gameobjective.html#BotDamageScaling">BotDamageScaling</a>, <a href="../unrealgame/gameobjective.html#bOverrideVisibilityCheck">bOverrideVisibilityCheck</a>, <a href="../unrealgame/gameobjective.html#bOverrideZoneCheck">bOverrideZoneCheck</a>, <a href="../unrealgame/gameobjective.html#bPlayCriticalAssaultAlarm">bPlayCriticalAssaultAlarm</a>, <a href="../unrealgame/gameobjective.html#bReplicateObjective">bReplicateObjective</a>, <a href="../unrealgame/gameobjective.html#bSoundsPrecached">bSoundsPrecached</a>, <a href="../unrealgame/gameobjective.html#bTeamControlled">bTeamControlled</a>, <a href="../unrealgame/gameobjective.html#bTriggerOnceOnly">bTriggerOnceOnly</a>, <a href="../unrealgame/gameobjective.html#bUsePriorityOnHUD">bUsePriorityOnHUD</a>, <a href="../unrealgame/gameobjective.html#CriticalObjectiveVolumeTag">CriticalObjectiveVolumeTag</a>, <a href="../unrealgame/gameobjective.html#DefenderTeamIndex">DefenderTeamIndex</a>, <a href="../unrealgame/gameobjective.html#DefensePriority">DefensePriority</a>, <a href="../unrealgame/gameobjective.html#DefenseScripts">DefenseScripts</a>, <a href="../unrealgame/gameobjective.html#DefenseScriptTags">DefenseScriptTags</a>, <a href="../unrealgame/gameobjective.html#DefenseSquad">DefenseSquad</a>, <a href="../unrealgame/gameobjective.html#DelayedDamageInstigatorController">DelayedDamageInstigatorController</a>, <a href="../unrealgame/gameobjective.html#DestructionMessage">DestructionMessage</a>, <a href="../unrealgame/gameobjective.html#DisabledBy">DisabledBy</a>, <a href="../unrealgame/gameobjective.html#DrawDistThresHold">DrawDistThresHold</a>, <a href="../unrealgame/gameobjective.html#DrawTime">DrawTime</a>, <a href="../unrealgame/gameobjective.html#EndCamera">EndCamera</a>, <a href="../unrealgame/gameobjective.html#EndCameraTag">EndCameraTag</a>, <a href="../unrealgame/gameobjective.html#HighlightOverlay[2]">HighlightOverlay[2]</a>, <a href="../unrealgame/gameobjective.html#LastDrawTime">LastDrawTime</a>, <a href="../unrealgame/gameobjective.html#LocationPostfix">LocationPostfix</a>, <a href="../unrealgame/gameobjective.html#LocationPrefix">LocationPrefix</a>, <a href="../unrealgame/gameobjective.html#MyBaseVolume">MyBaseVolume</a>, <a href="../unrealgame/gameobjective.html#NextObjective">NextObjective</a>, <a href="../unrealgame/gameobjective.html#ObjectiveDescription">ObjectiveDescription</a>, <a href="../unrealgame/gameobjective.html#ObjectiveDisabledTime">ObjectiveDisabledTime</a>, <a href="../unrealgame/gameobjective.html#ObjectiveName">ObjectiveName</a>, <a href="../unrealgame/gameobjective.html#ObjectivePriority">ObjectivePriority</a>, <a href="../unrealgame/gameobjective.html#ObjectiveStringPrefix">ObjectiveStringPrefix</a>, <a href="../unrealgame/gameobjective.html#ObjectiveStringSuffix">ObjectiveStringSuffix</a>, <a href="../unrealgame/gameobjective.html#ObjectiveTypeIcon">ObjectiveTypeIcon</a>, <a href="../unrealgame/gameobjective.html#Objective_Info_Attacker">Objective_Info_Attacker</a>, <a href="../unrealgame/gameobjective.html#Objective_Info_Defender">Objective_Info_Defender</a>, <a href="../unrealgame/gameobjective.html#PhysicalObjectiveActors">PhysicalObjectiveActors</a>, <a href="../unrealgame/gameobjective.html#PhysicalObjectiveActorsTag">PhysicalObjectiveActorsTag</a>, <a href="../unrealgame/gameobjective.html#SavedObjectiveProgress">SavedObjectiveProgress</a>, <a href="../unrealgame/gameobjective.html#Score">Score</a>, <a href="../unrealgame/gameobjective.html#Scorers">Scorers</a>, <a href="../unrealgame/gameobjective.html#StartTeam">StartTeam</a>, <a href="../unrealgame/gameobjective.html#UseDescription">UseDescription</a>, <a href="../unrealgame/gameobjective.html#VehiclePath">VehiclePath</a>, <a href="../unrealgame/gameobjective.html#VehiclePathName">VehiclePathName</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Enumerations Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Enumerations from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/destroyableobjective.html#EConstraintInstigator">EConstraintInstigator</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobjective.html">GameObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/gameobjective.html#ScorerRecord">ScorerRecord</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Delegates Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_delegate.gif" alt="delegate" title="delegate"></td><td>&nbsp;</td><td><a href="#_NotifyUpdateLinks+" name="NotifyUpdateLinks" title="go to the details">NotifyUpdateLinks</a> ()</td></tr>
+<tr><td nowrap="nowrap"><img src="../img_delegate.gif" alt="delegate" title="delegate"></td><td>&nbsp;</td><td><a href="#_OnCoreDestroyed+" name="OnCoreDestroyed" title="go to the details">OnCoreDestroyed</a> (byte DestroyedCoreIndex)</td></tr>
+<tr><td nowrap="nowrap"><img src="../img_delegate.gif" alt="delegate" title="delegate"></td><td>&nbsp;</td><td><a href="#_UpdateLinkState+" name="UpdateLinkState" title="go to the details">UpdateLinkState</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> Node)</td></tr>
+
+</table>
+
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_AddPowerLink-" name="AddPowerLink" title="go to the details">AddPowerLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_BeginPlay-" name="BeginPlay" title="go to the details">BeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_BeginState-DisabledCore" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">DisabledCore</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_BeginState-NeutralCore" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">NeutralCore</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BeginState-Reconstruction" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">Reconstruction</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Bump-NeutralCore" name="Bump" title="go to the details">Bump</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state">NeutralCore</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Bump-Reconstruction" name="Bump" title="go to the details">Bump</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state">Reconstruction</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CheckShield-" name="CheckShield" title="go to the details">CheckShield</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CheckTouching-" name="CheckTouching" title="go to the details">CheckTouching</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../onslaught/onspowercore.html">ONSPowerCore</a>&nbsp;</td><td><a href="#_ClosestTo-" name="ClosestTo" title="go to the details">ClosestTo</a> (<a href="../engine/actor.html">Actor</a> A))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DisableObjective-" name="DisableObjective" title="go to the details">DisableObjective</a> (<a href="../engine/pawn.html">Pawn</a> Instigator))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_EndState-DisabledCore" name="EndState" title="go to the details">EndState</a> ()))<br /><span class="function_state">DisabledCore</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_FindCloseActors-" name="FindCloseActors" title="go to the details">FindCloseActors</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_FindNodeLinkIndex-" name="FindNodeLinkIndex" title="go to the details">FindNodeLinkIndex</a> (ONSPowerCore Node ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>string&nbsp;</td><td><a href="#_GetHumanReadableName-" name="GetHumanReadableName" title="go to the details">GetHumanReadableName</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasHealthBar-" name="HasHealthBar" title="go to the details">HasHealthBar</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasUsefulVehicles-" name="HasUsefulVehicles" title="go to the details">HasUsefulVehicles</a> (<a href="../engine/controller.html">Controller</a> Asker))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HealDamage-" name="HealDamage" title="go to the details">HealDamage</a> (int Amount, <a href="../engine/controller.html">Controller</a> Healer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_KillEnemyFirst-" name="KillEnemyFirst" title="go to the details">KillEnemyFirst</a> (<a href="../unrealgame/bot.html">Bot</a> B))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_LegitimateTargetOf-" name="LegitimateTargetOf" title="go to the details">LegitimateTargetOf</a> (<a href="../unrealgame/bot.html">Bot</a> B))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_LinkedTo-" name="LinkedTo" title="go to the details">LinkedTo</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_LinkedToCoreConstructingFor-" name="LinkedToCoreConstructingFor" title="go to the details">LinkedToCoreConstructingFor</a> (byte Team))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_NearObjective-" name="NearObjective" title="go to the details">NearObjective</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_NotifyLocalPlayerTeamReceived-" name="NotifyLocalPlayerTeamReceived" title="go to the details">NotifyLocalPlayerTeamReceived</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostNetReceive-" name="PostNetReceive" title="go to the details">PostNetReceive</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreActive-" name="PowerCoreActive" title="go to the details">PowerCoreActive</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreConstructing-" name="PowerCoreConstructing" title="go to the details">PowerCoreConstructing</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreDestroyed-" name="PowerCoreDestroyed" title="go to the details">PowerCoreDestroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreDisabled-" name="PowerCoreDisabled" title="go to the details">PowerCoreDisabled</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreNeutral-" name="PowerCoreNeutral" title="go to the details">PowerCoreNeutral</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreReconstitution-" name="PowerCoreReconstitution" title="go to the details">PowerCoreReconstitution</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreReset-" name="PowerCoreReset" title="go to the details">PowerCoreReset</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PoweredBy-" name="PoweredBy" title="go to the details">PoweredBy</a> (byte Team))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_RateCore-" name="RateCore" title="go to the details">RateCore</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_RemovedCoreLink-" name="RemovedCoreLink" title="go to the details">RemovedCoreLink</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_RemovePowerLink-" name="RemovePowerLink" title="go to the details">RemovePowerLink</a> (<a href="../onslaught/onspowercore.html">ONSPowerCore</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Reset-" name="Reset" title="go to the details">Reset</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ResetLinks-" name="ResetLinks" title="go to the details">ResetLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_SetInitialState-" name="SetInitialState" title="go to the details">SetInitialState</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetTeam-" name="SetTeam" title="go to the details">SetTeam</a> (byte TeamIndex))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetupPowerLinks-" name="SetupPowerLinks" title="go to the details">SetupPowerLinks</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Sever-" name="Sever" title="go to the details">Sever</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ShouldLinkTo-" name="ShouldLinkTo" title="go to the details">ShouldLinkTo</a> (ONSPowerCore Node ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SpawnNodeTeleportTrigger-" name="SpawnNodeTeleportTrigger" title="go to the details">SpawnNodeTeleportTrigger</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_StandGuard-" name="StandGuard" title="go to the details">StandGuard</a> (<a href="../unrealgame/bot.html">Bot</a> B))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> instigatedBy, <a href="../core/object.html#Vector">Vector</a> hitlocation, <a href="../core/object.html#Vector">Vector</a> momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-NeutralCore" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> instigatedBy, <a href="../core/object.html#Vector">Vector</a> hitlocation, <a href="../core/object.html#Vector">Vector</a> momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state">NeutralCore</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_TeleportRating-" name="TeleportRating" title="go to the details">TeleportRating</a> (<a href="../engine/controller.html">Controller</a> Asker, byte AskerTeam, byte SourceDist))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_TellBotHowToDisable-" name="TellBotHowToDisable" title="go to the details">TellBotHowToDisable</a> (<a href="../unrealgame/bot.html">Bot</a> B))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float DT))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Timer-" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Timer-Reconstruction" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state">Reconstruction</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_TooClose-" name="TooClose" title="go to the details">TooClose</a> (<a href="../unrealgame/bot.html">Bot</a> B))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UnderAttackChange-" name="UnderAttackChange" title="go to the details">UnderAttackChange</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UnSever-" name="UnSever" title="go to the details">UnSever</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UnSever-Reconstruction" name="UnSever" title="go to the details">UnSever</a> ()))<br /><span class="function_state">Reconstruction</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateCloseActors-" name="UpdateCloseActors" title="go to the details">UpdateCloseActors</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateHUDLocation-" name="UpdateHUDLocation" title="go to the details">UpdateHUDLocation</a> (float ScreenX, float ScreenY, float RadarWidth, float Range, vector Center ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheMaterials-" name="UpdatePrecacheMaterials" title="go to the details">UpdatePrecacheMaterials</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheStaticMeshes-" name="UpdatePrecacheStaticMeshes" title="go to the details">UpdatePrecacheStaticMeshes</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateTeamBanners-" name="UpdateTeamBanners" title="go to the details">UpdateTeamBanners</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UsedBy-" name="UsedBy" title="go to the details">UsedBy</a> (<a href="../engine/pawn.html">Pawn</a> User))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UsedBy-NeutralCore" name="UsedBy" title="go to the details">UsedBy</a> (<a href="../engine/pawn.html">Pawn</a> User))<br /><span class="function_state">NeutralCore</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UsedBy-Reconstruction" name="UsedBy" title="go to the details">UsedBy</a> (<a href="../engine/pawn.html">Pawn</a> User))<br /><span class="function_state">Reconstruction</span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/destroyableobjective.html#AwardAssaultScore">AwardAssaultScore</a>, <a href="../unrealgame/destroyableobjective.html#Destroyed">Destroyed</a>, <a href="../unrealgame/destroyableobjective.html#DisableObjective">DisableObjective</a>, <a href="../unrealgame/destroyableobjective.html#GetObjectiveProgress">GetObjectiveProgress</a>, <a href="../unrealgame/destroyableobjective.html#GetShootTarget">GetShootTarget</a>, <a href="../unrealgame/destroyableobjective.html#HealDamage">HealDamage</a>, <a href="../unrealgame/destroyableobjective.html#IsCritical">IsCritical</a>, <a href="../unrealgame/destroyableobjective.html#KillEnemyFirst">KillEnemyFirst</a>, <a href="../unrealgame/destroyableobjective.html#LegitimateTargetOf">LegitimateTargetOf</a>, <a href="../unrealgame/destroyableobjective.html#NearObjective">NearObjective</a>, <a href="../unrealgame/destroyableobjective.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/destroyableobjective.html#Reset">Reset</a>, <a href="../unrealgame/destroyableobjective.html#SetDelayedDamageInstigatorController">SetDelayedDamageInstigatorController</a>, <a href="../unrealgame/destroyableobjective.html#SpecialCost">SpecialCost</a>, <a href="../unrealgame/destroyableobjective.html#TakeDamage">TakeDamage</a>, <a href="../unrealgame/destroyableobjective.html#TeamLink">TeamLink</a>, <a href="../unrealgame/destroyableobjective.html#TellBotHowToDisable">TellBotHowToDisable</a>, <a href="../unrealgame/destroyableobjective.html#TellBotHowToHeal">TellBotHowToHeal</a>, <a href="../unrealgame/destroyableobjective.html#TimerPop">TimerPop</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobjective.html">GameObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/gameobjective.html#AddScorer">AddScorer</a>, <a href="../unrealgame/gameobjective.html#AwardAssaultScore">AwardAssaultScore</a>, <a href="../unrealgame/gameobjective.html#BetterObjectiveThan">BetterObjectiveThan</a>, <a href="../unrealgame/gameobjective.html#BotNearObjective">BotNearObjective</a>, <a href="../unrealgame/gameobjective.html#CanDoubleJump">CanDoubleJump</a>, <a href="../unrealgame/gameobjective.html#CheckPlayCriticalAlarm">CheckPlayCriticalAlarm</a>, <a href="../unrealgame/gameobjective.html#CompleteObjective">CompleteObjective</a>, <a href="../unrealgame/gameobjective.html#DisableObjective">DisableObjective</a>, <a href="../unrealgame/gameobjective.html#GetDifficulty">GetDifficulty</a>, <a href="../unrealgame/gameobjective.html#GetHumanReadableName">GetHumanReadableName</a>, <a href="../unrealgame/gameobjective.html#GetNumDefenders">GetNumDefenders</a>, <a href="../unrealgame/gameobjective.html#GetObjectiveProgress">GetObjectiveProgress</a>, <a href="../unrealgame/gameobjective.html#HighlightPhysicalObjective">HighlightPhysicalObjective</a>, <a href="../unrealgame/gameobjective.html#IsActive">IsActive</a>, <a href="../unrealgame/gameobjective.html#IsCritical">IsCritical</a>, <a href="../unrealgame/gameobjective.html#NearObjective">NearObjective</a>, <a href="../unrealgame/gameobjective.html#OwnsDefenseScript">OwnsDefenseScript</a>, <a href="../unrealgame/gameobjective.html#PlayAlarm">PlayAlarm</a>, <a href="../unrealgame/gameobjective.html#PlayDestructionMessage">PlayDestructionMessage</a>, <a href="../unrealgame/gameobjective.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/gameobjective.html#PostNetReceive">PostNetReceive</a>, <a href="../unrealgame/gameobjective.html#PreBeginPlay">PreBeginPlay</a>, <a href="../unrealgame/gameobjective.html#PrecacheAnnouncer">PrecacheAnnouncer</a>, <a href="../unrealgame/gameobjective.html#Reset">Reset</a>, <a href="../unrealgame/gameobjective.html#SetActive">SetActive</a>, <a href="../unrealgame/gameobjective.html#SetCriticalStatus">SetCriticalStatus</a>, <a href="../unrealgame/gameobjective.html#SetObjectiveOverlay">SetObjectiveOverlay</a>, <a href="../unrealgame/gameobjective.html#SetTeam">SetTeam</a>, <a href="../unrealgame/gameobjective.html#ShareScore">ShareScore</a>, <a href="../unrealgame/gameobjective.html#TellBotHowToDisable">TellBotHowToDisable</a>, <a href="../unrealgame/gameobjective.html#Timer">Timer</a>, <a href="../unrealgame/gameobjective.html#Trigger">Trigger</a>, <a href="../unrealgame/gameobjective.html#UpdateLocationName">UpdateLocationName</a>, <a href="../unrealgame/gameobjective.html#UpdatePrecacheMaterials">UpdatePrecacheMaterials</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">States Summary</th>
+</tr>
+</table>
+
+<table>
+<tr>
+	<th>DestroyedCore <a href="../Source_onslaught/onspowercore.html#1197" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> DestroyedCore <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>DisabledCore <a href="../Source_onslaught/onspowercore.html#1287" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> DisabledCore <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+DisabledCore">BeginState</a>, <a href="#_EndState+DisabledCore">EndState</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>NeutralCore <a href="../Source_onslaught/onspowercore.html#1161" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> NeutralCore <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+NeutralCore">BeginState</a>, <a href="#_Bump+NeutralCore">Bump</a>, <a href="#_TakeDamage+NeutralCore">TakeDamage</a>, <a href="#_UsedBy+NeutralCore">UsedBy</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>Reconstruction <a href="../Source_onslaught/onspowercore.html#1225" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> Reconstruction <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+Reconstruction">BeginState</a>, <a href="#_Bump+Reconstruction">Bump</a>, <a href="#_Timer+Reconstruction">Timer</a>, <a href="#_UnSever+Reconstruction">UnSever</a>, <a href="#_UsedBy+Reconstruction">UsedBy</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BlueActiveSkins" class="hidden"></a>BlueActiveSkins <a href="../Source_onslaught/onspowercore.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; BlueActiveSkins;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BlueConstructingSkins" class="hidden"></a>BlueConstructingSkins <a href="../Source_onslaught/onspowercore.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; BlueConstructingSkins;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bOldUnderAttack" class="hidden"></a>bOldUnderAttack <a href="../Source_onslaught/onspowercore.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bOldUnderAttack;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bPoweredByBlue" class="hidden"></a>bPoweredByBlue <a href="../Source_onslaught/onspowercore.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bPoweredByBlue;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bPoweredByRed" class="hidden"></a>bPoweredByRed <a href="../Source_onslaught/onspowercore.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bPoweredByRed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bSevered" class="hidden"></a>bSevered <a href="../Source_onslaught/onspowercore.html#26" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bSevered;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bShowNodeBeams" class="hidden"></a>bShowNodeBeams <a href="../Source_onslaught/onspowercore.html#30" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">globalconfig</span> <span class="source_keyword">bool</span> bShowNodeBeams;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bUnderAttack" class="hidden"></a>bUnderAttack <a href="../Source_onslaught/onspowercore.html#27" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bUnderAttack;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CloseActors" class="hidden"></a>CloseActors <a href="../Source_onslaught/onspowercore.html#50" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span>&gt; CloseActors;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ConstructedEvent[2]" class="hidden"></a>ConstructedEvent[2] <a href="../Source_onslaught/onspowercore.html#55" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> ConstructedEvent[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ConstructionTimeElapsed" class="hidden"></a>ConstructionTimeElapsed <a href="../Source_onslaught/onspowercore.html#43" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ConstructionTimeElapsed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Constructor" class="hidden"></a>Constructor <a href="../Source_onslaught/onspowercore.html#56" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Constructor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CoreStage" class="hidden"></a>CoreStage <a href="../Source_onslaught/onspowercore.html#40" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> CoreStage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedEvent[4]" class="hidden"></a>DestroyedEvent[4] <a href="../Source_onslaught/onspowercore.html#54" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> DestroyedEvent[<span class="source_int">4</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestructionMessageIndex" class="hidden"></a>DestructionMessageIndex <a href="../Source_onslaught/onspowercore.html#53" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> DestructionMessageIndex;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionEffect" class="hidden"></a>ExplosionEffect <a href="../Source_onslaught/onspowercore.html#60" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> ExplosionEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FinalCoreDistance[2]" class="hidden"></a>FinalCoreDistance[2] <a href="../Source_onslaught/onspowercore.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> FinalCoreDistance[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealingTime" class="hidden"></a>HealingTime <a href="../Source_onslaught/onspowercore.html#49" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> HealingTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastAttackAnnouncementTime" class="hidden"></a>LastAttackAnnouncementTime <a href="../Source_onslaught/onspowercore.html#46" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastAttackAnnouncementTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastAttacker" class="hidden"></a>LastAttacker <a href="../Source_onslaught/onspowercore.html#68" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> LastAttacker;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastAttackExpirationTime" class="hidden"></a>LastAttackExpirationTime <a href="../Source_onslaught/onspowercore.html#45" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastAttackExpirationTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastAttackMessageTime" class="hidden"></a>LastAttackMessageTime <a href="../Source_onslaught/onspowercore.html#47" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastAttackMessageTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastAttackTime" class="hidden"></a>LastAttackTime <a href="../Source_onslaught/onspowercore.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastAttackTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastCoreStage" class="hidden"></a>LastCoreStage <a href="../Source_onslaught/onspowercore.html#41" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> LastCoreStage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastDamagedBy" class="hidden"></a>LastDamagedBy <a href="../Source_onslaught/onspowercore.html#67" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> LastDamagedBy;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastDefenderTeamIndex" class="hidden"></a>LastDefenderTeamIndex <a href="../Source_onslaught/onspowercore.html#71" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> LastDefenderTeamIndex;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastHealedBy" class="hidden"></a>LastHealedBy <a href="../Source_onslaught/onspowercore.html#57" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> LastHealedBy;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LinkedNodes" class="hidden"></a>LinkedNodes <a href="../Source_onslaught/onspowercore.html#32" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">name</span>&gt; LinkedNodes;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextCore" class="hidden"></a>NextCore <a href="../Source_onslaught/onspowercore.html#69" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> NextCore;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NodeBeamEffect" class="hidden"></a>NodeBeamEffect <a href="../Source_onslaught/onspowercore.html#59" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> NodeBeamEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NodeHealEffect" class="hidden"></a>NodeHealEffect <a href="../Source_onslaught/onspowercore.html#58" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsnodehealeffect.html" class="source">ONSNodeHealEffect</a></span> NodeHealEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NodeNum" class="hidden"></a>NodeNum <a href="../Source_onslaught/onspowercore.html#73" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> NodeNum;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerLinks" class="hidden"></a>PowerLinks <a href="../Source_onslaught/onspowercore.html#33" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>&gt; PowerLinks;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RedActiveSkins" class="hidden"></a>RedActiveSkins <a href="../Source_onslaught/onspowercore.html#38" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; RedActiveSkins;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RedConstructingSkins" class="hidden"></a>RedConstructingSkins <a href="../Source_onslaught/onspowercore.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>&gt; RedConstructingSkins;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RoamingEnergy" class="hidden"></a>RoamingEnergy <a href="../Source_onslaught/onspowercore.html#62" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsfreeroamingenergyeffect.html" class="source">ONSFreeRoamingEnergyEffect</a></span> RoamingEnergy;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SeveredDamagePerSecond" class="hidden"></a>SeveredDamagePerSecond <a href="../Source_onslaught/onspowercore.html#48" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> SeveredDamagePerSecond;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Shield" class="hidden"></a>Shield <a href="../Source_onslaught/onspowercore.html#63" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercoreshield.html" class="source">ONSPowerCoreShield</a></span> Shield;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShieldClass" class="hidden"></a>ShieldClass <a href="../Source_onslaught/onspowercore.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onspowercoreshield.html" class="source">ONSPowerCoreShield</a></span>&gt; ShieldClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShieldOffset" class="hidden"></a>ShieldOffset <a href="../Source_onslaught/onspowercore.html#65" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ShieldOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeleportPads" class="hidden"></a>TeleportPads <a href="../Source_onslaught/onspowercore.html#51" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsteleportpad.html" class="source">ONSTeleportPad</a></span>&gt; TeleportPads;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeleportTrigger" class="hidden"></a>TeleportTrigger <a href="../Source_onslaught/onspowercore.html#52" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/triggers.html" class="source">Triggers</a></span> TeleportTrigger;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">Events</h3>
+<h4><a name="_BlueActivationEventName" class="hidden"></a>BlueActivationEventName <a href="../Source_onslaught/onspowercore.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Events) <span class="source_keyword">name</span> BlueActivationEventName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedEventName" class="hidden"></a>DestroyedEventName <a href="../Source_onslaught/onspowercore.html#9" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Events) <span class="source_keyword">name</span> DestroyedEventName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RedActivationEventName" class="hidden"></a>RedActivationEventName <a href="../Source_onslaught/onspowercore.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Events) <span class="source_keyword">name</span> RedActivationEventName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">HUD</h3>
+<h4><a name="_HUDLocation" class="hidden"></a>HUDLocation <a href="../Source_onslaught/onspowercore.html#72" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../engine/hud.html" class="source">HUD</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HUDLocation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">ONSPowerCore</h3>
+<h4><a name="_ActiveSound" class="hidden"></a>ActiveSound <a href="../Source_onslaught/onspowercore.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> ActiveSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bFinalCore" class="hidden"></a>bFinalCore <a href="../Source_onslaught/onspowercore.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_keyword">bool</span> bFinalCore;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bPowered" class="hidden"></a>bPowered <a href="../Source_onslaught/onspowercore.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_keyword">bool</span> bPowered;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bStartNeutral" class="hidden"></a>bStartNeutral <a href="../Source_onslaught/onspowercore.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_keyword">bool</span> bStartNeutral;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ConstructedSound" class="hidden"></a>ConstructedSound <a href="../Source_onslaught/onspowercore.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> ConstructedSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ConstructionTime" class="hidden"></a>ConstructionTime <a href="../Source_onslaught/onspowercore.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_keyword">float</span> ConstructionTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DeadStaticMesh" class="hidden"></a>DeadStaticMesh <a href="../Source_onslaught/onspowercore.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type">StaticMesh</span> DeadStaticMesh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedSound" class="hidden"></a>DestroyedSound <a href="../Source_onslaught/onspowercore.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> DestroyedSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealedSound" class="hidden"></a>HealedSound <a href="../Source_onslaught/onspowercore.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> HealedSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealingSound" class="hidden"></a>HealingSound <a href="../Source_onslaught/onspowercore.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> HealingSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NeutralSound" class="hidden"></a>NeutralSound <a href="../Source_onslaught/onspowercore.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> NeutralSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartConstructionSound" class="hidden"></a>StartConstructionSound <a href="../Source_onslaught/onspowercore.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> StartConstructionSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Delegates Detail</th>
+</tr>
+</table>
+
+<h4><a name="_NotifyUpdateLinks+" class="hidden"></a><img src="../img_delegate.gif" alt="" title="delegate"> NotifyUpdateLinks <a href="../Source_onslaught/onspowercore.html#82" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">delegate</span>  NotifyUpdateLinks (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnCoreDestroyed+" class="hidden"></a><img src="../img_delegate.gif" alt="" title="delegate"> OnCoreDestroyed <a href="../Source_onslaught/onspowercore.html#83" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">delegate</span>  OnCoreDestroyed ( <span class="source_keyword">byte</span> DestroyedCoreIndex )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateLinkState+" class="hidden"></a><img src="../img_delegate.gif" alt="" title="delegate"> UpdateLinkState <a href="../Source_onslaught/onspowercore.html#81" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">delegate</span>  UpdateLinkState ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span> )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AddPowerLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AddPowerLink <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#299" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  AddPowerLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginPlay-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> BeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#149" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  BeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-DisabledCore" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> BeginState <span class="function_state">DisabledCore</span> <a href="../Source_onslaught/onspowercore.html#1289" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-NeutralCore" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> BeginState <span class="function_state">NeutralCore</span> <a href="../Source_onslaught/onspowercore.html#1188" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-Reconstruction" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BeginState <span class="function_state">Reconstruction</span> <a href="../Source_onslaught/onspowercore.html#1267" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Bump-NeutralCore" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Bump <span class="function_state">NeutralCore</span> <a href="../Source_onslaught/onspowercore.html#1167" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Bump ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Bump-Reconstruction" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Bump <span class="function_state">Reconstruction</span> <a href="../Source_onslaught/onspowercore.html#1275" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Bump ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CheckShield-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CheckShield <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#613" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  CheckShield ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CheckTouching-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CheckTouching <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1150" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  CheckTouching ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClosestTo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClosestTo <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#181" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> ClosestTo ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> A) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisableObjective-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DisableObjective <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#371" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DisableObjective ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">Instigator</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndState-DisabledCore" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> EndState <span class="function_state">DisabledCore</span> <a href="../Source_onslaught/onspowercore.html#1298" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  EndState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FindCloseActors-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FindCloseActors <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#202" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  FindCloseActors ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FindNodeLinkIndex-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FindNodeLinkIndex <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#357" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">int</span> FindNodeLinkIndex ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetHumanReadableName-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetHumanReadableName <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#994" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">string</span> GetHumanReadableName ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasHealthBar-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasHealthBar <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1311" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasHealthBar ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasUsefulVehicles-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasUsefulVehicles <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#975" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasUsefulVehicles ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Asker) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HealDamage <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#485" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HealDamage ( <span class="source_keyword">int</span> <span class="source_type">Amount</span>, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Healer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KillEnemyFirst-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KillEnemyFirst <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1118" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> KillEnemyFirst ( <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LegitimateTargetOf-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LegitimateTargetOf <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#724" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> LegitimateTargetOf ( <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LinkedTo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LinkedTo <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#352" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> LinkedTo ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LinkedToCoreConstructingFor-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LinkedToCoreConstructingFor <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#540" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> LinkedToCoreConstructingFor ( <span class="source_keyword">byte</span> <span class="source_type">Team</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NearObjective-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NearObjective <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1142" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> NearObjective ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NotifyLocalPlayerTeamReceived-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NotifyLocalPlayerTeamReceived <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#601" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  NotifyLocalPlayerTeamReceived ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#154" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#175" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetReceive-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostNetReceive <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#551" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  PostNetReceive ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreActive-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreActive <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#836" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreActive ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreConstructing-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreConstructing <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#813" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreConstructing ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreDestroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreDestroyed <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#731" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreDestroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreDisabled-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreDisabled <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#674" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreDisabled ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreNeutral-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreNeutral <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#688" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreNeutral ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreReconstitution-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreReconstitution <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#710" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreReconstitution ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreReset-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreReset <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#908" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreReset ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PoweredBy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PoweredBy <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#531" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PoweredBy ( <span class="source_keyword">byte</span> <span class="source_type">Team</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RateCore-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RateCore <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#796" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> RateCore ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RemovedCoreLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RemovedCoreLink <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#327" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  RemovedCoreLink ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RemovePowerLink-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RemovePowerLink <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#311" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  RemovePowerLink ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Reset-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Reset <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#902" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Reset ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ResetLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ResetLinks <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#264" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ResetLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetInitialState-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> SetInitialState <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#122" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  SetInitialState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetTeam-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetTeam <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1332" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetTeam ( <span class="source_keyword">byte</span> TeamIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetupPowerLinks-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetupPowerLinks <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#239" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  SetupPowerLinks ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Sever-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Sever <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#282" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Sever ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShouldLinkTo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShouldLinkTo <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#338" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">protected</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ShouldLinkTo ( <span class="source_type"><a href="../onslaught/onspowercore.html" class="source">ONSPowerCore</a></span> <span class="source_type">Node</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpawnNodeTeleportTrigger-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SpawnNodeTeleportTrigger <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#170" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SpawnNodeTeleportTrigger ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StandGuard-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> StandGuard <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1012" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> StandGuard ( <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#405" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-NeutralCore" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state">NeutralCore</span> <a href="../Source_onslaught/onspowercore.html#1163" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeleportRating-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TeleportRating <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#951" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> TeleportRating ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Asker, <span class="source_keyword">byte</span> AskerTeam, <span class="source_keyword">byte</span> SourceDist) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TellBotHowToDisable-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TellBotHowToDisable <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1088" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> TellBotHowToDisable ( <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Tick <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#520" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">DT</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Timer <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1214" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-Reconstruction" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Timer <span class="function_state">Reconstruction</span> <a href="../Source_onslaught/onspowercore.html#1227" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TooClose-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TooClose <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1063" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> TooClose ( <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span> <span class="source_type">B</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UnderAttackChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UnderAttackChange <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#606" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UnderAttackChange ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UnSever-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UnSever <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#294" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UnSever ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UnSever-Reconstruction" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UnSever <span class="function_state">Reconstruction</span> <a href="../Source_onslaught/onspowercore.html#1277" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UnSever ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateCloseActors-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateCloseActors <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#765" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateCloseActors ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateHUDLocation-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateHUDLocation <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1316" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> singular <span class="source_keyword">function</span>  UpdateHUDLocation ( <span class="source_keyword">float</span> ScreenX, <span class="source_keyword">float</span> ScreenY, <span class="source_keyword">float</span> RadarWidth, <span class="source_keyword">float</span> <span class="source_type"><a href="../core/object.html#Range" class="source">Range</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">Center</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheMaterials-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheMaterials <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#85" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheMaterials ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheStaticMeshes-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheStaticMeshes <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#114" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheStaticMeshes ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateTeamBanners-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateTeamBanners <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#929" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdateTeamBanners ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UsedBy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UsedBy <span class="function_state"></span> <a href="../Source_onslaught/onspowercore.html#1002" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UsedBy ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">User</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UsedBy-NeutralCore" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UsedBy <span class="function_state">NeutralCore</span> <a href="../Source_onslaught/onspowercore.html#1186" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UsedBy ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">User</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UsedBy-Reconstruction" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UsedBy <span class="function_state">Reconstruction</span> <a href="../Source_onslaught/onspowercore.html#1276" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UsedBy ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">User</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     ConstructionTime=<span class="source_int">30.000000</span>
+     DeadStaticMesh=<span class="source_type">StaticMesh</span><span class="source_name">'VMStructures.CoreGroup.coreDead'</span>
+     DestroyedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerCore.PowerCoreExplosion01'</span>
+     ConstructedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.whooshthunk'</span>
+     StartConstructionSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeBuild02'</span>
+     ActiveSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeActive01'</span>
+     NeutralSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeNOTActive01'</span>
+     HealingSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeStartBuild03'</span>
+     HealedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.PowerNode.PwrNodeBuilt01'</span>
+     bPowered=<span class="source_keyword">True</span>
+     bFinalCore=<span class="source_keyword">True</span>
+     bShowNodeBeams=<span class="source_keyword">True</span>
+     RedConstructingSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreConstructionRed'</span>
+     RedConstructingSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.InvisibleFinal'</span>
+     BlueConstructingSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreConstructionBlue'</span>
+     BlueConstructingSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.InvisibleFinal'</span>
+     RedActiveSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreDiffTEX'</span>
+     RedActiveSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreLightShader'</span>
+     BlueActiveSkins(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreDiffTEX'</span>
+     BlueActiveSkins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'ONSstructureTextures.CoreGroup.CoreLightShader'</span>
+     LastCoreStage=<span class="source_int">250</span>
+     FinalCoreDistance(<span class="source_int">0</span>)=<span class="source_int">255</span>
+     FinalCoreDistance(<span class="source_int">1</span>)=<span class="source_int">255</span>
+     LastAttackExpirationTime=<span class="source_int">5.000000</span>
+     SeveredDamagePerSecond=<span class="source_int">30.000000</span>
+     DestructionMessageIndex=<span class="source_int">14</span>
+     DestroyedEvent(<span class="source_int">0</span>)=<span class="source_string">"red_powercore_destroyed"</span>
+     DestroyedEvent(<span class="source_int">1</span>)=<span class="source_string">"blue_powercore_destroyed"</span>
+     DestroyedEvent(<span class="source_int">2</span>)=<span class="source_string">"red_constructing_powercore_destroyed"</span>
+     DestroyedEvent(<span class="source_int">3</span>)=<span class="source_string">"blue_constructing_powercore_destroyed"</span>
+     ConstructedEvent(<span class="source_int">0</span>)=<span class="source_string">"red_powercore_constructed"</span>
+     ConstructedEvent(<span class="source_int">1</span>)=<span class="source_string">"blue_powercore_constructed"</span>
+     ShieldClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSPowerCoreShield'</span>
+     LastDefenderTeamIndex=<span class="source_int">2</span>
+     DamageCapacity=<span class="source_int">4500</span>
+     bMonitorUnderAttack=<span class="source_keyword">False</span>
+     bPlayCriticalAssaultAlarm=<span class="source_keyword">False</span>
+     DefensePriority=<span class="source_int">10</span>
+     <span class="source_type">Score</span>=<span class="source_int">10</span>
+     DestructionMessage=
+     ObjectiveStringSuffix=<span class="source_string">" PowerCore"</span>
+     DrawType=DT_StaticMesh
+     <span class="source_type">StaticMesh</span>=<span class="source_type">StaticMesh</span><span class="source_name">'VMStructures.CoreGroup.CoreDivided'</span>
+     bHidden=<span class="source_keyword">False</span>
+     bIgnoreEncroachers=<span class="source_keyword">True</span>
+     bNotifyLocalPlayerTeamReceived=<span class="source_keyword">True</span>
+     SoundVolume=<span class="source_int">128</span>
+     SoundRadius=<span class="source_int">255.000000</span>
+     CollisionRadius=<span class="source_int">120.000000</span>
+     CollisionHeight=<span class="source_int">150.000000</span>
+     bCollideWorld=<span class="source_keyword">True</span>
+     bBlockActors=<span class="source_keyword">True</span>
+     bBlockKarma=<span class="source_keyword">True</span>
+     bBlocksTeleport=<span class="source_keyword">True</span>
+     bNetNotify=<span class="source_keyword">True</span>
+     bPathColliding=<span class="source_keyword">True</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onspowercore.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSPowerCore">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsplayerreplicationinfo.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onspowercoreblue.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:03.113 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

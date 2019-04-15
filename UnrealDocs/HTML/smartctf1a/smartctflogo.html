@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - SmartCTF1A.SmartCTFLogo</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../smartctf1a/smartctf1a-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_smartctf1a/smartctflogo.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#SmartCTFLogo">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../smartctf1a/smartctfhudccapturetheflag.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../smartctf1a/smartctflogointeraction.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#smartctf1a/smartctflogo.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../smartctf1a/smartctf1a-overview.html">SmartCTF1A</a>.SmartCTFLogo</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../engine/replicationinfo.html">ReplicationInfo</a></dd>
+<dt>Modifiers</dt><dd>config placeable hidecategories ( Display , Advanced , Sound , Events ) </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/info.html">Info</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/replicationinfo.html">ReplicationInfo</a>
+         |   
+         +-- <a href="../smartctf1a/smartctf1a-overview.html">SmartCTF1A</a>.<a href="../smartctf1a/smartctflogo.html">SmartCTFLogo</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bReceivedVars" name="bReceivedVars" title="go to the details">bReceivedVars</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_RAnnouncerSounds" name="RAnnouncerSounds" title="go to the details">RAnnouncerSounds</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RDisplayDuration" name="RDisplayDuration" title="go to the details">RDisplayDuration</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#EDrawPivot">EDrawPivot</a></td><td width="66%"><a href="#_RDrawPivot" name="RDrawPivot" title="go to the details">RDrawPivot</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_REndLogoRotationRate" name="REndLogoRotationRate" title="go to the details">REndLogoRotationRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_REndPos" name="REndPos" title="go to the details">REndPos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_REndScale" name="REndScale" title="go to the details">REndScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeInAlphaTransition" name="RFadeInAlphaTransition" title="go to the details">RFadeInAlphaTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RFadeInDuration" name="RFadeInDuration" title="go to the details">RFadeInDuration</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeInPosXTransition" name="RFadeInPosXTransition" title="go to the details">RFadeInPosXTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeInPosYTransition" name="RFadeInPosYTransition" title="go to the details">RFadeInPosYTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeInRotationTransition" name="RFadeInRotationTransition" title="go to the details">RFadeInRotationTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeInScaleTransition" name="RFadeInScaleTransition" title="go to the details">RFadeInScaleTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeOutAlphaTransition" name="RFadeOutAlphaTransition" title="go to the details">RFadeOutAlphaTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RFadeOutDuration" name="RFadeOutDuration" title="go to the details">RFadeOutDuration</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeOutPosXTransition" name="RFadeOutPosXTransition" title="go to the details">RFadeOutPosXTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeOutPosYTransition" name="RFadeOutPosYTransition" title="go to the details">RFadeOutPosYTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeOutRotationTransition" name="RFadeOutRotationTransition" title="go to the details">RFadeOutRotationTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_RFadeOutScaleTransition" name="RFadeOutScaleTransition" title="go to the details">RFadeOutScaleTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RInitialDelay" name="RInitialDelay" title="go to the details">RInitialDelay</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_RLogoColor" name="RLogoColor" title="go to the details">RLogoColor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TRepResources">TRepResources</a></td><td width="66%"><a href="#_RLogoResources" name="RLogoResources" title="go to the details">RLogoResources</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_RLogoRotationRate" name="RLogoRotationRate" title="go to the details">RLogoRotationRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TTexRegion">TTexRegion</a></td><td width="66%"><a href="#_RLogoTexCoords" name="RLogoTexCoords" title="go to the details">RLogoTexCoords</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_RPos" name="RPos" title="go to the details">RPos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_RScale" name="RScale" title="go to the details">RScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_RStartLogoRotationRate" name="RStartLogoRotationRate" title="go to the details">RStartLogoRotationRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_RStartPos" name="RStartPos" title="go to the details">RStartPos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_RStartScale" name="RStartScale" title="go to the details">RStartScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SpawnTime" name="SpawnTime" title="go to the details">SpawnTime</a></td></tr>
+<tr><th colspan="2" class="small">Logo</th></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_EndLogoRotationRate" name="EndLogoRotationRate" title="go to the details">EndLogoRotationRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_Logo" name="Logo" title="go to the details">Logo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_LogoColor" name="LogoColor" title="go to the details">LogoColor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_LogoRotationRate" name="LogoRotationRate" title="go to the details">LogoRotationRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TTexRegion">TTexRegion</a></td><td width="66%"><a href="#_LogoTexCoords" name="LogoTexCoords" title="go to the details">LogoTexCoords</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_StartLogoRotationRate" name="StartLogoRotationRate" title="go to the details">StartLogoRotationRate</a></td></tr>
+<tr><th colspan="2" class="small">LogoPosition</th></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#EDrawPivot">EDrawPivot</a></td><td width="66%"><a href="#_DrawPivot" name="DrawPivot" title="go to the details">DrawPivot</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_EndPos" name="EndPos" title="go to the details">EndPos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_Pos" name="Pos" title="go to the details">Pos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_StartPos" name="StartPos" title="go to the details">StartPos</a></td></tr>
+<tr><th colspan="2" class="small">LogoScale</th></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_EndScale" name="EndScale" title="go to the details">EndScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_Scale" name="Scale" title="go to the details">Scale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#TScreenCoords">TScreenCoords</a></td><td width="66%"><a href="#_StartScale" name="StartScale" title="go to the details">StartScale</a></td></tr>
+<tr><th colspan="2" class="small">LogoSound</th></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_AnnouncerSounds" name="AnnouncerSounds" title="go to the details">AnnouncerSounds</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DisplaySound" name="DisplaySound" title="go to the details">DisplaySound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_FadeInSound" name="FadeInSound" title="go to the details">FadeInSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_FadeOutSound" name="FadeOutSound" title="go to the details">FadeOutSound</a></td></tr>
+<tr><th colspan="2" class="small">LogoTransition</th></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DisplayDuration" name="DisplayDuration" title="go to the details">DisplayDuration</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeInAlphaTransition" name="FadeInAlphaTransition" title="go to the details">FadeInAlphaTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FadeInDuration" name="FadeInDuration" title="go to the details">FadeInDuration</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeInPosXTransition" name="FadeInPosXTransition" title="go to the details">FadeInPosXTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeInPosYTransition" name="FadeInPosYTransition" title="go to the details">FadeInPosYTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeInRotationTransition" name="FadeInRotationTransition" title="go to the details">FadeInRotationTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeInScaleTransition" name="FadeInScaleTransition" title="go to the details">FadeInScaleTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeOutAlphaTransition" name="FadeOutAlphaTransition" title="go to the details">FadeOutAlphaTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FadeOutDuration" name="FadeOutDuration" title="go to the details">FadeOutDuration</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeOutPosXTransition" name="FadeOutPosXTransition" title="go to the details">FadeOutPosXTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeOutPosYTransition" name="FadeOutPosYTransition" title="go to the details">FadeOutPosYTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeOutRotationTransition" name="FadeOutRotationTransition" title="go to the details">FadeOutRotationTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">EFadeTransition</a></td><td width="66%"><a href="#_FadeOutScaleTransition" name="FadeOutScaleTransition" title="go to the details">FadeOutScaleTransition</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_InitialDelay" name="InitialDelay" title="go to the details">InitialDelay</a></td></tr>
+<tr><th colspan="2" class="small">SmartCTFLogo</th></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_Build" name="Build" title="go to the details">Build</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/info.html">Info</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/info.html#BotsGroup">BotsGroup</a>, <a href="../engine/info.html#ChatGroup">ChatGroup</a>, <a href="../engine/info.html#GameGroup">GameGroup</a>, <a href="../engine/info.html#KickVoteGroup">KickVoteGroup</a>, <a href="../engine/info.html#MapVoteGroup">MapVoteGroup</a>, <a href="../engine/info.html#RulesGroup">RulesGroup</a>, <a href="../engine/info.html#ServerGroup">ServerGroup</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Enumerations Summary</th>
+</tr>
+<tr><td><a href="#_EFadeTransition" name="EFadeTransition" title="go to the details">EFadeTransition</a><br /><span class="small">FT_None,
+FT_Linear,
+FT_Square,
+FT_Sqrt,
+FT_ReverseSquare,
+FT_ReverseSqrt,
+FT_Sin,
+FT_Smooth,
+FT_SquareSmooth,
+FT_SqrtSmooth,
+FT_ReverseSquareSmooth,
+FT_ReverseSqrtSmooth,
+FT_SinSmooth</span></td></tr>
+
+</table>
+
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+<tr><td><a href="#_TRepResources" name="TRepResources" title="go to the details">TRepResources</a><br /><span class="small">DisplaySound, FadeInSound, FadeOutSound, Logo</span></td></tr>
+<tr><td><a href="#_TScreenCoords" name="TScreenCoords" title="go to the details">TScreenCoords</a><br /><span class="small">X, Y</span></td></tr>
+<tr><td><a href="#_TTexRegion" name="TTexRegion" title="go to the details">TTexRegion</a><br /><span class="small">H, W, X, Y</span></td></tr>
+
+</table>
+
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float DeltaTime))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePackageMap-" name="UpdatePackageMap" title="go to the details">UpdatePackageMap</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/info.html">Info</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/info.html#AcceptPlayInfoProperty">AcceptPlayInfoProperty</a>, <a href="../engine/info.html#AllowClassRemoval">AllowClassRemoval</a>, <a href="../engine/info.html#FillPlayInfo">FillPlayInfo</a>, <a href="../engine/info.html#GetDescriptionText">GetDescriptionText</a>, <a href="../engine/info.html#GetSecurityLevel">GetSecurityLevel</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bReceivedVars" class="hidden"></a>bReceivedVars <a href="../Source_smartctf1a/smartctflogo.html#143" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bReceivedVars;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RAnnouncerSounds" class="hidden"></a>RAnnouncerSounds <a href="../Source_smartctf1a/smartctflogo.html#130" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> RAnnouncerSounds;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RDisplayDuration" class="hidden"></a>RDisplayDuration <a href="../Source_smartctf1a/smartctflogo.html#127" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RDisplayDuration;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RDrawPivot" class="hidden"></a>RDrawPivot <a href="../Source_smartctf1a/smartctflogo.html#125" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#EDrawPivot" class="source">EDrawPivot</a></span> RDrawPivot;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_REndLogoRotationRate" class="hidden"></a>REndLogoRotationRate <a href="../Source_smartctf1a/smartctflogo.html#118" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> REndLogoRotationRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_REndPos" class="hidden"></a>REndPos <a href="../Source_smartctf1a/smartctflogo.html#121" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> REndPos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_REndScale" class="hidden"></a>REndScale <a href="../Source_smartctf1a/smartctflogo.html#124" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> REndScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeInAlphaTransition" class="hidden"></a>RFadeInAlphaTransition <a href="../Source_smartctf1a/smartctflogo.html#139" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeInAlphaTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeInDuration" class="hidden"></a>RFadeInDuration <a href="../Source_smartctf1a/smartctflogo.html#126" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RFadeInDuration;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeInPosXTransition" class="hidden"></a>RFadeInPosXTransition <a href="../Source_smartctf1a/smartctflogo.html#135" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeInPosXTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeInPosYTransition" class="hidden"></a>RFadeInPosYTransition <a href="../Source_smartctf1a/smartctflogo.html#136" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeInPosYTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeInRotationTransition" class="hidden"></a>RFadeInRotationTransition <a href="../Source_smartctf1a/smartctflogo.html#131" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeInRotationTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeInScaleTransition" class="hidden"></a>RFadeInScaleTransition <a href="../Source_smartctf1a/smartctflogo.html#133" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeInScaleTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeOutAlphaTransition" class="hidden"></a>RFadeOutAlphaTransition <a href="../Source_smartctf1a/smartctflogo.html#140" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeOutAlphaTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeOutDuration" class="hidden"></a>RFadeOutDuration <a href="../Source_smartctf1a/smartctflogo.html#128" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RFadeOutDuration;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeOutPosXTransition" class="hidden"></a>RFadeOutPosXTransition <a href="../Source_smartctf1a/smartctflogo.html#137" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeOutPosXTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeOutPosYTransition" class="hidden"></a>RFadeOutPosYTransition <a href="../Source_smartctf1a/smartctflogo.html#138" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeOutPosYTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeOutRotationTransition" class="hidden"></a>RFadeOutRotationTransition <a href="../Source_smartctf1a/smartctflogo.html#132" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeOutRotationTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RFadeOutScaleTransition" class="hidden"></a>RFadeOutScaleTransition <a href="../Source_smartctf1a/smartctflogo.html#134" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> RFadeOutScaleTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RInitialDelay" class="hidden"></a>RInitialDelay <a href="../Source_smartctf1a/smartctflogo.html#129" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RInitialDelay;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RLogoColor" class="hidden"></a>RLogoColor <a href="../Source_smartctf1a/smartctflogo.html#114" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> RLogoColor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RLogoResources" class="hidden"></a>RLogoResources <a href="../Source_smartctf1a/smartctflogo.html#113" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TRepResources" class="source">TRepResources</a></span> RLogoResources;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RLogoRotationRate" class="hidden"></a>RLogoRotationRate <a href="../Source_smartctf1a/smartctflogo.html#117" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> RLogoRotationRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RLogoTexCoords" class="hidden"></a>RLogoTexCoords <a href="../Source_smartctf1a/smartctflogo.html#115" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TTexRegion" class="source">TTexRegion</a></span> RLogoTexCoords;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RPos" class="hidden"></a>RPos <a href="../Source_smartctf1a/smartctflogo.html#120" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> RPos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RScale" class="hidden"></a>RScale <a href="../Source_smartctf1a/smartctflogo.html#123" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> RScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RStartLogoRotationRate" class="hidden"></a>RStartLogoRotationRate <a href="../Source_smartctf1a/smartctflogo.html#116" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> RStartLogoRotationRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RStartPos" class="hidden"></a>RStartPos <a href="../Source_smartctf1a/smartctflogo.html#119" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> RStartPos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RStartScale" class="hidden"></a>RStartScale <a href="../Source_smartctf1a/smartctflogo.html#122" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> RStartScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpawnTime" class="hidden"></a>SpawnTime <a href="../Source_smartctf1a/smartctflogo.html#142" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> SpawnTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">Logo</h3>
+<h4><a name="_EndLogoRotationRate" class="hidden"></a>EndLogoRotationRate <a href="../Source_smartctf1a/smartctflogo.html#79" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Logo) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> EndLogoRotationRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Logo" class="hidden"></a>Logo <a href="../Source_smartctf1a/smartctflogo.html#74" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Logo) <span class="source_keyword">string</span> Logo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogoColor" class="hidden"></a>LogoColor <a href="../Source_smartctf1a/smartctflogo.html#75" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Logo) <span class="source_keyword2">config</span> <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> LogoColor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogoRotationRate" class="hidden"></a>LogoRotationRate <a href="../Source_smartctf1a/smartctflogo.html#78" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Logo) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> LogoRotationRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogoTexCoords" class="hidden"></a>LogoTexCoords <a href="../Source_smartctf1a/smartctflogo.html#76" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Logo) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TTexRegion" class="source">TTexRegion</a></span> LogoTexCoords;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartLogoRotationRate" class="hidden"></a>StartLogoRotationRate <a href="../Source_smartctf1a/smartctflogo.html#77" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(Logo) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> StartLogoRotationRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">LogoPosition</h3>
+<h4><a name="_DrawPivot" class="hidden"></a>DrawPivot <a href="../Source_smartctf1a/smartctflogo.html#83" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoPosition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../core/object.html#EDrawPivot" class="source">EDrawPivot</a></span> DrawPivot;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndPos" class="hidden"></a>EndPos <a href="../Source_smartctf1a/smartctflogo.html#82" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoPosition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> EndPos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Pos" class="hidden"></a>Pos <a href="../Source_smartctf1a/smartctflogo.html#81" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoPosition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> Pos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartPos" class="hidden"></a>StartPos <a href="../Source_smartctf1a/smartctflogo.html#80" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoPosition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> StartPos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">LogoScale</h3>
+<h4><a name="_EndScale" class="hidden"></a>EndScale <a href="../Source_smartctf1a/smartctflogo.html#86" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoScale) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> EndScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Scale" class="hidden"></a>Scale <a href="../Source_smartctf1a/smartctflogo.html#85" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoScale) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> <span class="source_type"><a href="../core/object.html#Scale" class="source">Scale</a></span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartScale" class="hidden"></a>StartScale <a href="../Source_smartctf1a/smartctflogo.html#84" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoScale) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span> StartScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">LogoSound</h3>
+<h4><a name="_AnnouncerSounds" class="hidden"></a>AnnouncerSounds <a href="../Source_smartctf1a/smartctflogo.html#90" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoSound) <span class="source_keyword2">config</span> <span class="source_keyword">bool</span> AnnouncerSounds;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisplaySound" class="hidden"></a>DisplaySound <a href="../Source_smartctf1a/smartctflogo.html#88" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoSound) <span class="source_keyword2">config</span> <span class="source_keyword">string</span> DisplaySound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInSound" class="hidden"></a>FadeInSound <a href="../Source_smartctf1a/smartctflogo.html#87" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoSound) <span class="source_keyword2">config</span> <span class="source_keyword">string</span> FadeInSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutSound" class="hidden"></a>FadeOutSound <a href="../Source_smartctf1a/smartctflogo.html#89" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoSound) <span class="source_keyword2">config</span> <span class="source_keyword">string</span> FadeOutSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">LogoTransition</h3>
+<h4><a name="_DisplayDuration" class="hidden"></a>DisplayDuration <a href="../Source_smartctf1a/smartctflogo.html#92" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_keyword">float</span> DisplayDuration;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInAlphaTransition" class="hidden"></a>FadeInAlphaTransition <a href="../Source_smartctf1a/smartctflogo.html#97" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeInAlphaTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInDuration" class="hidden"></a>FadeInDuration <a href="../Source_smartctf1a/smartctflogo.html#91" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_keyword">float</span> FadeInDuration;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInPosXTransition" class="hidden"></a>FadeInPosXTransition <a href="../Source_smartctf1a/smartctflogo.html#101" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeInPosXTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInPosYTransition" class="hidden"></a>FadeInPosYTransition <a href="../Source_smartctf1a/smartctflogo.html#102" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeInPosYTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInRotationTransition" class="hidden"></a>FadeInRotationTransition <a href="../Source_smartctf1a/smartctflogo.html#95" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeInRotationTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInScaleTransition" class="hidden"></a>FadeInScaleTransition <a href="../Source_smartctf1a/smartctflogo.html#99" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeInScaleTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutAlphaTransition" class="hidden"></a>FadeOutAlphaTransition <a href="../Source_smartctf1a/smartctflogo.html#98" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeOutAlphaTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutDuration" class="hidden"></a>FadeOutDuration <a href="../Source_smartctf1a/smartctflogo.html#93" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_keyword">float</span> FadeOutDuration;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutPosXTransition" class="hidden"></a>FadeOutPosXTransition <a href="../Source_smartctf1a/smartctflogo.html#103" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeOutPosXTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutPosYTransition" class="hidden"></a>FadeOutPosYTransition <a href="../Source_smartctf1a/smartctflogo.html#104" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeOutPosYTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutRotationTransition" class="hidden"></a>FadeOutRotationTransition <a href="../Source_smartctf1a/smartctflogo.html#96" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeOutRotationTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutScaleTransition" class="hidden"></a>FadeOutScaleTransition <a href="../Source_smartctf1a/smartctflogo.html#100" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> FadeOutScaleTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitialDelay" class="hidden"></a>InitialDelay <a href="../Source_smartctf1a/smartctflogo.html#94" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(LogoTransition) <span class="source_keyword2">config</span> <span class="source_keyword">float</span> InitialDelay;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">SmartCTFLogo</h3>
+<h4><a name="_Build" class="hidden"></a>Build <a href="../Source_smartctf1a/smartctflogo.html#111" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword">const</span> <span class="source_keyword2">editconst</span> <span class="source_keyword">string</span> Build;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Enumerations Detail</th>
+</tr>
+</table>
+
+<h4><a name="_EFadeTransition" class="hidden"></a>EFadeTransition <a href="../Source_smartctf1a/smartctflogo.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">enum</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span><br />
+{<blockquote>FT_None,
+FT_Linear,
+FT_Square,
+FT_Sqrt,
+FT_ReverseSquare,
+FT_ReverseSqrt,
+FT_Sin,
+FT_Smooth,
+FT_SquareSmooth,
+FT_SqrtSmooth,
+FT_ReverseSquareSmooth,
+FT_ReverseSqrtSmooth,
+FT_SinSmooth</blockquote>};
+</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Structures Detail</th>
+</tr>
+</table>
+
+<h4><a name="_TRepResources" class="hidden"></a>TRepResources <a href="../Source_smartctf1a/smartctflogo.html#62" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TRepResources" class="source">TRepResources</a></span><br />
+{<blockquote><span class="source_keyword">var</span> <span class="source_keyword">string</span> DisplaySound;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">string</span> FadeInSound;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">string</span> FadeOutSound;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">string</span> Logo;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TScreenCoords" class="hidden"></a>TScreenCoords <a href="../Source_smartctf1a/smartctflogo.html#49" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TScreenCoords" class="source">TScreenCoords</a></span><br />
+{<blockquote><span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword2">config</span> <span class="source_keyword">float</span> X;<br />
+<span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword2">config</span> <span class="source_keyword">float</span> <span class="source_type">Y</span>;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TTexRegion" class="hidden"></a>TTexRegion <a href="../Source_smartctf1a/smartctflogo.html#54" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html#TTexRegion" class="source">TTexRegion</a></span><br />
+{<blockquote><span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> <span class="source_type">H</span>;<br />
+<span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> W;<br />
+<span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> X;<br />
+<span class="source_keyword">var</span>(<span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>) <span class="source_keyword2">config</span> <span class="source_keyword">int</span> <span class="source_type">Y</span>;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogo.html#171" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogo.html#265" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogo.html#278" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">DeltaTime</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePackageMap-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePackageMap <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogo.html#229" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdatePackageMap ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+    LogoColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>,<span class="source_type">A</span>=<span class="source_int">255</span>)
+    LogoTexCoords=(X=<span class="source_int">0</span>,<span class="source_type">Y</span>=<span class="source_int">0</span>,W=<span class="source_int">0</span>,<span class="source_type">H</span>=<span class="source_int">0</span>)
+    LogoRotationRate=<span class="source_int">0</span>
+    StartPos=(X=<span class="source_int">0.990000</span>,<span class="source_type">Y</span>=<span class="source_int">0.100000</span>)
+    pos=(X=<span class="source_int">0.990000</span>,<span class="source_type">Y</span>=<span class="source_int">0.100000</span>)
+    EndPos=(X=<span class="source_int">0.990000</span>,<span class="source_type">Y</span>=<span class="source_int">0.100000</span>)
+    DrawPivot=DP_MiddleRight
+    StartScale=(X=<span class="source_int">1.000000</span>,<span class="source_type">Y</span>=<span class="source_int">1.000000</span>)
+    <span class="source_type"><a href="../core/object.html#Scale" class="source">Scale</a></span>=(X=<span class="source_int">1.000000</span>,<span class="source_type">Y</span>=<span class="source_int">1.000000</span>)
+    EndScale=(X=<span class="source_int">1.000000</span>,<span class="source_type">Y</span>=<span class="source_int">1.000000</span>)
+    FadeInDuration=<span class="source_int">0.500000</span>
+    DisplayDuration=<span class="source_int">3.000000</span>
+    FadeOutDuration=<span class="source_int">1.500000</span>
+    InitialDelay=<span class="source_int">0.000000</span>
+    DisplaySound=<span class="source_string">"WeaponSounds.BLockOn1"</span>
+    AnnouncerSounds=<span class="source_keyword">False</span>
+    FadeInAlphaTransition=FT_Linear
+    FadeOutAlphaTransition=FT_Linear
+    FadeInScaleTransition=FT_None
+    FadeOutScaleTransition=FT_None
+    FadeInPosXTransition=FT_None
+    FadeInPosYTransition=FT_None
+    FadeOutPosXTransition=FT_None
+    FadeOutPosYTransition=FT_None
+    StartLogoRotationRate=<span class="source_int">0</span>
+    EndLogoRotationRate=<span class="source_int">0</span>
+    FadeInRotationTransition=FT_None
+    FadeOutRotationTransition=FT_None
+    Build=<span class="source_string">"2006-08-06 06:03"</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../smartctf1a/smartctf1a-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_smartctf1a/smartctflogo.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#SmartCTFLogo">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../smartctf1a/smartctfhudccapturetheflag.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../smartctf1a/smartctflogointeraction.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:04.766 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

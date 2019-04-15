@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XGame.xBombFlag</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xgame/xgame-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xgame/xbombflag.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#xBombFlag">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xgame/xbombdeliveryhole.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xgame/xbombhudmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xgame/xbombflag.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xgame/xgame-overview.html">XGame</a>.xBombFlag</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../unrealgame/gameobject.html">GameObject</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/decoration.html">Decoration</a>
+      |   
+      +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobject.html">GameObject</a>
+         |   
+         +-- <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xbombflag.html">xBombFlag</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bBallDrainsTransloc" name="bBallDrainsTransloc" title="go to the details">bBallDrainsTransloc</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bThrownBomb" name="bThrownBomb" title="go to the details">bThrownBomb</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">material</a></td><td width="66%"><a href="#_SecondRepSkin" name="SecondRepSkin" title="go to the details">SecondRepSkin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_TeamHue[2]" name="TeamHue[2]" title="go to the details">TeamHue[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">material</a></td><td width="66%"><a href="#_TeamShader[2]" name="TeamShader[2]" title="go to the details">TeamShader[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/xemitter.html">xEmitter</a></td><td width="66%"><a href="#_TossTrail" name="TossTrail" title="go to the details">TossTrail</a></td></tr>
+<tr><th colspan="2" class="small">xBombFlag</th></tr>
+<tr><td nowrap="nowrap" width="33%">String</td><td width="66%"><a href="#_BombLauncherClassName" name="BombLauncherClassName" title="go to the details">BombLauncherClassName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_Elasticity" name="Elasticity" title="go to the details">Elasticity</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_ImpactSound" name="ImpactSound" title="go to the details">ImpactSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_InitialDir" name="InitialDir" title="go to the details">InitialDir</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/pawn.html">Pawn</a></td><td width="66%"><a href="#_PassTarget" name="PassTarget" title="go to the details">PassTarget</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/weapon.html">Weapon</a>&gt;</td><td width="66%"><a href="#_PrevWeaponClass" name="PrevWeaponClass" title="go to the details">PrevWeaponClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SeekAccum" name="SeekAccum" title="go to the details">SeekAccum</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SeekInterval" name="SeekInterval" title="go to the details">SeekInterval</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ThrowerTime" name="ThrowerTime" title="go to the details">ThrowerTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ThrowerTouchDelay" name="ThrowerTouchDelay" title="go to the details">ThrowerTouchDelay</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ThrowSpeed" name="ThrowSpeed" title="go to the details">ThrowSpeed</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobject.html">GameObject</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/gameobject.html#Assists">Assists</a>, <a href="../unrealgame/gameobject.html#bDisabled">bDisabled</a>, <a href="../unrealgame/gameobject.html#bHeld">bHeld</a>, <a href="../unrealgame/gameobject.html#bHome">bHome</a>, <a href="../unrealgame/gameobject.html#bLastSecondSave">bLastSecondSave</a>, <a href="../unrealgame/gameobject.html#FirstTouch">FirstTouch</a>, <a href="../unrealgame/gameobject.html#GameObjBone">GameObjBone</a>, <a href="../unrealgame/gameobject.html#GameObjOffset">GameObjOffset</a>, <a href="../unrealgame/gameobject.html#GameObjRot">GameObjRot</a>, <a href="../unrealgame/gameobject.html#Holder">Holder</a>, <a href="../unrealgame/gameobject.html#HolderPRI">HolderPRI</a>, <a href="../unrealgame/gameobject.html#HomeBase">HomeBase</a>, <a href="../unrealgame/gameobject.html#MaxDropTime">MaxDropTime</a>, <a href="../unrealgame/gameobject.html#OldTeam">OldTeam</a>, <a href="../unrealgame/gameobject.html#TakenTime">TakenTime</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/decoration.html">Decoration</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/decoration.html#bDamageable">bDamageable</a>, <a href="../engine/decoration.html#bPushable">bPushable</a>, <a href="../engine/decoration.html#bPushSoundPlaying">bPushSoundPlaying</a>, <a href="../engine/decoration.html#bSplash">bSplash</a>, <a href="../engine/decoration.html#contents">contents</a>, <a href="../engine/decoration.html#EffectWhenDestroyed">EffectWhenDestroyed</a>, <a href="../engine/decoration.html#EndPushSound">EndPushSound</a>, <a href="../engine/decoration.html#FragMomentum">FragMomentum</a>, <a href="../engine/decoration.html#FragSkin">FragSkin</a>, <a href="../engine/decoration.html#FragType">FragType</a>, <a href="../engine/decoration.html#Health">Health</a>, <a href="../engine/decoration.html#LastAnchor">LastAnchor</a>, <a href="../engine/decoration.html#LastValidAnchorTime">LastValidAnchorTime</a>, <a href="../engine/decoration.html#NumFrags">NumFrags</a>, <a href="../engine/decoration.html#numLandings">numLandings</a>, <a href="../engine/decoration.html#PushSound">PushSound</a>, <a href="../engine/decoration.html#SplashTime">SplashTime</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BeginState-Dropped" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BeginState-Held" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">Held</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BeginState-Home" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">Home</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BeginState-HomeDisabled" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">HomeDisabled</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CanBePickedUpBy-" name="CanBePickedUpBy" title="go to the details">CanBePickedUpBy</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CanBeThrownBy-" name="CanBeThrownBy" title="go to the details">CanBeThrownBy</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClearHolder-" name="ClearHolder" title="go to the details">ClearHolder</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndState-Dropped" name="EndState" title="go to the details">EndState</a> ()))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndState-Held" name="EndState" title="go to the details">EndState</a> ()))<br /><span class="function_state">Held</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndState-HomeDisabled" name="EndState" title="go to the details">EndState</a> ()))<br /><span class="function_state">HomeDisabled</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_HitWall-" name="HitWall" title="go to the details">HitWall</a> (<a href="../core/object.html#Vector">vector</a> HitNormal, actor Wall ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_HitWall-Dropped" name="HitWall" title="go to the details">HitWall</a> (<a href="../core/object.html#Vector">vector</a> HitNormal, actor Wall ))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_IsHome-HomeDisabled" name="IsHome" title="go to the details">IsHome</a> ()))<br /><span class="function_state">HomeDisabled</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Landed-" name="Landed" title="go to the details">Landed</a> (<a href="../core/object.html#Vector">vector</a> hitNormal))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Landed-Dropped" name="Landed" title="go to the details">Landed</a> (<a href="../core/object.html#Vector">vector</a> hitNormal))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LogDropped-" name="LogDropped" title="go to the details">LogDropped</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LogReturned-" name="LogReturned" title="go to the details">LogReturned</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LogTaken-Dropped" name="LogTaken" title="go to the details">LogTaken</a> (<a href="../engine/controller.html">Controller</a> c))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LogTaken-Home" name="LogTaken" title="go to the details">LogTaken</a> (<a href="../engine/controller.html">Controller</a> c))<br /><span class="function_state">Home</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostNetReceive-" name="PostNetReceive" title="go to the details">PostNetReceive</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_RandSpin-" name="RandSpin" title="go to the details">RandSpin</a> (float spinRate))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SendHomeDisabled-" name="SendHomeDisabled" title="go to the details">SendHomeDisabled</a> (float TimeOut))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetHolder-" name="SetHolder" title="go to the details">SetHolder</a> (<a href="../engine/controller.html">Controller</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetThrow-" name="SetThrow" title="go to the details">SetThrow</a> (<a href="../core/object.html#Vector">vector</a> start))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> EventInstigator, <a href="../core/object.html#Vector">vector</a> HitLocation, <a href="../core/object.html#Vector">vector</a> Momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Throw-" name="Throw" title="go to the details">Throw</a> (<a href="../core/object.html#Vector">vector</a> start, <a href="../core/object.html#Vector">vector</a> dir))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-Dropped" name="Tick" title="go to the details">Tick</a> (float delta))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Timer-Dropped" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state">Dropped</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ValidHolder-" name="ValidHolder" title="go to the details">ValidHolder</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobject.html">GameObject</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/gameobject.html#BaseChange">BaseChange</a>, <a href="../unrealgame/gameobject.html#BeginState">BeginState</a>, <a href="../unrealgame/gameobject.html#CalcSetHome">CalcSetHome</a>, <a href="../unrealgame/gameobject.html#CanBePickedUpBy">CanBePickedUpBy</a>, <a href="../unrealgame/gameobject.html#CanBeThrownBy">CanBeThrownBy</a>, <a href="../unrealgame/gameobject.html#CheckTouching">CheckTouching</a>, <a href="../unrealgame/gameobject.html#ClearHolder">ClearHolder</a>, <a href="../unrealgame/gameobject.html#Drop">Drop</a>, <a href="../unrealgame/gameobject.html#EndState">EndState</a>, <a href="../unrealgame/gameobject.html#FellOutOfWorld">FellOutOfWorld</a>, <a href="../unrealgame/gameobject.html#IsHome">IsHome</a>, <a href="../unrealgame/gameobject.html#Landed">Landed</a>, <a href="../unrealgame/gameobject.html#LogDropped">LogDropped</a>, <a href="../unrealgame/gameobject.html#LogReturned">LogReturned</a>, <a href="../unrealgame/gameobject.html#LogTaken">LogTaken</a>, <a href="../unrealgame/gameobject.html#NotReachableBy">NotReachableBy</a>, <a href="../unrealgame/gameobject.html#Position">Position</a>, <a href="../unrealgame/gameobject.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/gameobject.html#Score">Score</a>, <a href="../unrealgame/gameobject.html#SendHome">SendHome</a>, <a href="../unrealgame/gameobject.html#SendHomeDisabled">SendHomeDisabled</a>, <a href="../unrealgame/gameobject.html#SetDisable">SetDisable</a>, <a href="../unrealgame/gameobject.html#SetHolder">SetHolder</a>, <a href="../unrealgame/gameobject.html#Timer">Timer</a>, <a href="../unrealgame/gameobject.html#Touch">Touch</a>, <a href="../unrealgame/gameobject.html#ValidHolder">ValidHolder</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/decoration.html">Decoration</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/decoration.html#BaseChange">BaseChange</a>, <a href="../engine/decoration.html#Bump">Bump</a>, <a href="../engine/decoration.html#CanSplash">CanSplash</a>, <a href="../engine/decoration.html#Destroyed">Destroyed</a>, <a href="../engine/decoration.html#Drop">Drop</a>, <a href="../engine/decoration.html#HitWall">HitWall</a>, <a href="../engine/decoration.html#Landed">Landed</a>, <a href="../engine/decoration.html#NotReachableBy">NotReachableBy</a>, <a href="../engine/decoration.html#PhysicsVolumeChange">PhysicsVolumeChange</a>, <a href="../engine/decoration.html#TakeDamage">TakeDamage</a>, <a href="../engine/decoration.html#Timer">Timer</a>, <a href="../engine/decoration.html#Trigger">Trigger</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">States Summary</th>
+</tr>
+</table>
+
+<table>
+<tr>
+	<th>Dropped <a href="../Source_xgame/xbombflag.html#392" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> Dropped <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+Dropped">BeginState</a>, <a href="#_EndState+Dropped">EndState</a>, <a href="#_HitWall+Dropped">HitWall</a>, <a href="#_Landed+Dropped">Landed</a>, <a href="#_LogTaken+Dropped">LogTaken</a>, <a href="#_Tick+Dropped">Tick</a>, <a href="#_Timer+Dropped">Timer</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>Held <a href="../Source_xgame/xbombflag.html#356" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> Held <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+Held">BeginState</a>, <a href="#_EndState+Held">EndState</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>Home <a href="../Source_xgame/xbombflag.html#297" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw">auto state</span> Home <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+Home">BeginState</a>, <a href="#_LogTaken+Home">LogTaken</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>HomeDisabled <a href="../Source_xgame/xbombflag.html#322" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> HomeDisabled <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_BeginState+HomeDisabled">BeginState</a>, <a href="#_EndState+HomeDisabled">EndState</a>, <a href="#_IsHome+HomeDisabled">IsHome</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bBallDrainsTransloc" class="hidden"></a>bBallDrainsTransloc <a href="../Source_xgame/xbombflag.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bBallDrainsTransloc;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bThrownBomb" class="hidden"></a>bThrownBomb <a href="../Source_xgame/xbombflag.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bThrownBomb;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SecondRepSkin" class="hidden"></a>SecondRepSkin <a href="../Source_xgame/xbombflag.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">material</a></span> SecondRepSkin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamHue[2]" class="hidden"></a>TeamHue[2] <a href="../Source_xgame/xbombflag.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> TeamHue[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamShader[2]" class="hidden"></a>TeamShader[2] <a href="../Source_xgame/xbombflag.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">material</a></span> TeamShader[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TossTrail" class="hidden"></a>TossTrail <a href="../Source_xgame/xbombflag.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/xemitter.html" class="source">xEmitter</a></span> TossTrail;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">xBombFlag</h3>
+<h4><a name="_BombLauncherClassName" class="hidden"></a>BombLauncherClassName <a href="../Source_xgame/xbombflag.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">String</span> BombLauncherClassName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Elasticity" class="hidden"></a>Elasticity <a href="../Source_xgame/xbombflag.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">float</span> Elasticity;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactSound" class="hidden"></a>ImpactSound <a href="../Source_xgame/xbombflag.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> ImpactSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitialDir" class="hidden"></a>InitialDir <a href="../Source_xgame/xbombflag.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> InitialDir;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PassTarget" class="hidden"></a>PassTarget <a href="../Source_xgame/xbombflag.html#9" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> PassTarget;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrevWeaponClass" class="hidden"></a>PrevWeaponClass <a href="../Source_xgame/xbombflag.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>&gt; PrevWeaponClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SeekAccum" class="hidden"></a>SeekAccum <a href="../Source_xgame/xbombflag.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword2">transient</span> <span class="source_keyword">float</span> SeekAccum;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SeekInterval" class="hidden"></a>SeekInterval <a href="../Source_xgame/xbombflag.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">float</span> SeekInterval;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ThrowerTime" class="hidden"></a>ThrowerTime <a href="../Source_xgame/xbombflag.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">float</span> ThrowerTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ThrowerTouchDelay" class="hidden"></a>ThrowerTouchDelay <a href="../Source_xgame/xbombflag.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">float</span> ThrowerTouchDelay;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ThrowSpeed" class="hidden"></a>ThrowSpeed <a href="../Source_xgame/xbombflag.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span>) <span class="source_keyword">float</span> ThrowSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BeginState-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BeginState <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#489" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-Held" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BeginState <span class="function_state">Held</span> <a href="../Source_xgame/xbombflag.html#360" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-Home" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BeginState <span class="function_state">Home</span> <a href="../Source_xgame/xbombflag.html#308" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-HomeDisabled" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BeginState <span class="function_state">HomeDisabled</span> <a href="../Source_xgame/xbombflag.html#331" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CanBePickedUpBy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CanBePickedUpBy <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#171" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanBePickedUpBy ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CanBeThrownBy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CanBeThrownBy <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#288" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanBeThrownBy ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClearHolder-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClearHolder <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#47" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ClearHolder ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#34" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndState-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndState <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#505" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  EndState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndState-Held" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndState <span class="function_state">Held</span> <a href="../Source_xgame/xbombflag.html#380" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  EndState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndState-HomeDisabled" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndState <span class="function_state">HomeDisabled</span> <a href="../Source_xgame/xbombflag.html#347" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  EndState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HitWall-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HitWall <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#209" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  <span class="source_type">HitWall</span> ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Wall</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HitWall-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HitWall <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#396" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  <span class="source_type">HitWall</span> ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Wall</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsHome-HomeDisabled" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> IsHome <span class="function_state">HomeDisabled</span> <a href="../Source_xgame/xbombflag.html#326" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsHome ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Landed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Landed <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#225" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Landed ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">hitNormal</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Landed-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Landed <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#461" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Landed ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">hitNormal</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogDropped-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LogDropped <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#244" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LogDropped ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogReturned-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LogReturned <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#273" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LogReturned ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogTaken-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LogTaken <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#475" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LogTaken ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">c</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogTaken-Home" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LogTaken <span class="function_state">Home</span> <a href="../Source_xgame/xbombflag.html#301" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LogTaken ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">c</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetReceive-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostNetReceive <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  PostNetReceive ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RandSpin-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RandSpin <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#199" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  RandSpin ( <span class="source_keyword">float</span> spinRate) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SendHomeDisabled-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SendHomeDisabled <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#279" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SendHomeDisabled ( <span class="source_keyword">float</span> TimeOut) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetHolder-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetHolder <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#66" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetHolder ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetThrow-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetThrow <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#124" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetThrow ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">start</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#234" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">EventInstigator</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Throw-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Throw <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#132" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Throw ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">start</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> dir) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#409" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">delta</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-Dropped" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Timer <span class="function_state">Dropped</span> <a href="../Source_xgame/xbombflag.html#483" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ValidHolder-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ValidHolder <span class="function_state"></span> <a href="../Source_xgame/xbombflag.html#176" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ValidHolder ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     BombLauncherClassName=<span class="source_string">"XWeapons.BallLauncher"</span>
+     ThrowSpeed=<span class="source_int">1300.000000</span>
+     Elasticity=<span class="source_int">0.400000</span>
+     ImpactSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.Misc.ball_bounce_v3a'</span>
+     ThrowerTouchDelay=<span class="source_int">1.000000</span>
+     SeekInterval=<span class="source_int">0.050000</span>
+     TeamShader(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconRS'</span>
+     TeamShader(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconBS'</span>
+     TeamHue(<span class="source_int">1</span>)=<span class="source_int">170</span>
+     SecondRepSkin=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconYS'</span>
+     bHome=<span class="source_keyword">True</span>
+     GameObjBone=<span class="source_string">"spine"</span>
+     LightType=LT_Steady
+     LightEffect=LE_QuadraticNonIncidence
+     LightHue=<span class="source_int">40</span>
+     LightBrightness=<span class="source_int">255.000000</span>
+     LightRadius=<span class="source_int">6.000000</span>
+     DrawType=DT_StaticMesh
+     <span class="source_type">StaticMesh</span>=<span class="source_type">StaticMesh</span><span class="source_name">'E_Pickups.BombBall.FullBomb'</span>
+     bStatic=<span class="source_keyword">False</span>
+     bDynamicLight=<span class="source_keyword">True</span>
+     bStasis=<span class="source_keyword">False</span>
+     Physics=PHYS_Rotating
+     NetUpdateFrequency=<span class="source_int">100.000000</span>
+     NetPriority=<span class="source_int">3.000000</span>
+     DrawScale=<span class="source_int">1.500000</span>
+     PrePivot=(X=<span class="source_int">2.000000</span>,<span class="source_type">Z</span>=<span class="source_int">0.500000</span>)
+     Skins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconYS'</span>
+     Skins(<span class="source_int">2</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconYS'</span>
+     Style=STY_Masked
+     bUnlit=<span class="source_keyword">True</span>
+     SoundRadius=<span class="source_int">250.000000</span>
+     CollisionRadius=<span class="source_int">24.000000</span>
+     CollisionHeight=<span class="source_int">20.000000</span>
+     bCollideActors=<span class="source_keyword">True</span>
+     bCollideWorld=<span class="source_keyword">True</span>
+     bProjTarget=<span class="source_keyword">True</span>
+     bBounce=<span class="source_keyword">True</span>
+     bFixedRotationDir=<span class="source_keyword">True</span>
+     Buoyancy=<span class="source_int">20.000000</span>
+     RotationRate=(Yaw=<span class="source_int">30000</span>)
+     DesiredRotation=(Yaw=<span class="source_int">30000</span>)
+     MessageClass=<span class="source_keyword">Class</span><span class="source_name">'XGame.xBombMessage'</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xgame/xgame-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xgame/xbombflag.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#xBombFlag">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xgame/xbombdeliveryhole.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xgame/xbombhudmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:07.852 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

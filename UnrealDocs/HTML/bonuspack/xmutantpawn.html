@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - BonusPack.xMutantPawn</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../bonuspack/bonuspack-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_bonuspack/xmutantpawn.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#xMutantPawn">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../bonuspack/xmutantgame.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../bonuspack/combocrate.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#bonuspack/xmutantpawn.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../bonuspack/bonuspack-overview.html">BonusPack</a>.xMutantPawn</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xgame/xpawn.html">xPawn</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/unrealpawn.html">UnrealPawn</a>
+         |   
+         +-- <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xpawn.html">xPawn</a>
+            |   
+            +-- <a href="../bonuspack/bonuspack-overview.html">BonusPack</a>.<a href="../bonuspack/xmutantpawn.html">xMutantPawn</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bMutantEffect" name="bMutantEffect" title="go to the details">bMutantEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bOldMutantEffect" name="bOldMutantEffect" title="go to the details">bOldMutantEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/emitter.html">Emitter</a></td><td width="66%"><a href="#_MutantFX" name="MutantFX" title="go to the details">MutantFX</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../bonuspack/mutantgamereplicationinfo.html">MutantGameReplicationInfo</a></td><td width="66%"><a href="#_MutantGRI" name="MutantGRI" title="go to the details">MutantGRI</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xpawn.html">xPawn</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xgame/xpawn.html#bAlreadySetup">bAlreadySetup</a>, <a href="../xgame/xpawn.html#bBerserk">bBerserk</a>, <a href="../xgame/xpawn.html#bCanBoostDodge">bCanBoostDodge</a>, <a href="../xgame/xpawn.html#bCanDodgeDoubleJump">bCanDodgeDoubleJump</a>, <a href="../xgame/xpawn.html#bClearWeaponOffsets">bClearWeaponOffsets</a>, <a href="../xgame/xpawn.html#bDeRes">bDeRes</a>, <a href="../xgame/xpawn.html#bFlaming">bFlaming</a>, <a href="../xgame/xpawn.html#bFrozenBody">bFrozenBody</a>, <a href="../xgame/xpawn.html#bGibbed">bGibbed</a>, <a href="../xgame/xpawn.html#bInvis">bInvis</a>, <a href="../xgame/xpawn.html#bOldInvis">bOldInvis</a>, <a href="../xgame/xpawn.html#bRubbery">bRubbery</a>, <a href="../xgame/xpawn.html#bSkeletized">bSkeletized</a>, <a href="../xgame/xpawn.html#bSpawnDone">bSpawnDone</a>, <a href="../xgame/xpawn.html#bSpawnIn">bSpawnIn</a>, <a href="../xgame/xpawn.html#CurrentCombo">CurrentCombo</a>, <a href="../xgame/xpawn.html#DeResFX">DeResFX</a>, <a href="../xgame/xpawn.html#DeResGravScale">DeResGravScale</a>, <a href="../xgame/xpawn.html#DeResLateralFriction">DeResLateralFriction</a>, <a href="../xgame/xpawn.html#DeResLiftSoftness">DeResLiftSoftness</a>, <a href="../xgame/xpawn.html#DeResLiftVel">DeResLiftVel</a>, <a href="../xgame/xpawn.html#DeResMat0">DeResMat0</a>, <a href="../xgame/xpawn.html#DeResMat1">DeResMat1</a>, <a href="../xgame/xpawn.html#DeResTime">DeResTime</a>, <a href="../xgame/xpawn.html#FireHeavyBurstAnim">FireHeavyBurstAnim</a>, <a href="../xgame/xpawn.html#FireHeavyRapidAnim">FireHeavyRapidAnim</a>, <a href="../xgame/xpawn.html#FireRifleBurstAnim">FireRifleBurstAnim</a>, <a href="../xgame/xpawn.html#FireRifleRapidAnim">FireRifleRapidAnim</a>, <a href="../xgame/xpawn.html#FireRootBone">FireRootBone</a>, <a href="../xgame/xpawn.html#FireState">FireState</a>, <a href="../xgame/xpawn.html#FootstepVolume">FootstepVolume</a>, <a href="../xgame/xpawn.html#GibCountCalf">GibCountCalf</a>, <a href="../xgame/xpawn.html#GibCountForearm">GibCountForearm</a>, <a href="../xgame/xpawn.html#GibCountHead">GibCountHead</a>, <a href="../xgame/xpawn.html#GibCountTorso">GibCountTorso</a>, <a href="../xgame/xpawn.html#GibCountUpperArm">GibCountUpperArm</a>, <a href="../xgame/xpawn.html#GibGroupClass">GibGroupClass</a>, <a href="../xgame/xpawn.html#GruntVolume">GruntVolume</a>, <a href="../xgame/xpawn.html#HeadShotMessage">HeadShotMessage</a>, <a href="../xgame/xpawn.html#IdleHeavyAnim">IdleHeavyAnim</a>, <a href="../xgame/xpawn.html#IdleRifleAnim">IdleRifleAnim</a>, <a href="../xgame/xpawn.html#InvisMaterial">InvisMaterial</a>, <a href="../xgame/xpawn.html#LastUDamageSoundTime">LastUDamageSoundTime</a>, <a href="../xgame/xpawn.html#MaxMultiJump">MaxMultiJump</a>, <a href="../xgame/xpawn.html#MinTimeBetweenPainSounds">MinTimeBetweenPainSounds</a>, <a href="../xgame/xpawn.html#MultiJumpBoost">MultiJumpBoost</a>, <a href="../xgame/xpawn.html#MultiJumpRemaining">MultiJumpRemaining</a>, <a href="../xgame/xpawn.html#OldController">OldController</a>, <a href="../xgame/xpawn.html#PlacedCharacterName">PlacedCharacterName</a>, <a href="../xgame/xpawn.html#PlacedFemaleCharacterName">PlacedFemaleCharacterName</a>, <a href="../xgame/xpawn.html#PlayerShadow">PlayerShadow</a>, <a href="../xgame/xpawn.html#RagConvulseMaterial">RagConvulseMaterial</a>, <a href="../xgame/xpawn.html#RagDeathUpKick">RagDeathUpKick</a>, <a href="../xgame/xpawn.html#RagDeathVel">RagDeathVel</a>, <a href="../xgame/xpawn.html#RagdollLifeSpan">RagdollLifeSpan</a>, <a href="../xgame/xpawn.html#RagdollOverride">RagdollOverride</a>, <a href="../xgame/xpawn.html#RagGravScale">RagGravScale</a>, <a href="../xgame/xpawn.html#RagImpactSoundInterval">RagImpactSoundInterval</a>, <a href="../xgame/xpawn.html#RagImpactSounds">RagImpactSounds</a>, <a href="../xgame/xpawn.html#RagImpactVolume">RagImpactVolume</a>, <a href="../xgame/xpawn.html#RagInvInertia">RagInvInertia</a>, <a href="../xgame/xpawn.html#RagLastSoundTime">RagLastSoundTime</a>, <a href="../xgame/xpawn.html#RagShootStrength">RagShootStrength</a>, <a href="../xgame/xpawn.html#RagSpinScale">RagSpinScale</a>, <a href="../xgame/xpawn.html#RealSkins[4]">RealSkins[4]</a>, <a href="../xgame/xpawn.html#RepeaterDeathCount">RepeaterDeathCount</a>, <a href="../xgame/xpawn.html#ShieldHitMat">ShieldHitMat</a>, <a href="../xgame/xpawn.html#ShieldHitMatTime">ShieldHitMatTime</a>, <a href="../xgame/xpawn.html#ShieldStrengthMax">ShieldStrengthMax</a>, <a href="../xgame/xpawn.html#SimHitFxTicker">SimHitFxTicker</a>, <a href="../xgame/xpawn.html#SkeletonMesh">SkeletonMesh</a>, <a href="../xgame/xpawn.html#SmallShieldStrength">SmallShieldStrength</a>, <a href="../xgame/xpawn.html#SoundFootsteps[11]">SoundFootsteps[11]</a>, <a href="../xgame/xpawn.html#SoundGroupClass">SoundGroupClass</a>, <a href="../xgame/xpawn.html#Species">Species</a>, <a href="../xgame/xpawn.html#TeamSkin">TeamSkin</a>, <a href="../xgame/xpawn.html#TeleportFXClass">TeleportFXClass</a>, <a href="../xgame/xpawn.html#TransEffects[2]">TransEffects[2]</a>, <a href="../xgame/xpawn.html#TransOutEffect[2]">TransOutEffect[2]</a>, <a href="../xgame/xpawn.html#UDamageSound">UDamageSound</a>, <a href="../xgame/xpawn.html#UDamageTime">UDamageTime</a>, <a href="../xgame/xpawn.html#UDamageTimer">UDamageTimer</a>, <a href="../xgame/xpawn.html#UDamageWeaponMaterial">UDamageWeaponMaterial</a>, <a href="../xgame/xpawn.html#VoiceClass">VoiceClass</a>, <a href="../xgame/xpawn.html#WallDodgeAnims[4]">WallDodgeAnims[4]</a>, <a href="../xgame/xpawn.html#WeaponAttachment">WeaponAttachment</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/unrealpawn.html">UnrealPawn</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/unrealpawn.html#AttackSuitability">AttackSuitability</a>, <a href="../unrealgame/unrealpawn.html#bAcceptAllInventory">bAcceptAllInventory</a>, <a href="../unrealgame/unrealpawn.html#bBlobShadow">bBlobShadow</a>, <a href="../unrealgame/unrealpawn.html#bIsSquadLeader">bIsSquadLeader</a>, <a href="../unrealgame/unrealpawn.html#bKeepTaunting">bKeepTaunting</a>, <a href="../unrealgame/unrealpawn.html#bNoDefaultInventory">bNoDefaultInventory</a>, <a href="../unrealgame/unrealpawn.html#bPlayerShadows">bPlayerShadows</a>, <a href="../unrealgame/unrealpawn.html#bPlayOwnFootsteps">bPlayOwnFootsteps</a>, <a href="../unrealgame/unrealpawn.html#bSoakDebug">bSoakDebug</a>, <a href="../unrealgame/unrealpawn.html#CurrentDir">CurrentDir</a>, <a href="../unrealgame/unrealpawn.html#GameObjOffset">GameObjOffset</a>, <a href="../unrealgame/unrealpawn.html#GameObjRot">GameObjRot</a>, <a href="../unrealgame/unrealpawn.html#LastFootStepTime">LastFootStepTime</a>, <a href="../unrealgame/unrealpawn.html#LoadOut">LoadOut</a>, <a href="../unrealgame/unrealpawn.html#OptionalEquipment[16]">OptionalEquipment[16]</a>, <a href="../unrealgame/unrealpawn.html#RequiredEquipment[16]">RequiredEquipment[16]</a>, <a href="../unrealgame/unrealpawn.html#SelectedEquipment[16]">SelectedEquipment[16]</a>, <a href="../unrealgame/unrealpawn.html#spree">spree</a>, <a href="../unrealgame/unrealpawn.html#SquadName">SquadName</a>, <a href="../unrealgame/unrealpawn.html#VoiceType">VoiceType</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Enumerations Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Enumerations from <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xpawn.html">xPawn</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xgame/xpawn.html#EFireAnimState">EFireAnimState</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_MutantDamage-" name="MutantDamage" title="go to the details">MutantDamage</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TickFX-" name="TickFX" title="go to the details">TickFX</a> (float DeltaTime))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xpawn.html">xPawn</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xgame/xpawn.html#AddShieldStrength">AddShieldStrength</a>, <a href="../xgame/xpawn.html#AdjustedStrength">AdjustedStrength</a>, <a href="../xgame/xpawn.html#AltFire">AltFire</a>, <a href="../xgame/xpawn.html#AnimEnd">AnimEnd</a>, <a href="../xgame/xpawn.html#AssignInitialPose">AssignInitialPose</a>, <a href="../xgame/xpawn.html#AttachEffect">AttachEffect</a>, <a href="../xgame/xpawn.html#BeginState">BeginState</a>, <a href="../xgame/xpawn.html#BotDodge">BotDodge</a>, <a href="../xgame/xpawn.html#CalcHitLoc">CalcHitLoc</a>, <a href="../xgame/xpawn.html#CanDoubleJump">CanDoubleJump</a>, <a href="../xgame/xpawn.html#CanMultiJump">CanMultiJump</a>, <a href="../xgame/xpawn.html#CanUseShield">CanUseShield</a>, <a href="../xgame/xpawn.html#ChangedWeapon">ChangedWeapon</a>, <a href="../xgame/xpawn.html#CheckReflect">CheckReflect</a>, <a href="../xgame/xpawn.html#CheckValidFemaleDefault">CheckValidFemaleDefault</a>, <a href="../xgame/xpawn.html#CheckValidMaleDefault">CheckValidMaleDefault</a>, <a href="../xgame/xpawn.html#ClientDying">ClientDying</a>, <a href="../xgame/xpawn.html#ClientRestart">ClientRestart</a>, <a href="../xgame/xpawn.html#ClientSetUDamageTime">ClientSetUDamageTime</a>, <a href="../xgame/xpawn.html#DeactivateSpawnProtection">DeactivateSpawnProtection</a>, <a href="../xgame/xpawn.html#Destroyed">Destroyed</a>, <a href="../xgame/xpawn.html#DisableUDamage">DisableUDamage</a>, <a href="../xgame/xpawn.html#DoCombo">DoCombo</a>, <a href="../xgame/xpawn.html#DoComboName">DoComboName</a>, <a href="../xgame/xpawn.html#DoDamageFX">DoDamageFX</a>, <a href="../xgame/xpawn.html#DoDerezEffect">DoDerezEffect</a>, <a href="../xgame/xpawn.html#Dodge">Dodge</a>, <a href="../xgame/xpawn.html#DoDoubleJump">DoDoubleJump</a>, <a href="../xgame/xpawn.html#DoJump">DoJump</a>, <a href="../xgame/xpawn.html#DoTranslocateOut">DoTranslocateOut</a>, <a href="../xgame/xpawn.html#EnableUDamage">EnableUDamage</a>, <a href="../xgame/xpawn.html#FellOutOfWorld">FellOutOfWorld</a>, <a href="../xgame/xpawn.html#FindValidTaunt">FindValidTaunt</a>, <a href="../xgame/xpawn.html#Fire">Fire</a>, <a href="../xgame/xpawn.html#FootStepping">FootStepping</a>, <a href="../xgame/xpawn.html#ForceDefaultCharacter">ForceDefaultCharacter</a>, <a href="../xgame/xpawn.html#Gasp">Gasp</a>, <a href="../xgame/xpawn.html#GetAnimSequence">GetAnimSequence</a>, <a href="../xgame/xpawn.html#GetDefaultCharacter">GetDefaultCharacter</a>, <a href="../xgame/xpawn.html#GetGibClass">GetGibClass</a>, <a href="../xgame/xpawn.html#GetKillerController">GetKillerController</a>, <a href="../xgame/xpawn.html#GetOffhandBoneFor">GetOffhandBoneFor</a>, <a href="../xgame/xpawn.html#GetPlacedRoster">GetPlacedRoster</a>, <a href="../xgame/xpawn.html#GetShieldStrength">GetShieldStrength</a>, <a href="../xgame/xpawn.html#GetShieldStrengthMax">GetShieldStrengthMax</a>, <a href="../xgame/xpawn.html#GetSound">GetSound</a>, <a href="../xgame/xpawn.html#GetTeam">GetTeam</a>, <a href="../xgame/xpawn.html#GetTeamNum">GetTeamNum</a>, <a href="../xgame/xpawn.html#GetWeaponBoneFor">GetWeaponBoneFor</a>, <a href="../xgame/xpawn.html#HasUDamage">HasUDamage</a>, <a href="../xgame/xpawn.html#HideBone">HideBone</a>, <a href="../xgame/xpawn.html#InCurrentCombo">InCurrentCombo</a>, <a href="../xgame/xpawn.html#KImpact">KImpact</a>, <a href="../xgame/xpawn.html#KSkelConvulse">KSkelConvulse</a>, <a href="../xgame/xpawn.html#KVelDropBelow">KVelDropBelow</a>, <a href="../xgame/xpawn.html#Landed">Landed</a>, <a href="../xgame/xpawn.html#LandThump">LandThump</a>, <a href="../xgame/xpawn.html#NotifyTeamChanged">NotifyTeamChanged</a>, <a href="../xgame/xpawn.html#PerformDodge">PerformDodge</a>, <a href="../xgame/xpawn.html#PhysicsVolumeChange">PhysicsVolumeChange</a>, <a href="../xgame/xpawn.html#PlayDirectionalDeath">PlayDirectionalDeath</a>, <a href="../xgame/xpawn.html#PlayDirectionalHit">PlayDirectionalHit</a>, <a href="../xgame/xpawn.html#PlayDoubleJump">PlayDoubleJump</a>, <a href="../xgame/xpawn.html#PlayDying">PlayDying</a>, <a href="../xgame/xpawn.html#PlayDyingAnimation">PlayDyingAnimation</a>, <a href="../xgame/xpawn.html#PlayDyingSound">PlayDyingSound</a>, <a href="../xgame/xpawn.html#PlayFootStepLeft">PlayFootStepLeft</a>, <a href="../xgame/xpawn.html#PlayFootStepRight">PlayFootStepRight</a>, <a href="../xgame/xpawn.html#PlayHit">PlayHit</a>, <a href="../xgame/xpawn.html#PlayMoverHitSound">PlayMoverHitSound</a>, <a href="../xgame/xpawn.html#PlayTakeHit">PlayTakeHit</a>, <a href="../xgame/xpawn.html#PlayTeleportEffect">PlayTeleportEffect</a>, <a href="../xgame/xpawn.html#PlayVictoryAnimation">PlayVictoryAnimation</a>, <a href="../xgame/xpawn.html#PlayWaiting">PlayWaiting</a>, <a href="../xgame/xpawn.html#PlayWeaponSwitch">PlayWeaponSwitch</a>, <a href="../xgame/xpawn.html#PossessedBy">PossessedBy</a>, <a href="../xgame/xpawn.html#PostBeginPlay">PostBeginPlay</a>, <a href="../xgame/xpawn.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../xgame/xpawn.html#PostNetReceive">PostNetReceive</a>, <a href="../xgame/xpawn.html#ProcessHitFX">ProcessHitFX</a>, <a href="../xgame/xpawn.html#RandSpin">RandSpin</a>, <a href="../xgame/xpawn.html#RemoveFlamingEffects">RemoveFlamingEffects</a>, <a href="../xgame/xpawn.html#RemovePowerups">RemovePowerups</a>, <a href="../xgame/xpawn.html#ResetPhysicsBasedAnim">ResetPhysicsBasedAnim</a>, <a href="../xgame/xpawn.html#ServerChangedWeapon">ServerChangedWeapon</a>, <a href="../xgame/xpawn.html#SetAnimAction">SetAnimAction</a>, <a href="../xgame/xpawn.html#SetHeadScale">SetHeadScale</a>, <a href="../xgame/xpawn.html#SetInvisibility">SetInvisibility</a>, <a href="../xgame/xpawn.html#SetOverlayMaterial">SetOverlayMaterial</a>, <a href="../xgame/xpawn.html#Setup">Setup</a>, <a href="../xgame/xpawn.html#SetWeaponAttachment">SetWeaponAttachment</a>, <a href="../xgame/xpawn.html#SetWeaponOverlay">SetWeaponOverlay</a>, <a href="../xgame/xpawn.html#ShieldAbsorb">ShieldAbsorb</a>, <a href="../xgame/xpawn.html#SpawnGiblet">SpawnGiblet</a>, <a href="../xgame/xpawn.html#SpawnGibs">SpawnGibs</a>, <a href="../xgame/xpawn.html#StartDeRes">StartDeRes</a>, <a href="../xgame/xpawn.html#StartDriving">StartDriving</a>, <a href="../xgame/xpawn.html#StartFiring">StartFiring</a>, <a href="../xgame/xpawn.html#StopDriving">StopDriving</a>, <a href="../xgame/xpawn.html#StopFiring">StopFiring</a>, <a href="../xgame/xpawn.html#TakeDamage">TakeDamage</a>, <a href="../xgame/xpawn.html#Tick">Tick</a>, <a href="../xgame/xpawn.html#TickDeRes">TickDeRes</a>, <a href="../xgame/xpawn.html#TickFX">TickFX</a>, <a href="../xgame/xpawn.html#Timer">Timer</a>, <a href="../xgame/xpawn.html#WasPlayerPawn">WasPlayerPawn</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/unrealpawn.html">UnrealPawn</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/unrealpawn.html#AddDefaultInventory">AddDefaultInventory</a>, <a href="../unrealgame/unrealpawn.html#BaseChange">BaseChange</a>, <a href="../unrealgame/unrealpawn.html#BeginState">BeginState</a>, <a href="../unrealgame/unrealpawn.html#BotDodge">BotDodge</a>, <a href="../unrealgame/unrealpawn.html#CheckBob">CheckBob</a>, <a href="../unrealgame/unrealpawn.html#ChunkUp">ChunkUp</a>, <a href="../unrealgame/unrealpawn.html#CreateInventory">CreateInventory</a>, <a href="../unrealgame/unrealpawn.html#DisplayDebug">DisplayDebug</a>, <a href="../unrealgame/unrealpawn.html#Dodge">Dodge</a>, <a href="../unrealgame/unrealpawn.html#DropFlag">DropFlag</a>, <a href="../unrealgame/unrealpawn.html#EndJump">EndJump</a>, <a href="../unrealgame/unrealpawn.html#FindValidTaunt">FindValidTaunt</a>, <a href="../unrealgame/unrealpawn.html#FootStepping">FootStepping</a>, <a href="../unrealgame/unrealpawn.html#GetDebugName">GetDebugName</a>, <a href="../unrealgame/unrealpawn.html#GetPlacedRoster">GetPlacedRoster</a>, <a href="../unrealgame/unrealpawn.html#GetSpree">GetSpree</a>, <a href="../unrealgame/unrealpawn.html#GetWeaponBoneFor">GetWeaponBoneFor</a>, <a href="../unrealgame/unrealpawn.html#gibbedBy">gibbedBy</a>, <a href="../unrealgame/unrealpawn.html#HoldFlag">HoldFlag</a>, <a href="../unrealgame/unrealpawn.html#HoldGameObject">HoldGameObject</a>, <a href="../unrealgame/unrealpawn.html#IncrementSpree">IncrementSpree</a>, <a href="../unrealgame/unrealpawn.html#IsInLoadout">IsInLoadout</a>, <a href="../unrealgame/unrealpawn.html#Landed">Landed</a>, <a href="../unrealgame/unrealpawn.html#PerformDodge">PerformDodge</a>, <a href="../unrealgame/unrealpawn.html#PlayFootStep">PlayFootStep</a>, <a href="../unrealgame/unrealpawn.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/unrealpawn.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../unrealgame/unrealpawn.html#SetAnimAction">SetAnimAction</a>, <a href="../unrealgame/unrealpawn.html#SetMovementPhysics">SetMovementPhysics</a>, <a href="../unrealgame/unrealpawn.html#ShouldUnCrouch">ShouldUnCrouch</a>, <a href="../unrealgame/unrealpawn.html#SpawnGibs">SpawnGibs</a>, <a href="../unrealgame/unrealpawn.html#TakeDamage">TakeDamage</a>, <a href="../unrealgame/unrealpawn.html#TakeDrowningDamage">TakeDrowningDamage</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bMutantEffect" class="hidden"></a>bMutantEffect <a href="../Source_bonuspack/xmutantpawn.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bMutantEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bOldMutantEffect" class="hidden"></a>bOldMutantEffect <a href="../Source_bonuspack/xmutantpawn.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bOldMutantEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MutantFX" class="hidden"></a>MutantFX <a href="../Source_bonuspack/xmutantpawn.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> MutantFX;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MutantGRI" class="hidden"></a>MutantGRI <a href="../Source_bonuspack/xmutantpawn.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../bonuspack/mutantgamereplicationinfo.html" class="source">MutantGameReplicationInfo</a></span> MutantGRI;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_bonuspack/xmutantpawn.html#101" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MutantDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> MutantDamage <span class="function_state"></span> <a href="../Source_bonuspack/xmutantpawn.html#43" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  MutantDamage ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_bonuspack/xmutantpawn.html#34" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TickFX-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TickFX <span class="function_state"></span> <a href="../Source_bonuspack/xmutantpawn.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  TickFX ( <span class="source_keyword">float</span> <span class="source_type">DeltaTime</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     InvisMaterial=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'MutantSkins.Shaders.MutantGlowFinal'</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../bonuspack/bonuspack-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_bonuspack/xmutantpawn.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#xMutantPawn">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../bonuspack/xmutantgame.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../bonuspack/combocrate.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:08.084 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

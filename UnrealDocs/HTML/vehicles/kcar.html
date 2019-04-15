@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Vehicles.KCar</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../vehicles/vehicles-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_vehicles/kcar.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#KCar">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../vehicles/bulldogtrigger.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../vehicles/bulldog.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#vehicles/kcar.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../vehicles/vehicles-overview.html">Vehicles</a>.KCar</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../engine/kvehicle.html">KVehicle</a></dd>
+<dt>Modifiers</dt><dd>abstract </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a>
+         |   
+         +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a>
+            |   
+            +-- <a href="../vehicles/vehicles-overview.html">Vehicles</a>.<a href="../vehicles/kcar.html">KCar</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../vehicles/bulldog.html">Bulldog</a>
+</blockquote>
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Contants from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/kvehicle.html#FilterFrames">FilterFrames</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bIsInverted" name="bIsInverted" title="go to the details">bIsInverted</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bNewCarState" name="bNewCarState" title="go to the details">bNewCarState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/kcar.html#KCarState">KCarState</a></td><td width="66%"><a href="#_CarState" name="CarState" title="go to the details">CarState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/actor.html#KRigidBodyState">KRigidBodyState</a></td><td width="66%"><a href="#_ChassisState" name="ChassisState" title="go to the details">ChassisState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FlipTimeLeft" name="FlipTimeLeft" title="go to the details">FlipTimeLeft</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ForwardVel" name="ForwardVel" title="go to the details">ForwardVel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/ktire.html">KTire</a></td><td width="66%"><a href="#_frontLeft" name="frontLeft" title="go to the details">frontLeft</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/ktire.html">KTire</a></td><td width="66%"><a href="#_frontRight" name="frontRight" title="go to the details">frontRight</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_Gear" name="Gear" title="go to the details">Gear</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_IsDriving" name="IsDriving" title="go to the details">IsDriving</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_NextNetUpdateTime" name="NextNetUpdateTime" title="go to the details">NextNetUpdateTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_OutputBrake" name="OutputBrake" title="go to the details">OutputBrake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_OutputHandbrakeOn" name="OutputHandbrakeOn" title="go to the details">OutputHandbrakeOn</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OutputTorque" name="OutputTorque" title="go to the details">OutputTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/ktire.html">KTire</a></td><td width="66%"><a href="#_rearLeft" name="rearLeft" title="go to the details">rearLeft</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/ktire.html">KTire</a></td><td width="66%"><a href="#_rearRight" name="rearRight" title="go to the details">rearRight</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelFrontAcross" name="WheelFrontAcross" title="go to the details">WheelFrontAcross</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelFrontAlong" name="WheelFrontAlong" title="go to the details">WheelFrontAlong</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelRearAcross" name="WheelRearAcross" title="go to the details">WheelRearAcross</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelRearAlong" name="WheelRearAlong" title="go to the details">WheelRearAlong</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelSpinSpeed" name="WheelSpinSpeed" title="go to the details">WheelSpinSpeed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelVert" name="WheelVert" title="go to the details">WheelVert</a></td></tr>
+<tr><th colspan="2" class="small">KCar</th></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ChassisMass" name="ChassisMass" title="go to the details">ChassisMass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FlipTime" name="FlipTime" title="go to the details">FlipTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FlipTorque" name="FlipTorque" title="go to the details">FlipTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/ktire.html">KTire</a>&gt;</td><td width="66%"><a href="#_FrontTireClass" name="FrontTireClass" title="go to the details">FrontTireClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HandbrakeThresh" name="HandbrakeThresh" title="go to the details">HandbrakeThresh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxBrakeTorque" name="MaxBrakeTorque" title="go to the details">MaxBrakeTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxNetUpdateInterval" name="MaxNetUpdateInterval" title="go to the details">MaxNetUpdateInterval</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxSteerAngle" name="MaxSteerAngle" title="go to the details">MaxSteerAngle</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/ktire.html">KTire</a>&gt;</td><td width="66%"><a href="#_RearTireClass" name="RearTireClass" title="go to the details">RearTireClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SteerPropGap" name="SteerPropGap" title="go to the details">SteerPropGap</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SteerSpeed" name="SteerSpeed" title="go to the details">SteerSpeed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SteerTorque" name="SteerTorque" title="go to the details">SteerTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StopThreshold" name="StopThreshold" title="go to the details">StopThreshold</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SuspDamping" name="SuspDamping" title="go to the details">SuspDamping</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SuspHighLimit" name="SuspHighLimit" title="go to the details">SuspHighLimit</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SuspLowLimit" name="SuspLowLimit" title="go to the details">SuspLowLimit</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SuspRef" name="SuspRef" title="go to the details">SuspRef</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SuspStiffness" name="SuspStiffness" title="go to the details">SuspStiffness</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireAdhesion" name="TireAdhesion" title="go to the details">TireAdhesion</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireHandbrakeFriction" name="TireHandbrakeFriction" title="go to the details">TireHandbrakeFriction</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireHandbrakeSlip" name="TireHandbrakeSlip" title="go to the details">TireHandbrakeSlip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireLateralFriction" name="TireLateralFriction" title="go to the details">TireLateralFriction</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireLateralSlip" name="TireLateralSlip" title="go to the details">TireLateralSlip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireMass" name="TireMass" title="go to the details">TireMass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireMinSlip" name="TireMinSlip" title="go to the details">TireMinSlip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireRestitution" name="TireRestitution" title="go to the details">TireRestitution</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireRollFriction" name="TireRollFriction" title="go to the details">TireRollFriction</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireRollSlip" name="TireRollSlip" title="go to the details">TireRollSlip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireSlipRate" name="TireSlipRate" title="go to the details">TireSlipRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TireSoftness" name="TireSoftness" title="go to the details">TireSoftness</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#InterpCurve">InterpCurve</a></td><td width="66%"><a href="#_TorqueCurve" name="TorqueCurve" title="go to the details">TorqueCurve</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TorqueSplit" name="TorqueSplit" title="go to the details">TorqueSplit</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/kvehicle.html#bAutoDrive">bAutoDrive</a>, <a href="../engine/kvehicle.html#bHistoryWarmup">bHistoryWarmup</a>, <a href="../engine/kvehicle.html#bVehicleIsAltFiring">bVehicleIsAltFiring</a>, <a href="../engine/kvehicle.html#bVehicleIsFiring">bVehicleIsFiring</a>, <a href="../engine/kvehicle.html#CameraHistory[FilterFrames]">CameraHistory[FilterFrames]</a>, <a href="../engine/kvehicle.html#DestroyEffectClass">DestroyEffectClass</a>, <a href="../engine/kvehicle.html#NextHistorySlot">NextHistorySlot</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#AIMoveCheckTime">AIMoveCheckTime</a>, <a href="../engine/vehicle.html#AutoTurretControllerClass">AutoTurretControllerClass</a>, <a href="../engine/vehicle.html#bAdjustDriversHead">bAdjustDriversHead</a>, <a href="../engine/vehicle.html#bAllowViewChange">bAllowViewChange</a>, <a href="../engine/vehicle.html#bAllowWeaponToss">bAllowWeaponToss</a>, <a href="../engine/vehicle.html#bAutoTurret">bAutoTurret</a>, <a href="../engine/vehicle.html#bCanCarryFlag">bCanCarryFlag</a>, <a href="../engine/vehicle.html#bCanDoTrickJumps">bCanDoTrickJumps</a>, <a href="../engine/vehicle.html#bCanFlip">bCanFlip</a>, <a href="../engine/vehicle.html#bCanHover">bCanHover</a>, <a href="../engine/vehicle.html#bDefensive">bDefensive</a>, <a href="../engine/vehicle.html#bDesiredBehindView">bDesiredBehindView</a>, <a href="../engine/vehicle.html#bDrawDriverInTP">bDrawDriverInTP</a>, <a href="../engine/vehicle.html#bDrawMeshInFP">bDrawMeshInFP</a>, <a href="../engine/vehicle.html#bDrawVehicleShadow">bDrawVehicleShadow</a>, <a href="../engine/vehicle.html#bDriverCollideActors">bDriverCollideActors</a>, <a href="../engine/vehicle.html#bDriverHoldsFlag">bDriverHoldsFlag</a>, <a href="../engine/vehicle.html#bDriving">bDriving</a>, <a href="../engine/vehicle.html#bDropDetail">bDropDetail</a>, <a href="../engine/vehicle.html#bEjectDriver">bEjectDriver</a>, <a href="../engine/vehicle.html#bEnemyLockedOn">bEnemyLockedOn</a>, <a href="../engine/vehicle.html#bEnterringUnlocks">bEnterringUnlocks</a>, <a href="../engine/vehicle.html#bFollowLookDir">bFollowLookDir</a>, <a href="../engine/vehicle.html#bFPNoZFromCameraPitch">bFPNoZFromCameraPitch</a>, <a href="../engine/vehicle.html#bHasHandbrake">bHasHandbrake</a>, <a href="../engine/vehicle.html#bHasRadar">bHasRadar</a>, <a href="../engine/vehicle.html#bHideRemoteDriver">bHideRemoteDriver</a>, <a href="../engine/vehicle.html#bHighScoreKill">bHighScoreKill</a>, <a href="../engine/vehicle.html#bHUDTrackVehicle">bHUDTrackVehicle</a>, <a href="../engine/vehicle.html#bKeyVehicle">bKeyVehicle</a>, <a href="../engine/vehicle.html#bNoFriendlyFire">bNoFriendlyFire</a>, <a href="../engine/vehicle.html#bNonHumanControl">bNonHumanControl</a>, <a href="../engine/vehicle.html#bOldDriving">bOldDriving</a>, <a href="../engine/vehicle.html#bPCRelativeFPRotation">bPCRelativeFPRotation</a>, <a href="../engine/vehicle.html#bRelativeExitPos">bRelativeExitPos</a>, <a href="../engine/vehicle.html#bRemoteControlled">bRemoteControlled</a>, <a href="../engine/vehicle.html#bScriptedRise">bScriptedRise</a>, <a href="../engine/vehicle.html#bSeparateTurretFocus">bSeparateTurretFocus</a>, <a href="../engine/vehicle.html#bShowChargingBar">bShowChargingBar</a>, <a href="../engine/vehicle.html#bShowDamageOverlay">bShowDamageOverlay</a>, <a href="../engine/vehicle.html#bSpawnProtected">bSpawnProtected</a>, <a href="../engine/vehicle.html#bStalled">bStalled</a>, <a href="../engine/vehicle.html#bTeamLocked">bTeamLocked</a>, <a href="../engine/vehicle.html#bTurnInPlace">bTurnInPlace</a>, <a href="../engine/vehicle.html#BulletSounds">BulletSounds</a>, <a href="../engine/vehicle.html#bVehicleDestroyed">bVehicleDestroyed</a>, <a href="../engine/vehicle.html#bVehicleShadows">bVehicleShadows</a>, <a href="../engine/vehicle.html#bWeaponisAltFiring">bWeaponisAltFiring</a>, <a href="../engine/vehicle.html#bWeaponisFiring">bWeaponisFiring</a>, <a href="../engine/vehicle.html#bZeroPCRotOnEntry">bZeroPCRotOnEntry</a>, <a href="../engine/vehicle.html#CameraSpeed">CameraSpeed</a>, <a href="../engine/vehicle.html#CenterSpringForce">CenterSpringForce</a>, <a href="../engine/vehicle.html#CenterSpringRangePitch">CenterSpringRangePitch</a>, <a href="../engine/vehicle.html#CenterSpringRangeRoll">CenterSpringRangeRoll</a>, <a href="../engine/vehicle.html#CrushedDamageType">CrushedDamageType</a>, <a href="../engine/vehicle.html#DesiredTPCamDistance">DesiredTPCamDistance</a>, <a href="../engine/vehicle.html#DriveAnim">DriveAnim</a>, <a href="../engine/vehicle.html#DrivePos">DrivePos</a>, <a href="../engine/vehicle.html#Driver">Driver</a>, <a href="../engine/vehicle.html#DriverDamageMult">DriverDamageMult</a>, <a href="../engine/vehicle.html#DriveRot">DriveRot</a>, <a href="../engine/vehicle.html#DriverViewPitch">DriverViewPitch</a>, <a href="../engine/vehicle.html#DriverViewYaw">DriverViewYaw</a>, <a href="../engine/vehicle.html#EjectMomentum">EjectMomentum</a>, <a href="../engine/vehicle.html#EntryPosition">EntryPosition</a>, <a href="../engine/vehicle.html#EntryRadius">EntryRadius</a>, <a href="../engine/vehicle.html#ExitPositions">ExitPositions</a>, <a href="../engine/vehicle.html#FlagBone">FlagBone</a>, <a href="../engine/vehicle.html#FlagOffset">FlagOffset</a>, <a href="../engine/vehicle.html#FlagRotation">FlagRotation</a>, <a href="../engine/vehicle.html#FPCamPos">FPCamPos</a>, <a href="../engine/vehicle.html#FPCamViewOffset">FPCamViewOffset</a>, <a href="../engine/vehicle.html#HornSounds">HornSounds</a>, <a href="../engine/vehicle.html#HUDOverlay">HUDOverlay</a>, <a href="../engine/vehicle.html#HUDOverlayClass">HUDOverlayClass</a>, <a href="../engine/vehicle.html#HUDOverlayFOV">HUDOverlayFOV</a>, <a href="../engine/vehicle.html#HUDOverlayOffset">HUDOverlayOffset</a>, <a href="../engine/vehicle.html#LastCameraCalcTime">LastCameraCalcTime</a>, <a href="../engine/vehicle.html#LastHornTime">LastHornTime</a>, <a href="../engine/vehicle.html#LastLockWarningTime">LastLockWarningTime</a>, <a href="../engine/vehicle.html#LinkHealMult">LinkHealMult</a>, <a href="../engine/vehicle.html#LockOnClassString">LockOnClassString</a>, <a href="../engine/vehicle.html#LockWarningInterval">LockWarningInterval</a>, <a href="../engine/vehicle.html#MaxDesireability">MaxDesireability</a>, <a href="../engine/vehicle.html#MaxViewPitch">MaxViewPitch</a>, <a href="../engine/vehicle.html#MaxViewYaw">MaxViewYaw</a>, <a href="../engine/vehicle.html#MinRunOverSpeed">MinRunOverSpeed</a>, <a href="../engine/vehicle.html#MomentumMult">MomentumMult</a>, <a href="../engine/vehicle.html#myMarker">myMarker</a>, <a href="../engine/vehicle.html#NextVehicle">NextVehicle</a>, <a href="../engine/vehicle.html#NoEntryTexture">NoEntryTexture</a>, <a href="../engine/vehicle.html#ObjectiveGetOutDist">ObjectiveGetOutDist</a>, <a href="../engine/vehicle.html#OldSteering">OldSteering</a>, <a href="../engine/vehicle.html#OldTeam">OldTeam</a>, <a href="../engine/vehicle.html#ParentFactory">ParentFactory</a>, <a href="../engine/vehicle.html#PlayerEnterredRotation">PlayerEnterredRotation</a>, <a href="../engine/vehicle.html#PlayerStartTime">PlayerStartTime</a>, <a href="../engine/vehicle.html#PrevTeam">PrevTeam</a>, <a href="../engine/vehicle.html#RanOverDamageType">RanOverDamageType</a>, <a href="../engine/vehicle.html#RanOverSound">RanOverSound</a>, <a href="../engine/vehicle.html#Rise">Rise</a>, <a href="../engine/vehicle.html#ShadowCullDistance">ShadowCullDistance</a>, <a href="../engine/vehicle.html#ShadowMaxTraceDist">ShadowMaxTraceDist</a>, <a href="../engine/vehicle.html#SpawnOverlay[2]">SpawnOverlay[2]</a>, <a href="../engine/vehicle.html#Steering">Steering</a>, <a href="../engine/vehicle.html#StolenAnnouncement">StolenAnnouncement</a>, <a href="../engine/vehicle.html#StolenSound">StolenSound</a>, <a href="../engine/vehicle.html#StuckCount">StuckCount</a>, <a href="../engine/vehicle.html#StuckTime">StuckTime</a>, <a href="../engine/vehicle.html#Team">Team</a>, <a href="../engine/vehicle.html#TeamBeaconBorderMaterial">TeamBeaconBorderMaterial</a>, <a href="../engine/vehicle.html#TeamBeaconTexture">TeamBeaconTexture</a>, <a href="../engine/vehicle.html#TeamUseTime">TeamUseTime</a>, <a href="../engine/vehicle.html#Throttle">Throttle</a>, <a href="../engine/vehicle.html#ThrottleTime">ThrottleTime</a>, <a href="../engine/vehicle.html#TPCamDistance">TPCamDistance</a>, <a href="../engine/vehicle.html#TPCamDistRange">TPCamDistRange</a>, <a href="../engine/vehicle.html#TPCamLookat">TPCamLookat</a>, <a href="../engine/vehicle.html#TPCamWorldOffset">TPCamWorldOffset</a>, <a href="../engine/vehicle.html#TransEffects[2]">TransEffects[2]</a>, <a href="../engine/vehicle.html#VehicleDescription">VehicleDescription</a>, <a href="../engine/vehicle.html#VehicleDrowningDamType">VehicleDrowningDamType</a>, <a href="../engine/vehicle.html#VehicleIcon">VehicleIcon</a>, <a href="../engine/vehicle.html#VehicleLostTime">VehicleLostTime</a>, <a href="../engine/vehicle.html#VehicleMovingTime">VehicleMovingTime</a>, <a href="../engine/vehicle.html#VehicleNameString">VehicleNameString</a>, <a href="../engine/vehicle.html#VehiclePositionString">VehiclePositionString</a>, <a href="../engine/vehicle.html#VehicleShadow">VehicleShadow</a>, <a href="../engine/vehicle.html#WaterDamage">WaterDamage</a>, <a href="../engine/vehicle.html#WheelsScale">WheelsScale</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+<tr><td><a href="#_KCarState" name="KCarState" title="go to the details">KCarState</a><br /><span class="small">bNewState, ChassisAngVel, ChassisLinVel, ChassisPosition, ChassisQuaternion, FrontWheelAng[2], ServerBrake, ServerHandbrakeOn, ServerSteering, ServerTorque, WheelHeight[4], WheelVertVel[4]</span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#SVehicleIcon">SVehicleIcon</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_Engine-" name="Engine" title="go to the details">Engine</a> (float Throttle))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_KApplyForce-" name="KApplyForce" title="go to the details">KApplyForce</a> (out <a href="../core/object.html#Vector">vector</a> Force, out <a href="../core/object.html#Vector">vector</a> Torque))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>bool&nbsp;</td><td><a href="#_KUpdateState-" name="KUpdateState" title="go to the details">KUpdateState</a> (out <a href="../engine/actor.html#KRigidBodyState">KRigidBodyState</a> newState))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_KVehicleUpdateParams-" name="KVehicleUpdateParams" title="go to the details">KVehicleUpdateParams</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PackState-" name="PackState" title="go to the details">PackState</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ProcessCarInput-" name="ProcessCarInput" title="go to the details">ProcessCarInput</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_StartFlip-" name="StartFlip" title="go to the details">StartFlip</a> (<a href="../engine/pawn.html">Pawn</a> Pusher))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float Delta))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_VehicleStateReceived-" name="VehicleStateReceived" title="go to the details">VehicleStateReceived</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/kvehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../engine/kvehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../engine/kvehicle.html#Destroyed">Destroyed</a>, <a href="../engine/kvehicle.html#GraphData">GraphData</a>, <a href="../engine/kvehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../engine/kvehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../engine/kvehicle.html#KVehicleUpdateParams">KVehicleUpdateParams</a>, <a href="../engine/kvehicle.html#SpecialCalcView">SpecialCalcView</a>, <a href="../engine/kvehicle.html#TakeDamage">TakeDamage</a>, <a href="../engine/kvehicle.html#Tick">Tick</a>, <a href="../engine/kvehicle.html#TryToDrive">TryToDrive</a>, <a href="../engine/kvehicle.html#VehicleStateReceived">VehicleStateReceived</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#ActivateOverlay">ActivateOverlay</a>, <a href="../engine/vehicle.html#AdjustDriverDamage">AdjustDriverDamage</a>, <a href="../engine/vehicle.html#AdjustedStrength">AdjustedStrength</a>, <a href="../engine/vehicle.html#AlternateTarget">AlternateTarget</a>, <a href="../engine/vehicle.html#AltFire">AltFire</a>, <a href="../engine/vehicle.html#AttachDriver">AttachDriver</a>, <a href="../engine/vehicle.html#AttachFlag">AttachFlag</a>, <a href="../engine/vehicle.html#BotDesireability">BotDesireability</a>, <a href="../engine/vehicle.html#ChangedReservation">ChangedReservation</a>, <a href="../engine/vehicle.html#ChargeBar">ChargeBar</a>, <a href="../engine/vehicle.html#CheatFly">CheatFly</a>, <a href="../engine/vehicle.html#CheatGhost">CheatGhost</a>, <a href="../engine/vehicle.html#CheatWalk">CheatWalk</a>, <a href="../engine/vehicle.html#CheckForHeadShot">CheckForHeadShot</a>, <a href="../engine/vehicle.html#CheckSuperBerserk">CheckSuperBerserk</a>, <a href="../engine/vehicle.html#CheckTauntValid">CheckTauntValid</a>, <a href="../engine/vehicle.html#ClientClearController">ClientClearController</a>, <a href="../engine/vehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../engine/vehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../engine/vehicle.html#ClientPlayForceFeedback">ClientPlayForceFeedback</a>, <a href="../engine/vehicle.html#ClientVehicleCeaseFire">ClientVehicleCeaseFire</a>, <a href="../engine/vehicle.html#Destroyed">Destroyed</a>, <a href="../engine/vehicle.html#Destroyed_HandleDriver">Destroyed_HandleDriver</a>, <a href="../engine/vehicle.html#DetachDriver">DetachDriver</a>, <a href="../engine/vehicle.html#Died">Died</a>, <a href="../engine/vehicle.html#DisplayDebug">DisplayDebug</a>, <a href="../engine/vehicle.html#DriverDied">DriverDied</a>, <a href="../engine/vehicle.html#DriverLeft">DriverLeft</a>, <a href="../engine/vehicle.html#DriverRadiusDamage">DriverRadiusDamage</a>, <a href="../engine/vehicle.html#DrivingStatusChanged">DrivingStatusChanged</a>, <a href="../engine/vehicle.html#EjectDriver">EjectDriver</a>, <a href="../engine/vehicle.html#EncroachedBy">EncroachedBy</a>, <a href="../engine/vehicle.html#EncroachingOn">EncroachingOn</a>, <a href="../engine/vehicle.html#FaceRotation">FaceRotation</a>, <a href="../engine/vehicle.html#FindEntryVehicle">FindEntryVehicle</a>, <a href="../engine/vehicle.html#FindValidTaunt">FindValidTaunt</a>, <a href="../engine/vehicle.html#Fire">Fire</a>, <a href="../engine/vehicle.html#FixPCRotation">FixPCRotation</a>, <a href="../engine/vehicle.html#Flip">Flip</a>, <a href="../engine/vehicle.html#GetBestEntry">GetBestEntry</a>, <a href="../engine/vehicle.html#GetBotPassenger">GetBotPassenger</a>, <a href="../engine/vehicle.html#GetCameraLocationStart">GetCameraLocationStart</a>, <a href="../engine/vehicle.html#GetInstigator">GetInstigator</a>, <a href="../engine/vehicle.html#GetMoveTargetFor">GetMoveTargetFor</a>, <a href="../engine/vehicle.html#GetSpree">GetSpree</a>, <a href="../engine/vehicle.html#GetTeamNum">GetTeamNum</a>, <a href="../engine/vehicle.html#GetTurrets">GetTurrets</a>, <a href="../engine/vehicle.html#GetVehiclePositionString">GetVehiclePositionString</a>, <a href="../engine/vehicle.html#HasOccupiedTurret">HasOccupiedTurret</a>, <a href="../engine/vehicle.html#HealDamage">HealDamage</a>, <a href="../engine/vehicle.html#ImportantVehicle">ImportantVehicle</a>, <a href="../engine/vehicle.html#IncomingMissile">IncomingMissile</a>, <a href="../engine/vehicle.html#IncrementSpree">IncrementSpree</a>, <a href="../engine/vehicle.html#IndependentVehicle">IndependentVehicle</a>, <a href="../engine/vehicle.html#IsArtillery">IsArtillery</a>, <a href="../engine/vehicle.html#IsVehicleEmpty">IsVehicleEmpty</a>, <a href="../engine/vehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../engine/vehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../engine/vehicle.html#LockOnWarning">LockOnWarning</a>, <a href="../engine/vehicle.html#NeedsFlip">NeedsFlip</a>, <a href="../engine/vehicle.html#NewReservationCostMultiplier">NewReservationCostMultiplier</a>, <a href="../engine/vehicle.html#NextWeapon">NextWeapon</a>, <a href="../engine/vehicle.html#NotifyEnemyLockedOn">NotifyEnemyLockedOn</a>, <a href="../engine/vehicle.html#NotifyEnemyLostLock">NotifyEnemyLostLock</a>, <a href="../engine/vehicle.html#NumPassengers">NumPassengers</a>, <a href="../engine/vehicle.html#Occupied">Occupied</a>, <a href="../engine/vehicle.html#OpenPositionFor">OpenPositionFor</a>, <a href="../engine/vehicle.html#PlaceExitingDriver">PlaceExitingDriver</a>, <a href="../engine/vehicle.html#PlayDying">PlayDying</a>, <a href="../engine/vehicle.html#PlayerChangedTeam">PlayerChangedTeam</a>, <a href="../engine/vehicle.html#PlayTakeHit">PlayTakeHit</a>, <a href="../engine/vehicle.html#PlayTeleportEffect">PlayTeleportEffect</a>, <a href="../engine/vehicle.html#PointOfView">PointOfView</a>, <a href="../engine/vehicle.html#PossessedBy">PossessedBy</a>, <a href="../engine/vehicle.html#PostBeginPlay">PostBeginPlay</a>, <a href="../engine/vehicle.html#POVChanged">POVChanged</a>, <a href="../engine/vehicle.html#PreBeginPlay">PreBeginPlay</a>, <a href="../engine/vehicle.html#PrevWeapon">PrevWeapon</a>, <a href="../engine/vehicle.html#RanInto">RanInto</a>, <a href="../engine/vehicle.html#ReservationCostMultiplier">ReservationCostMultiplier</a>, <a href="../engine/vehicle.html#ServerPlayHorn">ServerPlayHorn</a>, <a href="../engine/vehicle.html#SetAnimAction">SetAnimAction</a>, <a href="../engine/vehicle.html#SetBaseEyeheight">SetBaseEyeheight</a>, <a href="../engine/vehicle.html#SetInitialState">SetInitialState</a>, <a href="../engine/vehicle.html#SetReservation">SetReservation</a>, <a href="../engine/vehicle.html#SetTeamNum">SetTeamNum</a>, <a href="../engine/vehicle.html#SetWheelsScale">SetWheelsScale</a>, <a href="../engine/vehicle.html#ShootMissile">ShootMissile</a>, <a href="../engine/vehicle.html#ShootSpecial">ShootSpecial</a>, <a href="../engine/vehicle.html#ShouldTargetMissile">ShouldTargetMissile</a>, <a href="../engine/vehicle.html#SpecialCalcBehindView">SpecialCalcBehindView</a>, <a href="../engine/vehicle.html#SpecialCalcFirstPersonView">SpecialCalcFirstPersonView</a>, <a href="../engine/vehicle.html#SpecialCalcView">SpecialCalcView</a>, <a href="../engine/vehicle.html#SpectatorSpecialCalcView">SpectatorSpecialCalcView</a>, <a href="../engine/vehicle.html#SpokenFor">SpokenFor</a>, <a href="../engine/vehicle.html#Stalled">Stalled</a>, <a href="../engine/vehicle.html#StaticPrecache">StaticPrecache</a>, <a href="../engine/vehicle.html#StopForceFeedback">StopForceFeedback</a>, <a href="../engine/vehicle.html#StopWeaponFiring">StopWeaponFiring</a>, <a href="../engine/vehicle.html#StronglyRecommended">StronglyRecommended</a>, <a href="../engine/vehicle.html#Suicide">Suicide</a>, <a href="../engine/vehicle.html#TakeDamage">TakeDamage</a>, <a href="../engine/vehicle.html#TakeWaterDamage">TakeWaterDamage</a>, <a href="../engine/vehicle.html#TeamChanged">TeamChanged</a>, <a href="../engine/vehicle.html#TeamLink">TeamLink</a>, <a href="../engine/vehicle.html#TryToDrive">TryToDrive</a>, <a href="../engine/vehicle.html#UnPossessed">UnPossessed</a>, <a href="../engine/vehicle.html#UnStalled">UnStalled</a>, <a href="../engine/vehicle.html#UpdateEyeHeight">UpdateEyeHeight</a>, <a href="../engine/vehicle.html#UpdateTiltForceFeedback">UpdateTiltForceFeedback</a>, <a href="../engine/vehicle.html#UsedBy">UsedBy</a>, <a href="../engine/vehicle.html#VehicleCeaseFire">VehicleCeaseFire</a>, <a href="../engine/vehicle.html#VehicleFire">VehicleFire</a>, <a href="../engine/vehicle.html#VehicleLocked">VehicleLocked</a>, <a href="../engine/vehicle.html#VerifyLock">VerifyLock</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bIsInverted" class="hidden"></a>bIsInverted <a href="../Source_vehicles/kcar.html#66" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bIsInverted;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bNewCarState" class="hidden"></a>bNewCarState <a href="../Source_vehicles/kcar.html#105" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bNewCarState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CarState" class="hidden"></a>CarState <a href="../Source_vehicles/kcar.html#104" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/kcar.html#KCarState" class="source">KCarState</a></span> CarState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChassisState" class="hidden"></a>ChassisState <a href="../Source_vehicles/kcar.html#102" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html#KRigidBodyState" class="source">KRigidBodyState</a></span> ChassisState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FlipTimeLeft" class="hidden"></a>FlipTimeLeft <a href="../Source_vehicles/kcar.html#70" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> FlipTimeLeft;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ForwardVel" class="hidden"></a>ForwardVel <a href="../Source_vehicles/kcar.html#65" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ForwardVel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_frontLeft" class="hidden"></a>frontLeft <a href="../Source_vehicles/kcar.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/ktire.html" class="source">KTire</a></span> frontLeft;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_frontRight" class="hidden"></a>frontRight <a href="../Source_vehicles/kcar.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/ktire.html" class="source">KTire</a></span> frontRight;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Gear" class="hidden"></a>Gear <a href="../Source_vehicles/kcar.html#61" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> Gear;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsDriving" class="hidden"></a>IsDriving <a href="../Source_vehicles/kcar.html#69" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> IsDriving;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextNetUpdateTime" class="hidden"></a>NextNetUpdateTime <a href="../Source_vehicles/kcar.html#71" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> NextNetUpdateTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputBrake" class="hidden"></a>OutputBrake <a href="../Source_vehicles/kcar.html#74" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> OutputBrake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputHandbrakeOn" class="hidden"></a>OutputHandbrakeOn <a href="../Source_vehicles/kcar.html#76" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> OutputHandbrakeOn;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputTorque" class="hidden"></a>OutputTorque <a href="../Source_vehicles/kcar.html#75" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OutputTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_rearLeft" class="hidden"></a>rearLeft <a href="../Source_vehicles/kcar.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/ktire.html" class="source">KTire</a></span> rearLeft;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_rearRight" class="hidden"></a>rearRight <a href="../Source_vehicles/kcar.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/ktire.html" class="source">KTire</a></span> rearRight;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelFrontAcross" class="hidden"></a>WheelFrontAcross <a href="../Source_vehicles/kcar.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">float</span> WheelFrontAcross;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelFrontAlong" class="hidden"></a>WheelFrontAlong <a href="../Source_vehicles/kcar.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">float</span> WheelFrontAlong;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelRearAcross" class="hidden"></a>WheelRearAcross <a href="../Source_vehicles/kcar.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">float</span> WheelRearAcross;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelRearAlong" class="hidden"></a>WheelRearAlong <a href="../Source_vehicles/kcar.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">float</span> WheelRearAlong;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelSpinSpeed" class="hidden"></a>WheelSpinSpeed <a href="../Source_vehicles/kcar.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> WheelSpinSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelVert" class="hidden"></a>WheelVert <a href="../Source_vehicles/kcar.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">float</span> WheelVert;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">KCar</h3>
+<h4><a name="_ChassisMass" class="hidden"></a>ChassisMass <a href="../Source_vehicles/kcar.html#50" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> ChassisMass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FlipTime" class="hidden"></a>FlipTime <a href="../Source_vehicles/kcar.html#57" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> FlipTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FlipTorque" class="hidden"></a>FlipTorque <a href="../Source_vehicles/kcar.html#56" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> FlipTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FrontTireClass" class="hidden"></a>FrontTireClass <a href="../Source_vehicles/kcar.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/ktire.html" class="source">KTire</a></span>&gt; FrontTireClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HandbrakeThresh" class="hidden"></a>HandbrakeThresh <a href="../Source_vehicles/kcar.html#46" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> HandbrakeThresh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxBrakeTorque" class="hidden"></a>MaxBrakeTorque <a href="../Source_vehicles/kcar.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> MaxBrakeTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxNetUpdateInterval" class="hidden"></a>MaxNetUpdateInterval <a href="../Source_vehicles/kcar.html#59" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> MaxNetUpdateInterval;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxSteerAngle" class="hidden"></a>MaxSteerAngle <a href="../Source_vehicles/kcar.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> MaxSteerAngle;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RearTireClass" class="hidden"></a>RearTireClass <a href="../Source_vehicles/kcar.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/ktire.html" class="source">KTire</a></span>&gt; RearTireClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerPropGap" class="hidden"></a>SteerPropGap <a href="../Source_vehicles/kcar.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SteerPropGap;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerSpeed" class="hidden"></a>SteerSpeed <a href="../Source_vehicles/kcar.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SteerSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerTorque" class="hidden"></a>SteerTorque <a href="../Source_vehicles/kcar.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SteerTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StopThreshold" class="hidden"></a>StopThreshold <a href="../Source_vehicles/kcar.html#52" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> StopThreshold;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SuspDamping" class="hidden"></a>SuspDamping <a href="../Source_vehicles/kcar.html#29" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SuspDamping;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SuspHighLimit" class="hidden"></a>SuspHighLimit <a href="../Source_vehicles/kcar.html#30" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SuspHighLimit;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SuspLowLimit" class="hidden"></a>SuspLowLimit <a href="../Source_vehicles/kcar.html#31" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SuspLowLimit;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SuspRef" class="hidden"></a>SuspRef <a href="../Source_vehicles/kcar.html#32" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SuspRef;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SuspStiffness" class="hidden"></a>SuspStiffness <a href="../Source_vehicles/kcar.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> SuspStiffness;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireAdhesion" class="hidden"></a>TireAdhesion <a href="../Source_vehicles/kcar.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireAdhesion;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireHandbrakeFriction" class="hidden"></a>TireHandbrakeFriction <a href="../Source_vehicles/kcar.html#48" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireHandbrakeFriction;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireHandbrakeSlip" class="hidden"></a>TireHandbrakeSlip <a href="../Source_vehicles/kcar.html#47" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireHandbrakeSlip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireLateralFriction" class="hidden"></a>TireLateralFriction <a href="../Source_vehicles/kcar.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireLateralFriction;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireLateralSlip" class="hidden"></a>TireLateralSlip <a href="../Source_vehicles/kcar.html#38" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireLateralSlip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireMass" class="hidden"></a>TireMass <a href="../Source_vehicles/kcar.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireMass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireMinSlip" class="hidden"></a>TireMinSlip <a href="../Source_vehicles/kcar.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireMinSlip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireRestitution" class="hidden"></a>TireRestitution <a href="../Source_vehicles/kcar.html#43" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireRestitution;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireRollFriction" class="hidden"></a>TireRollFriction <a href="../Source_vehicles/kcar.html#35" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireRollFriction;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireRollSlip" class="hidden"></a>TireRollSlip <a href="../Source_vehicles/kcar.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireRollSlip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireSlipRate" class="hidden"></a>TireSlipRate <a href="../Source_vehicles/kcar.html#40" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireSlipRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TireSoftness" class="hidden"></a>TireSoftness <a href="../Source_vehicles/kcar.html#41" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TireSoftness;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TorqueCurve" class="hidden"></a>TorqueCurve <a href="../Source_vehicles/kcar.html#54" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_type"><a href="../core/object.html#InterpCurve" class="source">InterpCurve</a></span> TorqueCurve;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TorqueSplit" class="hidden"></a>TorqueSplit <a href="../Source_vehicles/kcar.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/kcar.html" class="source">KCar</a></span>) <span class="source_keyword">float</span> TorqueSplit;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Structures Detail</th>
+</tr>
+</table>
+
+<h4><a name="_KCarState" class="hidden"></a>KCarState <a href="../Source_vehicles/kcar.html#80" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_type"><a href="../vehicles/kcar.html#KCarState" class="source">KCarState</a></span><br />
+{<blockquote><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bNewState;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html#KRBVec" class="source">KRBVec</a></span> ChassisAngVel;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html#KRBVec" class="source">KRBVec</a></span> ChassisLinVel;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html#KRBVec" class="source">KRBVec</a></span> ChassisPosition;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Quat" class="source">Quat</a></span> ChassisQuaternion;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">float</span> FrontWheelAng[<span class="source_int">2</span>];<br />
+<span class="source_keyword">var</span> <span class="source_keyword">bool</span> ServerBrake;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">bool</span> ServerHandbrakeOn;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">float</span> ServerSteering;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">float</span> ServerTorque;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">float</span> WheelHeight[<span class="source_int">4</span>];<br />
+<span class="source_keyword">var</span> <span class="source_keyword">float</span> WheelVertVel[<span class="source_int">4</span>];<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Destroyed <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#521" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Engine-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Engine <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#674" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> <span class="source_type"><a href="../engine/engine.html" class="source">Engine</a></span> ( <span class="source_keyword">float</span> Throttle) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KApplyForce-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> KApplyForce <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#634" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  KApplyForce ( <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Force, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Torque) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KUpdateState-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> KUpdateState <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#294" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> <span class="source_keyword">bool</span> KUpdateState ( <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/actor.html#KRigidBodyState" class="source">KRigidBodyState</a></span> newState) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KVehicleUpdateParams-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> KVehicleUpdateParams <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#541" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  KVehicleUpdateParams ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PackState-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PackState <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#310" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PackState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#439" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ProcessCarInput-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ProcessCarInput <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#686" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ProcessCarInput ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartFlip-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> StartFlip <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#655" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  StartFlip ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> Pusher) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#797" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">Delta</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleStateReceived-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> VehicleStateReceived <span class="function_state"></span> <a href="../Source_vehicles/kcar.html#120" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  VehicleStateReceived ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     WheelFrontAlong=-<span class="source_int">180.000000</span>
+     WheelFrontAcross=<span class="source_int">140.000000</span>
+     WheelRearAlong=<span class="source_int">160.000000</span>
+     WheelRearAcross=<span class="source_int">140.000000</span>
+     WheelVert=-<span class="source_int">0.500000</span>
+     MaxSteerAngle=<span class="source_int">3900.000000</span>
+     MaxBrakeTorque=<span class="source_int">50.000000</span>
+     TorqueSplit=<span class="source_int">0.500000</span>
+     SteerPropGap=<span class="source_int">1000.000000</span>
+     SteerTorque=<span class="source_int">1000.000000</span>
+     SteerSpeed=<span class="source_int">15000.000000</span>
+     SuspStiffness=<span class="source_int">50.000000</span>
+     SuspDamping=<span class="source_int">5.000000</span>
+     SuspHighLimit=<span class="source_int">1.000000</span>
+     SuspLowLimit=-<span class="source_int">1.000000</span>
+     TireRollFriction=<span class="source_int">1.000000</span>
+     TireLateralFriction=<span class="source_int">1.000000</span>
+     TireRollSlip=<span class="source_int">0.085000</span>
+     TireLateralSlip=<span class="source_int">0.060000</span>
+     TireMinSlip=<span class="source_int">0.001000</span>
+     TireSlipRate=<span class="source_int">0.000500</span>
+     TireSoftness=<span class="source_int">0.000200</span>
+     TireMass=<span class="source_int">0.500000</span>
+     HandbrakeThresh=<span class="source_int">1000.000000</span>
+     TireHandbrakeSlip=<span class="source_int">0.060000</span>
+     TireHandbrakeFriction=-<span class="source_int">0.500000</span>
+     ChassisMass=<span class="source_int">4.000000</span>
+     StopThreshold=<span class="source_int">100.000000</span>
+     TorqueCurve=(Points=((OutVal=<span class="source_int">150.000000</span>),(InVal=<span class="source_int">245756.000000</span>,OutVal=<span class="source_int">150.000000</span>),(InVal=<span class="source_int">491512.000000</span>)))
+     FlipTorque=<span class="source_int">350.000000</span>
+     FlipTime=<span class="source_int">3.000000</span>
+     MaxNetUpdateInterval=<span class="source_int">0.400000</span>
+     Gear=<span class="source_int">1</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../vehicles/vehicles-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_vehicles/kcar.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#KCar">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../vehicles/bulldogtrigger.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../vehicles/bulldog.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:01.273 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

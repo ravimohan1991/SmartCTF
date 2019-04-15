@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XInterface.Tab_IForceSettings</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_iforcesettings.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_IForceSettings">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_iateamdeathmatch.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_instantactionbaserules.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xinterface/tab_iforcesettings.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xinterface/xinterface-overview.html">XInterface</a>.Tab_IForceSettings</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a>
+                  |   
+                  +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_iforcesettings.html">Tab_IForceSettings</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_AutoAim" name="AutoAim" title="go to the details">AutoAim</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_AutoSlope" name="AutoSlope" title="go to the details">AutoSlope</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mofloatedit.html">moFloatEdit</a></td><td width="66%"><a href="#_DoubleClick" name="DoubleClick" title="go to the details">DoubleClick</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_ifDamage" name="ifDamage" title="go to the details">ifDamage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_ifGUI" name="ifGUI" title="go to the details">ifGUI</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_ifPickup" name="ifPickup" title="go to the details">ifPickup</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_ifWeapon" name="ifWeapon" title="go to the details">ifWeapon</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_InvertMouse" name="InvertMouse" title="go to the details">InvertMouse</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mofloatedit.html">moFloatEdit</a></td><td width="66%"><a href="#_MenuSens" name="MenuSens" title="go to the details">MenuSens</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_MouseLag" name="MouseLag" title="go to the details">MouseLag</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mofloatedit.html">moFloatEdit</a></td><td width="66%"><a href="#_MouseSens" name="MouseSens" title="go to the details">MouseSens</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_MouseSmooth" name="MouseSmooth" title="go to the details">MouseSmooth</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mofloatedit.html">moFloatEdit</a></td><td width="66%"><a href="#_MouseSmoothStr" name="MouseSmoothStr" title="go to the details">MouseSmoothStr</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mofloatedit.html">moFloatEdit</a></td><td width="66%"><a href="#_MouseThreshold" name="MouseThreshold" title="go to the details">MouseThreshold</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/mocheckbox.html">moCheckBox</a></td><td width="66%"><a href="#_UseJoystick" name="UseJoystick" title="go to the details">UseJoystick</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/guitabpanel.html#bFillHeight">bFillHeight</a>, <a href="../xinterface/guitabpanel.html#FadeInTime">FadeInTime</a>, <a href="../xinterface/guitabpanel.html#MyButton">MyButton</a>, <a href="../xinterface/guitabpanel.html#PanelCaption">PanelCaption</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> MyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InternalOnChange-" name="InternalOnChange" title="go to the details">InternalOnChange</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/guitabpanel.html#CanShowPanel">CanShowPanel</a>, <a href="../xinterface/guitabpanel.html#Free">Free</a>, <a href="../xinterface/guitabpanel.html#InitPanel">InitPanel</a>, <a href="../xinterface/guitabpanel.html#OnDestroyPanel">OnDestroyPanel</a>, <a href="../xinterface/guitabpanel.html#Refresh">Refresh</a>, <a href="../xinterface/guitabpanel.html#ShowPanel">ShowPanel</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AutoAim" class="hidden"></a>AutoAim <a href="../Source_xinterface/tab_iforcesettings.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> AutoAim;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AutoSlope" class="hidden"></a>AutoSlope <a href="../Source_xinterface/tab_iforcesettings.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> AutoSlope;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DoubleClick" class="hidden"></a>DoubleClick <a href="../Source_xinterface/tab_iforcesettings.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> DoubleClick;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ifDamage" class="hidden"></a>ifDamage <a href="../Source_xinterface/tab_iforcesettings.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> ifDamage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ifGUI" class="hidden"></a>ifGUI <a href="../Source_xinterface/tab_iforcesettings.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> ifGUI;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ifPickup" class="hidden"></a>ifPickup <a href="../Source_xinterface/tab_iforcesettings.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> ifPickup;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ifWeapon" class="hidden"></a>ifWeapon <a href="../Source_xinterface/tab_iforcesettings.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> ifWeapon;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InvertMouse" class="hidden"></a>InvertMouse <a href="../Source_xinterface/tab_iforcesettings.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> InvertMouse;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MenuSens" class="hidden"></a>MenuSens <a href="../Source_xinterface/tab_iforcesettings.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> MenuSens;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MouseLag" class="hidden"></a>MouseLag <a href="../Source_xinterface/tab_iforcesettings.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> MouseLag;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MouseSens" class="hidden"></a>MouseSens <a href="../Source_xinterface/tab_iforcesettings.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> MouseSens;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MouseSmooth" class="hidden"></a>MouseSmooth <a href="../Source_xinterface/tab_iforcesettings.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> MouseSmooth;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MouseSmoothStr" class="hidden"></a>MouseSmoothStr <a href="../Source_xinterface/tab_iforcesettings.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> MouseSmoothStr;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MouseThreshold" class="hidden"></a>MouseThreshold <a href="../Source_xinterface/tab_iforcesettings.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> MouseThreshold;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UseJoystick" class="hidden"></a>UseJoystick <a href="../Source_xinterface/tab_iforcesettings.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> UseJoystick;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_xinterface/tab_iforcesettings.html#28" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InternalOnChange-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InternalOnChange <span class="function_state"></span> <a href="../Source_xinterface/tab_iforcesettings.html#62" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InternalOnChange ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=InputBK1
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxD'</span>
+         ImageColor=(<span class="source_type">A</span>=<span class="source_int">160</span>)
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.106510</span>
+         WinLeft=<span class="source_int">0.021641</span>
+         WinWidth=<span class="source_int">0.381328</span>
+         WinHeight=<span class="source_int">0.636485</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">0</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputBK1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputAutoAim
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Auto Aim"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputAutoAim.InternalOnCreateComponent
+         Hint=<span class="source_string">"Enabling this option will activate computer-assisted aiming in single player games."</span>
+         WinTop=<span class="source_int">0.057396</span>
+         WinLeft=<span class="source_int">0.060938</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">1</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputAutoAim'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputAutoSlope
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Auto Slope"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputAutoSlope.InternalOnCreateComponent
+         Hint=<span class="source_string">"When enabled, your view will automatically pitch up/down when on a slope."</span>
+         WinTop=<span class="source_int">0.175989</span>
+         WinLeft=<span class="source_int">0.060937</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">2</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputAutoSlope'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputInvertMouse
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Invert Mouse"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputInvertMouse.InternalOnCreateComponent
+         Hint=<span class="source_string">"When enabled, the Y axis of your mouse will be inverted."</span>
+         WinTop=<span class="source_int">0.321927</span>
+         WinLeft=<span class="source_int">0.060938</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">3</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputInvertMouse'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputMouseSmoothing
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Smoothing"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputMouseSmoothing.InternalOnCreateComponent
+         Hint=<span class="source_string">"Enable this option to automatically smooth out movements in your mouse."</span>
+         WinTop=<span class="source_int">0.416041</span>
+         WinLeft=<span class="source_int">0.060938</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">4</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputMouseSmoothing'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputUseJoystick
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Enable Joystick"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputUseJoystick.InternalOnCreateComponent
+         Hint=<span class="source_string">"Enable this option to enable joystick support."</span>
+         WinTop=<span class="source_int">0.651302</span>
+         WinLeft=<span class="source_int">0.060938</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">5</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputUseJoystick'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=InputSliderLabel1
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Sensitivity (In Game)"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.126042</span>
+         WinLeft=<span class="source_int">0.543945</span>
+         WinWidth=<span class="source_int">0.332422</span>
+         WinHeight=<span class="source_int">32.000000</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">6</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputSliderLabel1'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> <span class="source_keyword">Name</span>=InputMouseSensitivity
+         MinValue=<span class="source_int">1.000000</span>
+         MaxValue=<span class="source_int">25.000000</span>
+         Step=<span class="source_int">0.250000</span>
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.725000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Sensitivity (In Game)"</span>
+         OnCreateComponent=InputMouseSensitivity.InternalOnCreateComponent
+         Hint=<span class="source_string">"Adjust mouse sensitivity"</span>
+         WinTop=<span class="source_int">0.105365</span>
+         WinLeft=<span class="source_int">0.472266</span>
+         WinWidth=<span class="source_int">0.421875</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">7</span>)=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputMouseSensitivity'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=InputSliderLabel2
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Sensitivity (Menus)"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.327865</span>
+         WinLeft=<span class="source_int">0.548828</span>
+         WinWidth=<span class="source_int">0.308594</span>
+         WinHeight=<span class="source_int">32.000000</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">8</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputSliderLabel2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> <span class="source_keyword">Name</span>=InputMenuSensitivity
+         MinValue=<span class="source_int">1.000000</span>
+         MaxValue=<span class="source_int">6.000000</span>
+         Step=<span class="source_int">0.250000</span>
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.725000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Sensitivity (Menus)"</span>
+         OnCreateComponent=InputMenuSensitivity.InternalOnCreateComponent
+         Hint=<span class="source_string">"Adjust mouse speed within the menus"</span>
+         WinTop=<span class="source_int">0.188698</span>
+         WinLeft=<span class="source_int">0.472266</span>
+         WinWidth=<span class="source_int">0.421875</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">9</span>)=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputMenuSensitivity'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=InputBK2
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxD'</span>
+         ImageColor=(<span class="source_type">A</span>=<span class="source_int">160</span>)
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.760000</span>
+         WinLeft=<span class="source_int">0.021641</span>
+         WinWidth=<span class="source_int">0.957500</span>
+         WinHeight=<span class="source_int">0.240977</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">10</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputBK2'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputIFWeaponEffects
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Weapon Effects"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputIFWeaponEffects.InternalOnCreateComponent
+         Hint=<span class="source_string">"Turn this option On/Off to feel the weapons you fire."</span>
+         WinTop=<span class="source_int">0.852000</span>
+         WinLeft=<span class="source_int">0.100000</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">11</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputIFWeaponEffects'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputIFPickupEffects
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Pickup Effects"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputIFPickupEffects.InternalOnCreateComponent
+         Hint=<span class="source_string">"Turn this option On/Off to feel the items you pick up."</span>
+         WinTop=<span class="source_int">0.933000</span>
+         WinLeft=<span class="source_int">0.100000</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">12</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputIFPickupEffects'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputIFDamageEffects
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Damage Effects"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputIFDamageEffects.InternalOnCreateComponent
+         Hint=<span class="source_string">"Turn this option On/Off to feel the damage you take."</span>
+         WinTop=<span class="source_int">0.852000</span>
+         WinLeft=<span class="source_int">0.563867</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">13</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputIFDamageEffects'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputIFGUIEffects
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"GUI Effects"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputIFGUIEffects.InternalOnCreateComponent
+         Hint=<span class="source_string">"Turn this option On/Off to feel the GUI."</span>
+         WinTop=<span class="source_int">0.933000</span>
+         WinLeft=<span class="source_int">0.563867</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">14</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputIFGUIEffects'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=InputIForceLabel
+         <span class="source_type">Caption</span>=<span class="source_string">"TouchSense Force Feedback"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         WinTop=<span class="source_int">0.777000</span>
+         WinLeft=<span class="source_int">0.023437</span>
+         WinWidth=<span class="source_int">0.956250</span>
+         WinHeight=<span class="source_int">32.000000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">15</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputIForceLabel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> <span class="source_keyword">Name</span>=InputMouseSmoothStr
+         MinValue=<span class="source_int">0.000000</span>
+         MaxValue=<span class="source_int">1.000000</span>
+         Step=<span class="source_int">0.050000</span>
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.725000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Smoothing Strength"</span>
+         OnCreateComponent=InputMouseSmoothStr.InternalOnCreateComponent
+         Hint=<span class="source_string">"Adjust the amount of smoothing that is applied to mouse movements"</span>
+         WinTop=<span class="source_int">0.324167</span>
+         WinLeft=<span class="source_int">0.472266</span>
+         WinWidth=<span class="source_int">0.421875</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">16</span>)=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputMouseSmoothStr'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> <span class="source_keyword">Name</span>=InputMouseAccel
+         MinValue=<span class="source_int">0.000000</span>
+         MaxValue=<span class="source_int">100.000000</span>
+         Step=<span class="source_int">5.000000</span>
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.725000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Mouse Accel. Threshold"</span>
+         OnCreateComponent=InputMouseAccel.InternalOnCreateComponent
+         Hint=<span class="source_string">"Adjust to determine the amount of movement needed before acceleration is applied"</span>
+         WinTop=<span class="source_int">0.405000</span>
+         WinLeft=<span class="source_int">0.472266</span>
+         WinWidth=<span class="source_int">0.421875</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">17</span>)=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputMouseAccel'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span> <span class="source_keyword">Name</span>=InputDodgeTime
+         MinValue=<span class="source_int">0.000000</span>
+         MaxValue=<span class="source_int">1.000000</span>
+         Step=<span class="source_int">0.050000</span>
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.725000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Dodge Double-Click Time"</span>
+         OnCreateComponent=InputDodgeTime.InternalOnCreateComponent
+         Hint=<span class="source_string">"Determines how fast you have to double click to dodge"</span>
+         WinTop=<span class="source_int">0.582083</span>
+         WinLeft=<span class="source_int">0.472266</span>
+         WinWidth=<span class="source_int">0.421875</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">18</span>)=<span class="source_type"><a href="../xinterface/mofloatedit.html" class="source">moFloatEdit</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputDodgeTime'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span> <span class="source_keyword">Name</span>=InputMouseLag
+         ComponentJustification=TXTA_Left
+         CaptionWidth=<span class="source_int">0.900000</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Reduce Mouse Lag"</span>
+         ComponentClassName=<span class="source_string">"xinterface.GUICheckBoxButton"</span>
+         OnCreateComponent=InputMouseLag.InternalOnCreateComponent
+         Hint=<span class="source_string">"Enable this option will reduce the amount of lag in your mouse."</span>
+         WinTop=<span class="source_int">0.509791</span>
+         WinLeft=<span class="source_int">0.060938</span>
+         WinWidth=<span class="source_int">0.300000</span>
+         WinHeight=<span class="source_int">0.040000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">19</span>)=<span class="source_type"><a href="../xinterface/mocheckbox.html" class="source">moCheckBox</a></span><span class="source_name">'XInterface.Tab_IForceSettings.InputMouseLag'</span>
+
+     WinTop=<span class="source_int">0.150000</span>
+     WinHeight=<span class="source_int">0.740000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_iforcesettings.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_IForceSettings">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_iateamdeathmatch.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_instantactionbaserules.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:05.527 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

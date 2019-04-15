@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: SkaarjPack.Monster</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../skaarjpack/skaarjpack-overview.html">Package</a></td>
+	<td class="header"><a href="../skaarjpack/monster.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#Monster">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_skaarjpack/meleedamage.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_skaarjpack/monstercontroller.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_skaarjpack/monster.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../skaarjpack/skaarjpack-overview.html">SkaarjPack</a>.<a href="../skaarjpack/monster.html">Monster</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105<br />00106<br />00107<br />00108<br />00109<br />00110<br />00111<br />00112<br />00113<br />00114<br />00115<br />00116<br />00117<br />00118<br />00119<br />00120<br />
+00121<br />00122<br />00123<br />00124<br />00125<br />00126<br />00127<br />00128<br />00129<br />00130<br />00131<br />00132<br />00133<br />00134<br />00135<br />00136<br />00137<br />00138<br />00139<br />00140<br />
+00141<br />00142<br />00143<br />00144<br />00145<br />00146<br />00147<br />00148<br />00149<br />00150<br />00151<br />00152<br />00153<br />00154<br />00155<br />00156<br />00157<br />00158<br />00159<br />00160<br />
+00161<br />00162<br />00163<br />00164<br />00165<br />00166<br />00167<br />00168<br />00169<br />00170<br />00171<br />00172<br />00173<br />00174<br />00175<br />00176<br />00177<br />00178<br />00179<br />00180<br />
+00181<br />00182<br />00183<br />00184<br />00185<br />00186<br />00187<br />00188<br />00189<br />00190<br />00191<br />00192<br />00193<br />00194<br />00195<br />00196<br />00197<br />00198<br />00199<br />00200<br />
+00201<br />00202<br />00203<br />00204<br />00205<br />00206<br />00207<br />00208<br />00209<br />00210<br />00211<br />00212<br />00213<br />00214<br />00215<br />00216<br />00217<br />00218<br />00219<br />00220<br />
+00221<br />00222<br />00223<br />00224<br />00225<br />00226<br />00227<br />00228<br />00229<br />00230<br />00231<br />00232<br />00233<br />00234<br />00235<br />00236<br />00237<br />00238<br />00239<br />00240<br />
+00241<br />00242<br />00243<br />00244<br />00245<br />00246<br />00247<br />00248<br />00249<br />00250<br />00251<br />00252<br />00253<br />00254<br />00255<br />00256<br />00257<br />00258<br />00259<br />00260<br />
+00261<br />00262<br />00263<br />00264<br />00265<br />00266<br />00267<br />00268<br />00269<br />00270<br />00271<br />00272<br />00273<br />00274<br />00275<br />00276<br />00277<br />00278<br />00279<br />00280<br />
+00281<br />00282<br />00283<br />00284<br />00285<br />00286<br />00287<br />00288<br />00289<br />00290<br />00291<br />00292<br />00293<br />00294<br />00295<br />00296<br />00297<br />00298<br />00299<br />00300<br />
+00301<br />00302<br />00303<br />00304<br />00305<br />00306<br />00307<br />00308<br />00309<br />00310<br />00311<br />00312<br />00313<br />00314<br />00315<br />00316<br />00317<br />00318<br />00319<br />00320<br />
+00321<br />00322<br />00323<br />00324<br />00325<br />00326<br />00327<br />00328<br />00329<br />00330<br />00331<br />00332<br />00333<br />00334<br />00335<br />00336<br />00337<br />00338<br />00339<br />00340<br />
+00341<br />00342<br />00343<br />00344<br />00345<br />00346<br />00347<br />00348<br />00349<br />00350<br />00351<br />00352<br />00353<br />00354<br />00355<br />00356<br />00357<br />00358<br />00359<br />00360<br />
+00361<br />00362<br />00363<br />00364<br />00365<br />00366<br />00367<br />00368<br />00369<br />00370<br />00371<br />00372<br />00373<br />00374<br />00375<br />00376<br />00377<br />00378<br />00379<br />00380<br />
+00381<br />00382<br />00383<br />00384<br />00385<br />00386<br />00387<br />00388<br />00389<br />00390<br />00391<br />00392<br />00393<br />00394<br />00395<br />00396<br />00397<br />00398<br />00399<br />00400<br />
+00401<br />00402<br />00403<br />00404<br />00405<br />00406<br />00407<br />00408<br />00409<br />00410<br />00411<br />00412<br />00413<br />00414<br />00415<br />00416<br />00417<br />00418<br />00419<br />00420<br />
+00421<br />00422<br />00423<br />00424<br />00425<br />00426<br />00427<br />00428<br />00429<br />00430<br />00431<br />00432<br />00433<br />00434<br />00435<br />00436<br />00437<br />00438<br />00439<br />00440<br />
+00441<br />00442<br />00443<br />00444<br />00445<br />00446<br />00447<br />00448<br />00449<br />00450<br />00451<br />00452<br />00453<br />00454<br />00455<br />00456<br />00457<br />00458<br />00459<br />00460<br />
+00461<br />00462<br />00463<br />00464<br />00465<br />00466<br />00467<br />00468<br />00469<br />00470<br />00471<br />00472<br />00473<br />00474<br />00475<br />00476<br />00477<br />00478</span></td>
+<td class="source"><pre class="source"><a name="0"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../skaarjpack/monster.html" class="source">Monster</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../xgame/xpawn.html" class="source">xPawn</a></span>;
+<a name="2"></a>
+<a name="3"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bMeleeFighter;
+<a name="4"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bShotAnim;
+<a name="5"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bCanDodge;
+<a name="6"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bVictoryNext;
+<a name="7"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bTryToWalk;
+<a name="8"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bBoss;
+<a name="9"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bAlwaysStrafe;
+<a name="10"></a>
+<a name="11"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span> DodgeSkillAdjust;
+<a name="12"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> HitSound[<span class="source_int">4</span>];
+<a name="13"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> DeathSound[<span class="source_int">4</span>];
+<a name="14"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> ChallengeSound[<span class="source_int">4</span>];
+<a name="15"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> FireSound;
+<a name="16"></a><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/ammunition.html" class="source">Ammunition</a></span>&gt; AmmunitionClass;
+<a name="17"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/ammunition.html" class="source">Ammunition</a></span> MyAmmo;
+<a name="18"></a><span class="source_keyword">var</span> <span class="source_keyword">int</span> ScoringValue;
+<a name="19"></a>
+<a name="20"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html#FireProperties" class="source">FireProperties</a></span> SavedFireProperties;
+<a name="21"></a>
+<a name="22"></a><span class="source_comment">// combat interface
+</span><a name="23"></a><span class="source_keyword">function</span> RangedAttack(<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">A</span>);
+<a name="24"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanAttack(<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">A</span>);
+<a name="25"></a><span class="source_keyword">function</span> StopFiring();
+<a name="26"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> SplashDamage();
+<a name="27"></a><span class="source_keyword">function</span> <span class="source_keyword">float</span> GetDamageRadius();
+<a name="28"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> RecommendSplashDamage();
+<a name="29"></a>
+<a name="30"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> TurnOff()
+<a name="31"></a>{
+<a name="32"></a>	<span class="source_keyword">if</span> ( Health &gt; <span class="source_int">0</span> )
+<a name="33"></a>		bVictoryNext = <span class="source_keyword">true</span>;
+<a name="34"></a>}
+<a name="35"></a>
+<a name="36"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ForceDefaultCharacter()
+<a name="37"></a>{
+<a name="38"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;		<span class="source_comment">// never replace monsters w/ default character
+</span><a name="39"></a>}
+<a name="40"></a>
+<a name="41"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsHeadShot(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> loc, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ray, <span class="source_keyword">float</span> AdditionalScale)
+<a name="42"></a>{
+<a name="43"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HeadLoc, <span class="source_type">B</span>, <span class="source_type">M</span>, diff;
+<a name="44"></a>    <span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">t</span>, DotMM, <span class="source_type">Distance</span>;
+<a name="45"></a>
+<a name="46"></a>    <span class="source_keyword">if</span> ( HeadBone != <span class="source_name">''</span> )
+<a name="47"></a>        <span class="source_keyword">return</span> <span class="source_keyword">super</span>.IsHeadShot(Loc,Ray,AdditionalScale);
+<a name="48"></a>
+<a name="49"></a>	HeadRadius = <span class="source_int">0.25</span> * CollisionHeight;
+<a name="50"></a>
+<a name="51"></a>    HeadLoc = Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>);
+<a name="52"></a>
+<a name="53"></a>    <span class="source_comment">// Express snipe trace line in terms of B + tM
+</span><a name="54"></a>    <span class="source_type">B</span> = loc;
+<a name="55"></a>    <span class="source_type">M</span> = ray * (<span class="source_int">2.0</span> * CollisionHeight + <span class="source_int">2.0</span> * CollisionRadius);
+<a name="56"></a>
+<a name="57"></a>    <span class="source_comment">// Find Point-Line Squared Distance
+</span><a name="58"></a>    diff = HeadLoc - <span class="source_type">B</span>;
+<a name="59"></a>    <span class="source_type">t</span> = <span class="source_type">M</span> Dot diff;
+<a name="60"></a>    <span class="source_keyword">if</span> (<span class="source_type">t</span> &gt; <span class="source_int">0</span>)
+<a name="61"></a>    {
+<a name="62"></a>        DotMM = <span class="source_type">M</span> dot <span class="source_type">M</span>;
+<a name="63"></a>        <span class="source_keyword">if</span> (<span class="source_type">t</span> &lt; DotMM)
+<a name="64"></a>        {
+<a name="65"></a>            <span class="source_type">t</span> = <span class="source_type">t</span> / DotMM;
+<a name="66"></a>            diff = diff - (<span class="source_type">t</span> * <span class="source_type">M</span>);
+<a name="67"></a>        }
+<a name="68"></a>        <span class="source_keyword">else</span>
+<a name="69"></a>        {
+<a name="70"></a>            <span class="source_type">t</span> = <span class="source_int">1</span>;
+<a name="71"></a>            diff -= <span class="source_type">M</span>;
+<a name="72"></a>        }
+<a name="73"></a>    }
+<a name="74"></a>    <span class="source_keyword">else</span>
+<a name="75"></a>        <span class="source_type">t</span> = <span class="source_int">0</span>;
+<a name="76"></a>
+<a name="77"></a>    <span class="source_type">Distance</span> = Sqrt(diff Dot diff);
+<a name="78"></a>
+<a name="79"></a>    <span class="source_keyword">return</span> (<span class="source_type">Distance</span> &lt; (HeadRadius * HeadScale * AdditionalScale));
+<a name="80"></a>}
+<a name="81"></a>
+<a name="82"></a><span class="source_keyword">function</span> Fire( <span class="source_keyword2">optional</span> <span class="source_keyword">float</span> <span class="source_type">F</span> )
+<a name="83"></a>{
+<a name="84"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> BestTarget;
+<a name="85"></a>    <span class="source_keyword">local</span> <span class="source_keyword">float</span> bestAim, bestDist;
+<a name="86"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> FireDir, <span class="source_type">X</span>,<span class="source_type">Y</span>,<span class="source_type">Z</span>;
+<a name="87"></a>    
+<a name="88"></a>    bestAim = <span class="source_int">0.90</span>;
+<a name="89"></a>    GetAxes(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Rotation</span>,<span class="source_type">X</span>,<span class="source_type">Y</span>,<span class="source_type">Z</span>);
+<a name="90"></a>    FireDir = <span class="source_type">X</span>;
+<a name="91"></a>    BestTarget = <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.PickTarget(bestAim, bestDist, FireDir, GetFireStart(<span class="source_type">X</span>,<span class="source_type">Y</span>,<span class="source_type">Z</span>), <span class="source_int">6000</span>); 
+<a name="92"></a>    RangedAttack(BestTarget);
+<a name="93"></a>}
+<a name="94"></a>
+<a name="95"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> PreferMelee()
+<a name="96"></a>{
+<a name="97"></a>	<span class="source_keyword">return</span> bMeleeFighter;
+<a name="98"></a>}
+<a name="99"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasRangedAttack();
+<a name="100"></a><span class="source_keyword">function</span> <span class="source_keyword">float</span> RangedAttackTime();
+<a name="101"></a>
+<a name="102"></a><span class="source_keyword">function</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> GetFireStart(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">X</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">Y</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">Z</span>)
+<a name="103"></a>{
+<a name="104"></a>    <span class="source_keyword">return</span> Location + <span class="source_int">0.5</span> * CollisionRadius * (<span class="source_type">X</span>+<span class="source_type">Y</span>);
+<a name="105"></a>}
+<a name="106"></a>
+<a name="107"></a><span class="source_keyword">function</span> FireProjectile()
+<a name="108"></a>{	
+<a name="109"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> FireStart,<span class="source_type">X</span>,<span class="source_type">Y</span>,<span class="source_type">Z</span>;
+<a name="110"></a>	
+<a name="111"></a>	<span class="source_keyword">if</span> ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> != <span class="source_keyword">None</span> )
+<a name="112"></a>	{
+<a name="113"></a>		GetAxes(<span class="source_type">Rotation</span>,<span class="source_type">X</span>,<span class="source_type">Y</span>,<span class="source_type">Z</span>);
+<a name="114"></a>		FireStart = GetFireStart(<span class="source_type">X</span>,<span class="source_type">Y</span>,<span class="source_type">Z</span>);
+<a name="115"></a>		<span class="source_keyword">if</span> ( !SavedFireProperties.bInitialized )
+<a name="116"></a>		{
+<a name="117"></a>			SavedFireProperties.AmmoClass = MyAmmo.<span class="source_keyword">Class</span>;
+<a name="118"></a>			SavedFireProperties.ProjectileClass = MyAmmo.ProjectileClass;
+<a name="119"></a>			SavedFireProperties.WarnTargetPct = MyAmmo.WarnTargetPct;
+<a name="120"></a>			SavedFireProperties.MaxRange = MyAmmo.MaxRange;
+<a name="121"></a>			SavedFireProperties.bTossed = MyAmmo.bTossed;
+<a name="122"></a>			SavedFireProperties.bTrySplash = MyAmmo.bTrySplash;
+<a name="123"></a>			SavedFireProperties.bLeadTarget = MyAmmo.bLeadTarget;
+<a name="124"></a>			SavedFireProperties.bInstantHit = MyAmmo.bInstantHit;
+<a name="125"></a>			SavedFireProperties.bInitialized = <span class="source_keyword">true</span>;
+<a name="126"></a>		}
+<a name="127"></a>
+<a name="128"></a>		Spawn(MyAmmo.ProjectileClass,,,FireStart,<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.AdjustAim(SavedFireProperties,FireStart,<span class="source_int">600</span>));
+<a name="129"></a>		PlaySound(FireSound,SLOT_Interact);
+<a name="130"></a>	}
+<a name="131"></a>}
+<a name="132"></a>
+<a name="133"></a><span class="source_keyword">event</span> PostBeginPlay()
+<a name="134"></a>{
+<a name="135"></a>	<span class="source_keyword">Super</span>.PostBeginPlay();
+<a name="136"></a>	
+<a name="137"></a>	<span class="source_keyword">if</span> ( (ControllerClass != <span class="source_keyword">None</span>) && (<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> == <span class="source_keyword">None</span>) )
+<a name="138"></a>		<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> = spawn(ControllerClass);
+<a name="139"></a>	<span class="source_keyword">if</span> ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> != <span class="source_keyword">None</span> )
+<a name="140"></a>	{
+<a name="141"></a>		<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.Possess(self);
+<a name="142"></a>		MyAmmo = spawn(AmmunitionClass);
+<a name="143"></a>	}
+<a name="144"></a>}
+<a name="145"></a>
+<a name="146"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> SpawnGiblet( <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../xeffects/gib.html" class="source">Gib</a></span>&gt; GibClass, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> Location, <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span> <span class="source_type">Rotation</span>, <span class="source_keyword">float</span> <span class="source_type">GibPerterbation</span> )
+<a name="147"></a>{
+<a name="148"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../xeffects/gib.html" class="source">Gib</a></span> Giblet;
+<a name="149"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">Direction</span>, Dummy;
+<a name="150"></a>
+<a name="151"></a>    <span class="source_keyword">if</span>( (GibClass == <span class="source_keyword">None</span>) || <span class="source_keyword">class</span><span class="source_name">'GameInfo'</span>.<span class="source_keyword2">static</span>.UseLowGore() )
+<a name="152"></a>        <span class="source_keyword">return</span>;
+<a name="153"></a>	
+<a name="154"></a>	<span class="source_type">Instigator</span> = self;
+<a name="155"></a>    Giblet = Spawn( GibClass,,, Location, <span class="source_type">Rotation</span> );
+<a name="156"></a>
+<a name="157"></a>    <span class="source_keyword">if</span>( Giblet == <span class="source_keyword">None</span> )
+<a name="158"></a>        <span class="source_keyword">return</span>;
+<a name="159"></a>
+<a name="160"></a>	Giblet.SetDrawScale(Giblet.DrawScale * (CollisionRadius*CollisionHeight)/<span class="source_int">1100</span>); <span class="source_comment">// 1100 = 25 * 44
+</span><a name="161"></a>    <span class="source_type">GibPerterbation</span> *= <span class="source_int">32768.0</span>;
+<a name="162"></a>    <span class="source_type">Rotation</span>.Pitch += ( FRand() * <span class="source_int">2.0</span> * <span class="source_type">GibPerterbation</span> ) - <span class="source_type">GibPerterbation</span>;
+<a name="163"></a>    <span class="source_type">Rotation</span>.Yaw += ( FRand() * <span class="source_int">2.0</span> * <span class="source_type">GibPerterbation</span> ) - <span class="source_type">GibPerterbation</span>;
+<a name="164"></a>    <span class="source_type">Rotation</span>.Roll += ( FRand() * <span class="source_int">2.0</span> * <span class="source_type">GibPerterbation</span> ) - <span class="source_type">GibPerterbation</span>;
+<a name="165"></a>
+<a name="166"></a>    GetAxes( <span class="source_type">Rotation</span>, Dummy, Dummy, <span class="source_type">Direction</span> );
+<a name="167"></a>
+<a name="168"></a>    Giblet.Velocity = Velocity + Normal(<span class="source_type">Direction</span>) * <span class="source_int">512.0</span>;
+<a name="169"></a>}
+<a name="170"></a>
+<a name="171"></a><span class="source_keyword">function</span> LandThump()
+<a name="172"></a>{
+<a name="173"></a>	<span class="source_comment">// animation notify - play sound if actually landed, and animation also shows it
+</span><a name="174"></a>	<span class="source_keyword">if</span> ( Physics == PHYS_None)
+<a name="175"></a>		PlaySound(<span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span><span class="source_name">'Thump'</span>);
+<a name="176"></a>}
+<a name="177"></a>
+<a name="178"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> SameSpeciesAs(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>)
+<a name="179"></a>{
+<a name="180"></a>	<span class="source_keyword">return</span> ( (<span class="source_type"><a href="../skaarjpack/monster.html" class="source">Monster</a></span>(<span class="source_type">P</span>) != <span class="source_keyword">None</span>) && (ClassIsChildOf(<span class="source_keyword">Class</span>,<span class="source_type">P</span>.<span class="source_keyword">Class</span>) || ClassIsChildOf(<span class="source_type">P</span>.<span class="source_keyword">Class</span>,<span class="source_keyword">Class</span>)) );
+<a name="181"></a>}
+<a name="182"></a>
+<a name="183"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> AssignInitialPose()
+<a name="184"></a>{
+<a name="185"></a>	TweenAnim(MovementAnims[<span class="source_int">0</span>],<span class="source_int">0.0</span>);
+<a name="186"></a>}
+<a name="187"></a>
+<a name="188"></a><span class="source_keyword">function</span> PlayChallengeSound()
+<a name="189"></a>{
+<a name="190"></a>	PlaySound(ChallengeSound[Rand(<span class="source_int">4</span>)],SLOT_Talk);
+<a name="191"></a>}
+<a name="192"></a>
+<a name="193"></a><span class="source_keyword">function</span> Destroyed()
+<a name="194"></a>{
+<a name="195"></a>	<span class="source_keyword">if</span> ( MyAmmo != <span class="source_keyword">None</span> )
+<a name="196"></a>		MyAmmo.Destroy();
+<a name="197"></a>	<span class="source_keyword">Super</span>.Destroyed();
+<a name="198"></a>}
+<a name="199"></a>
+<a name="200"></a><span class="source_keyword">function</span> PlayVictory();
+<a name="201"></a>
+<a name="202"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> AnimEnd(<span class="source_keyword">int</span> <span class="source_type">Channel</span>)
+<a name="203"></a>{
+<a name="204"></a>	AnimAction = <span class="source_name">''</span>;
+<a name="205"></a>	<span class="source_keyword">if</span> ( bVictoryNext && (Physics != PHYS_Falling) )
+<a name="206"></a>	{
+<a name="207"></a>		bVictoryNext = <span class="source_keyword">false</span>;
+<a name="208"></a>		PlayVictory();
+<a name="209"></a>	}
+<a name="210"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> ( bShotAnim )
+<a name="211"></a>	{	
+<a name="212"></a>		bShotAnim = <span class="source_keyword">false</span>;
+<a name="213"></a>		<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.bPreparingMove = <span class="source_keyword">false</span>;
+<a name="214"></a>	}
+<a name="215"></a>	<span class="source_keyword">Super</span>.AnimEnd(<span class="source_type">Channel</span>);
+<a name="216"></a>}
+<a name="217"></a>
+<a name="218"></a><span class="source_keyword">function</span> SetMovementPhysics()
+<a name="219"></a>{
+<a name="220"></a>	SetPhysics(PHYS_Falling);
+<a name="221"></a>}
+<a name="222"></a>
+<a name="223"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsPlayerPawn()
+<a name="224"></a>{
+<a name="225"></a>	<span class="source_keyword">return</span> <span class="source_keyword">true</span>; <span class="source_comment">// so can use movers
+</span><a name="226"></a>}
+<a name="227"></a>
+<a name="228"></a><span class="source_keyword">function</span> PlayTakeHit(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>)
+<a name="229"></a>{
+<a name="230"></a>    PlayDirectionalHit(<span class="source_type">HitLocation</span>);
+<a name="231"></a>
+<a name="232"></a>    <span class="source_keyword">if</span>( <span class="source_type">Level</span>.TimeSeconds - LastPainSound &lt; MinTimeBetweenPainSounds )
+<a name="233"></a>        <span class="source_keyword">return</span>;
+<a name="234"></a>
+<a name="235"></a>    LastPainSound = <span class="source_type">Level</span>.TimeSeconds;
+<a name="236"></a>    PlaySound(HitSound[Rand(<span class="source_int">4</span>)], SLOT_Pain,<span class="source_int">2</span>*TransientSoundVolume,,<span class="source_int">400</span>); 
+<a name="237"></a>}
+<a name="238"></a>
+<a name="239"></a>
+<a name="240"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> PlayDying(<span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HitLoc)
+<a name="241"></a>{
+<a name="242"></a>	<span class="source_type"><a href="../engine/ambientsound.html" class="source">AmbientSound</a></span> = <span class="source_keyword">None</span>;
+<a name="243"></a>    bCanTeleport = <span class="source_keyword">false</span>; 
+<a name="244"></a>    bReplicateMovement = <span class="source_keyword">false</span>;
+<a name="245"></a>    bTearOff = <span class="source_keyword">true</span>;
+<a name="246"></a>    bPlayedDeath = <span class="source_keyword">true</span>;
+<a name="247"></a>
+<a name="248"></a>	LifeSpan = RagdollLifeSpan;
+<a name="249"></a>    GotoState(<span class="source_name">'Dying'</span>);
+<a name="250"></a>		
+<a name="251"></a>	Velocity += TearOffMomentum;
+<a name="252"></a>    BaseEyeHeight = Default.BaseEyeHeight;
+<a name="253"></a>    SetInvisibility(<span class="source_int">0.0</span>);
+<a name="254"></a>    PlayDirectionalDeath(HitLoc);
+<a name="255"></a>    SetPhysics(PHYS_Falling);
+<a name="256"></a>}
+<a name="257"></a>
+<a name="258"></a><span class="source_keyword">function</span> PlayDyingSound()
+<a name="259"></a>{
+<a name="260"></a>	<span class="source_keyword">if</span> ( bGibbed )
+<a name="261"></a>	{
+<a name="262"></a>        PlaySound(GibGroupClass.<span class="source_keyword2">static</span>.GibSound(), SLOT_Pain,<span class="source_int">2.5</span>*TransientSoundVolume,<span class="source_keyword">true</span>,<span class="source_int">500</span>);
+<a name="263"></a>		<span class="source_keyword">return</span>;
+<a name="264"></a>	}
+<a name="265"></a>
+<a name="266"></a>	PlaySound(DeathSound[Rand(<span class="source_int">4</span>)], SLOT_Pain,<span class="source_int">2.5</span>*TransientSoundVolume, <span class="source_keyword">true</span>,<span class="source_int">500</span>);
+<a name="267"></a>}
+<a name="268"></a>
+<a name="269"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> MeleeDamageTarget(<span class="source_keyword">int</span> hitdamage, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> pushdir)
+<a name="270"></a>{
+<a name="271"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_type">HitNormal</span>;
+<a name="272"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> HitActor;
+<a name="273"></a>	
+<a name="274"></a>	<span class="source_comment">// check if still in melee range
+</span><a name="275"></a>	<span class="source_keyword">If</span> ( (<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">target</span> != <span class="source_keyword">None</span>) && (VSize(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.Location - Location) &lt;= MeleeRange * <span class="source_int">1.4</span> + <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.CollisionRadius + CollisionRadius)
+<a name="276"></a>		&& ((Physics == PHYS_Flying) || (Physics == PHYS_Swimming) || (Abs(Location.<span class="source_type">Z</span> - <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.Location.<span class="source_type">Z</span>) 
+<a name="277"></a>			&lt;= FMax(CollisionHeight, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.CollisionHeight) + <span class="source_int">0.5</span> * FMin(CollisionHeight, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.CollisionHeight))) )
+<a name="278"></a>	{	
+<a name="279"></a>		HitActor = Trace(<span class="source_type">HitLocation</span>, <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.Location, Location, <span class="source_keyword">false</span>);
+<a name="280"></a>		<span class="source_keyword">if</span> ( HitActor != <span class="source_keyword">None</span> )
+<a name="281"></a>			<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="282"></a>		<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.<span class="source_type">Target</span>.TakeDamage(hitdamage, self,<span class="source_type">HitLocation</span>, pushdir, <span class="source_keyword">class</span><span class="source_name">'MeleeDamage'</span>);
+<a name="283"></a>		<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="284"></a>	}
+<a name="285"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="286"></a>}
+<a name="287"></a>
+<a name="288"></a><span class="source_keyword">function</span> PlayVictoryAnimation()
+<a name="289"></a>{
+<a name="290"></a>	bVictoryNext = <span class="source_keyword">true</span>;
+<a name="291"></a>}	
+<a name="292"></a>	
+<a name="293"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> SetAnimAction(<span class="source_keyword">name</span> NewAction)
+<a name="294"></a>{
+<a name="295"></a>    <span class="source_keyword">if</span> ( !bWaitForAnim || (<span class="source_type">Level</span>.NetMode == NM_Client) )
+<a name="296"></a>    {
+<a name="297"></a>		AnimAction = NewAction;
+<a name="298"></a>		<span class="source_keyword">if</span> ( PlayAnim(AnimAction,,<span class="source_int">0.1</span>) )
+<a name="299"></a>		{
+<a name="300"></a>			<span class="source_keyword">if</span> ( Physics != PHYS_None )
+<a name="301"></a>				bWaitForAnim = <span class="source_keyword">true</span>;
+<a name="302"></a>		}
+<a name="303"></a>    }
+<a name="304"></a>}
+<a name="305"></a>
+<a name="306"></a><span class="source_keyword">function</span> CreateGib( <span class="source_keyword">Name</span> boneName, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>, <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span> <span class="source_type">r</span> )
+<a name="307"></a>{
+<a name="308"></a>    <span class="source_keyword">if</span> ( <span class="source_keyword">class</span><span class="source_name">'GameInfo'</span>.<span class="source_keyword2">static</span>.UseLowGore() )
+<a name="309"></a>		<span class="source_keyword">return</span>;
+<a name="310"></a>		
+<a name="311"></a>	HitFX[HitFxTicker].bone = boneName;
+<a name="312"></a>	HitFX[HitFxTicker].damtype = <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>;
+<a name="313"></a>	HitFX[HitFxTicker].bSever = <span class="source_keyword">true</span>;
+<a name="314"></a>    HitFX[HitFxTicker].rotDir = <span class="source_type">r</span>;
+<a name="315"></a>    HitFxTicker = HitFxTicker + <span class="source_int">1</span>;
+<a name="316"></a>    <span class="source_keyword">if</span>( HitFxTicker &gt; ArrayCount(HitFX)-<span class="source_int">1</span> )
+<a name="317"></a>        HitFxTicker = <span class="source_int">0</span>;
+<a name="318"></a>}
+<a name="319"></a>
+<a name="320"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> ProcessHitFX()
+<a name="321"></a>{
+<a name="322"></a>    <span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">GibPerterbation</span>;
+<a name="323"></a>
+<a name="324"></a>    <span class="source_keyword">if</span>( (<span class="source_type">Level</span>.NetMode == NM_DedicatedServer) || <span class="source_keyword">class</span><span class="source_name">'GameInfo'</span>.<span class="source_keyword2">static</span>.UseLowGore() )
+<a name="325"></a>        <span class="source_keyword">return</span>;
+<a name="326"></a>
+<a name="327"></a>    <span class="source_keyword">for</span> ( SimHitFxTicker = SimHitFxTicker; SimHitFxTicker != HitFxTicker; SimHitFxTicker = (SimHitFxTicker + <span class="source_int">1</span>) % ArrayCount(HitFX) )
+<a name="328"></a>    {
+<a name="329"></a>        <span class="source_keyword">if</span>( HitFX[SimHitFxTicker].damtype == <span class="source_keyword">None</span> )
+<a name="330"></a>            continue;
+<a name="331"></a>			
+<a name="332"></a>        <span class="source_keyword">if</span>( HitFX[SimHitFxTicker].bSever )
+<a name="333"></a>        {
+<a name="334"></a>            <span class="source_type">GibPerterbation</span> = HitFX[SimHitFxTicker].damtype.default.<span class="source_type">GibPerterbation</span>;
+<a name="335"></a>
+<a name="336"></a>            <span class="source_keyword">switch</span>( HitFX[SimHitFxTicker].bone )
+<a name="337"></a>            {
+<a name="338"></a>                <span class="source_keyword">case</span> <span class="source_name">'lthigh'</span>:
+<a name="339"></a>                <span class="source_keyword">case</span> <span class="source_name">'rthigh'</span>:
+<a name="340"></a>                    SpawnGiblet( GetGibClass(EGT_Calf), Location - CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="341"></a>                    SpawnGiblet( GetGibClass(EGT_Calf), Location - CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="342"></a>                    GibCountCalf -= <span class="source_int">2</span>;
+<a name="343"></a>                    <span class="source_keyword">break</span>;
+<a name="344"></a>                
+<a name="345"></a>                <span class="source_keyword">case</span> <span class="source_name">'rfarm'</span>:
+<a name="346"></a>                <span class="source_keyword">case</span> <span class="source_name">'lfarm'</span>:
+<a name="347"></a>                    SpawnGiblet( GetGibClass(EGT_UpperArm), Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="348"></a>                    SpawnGiblet( GetGibClass(EGT_Forearm), Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="349"></a>                    GibCountForearm--;
+<a name="350"></a>                    GibCountUpperArm--;
+<a name="351"></a>                    <span class="source_keyword">break</span>;
+<a name="352"></a>                
+<a name="353"></a>                <span class="source_keyword">case</span> <span class="source_name">'head'</span>:
+<a name="354"></a>                    SpawnGiblet( GetGibClass(EGT_Head), Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.8</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="355"></a>                    GibCountTorso--;
+<a name="356"></a>                    <span class="source_keyword">break</span>;
+<a name="357"></a>                
+<a name="358"></a>                <span class="source_keyword">case</span> <span class="source_name">'spine'</span>:
+<a name="359"></a>                <span class="source_keyword">case</span> <span class="source_name">'none'</span>:
+<a name="360"></a>                    SpawnGiblet( GetGibClass(EGT_Torso), Location, HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="361"></a>                    GibCountTorso--;
+<a name="362"></a>					bGibbed = <span class="source_keyword">true</span>;
+<a name="363"></a>                    <span class="source_keyword">while</span>( GibCountHead-- &gt; <span class="source_int">0</span> )
+<a name="364"></a>                        SpawnGiblet( GetGibClass(EGT_Head), Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.8</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="365"></a>                    <span class="source_keyword">while</span>( GibCountForearm-- &gt; <span class="source_int">0</span> )
+<a name="366"></a>                        SpawnGiblet( GetGibClass(EGT_UpperArm), Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="367"></a>                    <span class="source_keyword">while</span>( GibCountUpperArm-- &gt; <span class="source_int">0</span> )
+<a name="368"></a>                        SpawnGiblet( GetGibClass(EGT_Forearm), Location + CollisionHeight * vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0.5</span>), HitFX[SimHitFxTicker].rotDir, <span class="source_type">GibPerterbation</span> );
+<a name="369"></a>                    bHidden = <span class="source_keyword">true</span>;
+<a name="370"></a>                    <span class="source_keyword">break</span>;
+<a name="371"></a>            }
+<a name="372"></a>        }
+<a name="373"></a>    }
+<a name="374"></a>}
+<a name="375"></a>
+<a name="376"></a><span class="source_keyword">State</span> Dying
+<a name="377"></a>{
+<a name="378"></a><span class="source_keyword">ignores</span> AnimEnd, <span class="source_type"><a href="../engine/trigger.html" class="source">Trigger</a></span>, Bump, <span class="source_type">HitWall</span>, HeadVolumeChange, PhysicsVolumeChange, Falling, BreathTimer;
+<a name="379"></a>
+<a name="380"></a>	<span class="source_keyword">function</span> Landed(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>)
+<a name="381"></a>	{
+<a name="382"></a>		SetPhysics(PHYS_None);
+<a name="383"></a>		<span class="source_keyword">if</span> ( !IsAnimating(<span class="source_int">0</span>) )
+<a name="384"></a>			LandThump();
+<a name="385"></a>		<span class="source_keyword">Super</span>.Landed(<span class="source_type">HitNormal</span>);
+<a name="386"></a>	}
+<a name="387"></a>
+<a name="388"></a>    <span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> Timer()
+<a name="389"></a>	{
+<a name="390"></a>		<span class="source_keyword">if</span> ( !PlayerCanSeeMe() )
+<a name="391"></a>			Destroy();
+<a name="392"></a>        <span class="source_keyword">else</span> <span class="source_keyword">if</span> ( LifeSpan &lt;= DeResTime && bDeRes == <span class="source_keyword">false</span> )
+<a name="393"></a>            StartDeRes();
+<a name="394"></a> 		<span class="source_keyword">else</span>
+<a name="395"></a> 			SetTimer(<span class="source_int">1.0</span>, <span class="source_keyword">false</span>);
+<a name="396"></a> 	}
+<a name="397"></a>}
+<a name="398"></a>
+<a name="399"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> StartDeRes()
+<a name="400"></a>{
+<a name="401"></a>    <span class="source_keyword">if</span>( <span class="source_type">Level</span>.NetMode == NM_DedicatedServer )
+<a name="402"></a>        <span class="source_keyword">return</span>;
+<a name="403"></a>
+<a name="404"></a>	AmbientGlow=<span class="source_int">254</span>;
+<a name="405"></a>	MaxLights=<span class="source_int">0</span>;
+<a name="406"></a>
+<a name="407"></a>	Skins[<span class="source_int">0</span>]=DeResMat0;
+<a name="408"></a>	Skins[<span class="source_int">1</span>]=DeResMat1;
+<a name="409"></a>
+<a name="410"></a>	<span class="source_comment">// Turn off collision when we de-res (avoids rockets etc. hitting corpse!)
+</span><a name="411"></a>	SetCollision(<span class="source_keyword">false</span>, <span class="source_keyword">false</span>, <span class="source_keyword">false</span>);
+<a name="412"></a>
+<a name="413"></a>	<span class="source_comment">// Remove/disallow projectors
+</span><a name="414"></a>	Projectors.Remove(<span class="source_int">0</span>, Projectors.Length);
+<a name="415"></a>	bAcceptsProjectors = <span class="source_keyword">false</span>;
+<a name="416"></a>
+<a name="417"></a>	<span class="source_comment">// Remove shadow
+</span><a name="418"></a>	<span class="source_keyword">if</span>(PlayerShadow != <span class="source_keyword">None</span>)
+<a name="419"></a>		PlayerShadow.bShadowActive = <span class="source_keyword">false</span>;
+<a name="420"></a>
+<a name="421"></a>	<span class="source_comment">// Remove flames
+</span><a name="422"></a>	RemoveFlamingEffects();
+<a name="423"></a>
+<a name="424"></a>	<span class="source_comment">// Turn off any overlays
+</span><a name="425"></a>	SetOverlayMaterial(<span class="source_keyword">None</span>, <span class="source_int">0.0f</span>, <span class="source_keyword">true</span>);
+<a name="426"></a>
+<a name="427"></a>    bDeRes = <span class="source_keyword">true</span>;
+<a name="428"></a>}
+<a name="429"></a>
+<a name="430"></a><span class="source_keyword">defaultproperties</span>
+<a name="431"></a>{
+<a name="432"></a>     bMeleeFighter=<span class="source_keyword">True</span>
+<a name="433"></a>     bCanDodge=<span class="source_keyword">True</span>
+<a name="434"></a>     ScoringValue=<span class="source_int">1</span>
+<a name="435"></a>     IdleHeavyAnim=<span class="source_string">"Idle_Rest"</span>
+<a name="436"></a>     IdleRifleAnim=<span class="source_string">"Idle_Rest"</span>
+<a name="437"></a>     bCanCrouch=<span class="source_keyword">False</span>
+<a name="438"></a>     bCanPickupInventory=<span class="source_keyword">False</span>
+<a name="439"></a>     MeleeRange=<span class="source_int">90.000000</span>
+<a name="440"></a>     WalkingPct=<span class="source_int">0.300000</span>
+<a name="441"></a>     CrouchedPct=<span class="source_int">0.300000</span>
+<a name="442"></a>     ControllerClass=<span class="source_keyword">Class</span><span class="source_name">'SkaarjPack.MonsterController'</span>
+<a name="443"></a>     TurnLeftAnim=<span class="source_string">"Turn"</span>
+<a name="444"></a>     TurnRightAnim=<span class="source_string">"Turn"</span>
+<a name="445"></a>     CrouchAnims(<span class="source_int">0</span>)=<span class="source_string">"Crouch"</span>
+<a name="446"></a>     CrouchAnims(<span class="source_int">1</span>)=<span class="source_string">"Crouch"</span>
+<a name="447"></a>     CrouchAnims(<span class="source_int">2</span>)=<span class="source_string">"Crouch"</span>
+<a name="448"></a>     CrouchAnims(<span class="source_int">3</span>)=<span class="source_string">"Crouch"</span>
+<a name="449"></a>     AirAnims(<span class="source_int">0</span>)=<span class="source_string">"Jump"</span>
+<a name="450"></a>     AirAnims(<span class="source_int">1</span>)=<span class="source_string">"Jump"</span>
+<a name="451"></a>     AirAnims(<span class="source_int">2</span>)=<span class="source_string">"Jump"</span>
+<a name="452"></a>     AirAnims(<span class="source_int">3</span>)=<span class="source_string">"Jump"</span>
+<a name="453"></a>     TakeoffAnims(<span class="source_int">0</span>)=<span class="source_string">"Jump"</span>
+<a name="454"></a>     TakeoffAnims(<span class="source_int">1</span>)=<span class="source_string">"Jump"</span>
+<a name="455"></a>     TakeoffAnims(<span class="source_int">2</span>)=<span class="source_string">"Jump"</span>
+<a name="456"></a>     TakeoffAnims(<span class="source_int">3</span>)=<span class="source_string">"Jump"</span>
+<a name="457"></a>     LandAnims(<span class="source_int">0</span>)=<span class="source_string">"Land"</span>
+<a name="458"></a>     LandAnims(<span class="source_int">1</span>)=<span class="source_string">"Land"</span>
+<a name="459"></a>     LandAnims(<span class="source_int">2</span>)=<span class="source_string">"Land"</span>
+<a name="460"></a>     LandAnims(<span class="source_int">3</span>)=<span class="source_string">"Land"</span>
+<a name="461"></a>     DoubleJumpAnims(<span class="source_int">0</span>)=<span class="source_string">"Jump"</span>
+<a name="462"></a>     DoubleJumpAnims(<span class="source_int">1</span>)=<span class="source_string">"Jump"</span>
+<a name="463"></a>     DoubleJumpAnims(<span class="source_int">2</span>)=<span class="source_string">"Jump"</span>
+<a name="464"></a>     DoubleJumpAnims(<span class="source_int">3</span>)=<span class="source_string">"Jump"</span>
+<a name="465"></a>     DodgeAnims(<span class="source_int">0</span>)=<span class="source_string">"Jump"</span>
+<a name="466"></a>     DodgeAnims(<span class="source_int">1</span>)=<span class="source_string">"Jump"</span>
+<a name="467"></a>     DodgeAnims(<span class="source_int">2</span>)=<span class="source_string">"Jump"</span>
+<a name="468"></a>     DodgeAnims(<span class="source_int">3</span>)=<span class="source_string">"Jump"</span>
+<a name="469"></a>     AirStillAnim=<span class="source_string">"Jump"</span>
+<a name="470"></a>     TakeoffStillAnim=<span class="source_string">"Jump"</span>
+<a name="471"></a>     CrouchTurnRightAnim=<span class="source_string">"Crouch"</span>
+<a name="472"></a>     CrouchTurnLeftAnim=<span class="source_string">"Crouch"</span>
+<a name="473"></a>     IdleWeaponAnim=<span class="source_string">"Idle_Rest"</span>
+<a name="474"></a>     AmbientGlow=<span class="source_int">60</span>
+<a name="475"></a>     TransientSoundVolume=<span class="source_int">0.600000</span>
+<a name="476"></a>     TransientSoundRadius=<span class="source_int">500.000000</span>
+<a name="477"></a>}
+<a name="478"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../skaarjpack/skaarjpack-overview.html">Package</a></td>
+	<td class="header"><a href="../skaarjpack/monster.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#Monster">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_skaarjpack/meleedamage.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_skaarjpack/monstercontroller.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:12.000 - Creation time: Mon 15/4/2019 10:25:11.267 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSPowerCoreRed</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onspowercorered.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSPowerCoreRed">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onspowercoreenergyred.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onspowercoreshield.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onspowercorered.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSPowerCoreRed</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../onslaught/onspowercore.html">ONSPowerCore</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/navigationpoint.html">NavigationPoint</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/jumpdest.html">JumpDest</a>
+         |   
+         +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/jumpspot.html">JumpSpot</a>
+            |   
+            +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/gameobjective.html">GameObjective</a>
+               |   
+               +-- <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a>
+                  |   
+                  +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onspowercore.html">ONSPowerCore</a>
+                     |   
+                     +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onspowercorered.html">ONSPowerCoreRed</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onspowercoreenergy.html">ONSPowerCoreEnergy</a></td><td width="66%"><a href="#_PCEnergyEffect" name="PCEnergyEffect" title="go to the details">PCEnergyEffect</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onspowercore.html">ONSPowerCore</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onspowercore.html#ActiveSound">ActiveSound</a>, <a href="../onslaught/onspowercore.html#bFinalCore">bFinalCore</a>, <a href="../onslaught/onspowercore.html#BlueActivationEventName">BlueActivationEventName</a>, <a href="../onslaught/onspowercore.html#BlueActiveSkins">BlueActiveSkins</a>, <a href="../onslaught/onspowercore.html#BlueConstructingSkins">BlueConstructingSkins</a>, <a href="../onslaught/onspowercore.html#bOldUnderAttack">bOldUnderAttack</a>, <a href="../onslaught/onspowercore.html#bPowered">bPowered</a>, <a href="../onslaught/onspowercore.html#bPoweredByBlue">bPoweredByBlue</a>, <a href="../onslaught/onspowercore.html#bPoweredByRed">bPoweredByRed</a>, <a href="../onslaught/onspowercore.html#bSevered">bSevered</a>, <a href="../onslaught/onspowercore.html#bShowNodeBeams">bShowNodeBeams</a>, <a href="../onslaught/onspowercore.html#bStartNeutral">bStartNeutral</a>, <a href="../onslaught/onspowercore.html#bUnderAttack">bUnderAttack</a>, <a href="../onslaught/onspowercore.html#CloseActors">CloseActors</a>, <a href="../onslaught/onspowercore.html#ConstructedEvent[2]">ConstructedEvent[2]</a>, <a href="../onslaught/onspowercore.html#ConstructedSound">ConstructedSound</a>, <a href="../onslaught/onspowercore.html#ConstructionTime">ConstructionTime</a>, <a href="../onslaught/onspowercore.html#ConstructionTimeElapsed">ConstructionTimeElapsed</a>, <a href="../onslaught/onspowercore.html#Constructor">Constructor</a>, <a href="../onslaught/onspowercore.html#CoreStage">CoreStage</a>, <a href="../onslaught/onspowercore.html#DeadStaticMesh">DeadStaticMesh</a>, <a href="../onslaught/onspowercore.html#DestroyedEventName">DestroyedEventName</a>, <a href="../onslaught/onspowercore.html#DestroyedEvent[4]">DestroyedEvent[4]</a>, <a href="../onslaught/onspowercore.html#DestroyedSound">DestroyedSound</a>, <a href="../onslaught/onspowercore.html#DestructionMessageIndex">DestructionMessageIndex</a>, <a href="../onslaught/onspowercore.html#ExplosionEffect">ExplosionEffect</a>, <a href="../onslaught/onspowercore.html#FinalCoreDistance[2]">FinalCoreDistance[2]</a>, <a href="../onslaught/onspowercore.html#HealedSound">HealedSound</a>, <a href="../onslaught/onspowercore.html#HealingSound">HealingSound</a>, <a href="../onslaught/onspowercore.html#HealingTime">HealingTime</a>, <a href="../onslaught/onspowercore.html#HUDLocation">HUDLocation</a>, <a href="../onslaught/onspowercore.html#LastAttackAnnouncementTime">LastAttackAnnouncementTime</a>, <a href="../onslaught/onspowercore.html#LastAttacker">LastAttacker</a>, <a href="../onslaught/onspowercore.html#LastAttackExpirationTime">LastAttackExpirationTime</a>, <a href="../onslaught/onspowercore.html#LastAttackMessageTime">LastAttackMessageTime</a>, <a href="../onslaught/onspowercore.html#LastAttackTime">LastAttackTime</a>, <a href="../onslaught/onspowercore.html#LastCoreStage">LastCoreStage</a>, <a href="../onslaught/onspowercore.html#LastDamagedBy">LastDamagedBy</a>, <a href="../onslaught/onspowercore.html#LastDefenderTeamIndex">LastDefenderTeamIndex</a>, <a href="../onslaught/onspowercore.html#LastHealedBy">LastHealedBy</a>, <a href="../onslaught/onspowercore.html#LinkedNodes">LinkedNodes</a>, <a href="../onslaught/onspowercore.html#NeutralSound">NeutralSound</a>, <a href="../onslaught/onspowercore.html#NextCore">NextCore</a>, <a href="../onslaught/onspowercore.html#NodeBeamEffect">NodeBeamEffect</a>, <a href="../onslaught/onspowercore.html#NodeHealEffect">NodeHealEffect</a>, <a href="../onslaught/onspowercore.html#NodeNum">NodeNum</a>, <a href="../onslaught/onspowercore.html#PowerLinks">PowerLinks</a>, <a href="../onslaught/onspowercore.html#RedActivationEventName">RedActivationEventName</a>, <a href="../onslaught/onspowercore.html#RedActiveSkins">RedActiveSkins</a>, <a href="../onslaught/onspowercore.html#RedConstructingSkins">RedConstructingSkins</a>, <a href="../onslaught/onspowercore.html#RoamingEnergy">RoamingEnergy</a>, <a href="../onslaught/onspowercore.html#SeveredDamagePerSecond">SeveredDamagePerSecond</a>, <a href="../onslaught/onspowercore.html#Shield">Shield</a>, <a href="../onslaught/onspowercore.html#ShieldClass">ShieldClass</a>, <a href="../onslaught/onspowercore.html#ShieldOffset">ShieldOffset</a>, <a href="../onslaught/onspowercore.html#StartConstructionSound">StartConstructionSound</a>, <a href="../onslaught/onspowercore.html#TeleportPads">TeleportPads</a>, <a href="../onslaught/onspowercore.html#TeleportTrigger">TeleportTrigger</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/destroyableobjective.html#AccumulatedDamage">AccumulatedDamage</a>, <a href="../unrealgame/destroyableobjective.html#AIShootOffset">AIShootOffset</a>, <a href="../unrealgame/destroyableobjective.html#bCanDefenderDamage">bCanDefenderDamage</a>, <a href="../unrealgame/destroyableobjective.html#bIsUnderAttack">bIsUnderAttack</a>, <a href="../unrealgame/destroyableobjective.html#bMonitorUnderAttack">bMonitorUnderAttack</a>, <a href="../unrealgame/destroyableobjective.html#bReplicateHealth">bReplicateHealth</a>, <a href="../unrealgame/destroyableobjective.html#ConstraintInstigator">ConstraintInstigator</a>, <a href="../unrealgame/destroyableobjective.html#ConstraintPawnClass">ConstraintPawnClass</a>, <a href="../unrealgame/destroyableobjective.html#DamageCapacity">DamageCapacity</a>, <a href="../unrealgame/destroyableobjective.html#DamageEventThreshold">DamageEventThreshold</a>, <a href="../unrealgame/destroyableobjective.html#Health">Health</a>, <a href="../unrealgame/destroyableobjective.html#LastDamageTime">LastDamageTime</a>, <a href="../unrealgame/destroyableobjective.html#LastWarnTime">LastWarnTime</a>, <a href="../unrealgame/destroyableobjective.html#LinkHealMult">LinkHealMult</a>, <a href="../unrealgame/destroyableobjective.html#ShootTarget">ShootTarget</a>, <a href="../unrealgame/destroyableobjective.html#TakeDamageEvent">TakeDamageEvent</a>, <a href="../unrealgame/destroyableobjective.html#UnderAttackTimer">UnderAttackTimer</a>, <a href="../unrealgame/destroyableobjective.html#VehicleDamageScaling">VehicleDamageScaling</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Enumerations Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Enumerations from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/destroyableobjective.html#EConstraintInstigator">EConstraintInstigator</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CheckShield-" name="CheckShield" title="go to the details">CheckShield</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PowerCoreDestroyed-" name="PowerCoreDestroyed" title="go to the details">PowerCoreDestroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onspowercore.html">ONSPowerCore</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onspowercore.html#AddPowerLink">AddPowerLink</a>, <a href="../onslaught/onspowercore.html#BeginPlay">BeginPlay</a>, <a href="../onslaught/onspowercore.html#BeginState">BeginState</a>, <a href="../onslaught/onspowercore.html#Bump">Bump</a>, <a href="../onslaught/onspowercore.html#CheckShield">CheckShield</a>, <a href="../onslaught/onspowercore.html#CheckTouching">CheckTouching</a>, <a href="../onslaught/onspowercore.html#ClosestTo">ClosestTo</a>, <a href="../onslaught/onspowercore.html#DisableObjective">DisableObjective</a>, <a href="../onslaught/onspowercore.html#EndState">EndState</a>, <a href="../onslaught/onspowercore.html#FindCloseActors">FindCloseActors</a>, <a href="../onslaught/onspowercore.html#FindNodeLinkIndex">FindNodeLinkIndex</a>, <a href="../onslaught/onspowercore.html#GetHumanReadableName">GetHumanReadableName</a>, <a href="../onslaught/onspowercore.html#HasHealthBar">HasHealthBar</a>, <a href="../onslaught/onspowercore.html#HasUsefulVehicles">HasUsefulVehicles</a>, <a href="../onslaught/onspowercore.html#HealDamage">HealDamage</a>, <a href="../onslaught/onspowercore.html#KillEnemyFirst">KillEnemyFirst</a>, <a href="../onslaught/onspowercore.html#LegitimateTargetOf">LegitimateTargetOf</a>, <a href="../onslaught/onspowercore.html#LinkedTo">LinkedTo</a>, <a href="../onslaught/onspowercore.html#LinkedToCoreConstructingFor">LinkedToCoreConstructingFor</a>, <a href="../onslaught/onspowercore.html#NearObjective">NearObjective</a>, <a href="../onslaught/onspowercore.html#NotifyLocalPlayerTeamReceived">NotifyLocalPlayerTeamReceived</a>, <a href="../onslaught/onspowercore.html#PostBeginPlay">PostBeginPlay</a>, <a href="../onslaught/onspowercore.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../onslaught/onspowercore.html#PostNetReceive">PostNetReceive</a>, <a href="../onslaught/onspowercore.html#PowerCoreActive">PowerCoreActive</a>, <a href="../onslaught/onspowercore.html#PowerCoreConstructing">PowerCoreConstructing</a>, <a href="../onslaught/onspowercore.html#PowerCoreDestroyed">PowerCoreDestroyed</a>, <a href="../onslaught/onspowercore.html#PowerCoreDisabled">PowerCoreDisabled</a>, <a href="../onslaught/onspowercore.html#PowerCoreNeutral">PowerCoreNeutral</a>, <a href="../onslaught/onspowercore.html#PowerCoreReconstitution">PowerCoreReconstitution</a>, <a href="../onslaught/onspowercore.html#PowerCoreReset">PowerCoreReset</a>, <a href="../onslaught/onspowercore.html#PoweredBy">PoweredBy</a>, <a href="../onslaught/onspowercore.html#RateCore">RateCore</a>, <a href="../onslaught/onspowercore.html#RemovedCoreLink">RemovedCoreLink</a>, <a href="../onslaught/onspowercore.html#RemovePowerLink">RemovePowerLink</a>, <a href="../onslaught/onspowercore.html#Reset">Reset</a>, <a href="../onslaught/onspowercore.html#ResetLinks">ResetLinks</a>, <a href="../onslaught/onspowercore.html#SetInitialState">SetInitialState</a>, <a href="../onslaught/onspowercore.html#SetTeam">SetTeam</a>, <a href="../onslaught/onspowercore.html#SetupPowerLinks">SetupPowerLinks</a>, <a href="../onslaught/onspowercore.html#Sever">Sever</a>, <a href="../onslaught/onspowercore.html#ShouldLinkTo">ShouldLinkTo</a>, <a href="../onslaught/onspowercore.html#SpawnNodeTeleportTrigger">SpawnNodeTeleportTrigger</a>, <a href="../onslaught/onspowercore.html#StandGuard">StandGuard</a>, <a href="../onslaught/onspowercore.html#TakeDamage">TakeDamage</a>, <a href="../onslaught/onspowercore.html#TeleportRating">TeleportRating</a>, <a href="../onslaught/onspowercore.html#TellBotHowToDisable">TellBotHowToDisable</a>, <a href="../onslaught/onspowercore.html#Tick">Tick</a>, <a href="../onslaught/onspowercore.html#Timer">Timer</a>, <a href="../onslaught/onspowercore.html#TooClose">TooClose</a>, <a href="../onslaught/onspowercore.html#UnderAttackChange">UnderAttackChange</a>, <a href="../onslaught/onspowercore.html#UnSever">UnSever</a>, <a href="../onslaught/onspowercore.html#UpdateCloseActors">UpdateCloseActors</a>, <a href="../onslaught/onspowercore.html#UpdateHUDLocation">UpdateHUDLocation</a>, <a href="../onslaught/onspowercore.html#UpdatePrecacheMaterials">UpdatePrecacheMaterials</a>, <a href="../onslaught/onspowercore.html#UpdatePrecacheStaticMeshes">UpdatePrecacheStaticMeshes</a>, <a href="../onslaught/onspowercore.html#UpdateTeamBanners">UpdateTeamBanners</a>, <a href="../onslaught/onspowercore.html#UsedBy">UsedBy</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../unrealgame/unrealgame-overview.html">UnrealGame</a>.<a href="../unrealgame/destroyableobjective.html">DestroyableObjective</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../unrealgame/destroyableobjective.html#AwardAssaultScore">AwardAssaultScore</a>, <a href="../unrealgame/destroyableobjective.html#Destroyed">Destroyed</a>, <a href="../unrealgame/destroyableobjective.html#DisableObjective">DisableObjective</a>, <a href="../unrealgame/destroyableobjective.html#GetObjectiveProgress">GetObjectiveProgress</a>, <a href="../unrealgame/destroyableobjective.html#GetShootTarget">GetShootTarget</a>, <a href="../unrealgame/destroyableobjective.html#HealDamage">HealDamage</a>, <a href="../unrealgame/destroyableobjective.html#IsCritical">IsCritical</a>, <a href="../unrealgame/destroyableobjective.html#KillEnemyFirst">KillEnemyFirst</a>, <a href="../unrealgame/destroyableobjective.html#LegitimateTargetOf">LegitimateTargetOf</a>, <a href="../unrealgame/destroyableobjective.html#NearObjective">NearObjective</a>, <a href="../unrealgame/destroyableobjective.html#PostBeginPlay">PostBeginPlay</a>, <a href="../unrealgame/destroyableobjective.html#Reset">Reset</a>, <a href="../unrealgame/destroyableobjective.html#SetDelayedDamageInstigatorController">SetDelayedDamageInstigatorController</a>, <a href="../unrealgame/destroyableobjective.html#SpecialCost">SpecialCost</a>, <a href="../unrealgame/destroyableobjective.html#TakeDamage">TakeDamage</a>, <a href="../unrealgame/destroyableobjective.html#TeamLink">TeamLink</a>, <a href="../unrealgame/destroyableobjective.html#TellBotHowToDisable">TellBotHowToDisable</a>, <a href="../unrealgame/destroyableobjective.html#TellBotHowToHeal">TellBotHowToHeal</a>, <a href="../unrealgame/destroyableobjective.html#TimerPop">TimerPop</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_PCEnergyEffect" class="hidden"></a>PCEnergyEffect <a href="../Source_onslaught/onspowercorered.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onspowercoreenergy.html" class="source">ONSPowerCoreEnergy</a></span> PCEnergyEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_CheckShield-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CheckShield <span class="function_state"></span> <a href="../Source_onslaught/onspowercorered.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  CheckShield ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PowerCoreDestroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PowerCoreDestroyed <span class="function_state"></span> <a href="../Source_onslaught/onspowercorered.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PowerCoreDestroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onspowercorered.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSPowerCoreRed">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onspowercoreenergyred.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onspowercoreshield.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:03.140 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

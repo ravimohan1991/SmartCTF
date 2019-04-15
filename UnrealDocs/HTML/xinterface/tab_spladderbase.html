@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XInterface.Tab_SPLadderBase</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_spladderbase.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_SPLadderBase">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_speechbinder.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_spladderqualify.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xinterface/tab_spladderbase.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xinterface/xinterface-overview.html">XInterface</a>.Tab_SPLadderBase</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a>
+                  |   
+                  +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a>
+                     |   
+                     +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_spladderbase.html">Tab_SPLadderBase</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../xinterface/tab_spladderqualify.html">Tab_SPLadderQualify</a>, <a href="../xinterface/tab_spladderteam.html">Tab_SPLadderTeam</a>
+</blockquote>
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/ladderbutton.html">LadderButton</a></td><td width="66%"><a href="#_ActiveLadderButton" name="ActiveLadderButton" title="go to the details">ActiveLadderButton</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guilabel.html">GUILabel</a></td><td width="66%"><a href="#_MapNameLabel" name="MapNameLabel" title="go to the details">MapNameLabel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimage.html">GUIImage</a></td><td width="66%"><a href="#_MapPicHolder" name="MapPicHolder" title="go to the details">MapPicHolder</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiscrolltextbox.html">GUIScrollTextBox</a></td><td width="66%"><a href="#_ScrollInfo" name="ScrollInfo" title="go to the details">ScrollInfo</a></td></tr>
+
+</table>
+
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CanShowPanel-" name="CanShowPanel" title="go to the details">CanShowPanel</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/material.html">Material</a>&nbsp;</td><td><a href="#_DLOMaterial-" name="DLOMaterial" title="go to the details">DLOMaterial</a> (string MaterialFullName))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_DoShowMatchInfo-" name="DoShowMatchInfo" title="go to the details">DoShowMatchInfo</a> (<a href="../engine/matchinfo.html">MatchInfo</a> MI))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_MatchButtonClick-" name="MatchButtonClick" title="go to the details">MatchButtonClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_MatchDoubleClick-" name="MatchDoubleClick" title="go to the details">MatchDoubleClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../xinterface/ladderbutton.html">LadderButton</a>&nbsp;</td><td><a href="#_NewLadderButton-" name="NewLadderButton" title="go to the details">NewLadderButton</a> (int LadderIndex, int MatchIndex, float Left, float Top))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_SetActiveMatch-" name="SetActiveMatch" title="go to the details">SetActiveMatch</a> (int ladder, out array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt; Btns))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_SetYellowBar-" name="SetYellowBar" title="go to the details">SetYellowBar</a> (int ladder, int index, out array&lt;<a href="../xinterface/ladderbutton.html">LadderButton</a>&gt; Buttons))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ShowMatchInfo-" name="ShowMatchInfo" title="go to the details">ShowMatchInfo</a> (<a href="../engine/matchinfo.html">MatchInfo</a> MI))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateLadderButton-" name="UpdateLadderButton" title="go to the details">UpdateLadderButton</a> (<a href="../xinterface/ladderbutton.html">LadderButton</a> Btn, int LadderIndex, int MatchIndex))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/tab_sppanelbase.html#GetProfile">GetProfile</a>, <a href="../xinterface/tab_sppanelbase.html#MatchUpdated">MatchUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#MyTabControl">MyTabControl</a>, <a href="../xinterface/tab_sppanelbase.html#OnMatchUpdated">OnMatchUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#OnProfileUpdated">OnProfileUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#ProfileUpdated">ProfileUpdated</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ActiveLadderButton" class="hidden"></a>ActiveLadderButton <a href="../Source_xinterface/tab_spladderbase.html#9" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span> ActiveLadderButton;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MapNameLabel" class="hidden"></a>MapNameLabel <a href="../Source_xinterface/tab_spladderbase.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> MapNameLabel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MapPicHolder" class="hidden"></a>MapPicHolder <a href="../Source_xinterface/tab_spladderbase.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> MapPicHolder;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ScrollInfo" class="hidden"></a>ScrollInfo <a href="../Source_xinterface/tab_spladderbase.html#6" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guiscrolltextbox.html" class="source">GUIScrollTextBox</a></span> ScrollInfo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_CanShowPanel-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CanShowPanel <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#209" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanShowPanel ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DLOMaterial-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DLOMaterial <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#217" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> DLOMaterial ( <span class="source_keyword">string</span> MaterialFullName) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DoShowMatchInfo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DoShowMatchInfo <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#89" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> DoShowMatchInfo ( <span class="source_type"><a href="../engine/matchinfo.html" class="source">MatchInfo</a></span> MI) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MatchButtonClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> MatchButtonClick <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#142" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> MatchButtonClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MatchDoubleClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> MatchDoubleClick <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#168" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> MatchDoubleClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NewLadderButton-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NewLadderButton <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#30" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span> NewLadderButton ( <span class="source_keyword">int</span> LadderIndex, <span class="source_keyword">int</span> MatchIndex, <span class="source_keyword">float</span> Left, <span class="source_keyword">float</span> Top) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetActiveMatch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetActiveMatch <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#47" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> SetActiveMatch ( <span class="source_keyword">int</span> <span class="source_type"><a href="../engine/ladder.html" class="source">ladder</a></span>, <span class="source_keyword2">out</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; Btns) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetYellowBar-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetYellowBar <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#176" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">int</span> SetYellowBar ( <span class="source_keyword">int</span> <span class="source_type"><a href="../engine/ladder.html" class="source">ladder</a></span>, <span class="source_keyword">int</span> <span class="source_type">index</span>, <span class="source_keyword2">out</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span>&gt; Buttons) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShowMatchInfo-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ShowMatchInfo <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#66" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ShowMatchInfo ( <span class="source_type"><a href="../engine/matchinfo.html" class="source">MatchInfo</a></span> MI) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateLadderButton-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateLadderButton <span class="function_state"></span> <a href="../Source_xinterface/tab_spladderbase.html#11" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateLadderButton ( <span class="source_type"><a href="../xinterface/ladderbutton.html" class="source">LadderButton</a></span> Btn, <span class="source_keyword">int</span> LadderIndex, <span class="source_keyword">int</span> MatchIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_spladderbase.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_SPLadderBase">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_speechbinder.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_spladderqualify.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:05.602 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

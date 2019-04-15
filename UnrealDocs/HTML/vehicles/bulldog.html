@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Vehicles.Bulldog</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../vehicles/vehicles-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_vehicles/bulldog.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Bulldog">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../vehicles/kcar.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../vehicles/bulldogdust.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#vehicles/bulldog.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../vehicles/vehicles-overview.html">Vehicles</a>.Bulldog</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../vehicles/kcar.html">KCar</a></dd>
+<dt>Modifiers</dt><dd>placeable CacheExempt </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a>
+         |   
+         +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a>
+            |   
+            +-- <a href="../vehicles/vehicles-overview.html">Vehicles</a>.<a href="../vehicles/kcar.html">KCar</a>
+               |   
+               +-- <a href="../vehicles/vehicles-overview.html">Vehicles</a>.<a href="../vehicles/bulldog.html">Bulldog</a>
+</pre>
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Contants from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/kvehicle.html#FilterFrames">FilterFrames</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_BrakeMaterial" name="BrakeMaterial" title="go to the details">BrakeMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/pawn.html">Pawn</a></td><td width="66%"><a href="#_CurrentTarget" name="CurrentTarget" title="go to the details">CurrentTarget</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DustDrop" name="DustDrop" title="go to the details">DustDrop</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/bulldogdust.html">BulldogDust</a></td><td width="66%"><a href="#_Dust[4]" name="Dust[4]" title="go to the details">Dust[4]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FireCountdown" name="FireCountdown" title="go to the details">FireCountdown</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/bulldogtrigger.html">BulldogTrigger</a></td><td width="66%"><a href="#_FlipTrigger" name="FlipTrigger" title="go to the details">FlipTrigger</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_FlipTriggerState" name="FlipTriggerState" title="go to the details">FlipTriggerState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/bulldogtrigger.html">BulldogTrigger</a></td><td width="66%"><a href="#_FLTrigger" name="FLTrigger" title="go to the details">FLTrigger</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_FrontTriggerOffset" name="FrontTriggerOffset" title="go to the details">FrontTriggerOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/bulldogtrigger.html">BulldogTrigger</a></td><td width="66%"><a href="#_FRTrigger" name="FRTrigger" title="go to the details">FRTrigger</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/bulldogheadlight.html">BulldogHeadlight</a></td><td width="66%"><a href="#_Headlight" name="Headlight" title="go to the details">Headlight</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../vehicles/bulldogheadlightcorona.html">BulldogHeadlightCorona</a></td><td width="66%"><a href="#_HeadlightCorona[8]" name="HeadlightCorona[8]" title="go to the details">HeadlightCorona[8]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_HeadlightOffMaterial" name="HeadlightOffMaterial" title="go to the details">HeadlightOffMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_HeadlightOffset" name="HeadlightOffset" title="go to the details">HeadlightOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_HeadlightOn" name="HeadlightOn" title="go to the details">HeadlightOn</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_HeadlightOnMaterial" name="HeadlightOnMaterial" title="go to the details">HeadlightOnMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_ReverseMaterial" name="ReverseMaterial" title="go to the details">ReverseMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SinceLastTargetting" name="SinceLastTargetting" title="go to the details">SinceLastTargetting</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_TailOffMaterial" name="TailOffMaterial" title="go to the details">TailOffMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_TriggerState" name="TriggerState" title="go to the details">TriggerState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_UntilNextImpact" name="UntilNextImpact" title="go to the details">UntilNextImpact</a></td></tr>
+<tr><th colspan="2" class="small">Bulldog</th></tr>
+<tr><td nowrap="nowrap" width="33%">String</td><td width="66%"><a href="#_BulldogHitForce" name="BulldogHitForce" title="go to the details">BulldogHitForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_BulldogHitSound" name="BulldogHitSound" title="go to the details">BulldogHitSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">String</td><td width="66%"><a href="#_BulldogIdleForce" name="BulldogIdleForce" title="go to the details">BulldogIdleForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_BulldogIdleSound" name="BulldogIdleSound" title="go to the details">BulldogIdleSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">String</td><td width="66%"><a href="#_BulldogSquealForce" name="BulldogSquealForce" title="go to the details">BulldogSquealForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_BulldogSquealSound" name="BulldogSquealSound" title="go to the details">BulldogSquealSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">String</td><td width="66%"><a href="#_BulldogStartForce" name="BulldogStartForce" title="go to the details">BulldogStartForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_BulldogStartSound" name="BulldogStartSound" title="go to the details">BulldogStartSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/actor.html">Actor</a>&gt;</td><td width="66%"><a href="#_DestroyedEffect" name="DestroyedEffect" title="go to the details">DestroyedEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_DestroyedSound" name="DestroyedSound" title="go to the details">DestroyedSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DustSlipRate" name="DustSlipRate" title="go to the details">DustSlipRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DustSlipThresh" name="DustSlipThresh" title="go to the details">DustSlipThresh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EnginePitchScale" name="EnginePitchScale" title="go to the details">EnginePitchScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FireInterval" name="FireInterval" title="go to the details">FireInterval</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_HeadlightCoronaOffset[8]" name="HeadlightCoronaOffset[8]" title="go to the details">HeadlightCoronaOffset[8]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HitSoundThreshold" name="HitSoundThreshold" title="go to the details">HitSoundThreshold</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_RocketFireOffset" name="RocketFireOffset" title="go to the details">RocketFireOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SquealVelThresh" name="SquealVelThresh" title="go to the details">SquealVelThresh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_TargetMaterial" name="TargetMaterial" title="go to the details">TargetMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TargettingInterval" name="TargettingInterval" title="go to the details">TargettingInterval</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TargettingRange" name="TargettingRange" title="go to the details">TargettingRange</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TriggerSpeedThresh" name="TriggerSpeedThresh" title="go to the details">TriggerSpeedThresh</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../vehicles/vehicles-overview.html">Vehicles</a>.<a href="../vehicles/kcar.html">KCar</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../vehicles/kcar.html#bIsInverted">bIsInverted</a>, <a href="../vehicles/kcar.html#bNewCarState">bNewCarState</a>, <a href="../vehicles/kcar.html#CarState">CarState</a>, <a href="../vehicles/kcar.html#ChassisMass">ChassisMass</a>, <a href="../vehicles/kcar.html#ChassisState">ChassisState</a>, <a href="../vehicles/kcar.html#FlipTime">FlipTime</a>, <a href="../vehicles/kcar.html#FlipTimeLeft">FlipTimeLeft</a>, <a href="../vehicles/kcar.html#FlipTorque">FlipTorque</a>, <a href="../vehicles/kcar.html#ForwardVel">ForwardVel</a>, <a href="../vehicles/kcar.html#frontLeft">frontLeft</a>, <a href="../vehicles/kcar.html#frontRight">frontRight</a>, <a href="../vehicles/kcar.html#FrontTireClass">FrontTireClass</a>, <a href="../vehicles/kcar.html#Gear">Gear</a>, <a href="../vehicles/kcar.html#HandbrakeThresh">HandbrakeThresh</a>, <a href="../vehicles/kcar.html#IsDriving">IsDriving</a>, <a href="../vehicles/kcar.html#MaxBrakeTorque">MaxBrakeTorque</a>, <a href="../vehicles/kcar.html#MaxNetUpdateInterval">MaxNetUpdateInterval</a>, <a href="../vehicles/kcar.html#MaxSteerAngle">MaxSteerAngle</a>, <a href="../vehicles/kcar.html#NextNetUpdateTime">NextNetUpdateTime</a>, <a href="../vehicles/kcar.html#OutputBrake">OutputBrake</a>, <a href="../vehicles/kcar.html#OutputHandbrakeOn">OutputHandbrakeOn</a>, <a href="../vehicles/kcar.html#OutputTorque">OutputTorque</a>, <a href="../vehicles/kcar.html#rearLeft">rearLeft</a>, <a href="../vehicles/kcar.html#rearRight">rearRight</a>, <a href="../vehicles/kcar.html#RearTireClass">RearTireClass</a>, <a href="../vehicles/kcar.html#SteerPropGap">SteerPropGap</a>, <a href="../vehicles/kcar.html#SteerSpeed">SteerSpeed</a>, <a href="../vehicles/kcar.html#SteerTorque">SteerTorque</a>, <a href="../vehicles/kcar.html#StopThreshold">StopThreshold</a>, <a href="../vehicles/kcar.html#SuspDamping">SuspDamping</a>, <a href="../vehicles/kcar.html#SuspHighLimit">SuspHighLimit</a>, <a href="../vehicles/kcar.html#SuspLowLimit">SuspLowLimit</a>, <a href="../vehicles/kcar.html#SuspRef">SuspRef</a>, <a href="../vehicles/kcar.html#SuspStiffness">SuspStiffness</a>, <a href="../vehicles/kcar.html#TireAdhesion">TireAdhesion</a>, <a href="../vehicles/kcar.html#TireHandbrakeFriction">TireHandbrakeFriction</a>, <a href="../vehicles/kcar.html#TireHandbrakeSlip">TireHandbrakeSlip</a>, <a href="../vehicles/kcar.html#TireLateralFriction">TireLateralFriction</a>, <a href="../vehicles/kcar.html#TireLateralSlip">TireLateralSlip</a>, <a href="../vehicles/kcar.html#TireMass">TireMass</a>, <a href="../vehicles/kcar.html#TireMinSlip">TireMinSlip</a>, <a href="../vehicles/kcar.html#TireRestitution">TireRestitution</a>, <a href="../vehicles/kcar.html#TireRollFriction">TireRollFriction</a>, <a href="../vehicles/kcar.html#TireRollSlip">TireRollSlip</a>, <a href="../vehicles/kcar.html#TireSlipRate">TireSlipRate</a>, <a href="../vehicles/kcar.html#TireSoftness">TireSoftness</a>, <a href="../vehicles/kcar.html#TorqueCurve">TorqueCurve</a>, <a href="../vehicles/kcar.html#TorqueSplit">TorqueSplit</a>, <a href="../vehicles/kcar.html#WheelFrontAcross">WheelFrontAcross</a>, <a href="../vehicles/kcar.html#WheelFrontAlong">WheelFrontAlong</a>, <a href="../vehicles/kcar.html#WheelRearAcross">WheelRearAcross</a>, <a href="../vehicles/kcar.html#WheelRearAlong">WheelRearAlong</a>, <a href="../vehicles/kcar.html#WheelSpinSpeed">WheelSpinSpeed</a>, <a href="../vehicles/kcar.html#WheelVert">WheelVert</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/kvehicle.html#bAutoDrive">bAutoDrive</a>, <a href="../engine/kvehicle.html#bHistoryWarmup">bHistoryWarmup</a>, <a href="../engine/kvehicle.html#bVehicleIsAltFiring">bVehicleIsAltFiring</a>, <a href="../engine/kvehicle.html#bVehicleIsFiring">bVehicleIsFiring</a>, <a href="../engine/kvehicle.html#CameraHistory[FilterFrames]">CameraHistory[FilterFrames]</a>, <a href="../engine/kvehicle.html#DestroyEffectClass">DestroyEffectClass</a>, <a href="../engine/kvehicle.html#NextHistorySlot">NextHistorySlot</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../vehicles/vehicles-overview.html">Vehicles</a>.<a href="../vehicles/kcar.html">KCar</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../vehicles/kcar.html#KCarState">KCarState</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientKDriverEnter-" name="ClientKDriverEnter" title="go to the details">ClientKDriverEnter</a> (<a href="../engine/playercontroller.html">PlayerController</a> pc))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientKDriverLeave-" name="ClientKDriverLeave" title="go to the details">ClientKDriverLeave</a> (<a href="../engine/playercontroller.html">PlayerController</a> pc))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawHud-" name="DrawHud" title="go to the details">DrawHud</a> (<a href="../engine/canvas.html">Canvas</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/actor.html">Actor</a>&nbsp;</td><td><a href="#_GetBestEntry-" name="GetBestEntry" title="go to the details">GetBestEntry</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_KDriverEnter-" name="KDriverEnter" title="go to the details">KDriverEnter</a> (<a href="../engine/pawn.html">Pawn</a> p))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_KDriverLeave-" name="KDriverLeave" title="go to the details">KDriverLeave</a> (bool bForceLeave))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_KImpact-" name="KImpact" title="go to the details">KImpact</a> (<a href="../engine/actor.html">actor</a> other, <a href="../core/object.html#Vector">vector</a> pos, <a href="../core/object.html#Vector">vector</a> impactVel, <a href="../core/object.html#Vector">vector</a> impactNorm))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LaunchRocket-" name="LaunchRocket" title="go to the details">LaunchRocket</a> (bool bWasAltFire))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PreBeginPlay-" name="PreBeginPlay" title="go to the details">PreBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> instigatedBy, <a href="../core/object.html#Vector">Vector</a> hitlocation, <a href="../core/object.html#Vector">Vector</a> momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float Delta))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_VehicleFire-" name="VehicleFire" title="go to the details">VehicleFire</a> (bool bWasAltFire))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../vehicles/vehicles-overview.html">Vehicles</a>.<a href="../vehicles/kcar.html">KCar</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../vehicles/kcar.html#Destroyed">Destroyed</a>, <a href="../vehicles/kcar.html#Engine">Engine</a>, <a href="../vehicles/kcar.html#KApplyForce">KApplyForce</a>, <a href="../vehicles/kcar.html#KUpdateState">KUpdateState</a>, <a href="../vehicles/kcar.html#KVehicleUpdateParams">KVehicleUpdateParams</a>, <a href="../vehicles/kcar.html#PackState">PackState</a>, <a href="../vehicles/kcar.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../vehicles/kcar.html#ProcessCarInput">ProcessCarInput</a>, <a href="../vehicles/kcar.html#StartFlip">StartFlip</a>, <a href="../vehicles/kcar.html#Tick">Tick</a>, <a href="../vehicles/kcar.html#VehicleStateReceived">VehicleStateReceived</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/kvehicle.html">KVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/kvehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../engine/kvehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../engine/kvehicle.html#Destroyed">Destroyed</a>, <a href="../engine/kvehicle.html#GraphData">GraphData</a>, <a href="../engine/kvehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../engine/kvehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../engine/kvehicle.html#KVehicleUpdateParams">KVehicleUpdateParams</a>, <a href="../engine/kvehicle.html#SpecialCalcView">SpecialCalcView</a>, <a href="../engine/kvehicle.html#TakeDamage">TakeDamage</a>, <a href="../engine/kvehicle.html#Tick">Tick</a>, <a href="../engine/kvehicle.html#TryToDrive">TryToDrive</a>, <a href="../engine/kvehicle.html#VehicleStateReceived">VehicleStateReceived</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BrakeMaterial" class="hidden"></a>BrakeMaterial <a href="../Source_vehicles/bulldog.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> BrakeMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CurrentTarget" class="hidden"></a>CurrentTarget <a href="../Source_vehicles/bulldog.html#52" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> CurrentTarget;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DustDrop" class="hidden"></a>DustDrop <a href="../Source_vehicles/bulldog.html#34" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> DustDrop;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Dust[4]" class="hidden"></a>Dust[4] <a href="../Source_vehicles/bulldog.html#31" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/bulldogdust.html" class="source">BulldogDust</a></span> Dust[<span class="source_int">4</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FireCountdown" class="hidden"></a>FireCountdown <a href="../Source_vehicles/bulldog.html#50" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> FireCountdown;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FlipTrigger" class="hidden"></a>FlipTrigger <a href="../Source_vehicles/bulldog.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/bulldogtrigger.html" class="source">BulldogTrigger</a></span> FlipTrigger;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FlipTriggerState" class="hidden"></a>FlipTriggerState <a href="../Source_vehicles/bulldog.html#43" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> FlipTriggerState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FLTrigger" class="hidden"></a>FLTrigger <a href="../Source_vehicles/bulldog.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/bulldogtrigger.html" class="source">BulldogTrigger</a></span> FLTrigger;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FrontTriggerOffset" class="hidden"></a>FrontTriggerOffset <a href="../Source_vehicles/bulldog.html#7" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> FrontTriggerOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FRTrigger" class="hidden"></a>FRTrigger <a href="../Source_vehicles/bulldog.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/bulldogtrigger.html" class="source">BulldogTrigger</a></span> FRTrigger;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Headlight" class="hidden"></a>Headlight <a href="../Source_vehicles/bulldog.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/bulldogheadlight.html" class="source">BulldogHeadlight</a></span> Headlight;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightCorona[8]" class="hidden"></a>HeadlightCorona[8] <a href="../Source_vehicles/bulldog.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../vehicles/bulldogheadlightcorona.html" class="source">BulldogHeadlightCorona</a></span> HeadlightCorona[<span class="source_int">8</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightOffMaterial" class="hidden"></a>HeadlightOffMaterial <a href="../Source_vehicles/bulldog.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> HeadlightOffMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightOffset" class="hidden"></a>HeadlightOffset <a href="../Source_vehicles/bulldog.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HeadlightOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightOn" class="hidden"></a>HeadlightOn <a href="../Source_vehicles/bulldog.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> HeadlightOn;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightOnMaterial" class="hidden"></a>HeadlightOnMaterial <a href="../Source_vehicles/bulldog.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> HeadlightOnMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ReverseMaterial" class="hidden"></a>ReverseMaterial <a href="../Source_vehicles/bulldog.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> ReverseMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SinceLastTargetting" class="hidden"></a>SinceLastTargetting <a href="../Source_vehicles/bulldog.html#51" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> SinceLastTargetting;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TailOffMaterial" class="hidden"></a>TailOffMaterial <a href="../Source_vehicles/bulldog.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> TailOffMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TriggerState" class="hidden"></a>TriggerState <a href="../Source_vehicles/bulldog.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> TriggerState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UntilNextImpact" class="hidden"></a>UntilNextImpact <a href="../Source_vehicles/bulldog.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> UntilNextImpact;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">Bulldog</h3>
+<h4><a name="_BulldogHitForce" class="hidden"></a>BulldogHitForce <a href="../Source_vehicles/bulldog.html#73" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">String</span> BulldogHitForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogHitSound" class="hidden"></a>BulldogHitSound <a href="../Source_vehicles/bulldog.html#68" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> BulldogHitSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogIdleForce" class="hidden"></a>BulldogIdleForce <a href="../Source_vehicles/bulldog.html#71" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">String</span> BulldogIdleForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogIdleSound" class="hidden"></a>BulldogIdleSound <a href="../Source_vehicles/bulldog.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> BulldogIdleSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogSquealForce" class="hidden"></a>BulldogSquealForce <a href="../Source_vehicles/bulldog.html#72" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">String</span> BulldogSquealForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogSquealSound" class="hidden"></a>BulldogSquealSound <a href="../Source_vehicles/bulldog.html#66" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> BulldogSquealSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogStartForce" class="hidden"></a>BulldogStartForce <a href="../Source_vehicles/bulldog.html#70" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">String</span> BulldogStartForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BulldogStartSound" class="hidden"></a>BulldogStartSound <a href="../Source_vehicles/bulldog.html#63" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> BulldogStartSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedEffect" class="hidden"></a>DestroyedEffect <a href="../Source_vehicles/bulldog.html#46" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span>&gt; DestroyedEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedSound" class="hidden"></a>DestroyedSound <a href="../Source_vehicles/bulldog.html#47" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> DestroyedSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DustSlipRate" class="hidden"></a>DustSlipRate <a href="../Source_vehicles/bulldog.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> DustSlipRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DustSlipThresh" class="hidden"></a>DustSlipThresh <a href="../Source_vehicles/bulldog.html#38" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> DustSlipThresh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EnginePitchScale" class="hidden"></a>EnginePitchScale <a href="../Source_vehicles/bulldog.html#62" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> EnginePitchScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FireInterval" class="hidden"></a>FireInterval <a href="../Source_vehicles/bulldog.html#54" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> FireInterval;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightCoronaOffset[8]" class="hidden"></a>HeadlightCoronaOffset[8] <a href="../Source_vehicles/bulldog.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HeadlightCoronaOffset[<span class="source_int">8</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HitSoundThreshold" class="hidden"></a>HitSoundThreshold <a href="../Source_vehicles/bulldog.html#65" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> HitSoundThreshold;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RocketFireOffset" class="hidden"></a>RocketFireOffset <a href="../Source_vehicles/bulldog.html#56" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> RocketFireOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SquealVelThresh" class="hidden"></a>SquealVelThresh <a href="../Source_vehicles/bulldog.html#67" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> SquealVelThresh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TargetMaterial" class="hidden"></a>TargetMaterial <a href="../Source_vehicles/bulldog.html#58" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> TargetMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TargettingInterval" class="hidden"></a>TargettingInterval <a href="../Source_vehicles/bulldog.html#55" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> TargettingInterval;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TargettingRange" class="hidden"></a>TargettingRange <a href="../Source_vehicles/bulldog.html#57" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> TargettingRange;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TriggerSpeedThresh" class="hidden"></a>TriggerSpeedThresh <a href="../Source_vehicles/bulldog.html#41" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../vehicles/bulldog.html" class="source">Bulldog</a></span>) <span class="source_keyword">float</span> TriggerSpeedThresh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ClientKDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientKDriverEnter <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#223" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientKDriverEnter ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">pc</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientKDriverLeave-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientKDriverLeave <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#244" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientKDriverLeave ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">pc</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Destroyed <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#169" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawHud-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawHud <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#321" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DrawHud ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetBestEntry-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetBestEntry <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#548" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> GetBestEntry ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KDriverEnter <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#230" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  KDriverEnter ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">p</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KDriverLeave-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KDriverLeave <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#251" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> KDriverLeave ( <span class="source_keyword">bool</span> <span class="source_type">bForceLeave</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KImpact-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KImpact <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#206" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  KImpact ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">other</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> pos, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> impactVel, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> impactNorm) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LaunchRocket-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LaunchRocket <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#270" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LaunchRocket ( <span class="source_keyword">bool</span> bWasAltFire) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#88" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PreBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PreBeginPlay <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#81" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PreBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#515" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> Damage, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>,
+						<span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#363" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> Delta) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleFire-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> VehicleFire <span class="function_state"></span> <a href="../Source_vehicles/bulldog.html#309" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  VehicleFire ( <span class="source_keyword">bool</span> bWasAltFire) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     FrontTriggerOffset=(Y=<span class="source_int">165.000000</span>,Z=<span class="source_int">10.000000</span>)
+     HeadlightOffset=(X=-<span class="source_int">200.000000</span>,Z=<span class="source_int">50.000000</span>)
+     ReverseMaterial=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'VehicleFX.Shaders.BDReverselight_ON'</span>
+     BrakeMaterial=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'VehicleFX.Shaders.BDTaiLight_ON'</span>
+     TailOffMaterial=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'VehicleFX.Skins.BDTailOff'</span>
+     HeadlightOnMaterial=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'VehicleFX.Shaders.BDHeadlights_ON'</span>
+     HeadlightOffMaterial=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'VehicleFX.Skins.BDHeadlights'</span>
+     HeadlightCoronaOffset(<span class="source_int">0</span>)=(X=-<span class="source_int">199.000000</span>,Y=<span class="source_int">51.000000</span>,Z=<span class="source_int">57.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">1</span>)=(X=-<span class="source_int">199.000000</span>,Y=-<span class="source_int">51.000000</span>,Z=<span class="source_int">57.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">2</span>)=(X=-<span class="source_int">128.000000</span>,Y=<span class="source_int">38.000000</span>,Z=<span class="source_int">125.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">3</span>)=(X=-<span class="source_int">189.000000</span>,Y=<span class="source_int">93.000000</span>,Z=<span class="source_int">28.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">4</span>)=(X=-<span class="source_int">183.000000</span>,Y=-<span class="source_int">93.000000</span>,Z=<span class="source_int">26.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">5</span>)=(X=-<span class="source_int">190.000000</span>,Y=-<span class="source_int">51.000000</span>,Z=<span class="source_int">77.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">6</span>)=(X=-<span class="source_int">128.000000</span>,Y=<span class="source_int">63.000000</span>,Z=<span class="source_int">123.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">7</span>)=(X=-<span class="source_int">185.000000</span>,Y=<span class="source_int">85.000000</span>,Z=<span class="source_int">10.000000</span>)
+     UntilNextImpact=<span class="source_int">500.000000</span>
+     DustDrop=<span class="source_int">30.000000</span>
+     DustSlipRate=<span class="source_int">2.800000</span>
+     DustSlipThresh=<span class="source_int">0.100000</span>
+     TriggerSpeedThresh=<span class="source_int">40.000000</span>
+     DestroyedEffect=<span class="source_keyword">Class</span><span class="source_name">'XEffects.RocketExplosion'</span>
+     DestroyedSound=<span class="source_type"><a href="../engine/proceduralsound.html" class="source">ProceduralSound</a></span><span class="source_name">'WeaponSounds.PRocketLauncherAltFire.P1RocketLauncherAltFire'</span>
+     FireInterval=<span class="source_int">0.900000</span>
+     TargettingInterval=<span class="source_int">0.500000</span>
+     RocketFireOffset=(Z=<span class="source_int">180.000000</span>)
+     TargettingRange=<span class="source_int">5000.000000</span>
+     TargetMaterial=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.HUD.fbBombFocus'</span>
+     EnginePitchScale=<span class="source_int">655350.000000</span>
+     HitSoundThreshold=<span class="source_int">30.000000</span>
+     SquealVelThresh=<span class="source_int">15.000000</span>
+     FrontTireClass=<span class="source_keyword">Class</span><span class="source_name">'Vehicles.BulldogTire'</span>
+     RearTireClass=<span class="source_keyword">Class</span><span class="source_name">'Vehicles.BulldogTire'</span>
+     WheelFrontAlong=-<span class="source_int">100.000000</span>
+     WheelFrontAcross=<span class="source_int">110.000000</span>
+     WheelRearAlong=<span class="source_int">115.000000</span>
+     WheelRearAcross=<span class="source_int">110.000000</span>
+     WheelVert=-<span class="source_int">15.000000</span>
+     MaxSteerAngle=<span class="source_int">3400.000000</span>
+     MaxBrakeTorque=<span class="source_int">55.000000</span>
+     TorqueSplit=<span class="source_int">1.000000</span>
+     SteerPropGap=<span class="source_int">500.000000</span>
+     SteerTorque=<span class="source_int">15000.000000</span>
+     SteerSpeed=<span class="source_int">20000.000000</span>
+     SuspStiffness=<span class="source_int">150.000000</span>
+     SuspDamping=<span class="source_int">14.500000</span>
+     SuspHighLimit=<span class="source_int">0.500000</span>
+     SuspLowLimit=-<span class="source_int">0.500000</span>
+     TireRollFriction=<span class="source_int">1.500000</span>
+     TireLateralFriction=<span class="source_int">1.500000</span>
+     TireRollSlip=<span class="source_int">0.060000</span>
+     TireLateralSlip=<span class="source_int">0.040000</span>
+     TireSlipRate=<span class="source_int">0.007000</span>
+     TireSoftness=<span class="source_int">0.000000</span>
+     TireHandbrakeSlip=<span class="source_int">0.200000</span>
+     TireHandbrakeFriction=-<span class="source_int">1.200000</span>
+     ChassisMass=<span class="source_int">8.000000</span>
+     StopThreshold=<span class="source_int">40.000000</span>
+     TorqueCurve=(Points=((OutVal=<span class="source_int">270.000000</span>),(InVal=<span class="source_int">200000.000000</span>,OutVal=<span class="source_int">270.000000</span>),(InVal=<span class="source_int">300000.000000</span>)))
+     OutputBrake=<span class="source_keyword">True</span>
+     DrivePos=(X=-<span class="source_int">165.000000</span>,Z=-<span class="source_int">100.000000</span>)
+     ExitPositions(<span class="source_int">0</span>)=(Y=<span class="source_int">200.000000</span>,Z=<span class="source_int">100.000000</span>)
+     ExitPositions(<span class="source_int">1</span>)=(Y=-<span class="source_int">200.000000</span>,Z=<span class="source_int">100.000000</span>)
+     ExitPositions(<span class="source_int">2</span>)=(X=<span class="source_int">350.000000</span>,Z=<span class="source_int">100.000000</span>)
+     ExitPositions(<span class="source_int">3</span>)=(X=-<span class="source_int">350.000000</span>,Z=<span class="source_int">100.000000</span>)
+     bSpecialHUD=<span class="source_keyword">True</span>
+     AirSpeed=<span class="source_int">5000.000000</span>
+     HealthMax=<span class="source_int">800.000000</span>
+     Health=<span class="source_int">800</span>
+     DrawType=DT_StaticMesh
+     <span class="source_type">StaticMesh</span>=<span class="source_type">StaticMesh</span><span class="source_name">'BulldogMeshes.Simple.S_Chassis'</span>
+     DrawScale=<span class="source_int">0.400000</span>
+     SoundRadius=<span class="source_int">255.000000</span>
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../engine/karmaparamsrbfull.html" class="source">KarmaParamsRBFull</a></span> <span class="source_keyword">Name</span>=KParams0
+         KInertiaTensor(<span class="source_int">0</span>)=<span class="source_int">20.000000</span>
+         KInertiaTensor(<span class="source_int">3</span>)=<span class="source_int">30.000000</span>
+         KInertiaTensor(<span class="source_int">5</span>)=<span class="source_int">48.000000</span>
+         KCOMOffset=(X=<span class="source_int">0.800000</span>,Z=-<span class="source_int">0.700000</span>)
+         KLinearDamping=<span class="source_int">0.000000</span>
+         KAngularDamping=<span class="source_int">0.000000</span>
+         KStartEnabled=<span class="source_keyword">True</span>
+         bHighDetailOnly=<span class="source_keyword">False</span>
+         bClientOnly=<span class="source_keyword">False</span>
+         bKDoubleTickRate=<span class="source_keyword">True</span>
+         KFriction=<span class="source_int">1.600000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     KParams=<span class="source_type"><a href="../engine/karmaparamsrbfull.html" class="source">KarmaParamsRBFull</a></span><span class="source_name">'Vehicles.Bulldog.KParams0'</span>
+
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../vehicles/vehicles-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_vehicles/bulldog.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Bulldog">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../vehicles/kcar.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../vehicles/bulldogdust.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:24:58.287 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

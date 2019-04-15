@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - GUI2K4.UT2K4SPTab_DetailPhantom</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4sptab_detailphantom.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SPTab_DetailPhantom">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4sptab_detailmatch.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4sptab_extraladder.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#gui2k4/ut2k4sptab_detailphantom.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.UT2K4SPTab_DetailPhantom</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k4tabpanel.html">UT2K4TabPanel</a>
+                  |   
+                  +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a>
+                     |   
+                     +-- <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_detailphantom.html">UT2K4SPTab_DetailPhantom</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/multiselectlistbox.html">MultiSelectListBox</a></td><td width="66%"><a href="#_lbMatches" name="lbMatches" title="go to the details">lbMatches</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_msgGameTime" name="msgGameTime" title="go to the details">msgGameTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_msgMatchInfo" name="msgMatchInfo" title="go to the details">msgMatchInfo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_msgScore" name="msgScore" title="go to the details">msgScore</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guisectionbackground.html">GUISectionBackground</a></td><td width="66%"><a href="#_sbgMatchesBg" name="sbgMatchesBg" title="go to the details">sbgMatchesBg</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_TeamDetailPage" name="TeamDetailPage" title="go to the details">TeamDetailPage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_VS" name="VS" title="go to the details">VS</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/ut2k4sptab_base.html#CaptionBack">CaptionBack</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionCancel">CaptionCancel</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionCreate">CaptionCreate</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionDone">CaptionDone</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionLoad">CaptionLoad</a>, <a href="../gui2k4/ut2k4sptab_base.html#CaptionPlay">CaptionPlay</a>, <a href="../gui2k4/ut2k4sptab_base.html#GP">GP</a>, <a href="../gui2k4/ut2k4sptab_base.html#LogPrefix">LogPrefix</a>, <a href="../gui2k4/ut2k4sptab_base.html#MainWindow">MainWindow</a>, <a href="../gui2k4/ut2k4sptab_base.html#ProfileClass">ProfileClass</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_cmMatchesOnClick-" name="cmMatchesOnClick" title="go to the details">cmMatchesOnClick</a> (<a href="../xinterface/guicontextmenu.html">GUIContextMenu</a> Sender, int ClickIndex))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>string&nbsp;</td><td><a href="#_getTeamName-" name="getTeamName" title="go to the details">getTeamName</a> (string TeamClass))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> MyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_OnPhantomTrack-" name="OnPhantomTrack" title="go to the details">OnPhantomTrack</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender, int LastIndex))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sptab_base.html">UT2K4SPTab_Base</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../gui2k4/ut2k4sptab_base.html#btnPlayEnabled">btnPlayEnabled</a>, <a href="../gui2k4/ut2k4sptab_base.html#CanClose">CanClose</a>, <a href="../gui2k4/ut2k4sptab_base.html#GetMainWindow">GetMainWindow</a>, <a href="../gui2k4/ut2k4sptab_base.html#getProfileName">getProfileName</a>, <a href="../gui2k4/ut2k4sptab_base.html#InitComponent">InitComponent</a>, <a href="../gui2k4/ut2k4sptab_base.html#onBackClick">onBackClick</a>, <a href="../gui2k4/ut2k4sptab_base.html#onPlayClick">onPlayClick</a>, <a href="../gui2k4/ut2k4sptab_base.html#ShowPanel">ShowPanel</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_lbMatches" class="hidden"></a>lbMatches <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/multiselectlistbox.html" class="source">MultiSelectListBox</a></span> lbMatches;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_msgGameTime" class="hidden"></a>msgGameTime <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> msgGameTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_msgMatchInfo" class="hidden"></a>msgMatchInfo <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> msgMatchInfo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_msgScore" class="hidden"></a>msgScore <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> msgScore;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_sbgMatchesBg" class="hidden"></a>sbgMatchesBg <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> sbgMatchesBg;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamDetailPage" class="hidden"></a>TeamDetailPage <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> TeamDetailPage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VS" class="hidden"></a>VS <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> VS;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_cmMatchesOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> cmMatchesOnClick <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#51" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  cmMatchesOnClick ( <span class="source_type"><a href="../xinterface/guicontextmenu.html" class="source">GUIContextMenu</a></span> <span class="source_type">Sender</span>, <span class="source_keyword">int</span> ClickIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_getTeamName-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> getTeamName <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#39" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">string</span> getTeamName ( <span class="source_keyword">string</span> TeamClass) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#17" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnPhantomTrack-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> OnPhantomTrack <span class="function_state"></span> <a href="../Source_gui2k4/ut2k4sptab_detailphantom.html#62" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  OnPhantomTrack ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>, <span class="source_keyword">int</span> LastIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/multiselectlistbox.html" class="source">MultiSelectListBox</a></span> <span class="source_keyword">Name</span>=SPDPlbMatches
+         bVisibleWhenEmpty=<span class="source_keyword">True</span>
+         OnCreateComponent=SPDPlbMatches.InternalOnCreateComponent
+         FontScale=FNS_Medium
+         WinTop=<span class="source_int">0.179697</span>
+         WinLeft=<span class="source_int">0.117832</span>
+         WinWidth=<span class="source_int">0.764337</span>
+         WinHeight=<span class="source_int">0.686097</span>
+         RenderWeight=<span class="source_int">0.200000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     lbMatches=<span class="source_type"><a href="../xinterface/multiselectlistbox.html" class="source">MultiSelectListBox</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_DetailPhantom.SPDPlbMatches'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span> <span class="source_keyword">Name</span>=SPDPimgMatchesBg
+         <span class="source_type">Caption</span>=<span class="source_string">"Other Tournament Matches Played During Your Match"</span>
+         WinTop=<span class="source_int">0.100000</span>
+         WinLeft=<span class="source_int">0.100000</span>
+         WinWidth=<span class="source_int">0.800000</span>
+         WinHeight=<span class="source_int">0.800000</span>
+         bBoundToParent=<span class="source_keyword">True</span>
+         OnPreDraw=SPDPimgMatchesBg.InternalPreDraw
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     sbgMatchesBg=<span class="source_type"><a href="../xinterface/guisectionbackground.html" class="source">GUISectionBackground</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_DetailPhantom.SPDPimgMatchesBg'</span>
+
+     VS=<span class="source_string">"vs"</span>
+     msgMatchInfo=<span class="source_string">"%gametype% in %map%"</span>
+     msgGameTime=<span class="source_string">"Game time: %gametime% minutes"</span>
+     msgScore=<span class="source_string">"Score: %team1% - %team2%"</span>
+     TeamDetailPage=<span class="source_string">"GUI2K4.UT2K4SP_DetailsTeam"</span>
+     PanelCaption=<span class="source_string">"Other Tournament Matches"</span>
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guicontextmenu.html" class="source">GUIContextMenu</a></span> <span class="source_keyword">Name</span>=SPDPcmMatches
+         ContextItems(<span class="source_int">0</span>)=<span class="source_string">"Team details"</span>
+         OnSelect=<span class="source_type"><a href="../gui2k4/ut2k4sptab_detailphantom.html" class="source">UT2K4SPTab_DetailPhantom</a></span>.cmMatchesOnClick
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     ContextMenu=<span class="source_type"><a href="../xinterface/guicontextmenu.html" class="source">GUIContextMenu</a></span><span class="source_name">'GUI2K4.UT2K4SPTab_DetailPhantom.SPDPcmMatches'</span>
+
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_gui2k4/ut2k4sptab_detailphantom.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SPTab_DetailPhantom">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../gui2k4/ut2k4sptab_detailmatch.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../gui2k4/ut2k4sptab_extraladder.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:06.814 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - SmartCTF1A.SmartCTFLogoInteraction</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../smartctf1a/smartctf1a-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_smartctf1a/smartctflogointeraction.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#SmartCTFLogoInteraction">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../smartctf1a/smartctflogo.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../smartctf1a/smartctfmoremessages.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#smartctf1a/smartctflogointeraction.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../smartctf1a/smartctf1a-overview.html">SmartCTF1A</a>.SmartCTFLogoInteraction</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../engine/interaction.html">Interaction</a></dd>
+<dt>Modifiers</dt><dd>dependson ( SmartCTFLogo ) </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/interactions.html">Interactions</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/interaction.html">Interaction</a>
+      |   
+      +-- <a href="../smartctf1a/smartctf1a-overview.html">SmartCTF1A</a>.<a href="../smartctf1a/smartctflogointeraction.html">SmartCTFLogoInteraction</a>
+</pre>
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+<tr><td width="40%"><a href="#_STY_Alpha" name="STY_Alpha" title="go to the details">STY_Alpha</a></td><td width="10%">=</td><td width="50%">5</td></tr>
+
+</table>
+
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDisplaying" name="bDisplaying" title="go to the details">bDisplaying</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDisplayingLogo" name="bDisplayingLogo" title="go to the details">bDisplayingLogo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bFadingIn" name="bFadingIn" title="go to the details">bFadingIn</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bFadingOut" name="bFadingOut" title="go to the details">bFadingOut</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">Sound</a></td><td width="66%"><a href="#_DisplaySound" name="DisplaySound" title="go to the details">DisplaySound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">Sound</a></td><td width="66%"><a href="#_FadeInSound" name="FadeInSound" title="go to the details">FadeInSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">Sound</a></td><td width="66%"><a href="#_FadeOutSound" name="FadeOutSound" title="go to the details">FadeOutSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_LogoMaterial" name="LogoMaterial" title="go to the details">LogoMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/texrotator.html">TexRotator</a></td><td width="66%"><a href="#_RotatingLogoMaterial" name="RotatingLogoMaterial" title="go to the details">RotatingLogoMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html">SmartCTFLogo</a></td><td width="66%"><a href="#_ServerLogo" name="ServerLogo" title="go to the details">ServerLogo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StartupTime" name="StartupTime" title="go to the details">StartupTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../smartctf1a/smartctflogo.html#EFadeTransition">SmartCTFLogo.EFadeTransition</a></td><td width="66%"><a href="#_TestTransition" name="TestTransition" title="go to the details">TestTransition</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/interaction.html">Interaction</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/interaction.html#bActive">bActive</a>, <a href="../engine/interaction.html#bNativeEvents">bNativeEvents</a>, <a href="../engine/interaction.html#bRequiresTick">bRequiresTick</a>, <a href="../engine/interaction.html#bVisible">bVisible</a>, <a href="../engine/interaction.html#Master">Master</a>, <a href="../engine/interaction.html#ViewportOwner">ViewportOwner</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Enumerations Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Enumerations from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/interactions.html">Interactions</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/interactions.html#EInputAction">EInputAction</a>, <a href="../engine/interactions.html#EInputKey">EInputKey</a>, <a href="../engine/interactions.html#EStreamFinishReason">EStreamFinishReason</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawScreenTexture-" name="DrawScreenTexture" title="go to the details">DrawScreenTexture</a> (<a href="../engine/canvas.html">Canvas</a> C, <a href="../engine/material.html">Material</a> M, float X, float Y, float W, float H, <a href="../smartctf1a/smartctflogo.html#TTexRegion">SmartCTFLogo.TTexRegion</a> R, <a href="../core/object.html#EDrawPivot">EDrawPivot</a> Pivot))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_FadeIn-" name="FadeIn" title="go to the details">FadeIn</a> (float Alpha, float Start, float End, <a href="../smartctf1a/smartctflogo.html#EFadeTransition">SmartCTFLogo.EFadeTransition</a> Method))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_FadeOut-" name="FadeOut" title="go to the details">FadeOut</a> (float Alpha, float Start, float End, <a href="../smartctf1a/smartctflogo.html#EFadeTransition">SmartCTFLogo.EFadeTransition</a> Method))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>Font&nbsp;</td><td><a href="#_GetSmallFontFor-" name="GetSmallFontFor" title="go to the details">GetSmallFontFor</a> (int ScreenWidth, int offset))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_NotifyLevelChange-" name="NotifyLevelChange" title="go to the details">NotifyLevelChange</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PostRender-" name="PostRender" title="go to the details">PostRender</a> (<a href="../engine/canvas.html">Canvas</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Remove-" name="Remove" title="go to the details">Remove</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TransitionsTest-" name="TransitionsTest" title="go to the details">TransitionsTest</a> (<a href="../engine/canvas.html">Canvas</a> C))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/interaction.html">Interaction</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/interaction.html#ConsoleCommand">ConsoleCommand</a>, <a href="../engine/interaction.html#Initialize">Initialize</a>, <a href="../engine/interaction.html#Initialized">Initialized</a>, <a href="../engine/interaction.html#KeyEvent">KeyEvent</a>, <a href="../engine/interaction.html#KeyType">KeyType</a>, <a href="../engine/interaction.html#Message">Message</a>, <a href="../engine/interaction.html#NotifyLevelChange">NotifyLevelChange</a>, <a href="../engine/interaction.html#NotifyMusicChange">NotifyMusicChange</a>, <a href="../engine/interaction.html#PostRender">PostRender</a>, <a href="../engine/interaction.html#PreRender">PreRender</a>, <a href="../engine/interaction.html#ScreenToWorld">ScreenToWorld</a>, <a href="../engine/interaction.html#SetFocus">SetFocus</a>, <a href="../engine/interaction.html#StreamFinished">StreamFinished</a>, <a href="../engine/interaction.html#Tick">Tick</a>, <a href="../engine/interaction.html#WorldToScreen">WorldToScreen</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/interactions.html">Interactions</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/interactions.html#GetFriendlyName">GetFriendlyName</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Detail</th>
+</tr>
+</table>
+
+<h4><a name="_STY_Alpha" class="hidden"></a>STY_Alpha <a href="../Source_smartctf1a/smartctflogointeraction.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">const</span> STY_Alpha = <span class="source_int">5</span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bDisplaying" class="hidden"></a>bDisplaying <a href="../Source_smartctf1a/smartctflogointeraction.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bDisplaying;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bDisplayingLogo" class="hidden"></a>bDisplayingLogo <a href="../Source_smartctf1a/smartctflogointeraction.html#43" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bDisplayingLogo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bFadingIn" class="hidden"></a>bFadingIn <a href="../Source_smartctf1a/smartctflogointeraction.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bFadingIn;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bFadingOut" class="hidden"></a>bFadingOut <a href="../Source_smartctf1a/smartctflogointeraction.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bFadingOut;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisplaySound" class="hidden"></a>DisplaySound <a href="../Source_smartctf1a/smartctflogointeraction.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span> DisplaySound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeInSound" class="hidden"></a>FadeInSound <a href="../Source_smartctf1a/smartctflogointeraction.html#38" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span> FadeInSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOutSound" class="hidden"></a>FadeOutSound <a href="../Source_smartctf1a/smartctflogointeraction.html#40" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span> FadeOutSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LogoMaterial" class="hidden"></a>LogoMaterial <a href="../Source_smartctf1a/smartctflogointeraction.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> LogoMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RotatingLogoMaterial" class="hidden"></a>RotatingLogoMaterial <a href="../Source_smartctf1a/smartctflogointeraction.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/texrotator.html" class="source">TexRotator</a></span> RotatingLogoMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerLogo" class="hidden"></a>ServerLogo <a href="../Source_smartctf1a/smartctflogointeraction.html#35" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span> ServerLogo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartupTime" class="hidden"></a>StartupTime <a href="../Source_smartctf1a/smartctflogointeraction.html#41" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> StartupTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TestTransition" class="hidden"></a>TestTransition <a href="../Source_smartctf1a/smartctflogointeraction.html#45" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>.<span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> TestTransition;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_DrawScreenTexture-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawScreenTexture <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#232" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DrawScreenTexture ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>, <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> <span class="source_type">M</span>, <span class="source_keyword">float</span> X, <span class="source_keyword">float</span> <span class="source_type">Y</span>, <span class="source_keyword">float</span> W, <span class="source_keyword">float</span> <span class="source_type">H</span>,
+    <span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>.<span class="source_type"><a href="../smartctf1a/smartctflogo.html#TTexRegion" class="source">TTexRegion</a></span> <span class="source_type">R</span>, <span class="source_type"><a href="../core/object.html#EDrawPivot" class="source">EDrawPivot</a></span> Pivot) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeIn-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FadeIn <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#318" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> FadeIn ( <span class="source_keyword">float</span> Alpha, <span class="source_keyword">float</span> <span class="source_type">Start</span>, <span class="source_keyword">float</span> End, <span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>.<span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> Method) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FadeOut-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FadeOut <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#357" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> FadeOut ( <span class="source_keyword">float</span> Alpha, <span class="source_keyword">float</span> <span class="source_type">Start</span>, <span class="source_keyword">float</span> End, <span class="source_type"><a href="../smartctf1a/smartctflogo.html" class="source">SmartCTFLogo</a></span>.<span class="source_type"><a href="../smartctf1a/smartctflogo.html#EFadeTransition" class="source">EFadeTransition</a></span> Method) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetSmallFontFor-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetSmallFontFor <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#299" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type">Font</span> GetSmallFontFor ( <span class="source_keyword">int</span> ScreenWidth, <span class="source_keyword">int</span> offset) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NotifyLevelChange-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> NotifyLevelChange <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#74" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  NotifyLevelChange ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostRender-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PostRender <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#86" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  PostRender ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Remove-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Remove <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#54" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Remove ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TransitionsTest-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TransitionsTest <span class="function_state"></span> <a href="../Source_smartctf1a/smartctflogointeraction.html#372" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TransitionsTest ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+   
+    bVisible=<span class="source_keyword">True</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../smartctf1a/smartctf1a-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_smartctf1a/smartctflogointeraction.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#SmartCTFLogoInteraction">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../smartctf1a/smartctflogo.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../smartctf1a/smartctfmoremessages.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:04.771 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

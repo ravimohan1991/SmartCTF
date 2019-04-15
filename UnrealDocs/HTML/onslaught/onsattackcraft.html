@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSAttackCraft</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onsattackcraft.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSAttackCraft">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/mutwheeledvehiclestunts.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onsattackcraftbuildeffectblue.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onsattackcraft.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSAttackCraft</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../onslaught/onschoppercraft.html">ONSChopperCraft</a></dd>
+<dt>Modifiers</dt><dd>placeable </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a>
+         |   
+         +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a>
+            |   
+            +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a>
+               |   
+               +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onschoppercraft.html">ONSChopperCraft</a>
+                  |   
+                  +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsattackcraft.html">ONSAttackCraft</a>
+</pre>
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_StreamerActive" name="StreamerActive" title="go to the details">StreamerActive</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StreamerCurrentOpacity" name="StreamerCurrentOpacity" title="go to the details">StreamerCurrentOpacity</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsattackcraftstreamer.html">ONSAttackCraftStreamer</a>&gt;</td><td width="66%"><a href="#_StreamerEffect" name="StreamerEffect" title="go to the details">StreamerEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../onslaught/onsattackcraftstreamer.html">ONSAttackCraftStreamer</a>&gt;</td><td width="66%"><a href="#_StreamerEffectClass" name="StreamerEffectClass" title="go to the details">StreamerEffectClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../onslaught/onsattackcraftexhaust.html">ONSAttackCraftExhaust</a>&gt;</td><td width="66%"><a href="#_TrailEffectClass" name="TrailEffectClass" title="go to the details">TrailEffectClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsattackcraftexhaust.html">ONSAttackCraftExhaust</a>&gt;</td><td width="66%"><a href="#_TrailEffects" name="TrailEffects" title="go to the details">TrailEffects</a></td></tr>
+<tr><th colspan="2" class="small">ONSAttackCraft</th></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxPitchSpeed" name="MaxPitchSpeed" title="go to the details">MaxPitchSpeed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../core/object.html#Vector">vector</a>&gt;</td><td width="66%"><a href="#_StreamerEffectOffset" name="StreamerEffectOffset" title="go to the details">StreamerEffectOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StreamerOpacityChangeRate" name="StreamerOpacityChangeRate" title="go to the details">StreamerOpacityChangeRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StreamerOpacityMax" name="StreamerOpacityMax" title="go to the details">StreamerOpacityMax</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Range">range</a></td><td width="66%"><a href="#_StreamerOpacityRamp" name="StreamerOpacityRamp" title="go to the details">StreamerOpacityRamp</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../core/object.html#Vector">vector</a>&gt;</td><td width="66%"><a href="#_TrailEffectPositions" name="TrailEffectPositions" title="go to the details">TrailEffectPositions</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onschoppercraft.html">ONSChopperCraft</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onschoppercraft.html#AccumulatedTime">AccumulatedTime</a>, <a href="../onslaught/onschoppercraft.html#bHeadingInitialized">bHeadingInitialized</a>, <a href="../onslaught/onschoppercraft.html#bNewCopterState">bNewCopterState</a>, <a href="../onslaught/onschoppercraft.html#ChassisState">ChassisState</a>, <a href="../onslaught/onschoppercraft.html#CopState">CopState</a>, <a href="../onslaught/onschoppercraft.html#CopterMPH">CopterMPH</a>, <a href="../onslaught/onschoppercraft.html#LastJumpOutCheck">LastJumpOutCheck</a>, <a href="../onslaught/onschoppercraft.html#LatDamping">LatDamping</a>, <a href="../onslaught/onschoppercraft.html#LongDamping">LongDamping</a>, <a href="../onslaught/onschoppercraft.html#MaxRandForce">MaxRandForce</a>, <a href="../onslaught/onschoppercraft.html#MaxRiseForce">MaxRiseForce</a>, <a href="../onslaught/onschoppercraft.html#MaxStrafeForce">MaxStrafeForce</a>, <a href="../onslaught/onschoppercraft.html#MaxThrustForce">MaxThrustForce</a>, <a href="../onslaught/onschoppercraft.html#MaxYawRate">MaxYawRate</a>, <a href="../onslaught/onschoppercraft.html#OldCopState">OldCopState</a>, <a href="../onslaught/onschoppercraft.html#OutputRise">OutputRise</a>, <a href="../onslaught/onschoppercraft.html#OutputStrafe">OutputStrafe</a>, <a href="../onslaught/onschoppercraft.html#OutputThrust">OutputThrust</a>, <a href="../onslaught/onschoppercraft.html#PitchDamping">PitchDamping</a>, <a href="../onslaught/onschoppercraft.html#PitchTorqueFactor">PitchTorqueFactor</a>, <a href="../onslaught/onschoppercraft.html#PitchTorqueMax">PitchTorqueMax</a>, <a href="../onslaught/onschoppercraft.html#PushForce">PushForce</a>, <a href="../onslaught/onschoppercraft.html#RandForce">RandForce</a>, <a href="../onslaught/onschoppercraft.html#RandForceInterval">RandForceInterval</a>, <a href="../onslaught/onschoppercraft.html#RandTorque">RandTorque</a>, <a href="../onslaught/onschoppercraft.html#RollDamping">RollDamping</a>, <a href="../onslaught/onschoppercraft.html#RollTorqueMax">RollTorqueMax</a>, <a href="../onslaught/onschoppercraft.html#RollTorqueStrafeFactor">RollTorqueStrafeFactor</a>, <a href="../onslaught/onschoppercraft.html#RollTorqueTurnFactor">RollTorqueTurnFactor</a>, <a href="../onslaught/onschoppercraft.html#StopThreshold">StopThreshold</a>, <a href="../onslaught/onschoppercraft.html#TargetHeading">TargetHeading</a>, <a href="../onslaught/onschoppercraft.html#TargetPitch">TargetPitch</a>, <a href="../onslaught/onschoppercraft.html#TurnDamping">TurnDamping</a>, <a href="../onslaught/onschoppercraft.html#TurnTorqueFactor">TurnTorqueFactor</a>, <a href="../onslaught/onschoppercraft.html#TurnTorqueMax">TurnTorqueMax</a>, <a href="../onslaught/onschoppercraft.html#UpDamping">UpDamping</a>, <a href="../onslaught/onschoppercraft.html#UprightDamping">UprightDamping</a>, <a href="../onslaught/onschoppercraft.html#UprightStiffness">UprightStiffness</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onsvehicle.html#ActiveWeapon">ActiveWeapon</a>, <a href="../onslaught/onsvehicle.html#AltFireImpulse">AltFireImpulse</a>, <a href="../onslaught/onsvehicle.html#AltFocalPoint">AltFocalPoint</a>, <a href="../onslaught/onsvehicle.html#bAltFocalPoint">bAltFocalPoint</a>, <a href="../onslaught/onsvehicle.html#bCannotBeBased">bCannotBeBased</a>, <a href="../onslaught/onsvehicle.html#bCustomAiming">bCustomAiming</a>, <a href="../onslaught/onsvehicle.html#bDestroyAppearance">bDestroyAppearance</a>, <a href="../onslaught/onsvehicle.html#bDisintegrateVehicle">bDisintegrateVehicle</a>, <a href="../onslaught/onsvehicle.html#bDriverCannotLeaveVehicle">bDriverCannotLeaveVehicle</a>, <a href="../onslaught/onsvehicle.html#bEjectPassengersWhenFlipped">bEjectPassengersWhenFlipped</a>, <a href="../onslaught/onsvehicle.html#bEnableProximityViewShake">bEnableProximityViewShake</a>, <a href="../onslaught/onsvehicle.html#bHadFire">bHadFire</a>, <a href="../onslaught/onsvehicle.html#bHasAltFire">bHasAltFire</a>, <a href="../onslaught/onsvehicle.html#bHasAltFireImpulse">bHasAltFireImpulse</a>, <a href="../onslaught/onsvehicle.html#bHasBeenAwake">bHasBeenAwake</a>, <a href="../onslaught/onsvehicle.html#bHasFireImpulse">bHasFireImpulse</a>, <a href="../onslaught/onsvehicle.html#bIsAwake">bIsAwake</a>, <a href="../onslaught/onsvehicle.html#BlueSkin">BlueSkin</a>, <a href="../onslaught/onsvehicle.html#bNeverReset">bNeverReset</a>, <a href="../onslaught/onsvehicle.html#bOnlyViewShakeIfDriven">bOnlyViewShakeIfDriven</a>, <a href="../onslaught/onsvehicle.html#bSoundsPrecached">bSoundsPrecached</a>, <a href="../onslaught/onsvehicle.html#CrosshairColor">CrosshairColor</a>, <a href="../onslaught/onsvehicle.html#CrosshairTexture">CrosshairTexture</a>, <a href="../onslaught/onsvehicle.html#CrosshairX">CrosshairX</a>, <a href="../onslaught/onsvehicle.html#CrosshairY">CrosshairY</a>, <a href="../onslaught/onsvehicle.html#CustomAim">CustomAim</a>, <a href="../onslaught/onsvehicle.html#DamagedEffect">DamagedEffect</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectAccruedDamage">DamagedEffectAccruedDamage</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectAccScale">DamagedEffectAccScale</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectClass">DamagedEffectClass</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectFireDamagePerSec">DamagedEffectFireDamagePerSec</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectHealthFireFactor">DamagedEffectHealthFireFactor</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectHealthSmokeFactor">DamagedEffectHealthSmokeFactor</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectOffset">DamagedEffectOffset</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectScale">DamagedEffectScale</a>, <a href="../onslaught/onsvehicle.html#DebugInfo">DebugInfo</a>, <a href="../onslaught/onsvehicle.html#DestroyedRoadKillDamageType">DestroyedRoadKillDamageType</a>, <a href="../onslaught/onsvehicle.html#DestroyedVehicleMesh">DestroyedVehicleMesh</a>, <a href="../onslaught/onsvehicle.html#DestructionAngularMomentum">DestructionAngularMomentum</a>, <a href="../onslaught/onsvehicle.html#DestructionEffectClass">DestructionEffectClass</a>, <a href="../onslaught/onsvehicle.html#DestructionLinearMomentum">DestructionLinearMomentum</a>, <a href="../onslaught/onsvehicle.html#DisintegrationEffectClass">DisintegrationEffectClass</a>, <a href="../onslaught/onsvehicle.html#DisintegrationHealth">DisintegrationHealth</a>, <a href="../onslaught/onsvehicle.html#DriverWeapons">DriverWeapons</a>, <a href="../onslaught/onsvehicle.html#ExplosionCount">ExplosionCount</a>, <a href="../onslaught/onsvehicle.html#ExplosionDamage">ExplosionDamage</a>, <a href="../onslaught/onsvehicle.html#ExplosionDamageType">ExplosionDamageType</a>, <a href="../onslaught/onsvehicle.html#ExplosionMomentum">ExplosionMomentum</a>, <a href="../onslaught/onsvehicle.html#ExplosionRadius">ExplosionRadius</a>, <a href="../onslaught/onsvehicle.html#ExplosionSoundRadius">ExplosionSoundRadius</a>, <a href="../onslaught/onsvehicle.html#ExplosionSounds">ExplosionSounds</a>, <a href="../onslaught/onsvehicle.html#ExplosionSoundVolume">ExplosionSoundVolume</a>, <a href="../onslaught/onsvehicle.html#FireImpulse">FireImpulse</a>, <a href="../onslaught/onsvehicle.html#HeadlightCorona">HeadlightCorona</a>, <a href="../onslaught/onsvehicle.html#HeadlightCoronaMaterial">HeadlightCoronaMaterial</a>, <a href="../onslaught/onsvehicle.html#HeadlightCoronaMaxSize">HeadlightCoronaMaxSize</a>, <a href="../onslaught/onsvehicle.html#HeadlightCoronaOffset">HeadlightCoronaOffset</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjector">HeadlightProjector</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorMaterial">HeadlightProjectorMaterial</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorOffset">HeadlightProjectorOffset</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorRotation">HeadlightProjectorRotation</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorScale">HeadlightProjectorScale</a>, <a href="../onslaught/onsvehicle.html#IdleSound">IdleSound</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageMult">ImpactDamageMult</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageSounds">ImpactDamageSounds</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageThreshold">ImpactDamageThreshold</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageTicks">ImpactDamageTicks</a>, <a href="../onslaught/onsvehicle.html#ImpactInfo">ImpactInfo</a>, <a href="../onslaught/onsvehicle.html#ImpactTicksLeft">ImpactTicksLeft</a>, <a href="../onslaught/onsvehicle.html#LastCheckUpsideDownTime">LastCheckUpsideDownTime</a>, <a href="../onslaught/onsvehicle.html#LastImpactExplosionTime">LastImpactExplosionTime</a>, <a href="../onslaught/onsvehicle.html#LastRunOverWarningTime">LastRunOverWarningTime</a>, <a href="../onslaught/onsvehicle.html#LastVelocitySize">LastVelocitySize</a>, <a href="../onslaught/onsvehicle.html#LockedOnSound">LockedOnSound</a>, <a href="../onslaught/onsvehicle.html#MinRunOverWarningAim">MinRunOverWarningAim</a>, <a href="../onslaught/onsvehicle.html#OldExplosionCount">OldExplosionCount</a>, <a href="../onslaught/onsvehicle.html#OldYaw">OldYaw</a>, <a href="../onslaught/onsvehicle.html#PassengerWeapons">PassengerWeapons</a>, <a href="../onslaught/onsvehicle.html#RedSkin">RedSkin</a>, <a href="../onslaught/onsvehicle.html#Reservation">Reservation</a>, <a href="../onslaught/onsvehicle.html#ResetTime">ResetTime</a>, <a href="../onslaught/onsvehicle.html#ShakeOffsetMag">ShakeOffsetMag</a>, <a href="../onslaught/onsvehicle.html#ShakeOffsetRate">ShakeOffsetRate</a>, <a href="../onslaught/onsvehicle.html#ShakeOffsetTime">ShakeOffsetTime</a>, <a href="../onslaught/onsvehicle.html#ShakeRotMag">ShakeRotMag</a>, <a href="../onslaught/onsvehicle.html#ShakeRotRate">ShakeRotRate</a>, <a href="../onslaught/onsvehicle.html#ShakeRotTime">ShakeRotTime</a>, <a href="../onslaught/onsvehicle.html#ShutDownForce">ShutDownForce</a>, <a href="../onslaught/onsvehicle.html#ShutDownSound">ShutDownSound</a>, <a href="../onslaught/onsvehicle.html#SparkAdvanceFactor">SparkAdvanceFactor</a>, <a href="../onslaught/onsvehicle.html#SparkEffect">SparkEffect</a>, <a href="../onslaught/onsvehicle.html#SparkEffectClass">SparkEffectClass</a>, <a href="../onslaught/onsvehicle.html#StartUpForce">StartUpForce</a>, <a href="../onslaught/onsvehicle.html#StartUpSound">StartUpSound</a>, <a href="../onslaught/onsvehicle.html#TimeBetweenImpactExplosions">TimeBetweenImpactExplosions</a>, <a href="../onslaught/onsvehicle.html#UpsideDownDamage">UpsideDownDamage</a>, <a href="../onslaught/onsvehicle.html#ViewShakeLastCheck">ViewShakeLastCheck</a>, <a href="../onslaught/onsvehicle.html#ViewShakeOffsetFreq">ViewShakeOffsetFreq</a>, <a href="../onslaught/onsvehicle.html#ViewShakeOffsetMag">ViewShakeOffsetMag</a>, <a href="../onslaught/onsvehicle.html#ViewShakeRadius">ViewShakeRadius</a>, <a href="../onslaught/onsvehicle.html#ViewShakeRotFreq">ViewShakeRotFreq</a>, <a href="../onslaught/onsvehicle.html#ViewShakeRotMag">ViewShakeRotMag</a>, <a href="../onslaught/onsvehicle.html#WeaponPawns">WeaponPawns</a>, <a href="../onslaught/onsvehicle.html#Weapons">Weapons</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onschoppercraft.html">ONSChopperCraft</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onschoppercraft.html#CopterState">CopterState</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onsvehicle.html#DriverWeaponStruct">DriverWeaponStruct</a>, <a href="../onslaught/onsvehicle.html#ImpactInfoStruct">ImpactInfoStruct</a>, <a href="../onslaught/onsvehicle.html#PassengerWeaponStruct">PassengerWeaponStruct</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientKDriverEnter-" name="ClientKDriverEnter" title="go to the details">ClientKDriverEnter</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Died-" name="Died" title="go to the details">Died</a> (<a href="../engine/controller.html">Controller</a> Killer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType, <a href="../core/object.html#Vector">vector</a> HitLocation))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_Dodge-" name="Dodge" title="go to the details">Dodge</a> (<a href="../engine/actor.html#EDoubleClickDir">eDoubleClickDir</a> DoubleClickMove))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_DrivingStatusChanged-" name="DrivingStatusChanged" title="go to the details">DrivingStatusChanged</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_FastVehicle-" name="FastVehicle" title="go to the details">FastVehicle</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_ImpactDamageModifier-" name="ImpactDamageModifier" title="go to the details">ImpactDamageModifier</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_KDriverEnter-" name="KDriverEnter" title="go to the details">KDriverEnter</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PlaceExitingDriver-" name="PlaceExitingDriver" title="go to the details">PlaceExitingDriver</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_RecommendLongRangedAttack-" name="RecommendLongRangedAttack" title="go to the details">RecommendLongRangedAttack</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SpecialCalcBehindView-" name="SpecialCalcBehindView" title="go to the details">SpecialCalcBehindView</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC, out <a href="../engine/actor.html">actor</a> ViewActor, out <a href="../core/object.html#Vector">vector</a> CameraLocation, out rotator CameraRotation ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_StaticPrecache-" name="StaticPrecache" title="go to the details">StaticPrecache</a> (<a href="../engine/levelinfo.html">LevelInfo</a> L))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float DeltaTime))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheMaterials-" name="UpdatePrecacheMaterials" title="go to the details">UpdatePrecacheMaterials</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheStaticMeshes-" name="UpdatePrecacheStaticMeshes" title="go to the details">UpdatePrecacheStaticMeshes</a> ()))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onschoppercraft.html">ONSChopperCraft</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onschoppercraft.html#JumpOutCheck">JumpOutCheck</a>, <a href="../onslaught/onschoppercraft.html#KUpdateState">KUpdateState</a>, <a href="../onslaught/onschoppercraft.html#SpecialCalcFirstPersonView">SpecialCalcFirstPersonView</a>, <a href="../onslaught/onschoppercraft.html#SVehicleUpdateParams">SVehicleUpdateParams</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onsvehicle.html#AltFire">AltFire</a>, <a href="../onslaught/onsvehicle.html#ApplyFireImpulse">ApplyFireImpulse</a>, <a href="../onslaught/onsvehicle.html#CallDestroy">CallDestroy</a>, <a href="../onslaught/onsvehicle.html#CanAttack">CanAttack</a>, <a href="../onslaught/onsvehicle.html#ChangedReservation">ChangedReservation</a>, <a href="../onslaught/onsvehicle.html#ChargeBar">ChargeBar</a>, <a href="../onslaught/onsvehicle.html#CheckReset">CheckReset</a>, <a href="../onslaught/onsvehicle.html#ChooseFireAt">ChooseFireAt</a>, <a href="../onslaught/onsvehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../onslaught/onsvehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../onslaught/onsvehicle.html#ClientRegisterVehicleWeapon">ClientRegisterVehicleWeapon</a>, <a href="../onslaught/onsvehicle.html#ClientVehicleCeaseFire">ClientVehicleCeaseFire</a>, <a href="../onslaught/onsvehicle.html#ClientVehicleExplosion">ClientVehicleExplosion</a>, <a href="../onslaught/onsvehicle.html#Deploy">Deploy</a>, <a href="../onslaught/onsvehicle.html#DestroyAppearance">DestroyAppearance</a>, <a href="../onslaught/onsvehicle.html#Destroyed">Destroyed</a>, <a href="../onslaught/onsvehicle.html#Died">Died</a>, <a href="../onslaught/onsvehicle.html#DisplayDebug">DisplayDebug</a>, <a href="../onslaught/onsvehicle.html#DrawHUD">DrawHUD</a>, <a href="../onslaught/onsvehicle.html#DriverDied">DriverDied</a>, <a href="../onslaught/onsvehicle.html#DriverLeft">DriverLeft</a>, <a href="../onslaught/onsvehicle.html#DriverRadiusDamage">DriverRadiusDamage</a>, <a href="../onslaught/onsvehicle.html#FastVehicle">FastVehicle</a>, <a href="../onslaught/onsvehicle.html#FindEntryVehicle">FindEntryVehicle</a>, <a href="../onslaught/onsvehicle.html#Fire">Fire</a>, <a href="../onslaught/onsvehicle.html#FireOnRelease">FireOnRelease</a>, <a href="../onslaught/onsvehicle.html#GetBotPassenger">GetBotPassenger</a>, <a href="../onslaught/onsvehicle.html#GetInstigator">GetInstigator</a>, <a href="../onslaught/onsvehicle.html#GetTurrets">GetTurrets</a>, <a href="../onslaught/onsvehicle.html#HasOccupiedTurret">HasOccupiedTurret</a>, <a href="../onslaught/onsvehicle.html#HasUDamage">HasUDamage</a>, <a href="../onslaught/onsvehicle.html#HasWeapon">HasWeapon</a>, <a href="../onslaught/onsvehicle.html#HealDamage">HealDamage</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageModifier">ImpactDamageModifier</a>, <a href="../onslaught/onsvehicle.html#IsDeployed">IsDeployed</a>, <a href="../onslaught/onsvehicle.html#IsFiring">IsFiring</a>, <a href="../onslaught/onsvehicle.html#IsVehicleEmpty">IsVehicleEmpty</a>, <a href="../onslaught/onsvehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../onslaught/onsvehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../onslaught/onsvehicle.html#KImpact">KImpact</a>, <a href="../onslaught/onsvehicle.html#LimitPitch">LimitPitch</a>, <a href="../onslaught/onsvehicle.html#MayUndeploy">MayUndeploy</a>, <a href="../onslaught/onsvehicle.html#ModifyThreat">ModifyThreat</a>, <a href="../onslaught/onsvehicle.html#NeedToTurn">NeedToTurn</a>, <a href="../onslaught/onsvehicle.html#NewReservationCostMultiplier">NewReservationCostMultiplier</a>, <a href="../onslaught/onsvehicle.html#NotifyEnemyLockedOn">NotifyEnemyLockedOn</a>, <a href="../onslaught/onsvehicle.html#NotifyEnemyLostLock">NotifyEnemyLostLock</a>, <a href="../onslaught/onsvehicle.html#NumPassengers">NumPassengers</a>, <a href="../onslaught/onsvehicle.html#OpenPositionFor">OpenPositionFor</a>, <a href="../onslaught/onsvehicle.html#PlayHit">PlayHit</a>, <a href="../onslaught/onsvehicle.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../onslaught/onsvehicle.html#PrecacheAnnouncer">PrecacheAnnouncer</a>, <a href="../onslaught/onsvehicle.html#RefireRate">RefireRate</a>, <a href="../onslaught/onsvehicle.html#ReservationCostMultiplier">ReservationCostMultiplier</a>, <a href="../onslaught/onsvehicle.html#ServerChangeDriverPosition">ServerChangeDriverPosition</a>, <a href="../onslaught/onsvehicle.html#ServerPlayHorn">ServerPlayHorn</a>, <a href="../onslaught/onsvehicle.html#ServerVerifyVehicleWeapon">ServerVerifyVehicleWeapon</a>, <a href="../onslaught/onsvehicle.html#SetActiveWeapon">SetActiveWeapon</a>, <a href="../onslaught/onsvehicle.html#SetReservation">SetReservation</a>, <a href="../onslaught/onsvehicle.html#SetTeamNum">SetTeamNum</a>, <a href="../onslaught/onsvehicle.html#SpokenFor">SpokenFor</a>, <a href="../onslaught/onsvehicle.html#StaticPrecache">StaticPrecache</a>, <a href="../onslaught/onsvehicle.html#SVehicleUpdateParams">SVehicleUpdateParams</a>, <a href="../onslaught/onsvehicle.html#SwitchWeapon">SwitchWeapon</a>, <a href="../onslaught/onsvehicle.html#TakeDamage">TakeDamage</a>, <a href="../onslaught/onsvehicle.html#TakeImpactDamage">TakeImpactDamage</a>, <a href="../onslaught/onsvehicle.html#TeamChanged">TeamChanged</a>, <a href="../onslaught/onsvehicle.html#TooCloseToAttack">TooCloseToAttack</a>, <a href="../onslaught/onsvehicle.html#TryToDrive">TryToDrive</a>, <a href="../onslaught/onsvehicle.html#UpdatePrecacheMaterials">UpdatePrecacheMaterials</a>, <a href="../onslaught/onsvehicle.html#UpdatePrecacheStaticMeshes">UpdatePrecacheStaticMeshes</a>, <a href="../onslaught/onsvehicle.html#VehicleCeaseFire">VehicleCeaseFire</a>, <a href="../onslaught/onsvehicle.html#VehicleExplosion">VehicleExplosion</a>, <a href="../onslaught/onsvehicle.html#VehicleLocked">VehicleLocked</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_StreamerActive" class="hidden"></a>StreamerActive <a href="../Source_onslaught/onsattackcraft.html#22" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> StreamerActive;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerCurrentOpacity" class="hidden"></a>StreamerCurrentOpacity <a href="../Source_onslaught/onsattackcraft.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> StreamerCurrentOpacity;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerEffect" class="hidden"></a>StreamerEffect <a href="../Source_onslaught/onsattackcraft.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsattackcraftstreamer.html" class="source">ONSAttackCraftStreamer</a></span>&gt; StreamerEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerEffectClass" class="hidden"></a>StreamerEffectClass <a href="../Source_onslaught/onsattackcraft.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onsattackcraftstreamer.html" class="source">ONSAttackCraftStreamer</a></span>&gt; StreamerEffectClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TrailEffectClass" class="hidden"></a>TrailEffectClass <a href="../Source_onslaught/onsattackcraft.html#11" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onsattackcraftexhaust.html" class="source">ONSAttackCraftExhaust</a></span>&gt; TrailEffectClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TrailEffects" class="hidden"></a>TrailEffects <a href="../Source_onslaught/onsattackcraft.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsattackcraftexhaust.html" class="source">ONSAttackCraftExhaust</a></span>&gt; TrailEffects;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">ONSAttackCraft</h3>
+<h4><a name="_MaxPitchSpeed" class="hidden"></a>MaxPitchSpeed <a href="../Source_onslaught/onsattackcraft.html#8" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsattackcraft.html" class="source">ONSAttackCraft</a></span>) <span class="source_keyword">float</span> MaxPitchSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerEffectOffset" class="hidden"></a>StreamerEffectOffset <a href="../Source_onslaught/onsattackcraft.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsattackcraft.html" class="source">ONSAttackCraft</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span>&gt; StreamerEffectOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerOpacityChangeRate" class="hidden"></a>StreamerOpacityChangeRate <a href="../Source_onslaught/onsattackcraft.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsattackcraft.html" class="source">ONSAttackCraft</a></span>) <span class="source_keyword">float</span> StreamerOpacityChangeRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerOpacityMax" class="hidden"></a>StreamerOpacityMax <a href="../Source_onslaught/onsattackcraft.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsattackcraft.html" class="source">ONSAttackCraft</a></span>) <span class="source_keyword">float</span> StreamerOpacityMax;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StreamerOpacityRamp" class="hidden"></a>StreamerOpacityRamp <a href="../Source_onslaught/onsattackcraft.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsattackcraft.html" class="source">ONSAttackCraft</a></span>) <span class="source_type"><a href="../core/object.html#Range" class="source">range</a></span> StreamerOpacityRamp;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TrailEffectPositions" class="hidden"></a>TrailEffectPositions <a href="../Source_onslaught/onsattackcraft.html#10" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsattackcraft.html" class="source">ONSAttackCraft</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span>&gt; TrailEffectPositions;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ClientKDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientKDriverEnter <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#47" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientKDriverEnter ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#101" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Died-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Died <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#83" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Died ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Dodge-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Dodge <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#30" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> Dodge ( <span class="source_type"><a href="../engine/actor.html#EDoubleClickDir" class="source">eDoubleClickDir</a></span> DoubleClickMove) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrivingStatusChanged-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> DrivingStatusChanged <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#119" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  DrivingStatusChanged ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FastVehicle-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FastVehicle <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#25" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> FastVehicle ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageModifier-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ImpactDamageModifier <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#256" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> ImpactDamageModifier ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KDriverEnter <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#40" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  KDriverEnter ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlaceExitingDriver-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlaceExitingDriver <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#276" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PlaceExitingDriver ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RecommendLongRangedAttack-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RecommendLongRangedAttack <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#270" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> RecommendLongRangedAttack ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpecialCalcBehindView-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SpecialCalcBehindView <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#54" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  SpecialCalcBehindView ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>, <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> ViewActor, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> CameraLocation, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> <span class="source_type">CameraRotation</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StaticPrecache-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> StaticPrecache <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#324" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span>  StaticPrecache ( <span class="source_type"><a href="../engine/levelinfo.html" class="source">LevelInfo</a></span> L) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#172" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">DeltaTime</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheMaterials-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheMaterials <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#363" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheMaterials ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheStaticMeshes-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheStaticMeshes <span class="function_state"></span> <a href="../Source_onslaught/onsattackcraft.html#351" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheStaticMeshes ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     MaxPitchSpeed=<span class="source_int">2000.000000</span>
+     TrailEffectPositions(<span class="source_int">0</span>)=(X=-<span class="source_int">148.000000</span>,<span class="source_type">Y</span>=-<span class="source_int">26.000000</span>,Z=<span class="source_int">51.000000</span>)
+     TrailEffectPositions(<span class="source_int">1</span>)=(X=-<span class="source_int">148.000000</span>,<span class="source_type">Y</span>=<span class="source_int">26.000000</span>,Z=<span class="source_int">51.000000</span>)
+     TrailEffectClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSAttackCraftExhaust'</span>
+     StreamerEffectOffset(<span class="source_int">0</span>)=(X=-<span class="source_int">219.000000</span>,<span class="source_type">Y</span>=-<span class="source_int">35.000000</span>,Z=<span class="source_int">57.000000</span>)
+     StreamerEffectOffset(<span class="source_int">1</span>)=(X=-<span class="source_int">219.000000</span>,<span class="source_type">Y</span>=<span class="source_int">35.000000</span>,Z=<span class="source_int">57.000000</span>)
+     StreamerEffectOffset(<span class="source_int">2</span>)=(X=-<span class="source_int">52.000000</span>,<span class="source_type">Y</span>=-<span class="source_int">24.000000</span>,Z=<span class="source_int">142.000000</span>)
+     StreamerEffectOffset(<span class="source_int">3</span>)=(X=-<span class="source_int">52.000000</span>,<span class="source_type">Y</span>=<span class="source_int">24.000000</span>,Z=<span class="source_int">142.000000</span>)
+     StreamerEffectClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSAttackCraftStreamer'</span>
+     StreamerOpacityRamp=(Min=<span class="source_int">1200.000000</span>,<span class="source_type">Max</span>=<span class="source_int">1600.000000</span>)
+     StreamerOpacityChangeRate=<span class="source_int">1.000000</span>
+     StreamerOpacityMax=<span class="source_int">0.700000</span>
+     UprightStiffness=<span class="source_int">500.000000</span>
+     UprightDamping=<span class="source_int">300.000000</span>
+     MaxThrustForce=<span class="source_int">100.000000</span>
+     LongDamping=<span class="source_int">0.050000</span>
+     MaxStrafeForce=<span class="source_int">80.000000</span>
+     LatDamping=<span class="source_int">0.050000</span>
+     MaxRiseForce=<span class="source_int">50.000000</span>
+     UpDamping=<span class="source_int">0.050000</span>
+     TurnTorqueFactor=<span class="source_int">600.000000</span>
+     TurnTorqueMax=<span class="source_int">200.000000</span>
+     TurnDamping=<span class="source_int">50.000000</span>
+     MaxYawRate=<span class="source_int">1.500000</span>
+     PitchTorqueFactor=<span class="source_int">200.000000</span>
+     PitchTorqueMax=<span class="source_int">35.000000</span>
+     PitchDamping=<span class="source_int">20.000000</span>
+     RollTorqueTurnFactor=<span class="source_int">450.000000</span>
+     RollTorqueStrafeFactor=<span class="source_int">50.000000</span>
+     RollTorqueMax=<span class="source_int">50.000000</span>
+     RollDamping=<span class="source_int">30.000000</span>
+     StopThreshold=<span class="source_int">100.000000</span>
+     MaxRandForce=<span class="source_int">3.000000</span>
+     RandForceInterval=<span class="source_int">0.750000</span>
+     DriverWeapons(<span class="source_int">0</span>)=(<span class="source_type">WeaponClass</span>=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSAttackCraftGun'</span>,WeaponBone=<span class="source_string">"PlasmaGunAttachment"</span>)
+     RedSkin=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'VMVehicles-TX.AttackCraftGroup.AttackCraftChassisFinalRED'</span>
+     BlueSkin=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'VMVehicles-TX.AttackCraftGroup.AttackCraftChassisFInalBLUE'</span>
+     IdleSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.AttackCraft.AttackCraftIdle'</span>
+     StartUpSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.AttackCraft.AttackCraftStartUp'</span>
+     ShutDownSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.AttackCraft.AttackCraftShutDown'</span>
+     StartUpForce=<span class="source_string">"AttackCraftStartUp"</span>
+     ShutDownForce=<span class="source_string">"AttackCraftShutDown"</span>
+     DestroyedVehicleMesh=<span class="source_type">StaticMesh</span><span class="source_name">'ONSDeadVehicles-SM.AttackCraftDead'</span>
+     DestructionEffectClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSVehicleExplosionEffect'</span>
+     DisintegrationEffectClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSVehDeathAttackCraft'</span>
+     DestructionLinearMomentum=(Min=<span class="source_int">50000.000000</span>,<span class="source_type">Max</span>=<span class="source_int">150000.000000</span>)
+     DestructionAngularMomentum=(Min=<span class="source_int">100.000000</span>,<span class="source_type">Max</span>=<span class="source_int">300.000000</span>)
+     DamagedEffectOffset=(X=-<span class="source_int">120.000000</span>,<span class="source_type">Y</span>=<span class="source_int">10.000000</span>,Z=<span class="source_int">65.000000</span>)
+     ImpactDamageMult=<span class="source_int">0.001000</span>
+     HeadlightCoronaOffset(<span class="source_int">0</span>)=(X=<span class="source_int">76.000000</span>,<span class="source_type">Y</span>=<span class="source_int">14.000000</span>,Z=-<span class="source_int">24.000000</span>)
+     HeadlightCoronaOffset(<span class="source_int">1</span>)=(X=<span class="source_int">76.000000</span>,<span class="source_type">Y</span>=-<span class="source_int">14.000000</span>,Z=-<span class="source_int">24.000000</span>)
+     HeadlightCoronaMaterial=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'EpicParticles.Flares.FlashFlare1'</span>
+     HeadlightCoronaMaxSize=<span class="source_int">60.000000</span>
+     VehicleMass=<span class="source_int">4.000000</span>
+     bTurnInPlace=<span class="source_keyword">True</span>
+     bShowDamageOverlay=<span class="source_keyword">True</span>
+     bDriverHoldsFlag=<span class="source_keyword">False</span>
+     bCanCarryFlag=<span class="source_keyword">False</span>
+     ExitPositions(<span class="source_int">0</span>)=(<span class="source_type">Y</span>=-<span class="source_int">165.000000</span>,Z=<span class="source_int">100.000000</span>)
+     ExitPositions(<span class="source_int">1</span>)=(<span class="source_type">Y</span>=<span class="source_int">165.000000</span>,Z=<span class="source_int">100.000000</span>)
+     EntryPosition=(X=-<span class="source_int">40.000000</span>)
+     EntryRadius=<span class="source_int">210.000000</span>
+     TPCamDistance=<span class="source_int">500.000000</span>
+     TPCamLookat=(X=<span class="source_int">0.000000</span>,Z=<span class="source_int">0.000000</span>)
+     TPCamWorldOffset=(Z=<span class="source_int">200.000000</span>)
+     DriverDamageMult=<span class="source_int">0.000000</span>
+     VehiclePositionString=<span class="source_string">"in a Raptor"</span>
+     VehicleNameString=<span class="source_string">"Raptor"</span>
+     RanOverDamageType=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.DamTypeAttackCraftRoadkill'</span>
+     CrushedDamageType=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.DamTypeAttackCraftPancake'</span>
+     MaxDesireability=<span class="source_int">0.600000</span>
+     FlagBone=<span class="source_string">"PlasmaGunAttachment"</span>
+     FlagOffset=(Z=<span class="source_int">80.000000</span>)
+     FlagRotation=(Yaw=<span class="source_int">32768</span>)
+     HornSounds(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Horns.Horn03'</span>
+     HornSounds(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Horns.Horn07'</span>
+     GroundSpeed=<span class="source_int">2000.000000</span>
+     HealthMax=<span class="source_int">300.000000</span>
+     Health=<span class="source_int">300</span>
+     <span class="source_type">Mesh</span>=SkeletalMesh<span class="source_name">'ONSVehicles-A.AttackCraft'</span>
+     SoundVolume=<span class="source_int">160</span>
+     CollisionRadius=<span class="source_int">150.000000</span>
+     CollisionHeight=<span class="source_int">70.000000</span>
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../engine/karmaparamsrbfull.html" class="source">KarmaParamsRBFull</a></span> <span class="source_keyword">Name</span>=KParams0
+         KInertiaTensor(<span class="source_int">0</span>)=<span class="source_int">1.000000</span>
+         KInertiaTensor(<span class="source_int">3</span>)=<span class="source_int">3.000000</span>
+         KInertiaTensor(<span class="source_int">5</span>)=<span class="source_int">3.500000</span>
+         KCOMOffset=(X=-<span class="source_int">0.250000</span>)
+         KLinearDamping=<span class="source_int">0.000000</span>
+         KAngularDamping=<span class="source_int">0.000000</span>
+         KStartEnabled=<span class="source_keyword">True</span>
+         bKNonSphericalInertia=<span class="source_keyword">True</span>
+         KActorGravScale=<span class="source_int">0.000000</span>
+         bHighDetailOnly=<span class="source_keyword">False</span>
+         bClientOnly=<span class="source_keyword">False</span>
+         bKDoubleTickRate=<span class="source_keyword">True</span>
+         bKStayUpright=<span class="source_keyword">True</span>
+         bKAllowRotate=<span class="source_keyword">True</span>
+         bDestroyOnWorldPenetrate=<span class="source_keyword">True</span>
+         bDoSafetime=<span class="source_keyword">True</span>
+         KFriction=<span class="source_int">0.500000</span>
+         KImpactThreshold=<span class="source_int">300.000000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     KParams=<span class="source_type"><a href="../engine/karmaparamsrbfull.html" class="source">KarmaParamsRBFull</a></span><span class="source_name">'Onslaught.ONSAttackCraft.KParams0'</span>
+
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onsattackcraft.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSAttackCraft">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/mutwheeledvehiclestunts.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onsattackcraftbuildeffectblue.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:02.509 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

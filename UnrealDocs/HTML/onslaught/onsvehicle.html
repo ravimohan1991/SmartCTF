@@ -1,0 +1,1658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSVehicle</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onsvehicle.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSVehicle">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsvehdeathrv.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onsvehiclebuildeffect.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onsvehicle.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSVehicle</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../engine/svehicle.html">SVehicle</a></dd>
+<dt>Modifiers</dt><dd>native nativereplication abstract </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a>
+         |   
+         +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a>
+            |   
+            +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../onslaught/onschoppercraft.html">ONSChopperCraft</a>, <a href="../onslaught/onshovercraft.html">ONSHoverCraft</a>, <a href="../onslaught/onsplanecraft.html">ONSPlaneCraft</a>, <a href="../onslaught/onstreadcraft.html">ONSTreadCraft</a>, <a href="../onslaught/onswheeledcraft.html">ONSWheeledCraft</a>
+</blockquote>
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_ActiveWeapon" name="ActiveWeapon" title="go to the details">ActiveWeapon</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_AltFocalPoint" name="AltFocalPoint" title="go to the details">AltFocalPoint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bAltFocalPoint" name="bAltFocalPoint" title="go to the details">bAltFocalPoint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bCannotBeBased" name="bCannotBeBased" title="go to the details">bCannotBeBased</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bCustomAiming" name="bCustomAiming" title="go to the details">bCustomAiming</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDestroyAppearance" name="bDestroyAppearance" title="go to the details">bDestroyAppearance</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDisintegrateVehicle" name="bDisintegrateVehicle" title="go to the details">bDisintegrateVehicle</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDriverCannotLeaveVehicle" name="bDriverCannotLeaveVehicle" title="go to the details">bDriverCannotLeaveVehicle</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bEjectPassengersWhenFlipped" name="bEjectPassengersWhenFlipped" title="go to the details">bEjectPassengersWhenFlipped</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHadFire" name="bHadFire" title="go to the details">bHadFire</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHasAltFire" name="bHasAltFire" title="go to the details">bHasAltFire</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHasAltFireImpulse" name="bHasAltFireImpulse" title="go to the details">bHasAltFireImpulse</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHasBeenAwake" name="bHasBeenAwake" title="go to the details">bHasBeenAwake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHasFireImpulse" name="bHasFireImpulse" title="go to the details">bHasFireImpulse</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bIsAwake" name="bIsAwake" title="go to the details">bIsAwake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bNeverReset" name="bNeverReset" title="go to the details">bNeverReset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bSoundsPrecached" name="bSoundsPrecached" title="go to the details">bSoundsPrecached</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">Color</a></td><td width="66%"><a href="#_CrosshairColor" name="CrosshairColor" title="go to the details">CrosshairColor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/texture.html">Texture</a></td><td width="66%"><a href="#_CrosshairTexture" name="CrosshairTexture" title="go to the details">CrosshairTexture</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_CrosshairX" name="CrosshairX" title="go to the details">CrosshairX</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_CrosshairY" name="CrosshairY" title="go to the details">CrosshairY</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Rotator">Rotator</a></td><td width="66%"><a href="#_CustomAim" name="CustomAim" title="go to the details">CustomAim</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsdamagedeffect.html">ONSDamagedEffect</a></td><td width="66%"><a href="#_DamagedEffect" name="DamagedEffect" title="go to the details">DamagedEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DamagedEffectAccruedDamage" name="DamagedEffectAccruedDamage" title="go to the details">DamagedEffectAccruedDamage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DebugInfo" name="DebugInfo" title="go to the details">DebugInfo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt;</td><td width="66%"><a href="#_DestroyedRoadKillDamageType" name="DestroyedRoadKillDamageType" title="go to the details">DestroyedRoadKillDamageType</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_ExplosionCount" name="ExplosionCount" title="go to the details">ExplosionCount</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ExplosionDamage" name="ExplosionDamage" title="go to the details">ExplosionDamage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt;</td><td width="66%"><a href="#_ExplosionDamageType" name="ExplosionDamageType" title="go to the details">ExplosionDamageType</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ExplosionMomentum" name="ExplosionMomentum" title="go to the details">ExplosionMomentum</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ExplosionRadius" name="ExplosionRadius" title="go to the details">ExplosionRadius</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsheadlightcorona.html">ONSHeadlightCorona</a>&gt;</td><td width="66%"><a href="#_HeadlightCorona" name="HeadlightCorona" title="go to the details">HeadlightCorona</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsheadlightprojector.html">ONSHeadlightProjector</a></td><td width="66%"><a href="#_HeadlightProjector" name="HeadlightProjector" title="go to the details">HeadlightProjector</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsvehicle.html#ImpactInfoStruct">ImpactInfoStruct</a></td><td width="66%"><a href="#_ImpactInfo" name="ImpactInfo" title="go to the details">ImpactInfo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_ImpactTicksLeft" name="ImpactTicksLeft" title="go to the details">ImpactTicksLeft</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastCheckUpsideDownTime" name="LastCheckUpsideDownTime" title="go to the details">LastCheckUpsideDownTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastImpactExplosionTime" name="LastImpactExplosionTime" title="go to the details">LastImpactExplosionTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastRunOverWarningTime" name="LastRunOverWarningTime" title="go to the details">LastRunOverWarningTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastVelocitySize" name="LastVelocitySize" title="go to the details">LastVelocitySize</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">Sound</a></td><td width="66%"><a href="#_LockedOnSound" name="LockedOnSound" title="go to the details">LockedOnSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MinRunOverWarningAim" name="MinRunOverWarningAim" title="go to the details">MinRunOverWarningAim</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">byte</td><td width="66%"><a href="#_OldExplosionCount" name="OldExplosionCount" title="go to the details">OldExplosionCount</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_OldYaw" name="OldYaw" title="go to the details">OldYaw</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../unrealgame/bot.html">bot</a></td><td width="66%"><a href="#_Reservation" name="Reservation" title="go to the details">Reservation</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ResetTime" name="ResetTime" title="go to the details">ResetTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_UpsideDownDamage" name="UpsideDownDamage" title="go to the details">UpsideDownDamage</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ViewShakeLastCheck" name="ViewShakeLastCheck" title="go to the details">ViewShakeLastCheck</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsweaponpawn.html">ONSWeaponPawn</a>&gt;</td><td width="66%"><a href="#_WeaponPawns" name="WeaponPawns" title="go to the details">WeaponPawns</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsweapon.html">ONSWeapon</a>&gt;</td><td width="66%"><a href="#_Weapons" name="Weapons" title="go to the details">Weapons</a></td></tr>
+<tr><th colspan="2" class="small">ONSVehicle</th></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_AltFireImpulse" name="AltFireImpulse" title="go to the details">AltFireImpulse</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bEnableProximityViewShake" name="bEnableProximityViewShake" title="go to the details">bEnableProximityViewShake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_BlueSkin" name="BlueSkin" title="go to the details">BlueSkin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bOnlyViewShakeIfDriven" name="bOnlyViewShakeIfDriven" title="go to the details">bOnlyViewShakeIfDriven</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DamagedEffectAccScale" name="DamagedEffectAccScale" title="go to the details">DamagedEffectAccScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../onslaught/onsdamagedeffect.html">ONSDamagedEffect</a>&gt;</td><td width="66%"><a href="#_DamagedEffectClass" name="DamagedEffectClass" title="go to the details">DamagedEffectClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DamagedEffectFireDamagePerSec" name="DamagedEffectFireDamagePerSec" title="go to the details">DamagedEffectFireDamagePerSec</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DamagedEffectHealthFireFactor" name="DamagedEffectHealthFireFactor" title="go to the details">DamagedEffectHealthFireFactor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DamagedEffectHealthSmokeFactor" name="DamagedEffectHealthSmokeFactor" title="go to the details">DamagedEffectHealthSmokeFactor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_DamagedEffectOffset" name="DamagedEffectOffset" title="go to the details">DamagedEffectOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DamagedEffectScale" name="DamagedEffectScale" title="go to the details">DamagedEffectScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">StaticMesh</td><td width="66%"><a href="#_DestroyedVehicleMesh" name="DestroyedVehicleMesh" title="go to the details">DestroyedVehicleMesh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Range">range</a></td><td width="66%"><a href="#_DestructionAngularMomentum" name="DestructionAngularMomentum" title="go to the details">DestructionAngularMomentum</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/emitter.html">Emitter</a>&gt;</td><td width="66%"><a href="#_DestructionEffectClass" name="DestructionEffectClass" title="go to the details">DestructionEffectClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Range">range</a></td><td width="66%"><a href="#_DestructionLinearMomentum" name="DestructionLinearMomentum" title="go to the details">DestructionLinearMomentum</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/emitter.html">Emitter</a>&gt;</td><td width="66%"><a href="#_DisintegrationEffectClass" name="DisintegrationEffectClass" title="go to the details">DisintegrationEffectClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DisintegrationHealth" name="DisintegrationHealth" title="go to the details">DisintegrationHealth</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ExplosionSoundRadius" name="ExplosionSoundRadius" title="go to the details">ExplosionSoundRadius</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/sound.html">sound</a>&gt;</td><td width="66%"><a href="#_ExplosionSounds" name="ExplosionSounds" title="go to the details">ExplosionSounds</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ExplosionSoundVolume" name="ExplosionSoundVolume" title="go to the details">ExplosionSoundVolume</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_FireImpulse" name="FireImpulse" title="go to the details">FireImpulse</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_HeadlightCoronaMaterial" name="HeadlightCoronaMaterial" title="go to the details">HeadlightCoronaMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HeadlightCoronaMaxSize" name="HeadlightCoronaMaxSize" title="go to the details">HeadlightCoronaMaxSize</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../core/object.html#Vector">vector</a>&gt;</td><td width="66%"><a href="#_HeadlightCoronaOffset" name="HeadlightCoronaOffset" title="go to the details">HeadlightCoronaOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_HeadlightProjectorMaterial" name="HeadlightProjectorMaterial" title="go to the details">HeadlightProjectorMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_HeadlightProjectorOffset" name="HeadlightProjectorOffset" title="go to the details">HeadlightProjectorOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Rotator">rotator</a></td><td width="66%"><a href="#_HeadlightProjectorRotation" name="HeadlightProjectorRotation" title="go to the details">HeadlightProjectorRotation</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HeadlightProjectorScale" name="HeadlightProjectorScale" title="go to the details">HeadlightProjectorScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_IdleSound" name="IdleSound" title="go to the details">IdleSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ImpactDamageMult" name="ImpactDamageMult" title="go to the details">ImpactDamageMult</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../engine/sound.html">Sound</a>&gt;</td><td width="66%"><a href="#_ImpactDamageSounds" name="ImpactDamageSounds" title="go to the details">ImpactDamageSounds</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ImpactDamageThreshold" name="ImpactDamageThreshold" title="go to the details">ImpactDamageThreshold</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ImpactDamageTicks" name="ImpactDamageTicks" title="go to the details">ImpactDamageTicks</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_RedSkin" name="RedSkin" title="go to the details">RedSkin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_ShakeOffsetMag" name="ShakeOffsetMag" title="go to the details">ShakeOffsetMag</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_ShakeOffsetRate" name="ShakeOffsetRate" title="go to the details">ShakeOffsetRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ShakeOffsetTime" name="ShakeOffsetTime" title="go to the details">ShakeOffsetTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_ShakeRotMag" name="ShakeRotMag" title="go to the details">ShakeRotMag</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_ShakeRotRate" name="ShakeRotRate" title="go to the details">ShakeRotRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ShakeRotTime" name="ShakeRotTime" title="go to the details">ShakeRotTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_ShutDownForce" name="ShutDownForce" title="go to the details">ShutDownForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_ShutDownSound" name="ShutDownSound" title="go to the details">ShutDownSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SparkAdvanceFactor" name="SparkAdvanceFactor" title="go to the details">SparkAdvanceFactor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsimpactsparks.html">ONSImpactSparks</a></td><td width="66%"><a href="#_SparkEffect" name="SparkEffect" title="go to the details">SparkEffect</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../onslaught/onsimpactsparks.html">ONSImpactSparks</a>&gt;</td><td width="66%"><a href="#_SparkEffectClass" name="SparkEffectClass" title="go to the details">SparkEffectClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_StartUpForce" name="StartUpForce" title="go to the details">StartUpForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_StartUpSound" name="StartUpSound" title="go to the details">StartUpSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TimeBetweenImpactExplosions" name="TimeBetweenImpactExplosions" title="go to the details">TimeBetweenImpactExplosions</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ViewShakeOffsetFreq" name="ViewShakeOffsetFreq" title="go to the details">ViewShakeOffsetFreq</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_ViewShakeOffsetMag" name="ViewShakeOffsetMag" title="go to the details">ViewShakeOffsetMag</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ViewShakeRadius" name="ViewShakeRadius" title="go to the details">ViewShakeRadius</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ViewShakeRotFreq" name="ViewShakeRotFreq" title="go to the details">ViewShakeRotFreq</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Rotator">rotator</a></td><td width="66%"><a href="#_ViewShakeRotMag" name="ViewShakeRotMag" title="go to the details">ViewShakeRotMag</a></td></tr>
+<tr><th colspan="2" class="small">SVehicle</th></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsvehicle.html#DriverWeaponStruct">DriverWeaponStruct</a>&gt;</td><td width="66%"><a href="#_DriverWeapons" name="DriverWeapons" title="go to the details">DriverWeapons</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsvehicle.html#PassengerWeaponStruct">PassengerWeaponStruct</a>&gt;</td><td width="66%"><a href="#_PassengerWeapons" name="PassengerWeapons" title="go to the details">PassengerWeapons</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/svehicle.html#bVehicleOnGround">bVehicleOnGround</a>, <a href="../engine/svehicle.html#DestroyEffectClass">DestroyEffectClass</a>, <a href="../engine/svehicle.html#FlipAxis">FlipAxis</a>, <a href="../engine/svehicle.html#FlipScale">FlipScale</a>, <a href="../engine/svehicle.html#FlipTime">FlipTime</a>, <a href="../engine/svehicle.html#FlipTimeLeft">FlipTimeLeft</a>, <a href="../engine/svehicle.html#FlipTorque">FlipTorque</a>, <a href="../engine/svehicle.html#VehicleMass">VehicleMass</a>, <a href="../engine/svehicle.html#Wheels">Wheels</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#AIMoveCheckTime">AIMoveCheckTime</a>, <a href="../engine/vehicle.html#AutoTurretControllerClass">AutoTurretControllerClass</a>, <a href="../engine/vehicle.html#bAdjustDriversHead">bAdjustDriversHead</a>, <a href="../engine/vehicle.html#bAllowViewChange">bAllowViewChange</a>, <a href="../engine/vehicle.html#bAllowWeaponToss">bAllowWeaponToss</a>, <a href="../engine/vehicle.html#bAutoTurret">bAutoTurret</a>, <a href="../engine/vehicle.html#bCanCarryFlag">bCanCarryFlag</a>, <a href="../engine/vehicle.html#bCanDoTrickJumps">bCanDoTrickJumps</a>, <a href="../engine/vehicle.html#bCanFlip">bCanFlip</a>, <a href="../engine/vehicle.html#bCanHover">bCanHover</a>, <a href="../engine/vehicle.html#bDefensive">bDefensive</a>, <a href="../engine/vehicle.html#bDesiredBehindView">bDesiredBehindView</a>, <a href="../engine/vehicle.html#bDrawDriverInTP">bDrawDriverInTP</a>, <a href="../engine/vehicle.html#bDrawMeshInFP">bDrawMeshInFP</a>, <a href="../engine/vehicle.html#bDrawVehicleShadow">bDrawVehicleShadow</a>, <a href="../engine/vehicle.html#bDriverCollideActors">bDriverCollideActors</a>, <a href="../engine/vehicle.html#bDriverHoldsFlag">bDriverHoldsFlag</a>, <a href="../engine/vehicle.html#bDriving">bDriving</a>, <a href="../engine/vehicle.html#bDropDetail">bDropDetail</a>, <a href="../engine/vehicle.html#bEjectDriver">bEjectDriver</a>, <a href="../engine/vehicle.html#bEnemyLockedOn">bEnemyLockedOn</a>, <a href="../engine/vehicle.html#bEnterringUnlocks">bEnterringUnlocks</a>, <a href="../engine/vehicle.html#bFollowLookDir">bFollowLookDir</a>, <a href="../engine/vehicle.html#bFPNoZFromCameraPitch">bFPNoZFromCameraPitch</a>, <a href="../engine/vehicle.html#bHasHandbrake">bHasHandbrake</a>, <a href="../engine/vehicle.html#bHasRadar">bHasRadar</a>, <a href="../engine/vehicle.html#bHideRemoteDriver">bHideRemoteDriver</a>, <a href="../engine/vehicle.html#bHighScoreKill">bHighScoreKill</a>, <a href="../engine/vehicle.html#bHUDTrackVehicle">bHUDTrackVehicle</a>, <a href="../engine/vehicle.html#bKeyVehicle">bKeyVehicle</a>, <a href="../engine/vehicle.html#bNoFriendlyFire">bNoFriendlyFire</a>, <a href="../engine/vehicle.html#bNonHumanControl">bNonHumanControl</a>, <a href="../engine/vehicle.html#bOldDriving">bOldDriving</a>, <a href="../engine/vehicle.html#bPCRelativeFPRotation">bPCRelativeFPRotation</a>, <a href="../engine/vehicle.html#bRelativeExitPos">bRelativeExitPos</a>, <a href="../engine/vehicle.html#bRemoteControlled">bRemoteControlled</a>, <a href="../engine/vehicle.html#bScriptedRise">bScriptedRise</a>, <a href="../engine/vehicle.html#bSeparateTurretFocus">bSeparateTurretFocus</a>, <a href="../engine/vehicle.html#bShowChargingBar">bShowChargingBar</a>, <a href="../engine/vehicle.html#bShowDamageOverlay">bShowDamageOverlay</a>, <a href="../engine/vehicle.html#bSpawnProtected">bSpawnProtected</a>, <a href="../engine/vehicle.html#bStalled">bStalled</a>, <a href="../engine/vehicle.html#bTeamLocked">bTeamLocked</a>, <a href="../engine/vehicle.html#bTurnInPlace">bTurnInPlace</a>, <a href="../engine/vehicle.html#BulletSounds">BulletSounds</a>, <a href="../engine/vehicle.html#bVehicleDestroyed">bVehicleDestroyed</a>, <a href="../engine/vehicle.html#bVehicleShadows">bVehicleShadows</a>, <a href="../engine/vehicle.html#bWeaponisAltFiring">bWeaponisAltFiring</a>, <a href="../engine/vehicle.html#bWeaponisFiring">bWeaponisFiring</a>, <a href="../engine/vehicle.html#bZeroPCRotOnEntry">bZeroPCRotOnEntry</a>, <a href="../engine/vehicle.html#CameraSpeed">CameraSpeed</a>, <a href="../engine/vehicle.html#CenterSpringForce">CenterSpringForce</a>, <a href="../engine/vehicle.html#CenterSpringRangePitch">CenterSpringRangePitch</a>, <a href="../engine/vehicle.html#CenterSpringRangeRoll">CenterSpringRangeRoll</a>, <a href="../engine/vehicle.html#CrushedDamageType">CrushedDamageType</a>, <a href="../engine/vehicle.html#DesiredTPCamDistance">DesiredTPCamDistance</a>, <a href="../engine/vehicle.html#DriveAnim">DriveAnim</a>, <a href="../engine/vehicle.html#DrivePos">DrivePos</a>, <a href="../engine/vehicle.html#Driver">Driver</a>, <a href="../engine/vehicle.html#DriverDamageMult">DriverDamageMult</a>, <a href="../engine/vehicle.html#DriveRot">DriveRot</a>, <a href="../engine/vehicle.html#DriverViewPitch">DriverViewPitch</a>, <a href="../engine/vehicle.html#DriverViewYaw">DriverViewYaw</a>, <a href="../engine/vehicle.html#EjectMomentum">EjectMomentum</a>, <a href="../engine/vehicle.html#EntryPosition">EntryPosition</a>, <a href="../engine/vehicle.html#EntryRadius">EntryRadius</a>, <a href="../engine/vehicle.html#ExitPositions">ExitPositions</a>, <a href="../engine/vehicle.html#FlagBone">FlagBone</a>, <a href="../engine/vehicle.html#FlagOffset">FlagOffset</a>, <a href="../engine/vehicle.html#FlagRotation">FlagRotation</a>, <a href="../engine/vehicle.html#FPCamPos">FPCamPos</a>, <a href="../engine/vehicle.html#FPCamViewOffset">FPCamViewOffset</a>, <a href="../engine/vehicle.html#HornSounds">HornSounds</a>, <a href="../engine/vehicle.html#HUDOverlay">HUDOverlay</a>, <a href="../engine/vehicle.html#HUDOverlayClass">HUDOverlayClass</a>, <a href="../engine/vehicle.html#HUDOverlayFOV">HUDOverlayFOV</a>, <a href="../engine/vehicle.html#HUDOverlayOffset">HUDOverlayOffset</a>, <a href="../engine/vehicle.html#LastCameraCalcTime">LastCameraCalcTime</a>, <a href="../engine/vehicle.html#LastHornTime">LastHornTime</a>, <a href="../engine/vehicle.html#LastLockWarningTime">LastLockWarningTime</a>, <a href="../engine/vehicle.html#LinkHealMult">LinkHealMult</a>, <a href="../engine/vehicle.html#LockOnClassString">LockOnClassString</a>, <a href="../engine/vehicle.html#LockWarningInterval">LockWarningInterval</a>, <a href="../engine/vehicle.html#MaxDesireability">MaxDesireability</a>, <a href="../engine/vehicle.html#MaxViewPitch">MaxViewPitch</a>, <a href="../engine/vehicle.html#MaxViewYaw">MaxViewYaw</a>, <a href="../engine/vehicle.html#MinRunOverSpeed">MinRunOverSpeed</a>, <a href="../engine/vehicle.html#MomentumMult">MomentumMult</a>, <a href="../engine/vehicle.html#myMarker">myMarker</a>, <a href="../engine/vehicle.html#NextVehicle">NextVehicle</a>, <a href="../engine/vehicle.html#NoEntryTexture">NoEntryTexture</a>, <a href="../engine/vehicle.html#ObjectiveGetOutDist">ObjectiveGetOutDist</a>, <a href="../engine/vehicle.html#OldSteering">OldSteering</a>, <a href="../engine/vehicle.html#OldTeam">OldTeam</a>, <a href="../engine/vehicle.html#ParentFactory">ParentFactory</a>, <a href="../engine/vehicle.html#PlayerEnterredRotation">PlayerEnterredRotation</a>, <a href="../engine/vehicle.html#PlayerStartTime">PlayerStartTime</a>, <a href="../engine/vehicle.html#PrevTeam">PrevTeam</a>, <a href="../engine/vehicle.html#RanOverDamageType">RanOverDamageType</a>, <a href="../engine/vehicle.html#RanOverSound">RanOverSound</a>, <a href="../engine/vehicle.html#Rise">Rise</a>, <a href="../engine/vehicle.html#ShadowCullDistance">ShadowCullDistance</a>, <a href="../engine/vehicle.html#ShadowMaxTraceDist">ShadowMaxTraceDist</a>, <a href="../engine/vehicle.html#SpawnOverlay[2]">SpawnOverlay[2]</a>, <a href="../engine/vehicle.html#Steering">Steering</a>, <a href="../engine/vehicle.html#StolenAnnouncement">StolenAnnouncement</a>, <a href="../engine/vehicle.html#StolenSound">StolenSound</a>, <a href="../engine/vehicle.html#StuckCount">StuckCount</a>, <a href="../engine/vehicle.html#StuckTime">StuckTime</a>, <a href="../engine/vehicle.html#Team">Team</a>, <a href="../engine/vehicle.html#TeamBeaconBorderMaterial">TeamBeaconBorderMaterial</a>, <a href="../engine/vehicle.html#TeamBeaconTexture">TeamBeaconTexture</a>, <a href="../engine/vehicle.html#TeamUseTime">TeamUseTime</a>, <a href="../engine/vehicle.html#Throttle">Throttle</a>, <a href="../engine/vehicle.html#ThrottleTime">ThrottleTime</a>, <a href="../engine/vehicle.html#TPCamDistance">TPCamDistance</a>, <a href="../engine/vehicle.html#TPCamDistRange">TPCamDistRange</a>, <a href="../engine/vehicle.html#TPCamLookat">TPCamLookat</a>, <a href="../engine/vehicle.html#TPCamWorldOffset">TPCamWorldOffset</a>, <a href="../engine/vehicle.html#TransEffects[2]">TransEffects[2]</a>, <a href="../engine/vehicle.html#VehicleDescription">VehicleDescription</a>, <a href="../engine/vehicle.html#VehicleDrowningDamType">VehicleDrowningDamType</a>, <a href="../engine/vehicle.html#VehicleIcon">VehicleIcon</a>, <a href="../engine/vehicle.html#VehicleLostTime">VehicleLostTime</a>, <a href="../engine/vehicle.html#VehicleMovingTime">VehicleMovingTime</a>, <a href="../engine/vehicle.html#VehicleNameString">VehicleNameString</a>, <a href="../engine/vehicle.html#VehiclePositionString">VehiclePositionString</a>, <a href="../engine/vehicle.html#VehicleShadow">VehicleShadow</a>, <a href="../engine/vehicle.html#WaterDamage">WaterDamage</a>, <a href="../engine/vehicle.html#WheelsScale">WheelsScale</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+<tr><td><a href="#_DriverWeaponStruct" name="DriverWeaponStruct" title="go to the details">DriverWeaponStruct</a><br /><span class="small">WeaponBone, WeaponClass</span></td></tr>
+<tr><td><a href="#_ImpactInfoStruct" name="ImpactInfoStruct" title="go to the details">ImpactInfoStruct</a><br /><span class="small">ImpactAccel, ImpactNorm, ImpactVel, Other, Pos</span></td></tr>
+<tr><td><a href="#_PassengerWeaponStruct" name="PassengerWeaponStruct" title="go to the details">PassengerWeaponStruct</a><br /><span class="small">WeaponBone, WeaponPawnClass</span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#SVehicleIcon">SVehicleIcon</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_AltFire-" name="AltFire" title="go to the details">AltFire</a> (optional float F))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_ApplyFireImpulse-" name="ApplyFireImpulse" title="go to the details">ApplyFireImpulse</a> (bool bAlt))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CallDestroy-VehicleDestroyed" name="CallDestroy" title="go to the details">CallDestroy</a> ()))<br /><span class="function_state">VehicleDestroyed</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_CallDestroy-VehicleDisintegrated" name="CallDestroy" title="go to the details">CallDestroy</a> ()))<br /><span class="function_state">VehicleDisintegrated</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CanAttack-" name="CanAttack" title="go to the details">CanAttack</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_ChangedReservation-" name="ChangedReservation" title="go to the details">ChangedReservation</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_ChargeBar-" name="ChargeBar" title="go to the details">ChargeBar</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_CheckReset-" name="CheckReset" title="go to the details">CheckReset</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ChooseFireAt-" name="ChooseFireAt" title="go to the details">ChooseFireAt</a> (<a href="../engine/actor.html">Actor</a> A))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientKDriverEnter-" name="ClientKDriverEnter" title="go to the details">ClientKDriverEnter</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientKDriverLeave-" name="ClientKDriverLeave" title="go to the details">ClientKDriverLeave</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientRegisterVehicleWeapon-" name="ClientRegisterVehicleWeapon" title="go to the details">ClientRegisterVehicleWeapon</a> (<a href="../onslaught/onsweapon.html">ONSWeapon</a> W, int Index))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientVehicleCeaseFire-" name="ClientVehicleCeaseFire" title="go to the details">ClientVehicleCeaseFire</a> (bool bWasAltFire))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_ClientVehicleExplosion-" name="ClientVehicleExplosion" title="go to the details">ClientVehicleExplosion</a> (bool bFinal))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Deploy-" name="Deploy" title="go to the details">Deploy</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_DestroyAppearance-" name="DestroyAppearance" title="go to the details">DestroyAppearance</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Died-" name="Died" title="go to the details">Died</a> (<a href="../engine/controller.html">Controller</a> Killer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType, <a href="../core/object.html#Vector">vector</a> HitLocation))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Died-VehicleDestroyed" name="Died" title="go to the details">Died</a> (<a href="../engine/controller.html">Controller</a> Killer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType, <a href="../core/object.html#Vector">vector</a> HitLocation))<br /><span class="function_state">VehicleDestroyed</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Died-VehicleDisintegrated" name="Died" title="go to the details">Died</a> (<a href="../engine/controller.html">Controller</a> Killer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType, <a href="../core/object.html#Vector">vector</a> HitLocation))<br /><span class="function_state">VehicleDisintegrated</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DisplayDebug-" name="DisplayDebug" title="go to the details">DisplayDebug</a> (<a href="../engine/canvas.html">Canvas</a> Canvas, out float YL, out float YPos))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawHUD-" name="DrawHUD" title="go to the details">DrawHUD</a> (<a href="../engine/canvas.html">Canvas</a> Canvas))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DriverDied-" name="DriverDied" title="go to the details">DriverDied</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DriverLeft-" name="DriverLeft" title="go to the details">DriverLeft</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DriverRadiusDamage-" name="DriverRadiusDamage" title="go to the details">DriverRadiusDamage</a> (float DamageAmount, float DamageRadius, <a href="../engine/controller.html">Controller</a> EventInstigator, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType, float Momentum, <a href="../core/object.html#Vector">vector</a> HitLocation))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_FastVehicle-" name="FastVehicle" title="go to the details">FastVehicle</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/vehicle.html">Vehicle</a>&nbsp;</td><td><a href="#_FindEntryVehicle-" name="FindEntryVehicle" title="go to the details">FindEntryVehicle</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Fire-" name="Fire" title="go to the details">Fire</a> (optional float F))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_FireOnRelease-" name="FireOnRelease" title="go to the details">FireOnRelease</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/aicontroller.html">AIController</a>&nbsp;</td><td><a href="#_GetBotPassenger-" name="GetBotPassenger" title="go to the details">GetBotPassenger</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/pawn.html">Pawn</a>&nbsp;</td><td><a href="#_GetInstigator-" name="GetInstigator" title="go to the details">GetInstigator</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>array&lt;<a href="../engine/vehicle.html">Vehicle</a>&gt;&nbsp;</td><td><a href="#_GetTurrets-" name="GetTurrets" title="go to the details">GetTurrets</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasOccupiedTurret-" name="HasOccupiedTurret" title="go to the details">HasOccupiedTurret</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasUDamage-" name="HasUDamage" title="go to the details">HasUDamage</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HasWeapon-" name="HasWeapon" title="go to the details">HasWeapon</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_HealDamage-" name="HealDamage" title="go to the details">HealDamage</a> (int Amount, <a href="../engine/controller.html">Controller</a> Healer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_ImpactDamageModifier-" name="ImpactDamageModifier" title="go to the details">ImpactDamageModifier</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_IsDeployed-" name="IsDeployed" title="go to the details">IsDeployed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_IsFiring-" name="IsFiring" title="go to the details">IsFiring</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>bool&nbsp;</td><td><a href="#_IsVehicleEmpty-" name="IsVehicleEmpty" title="go to the details">IsVehicleEmpty</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_KDriverEnter-" name="KDriverEnter" title="go to the details">KDriverEnter</a> (<a href="../engine/pawn.html">Pawn</a> p))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_KDriverLeave-" name="KDriverLeave" title="go to the details">KDriverLeave</a> (bool bForceLeave))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_KImpact-" name="KImpact" title="go to the details">KImpact</a> (<a href="../engine/actor.html">actor</a> Other, <a href="../core/object.html#Vector">vector</a> Pos, <a href="../core/object.html#Vector">vector</a> ImpactVel, <a href="../core/object.html#Vector">vector</a> ImpactNorm))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_LimitPitch-" name="LimitPitch" title="go to the details">LimitPitch</a> (int pitch))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_MayUndeploy-" name="MayUndeploy" title="go to the details">MayUndeploy</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_ModifyThreat-" name="ModifyThreat" title="go to the details">ModifyThreat</a> (float current, <a href="../engine/pawn.html">Pawn</a> Threat))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_NeedToTurn-" name="NeedToTurn" title="go to the details">NeedToTurn</a> (<a href="../core/object.html#Vector">vector</a> targ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_NewReservationCostMultiplier-" name="NewReservationCostMultiplier" title="go to the details">NewReservationCostMultiplier</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_NotifyEnemyLockedOn-" name="NotifyEnemyLockedOn" title="go to the details">NotifyEnemyLockedOn</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_NotifyEnemyLostLock-" name="NotifyEnemyLostLock" title="go to the details">NotifyEnemyLostLock</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_NumPassengers-" name="NumPassengers" title="go to the details">NumPassengers</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../engine/vehicle.html">Vehicle</a>&nbsp;</td><td><a href="#_OpenPositionFor-" name="OpenPositionFor" title="go to the details">OpenPositionFor</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayHit-" name="PlayHit" title="go to the details">PlayHit</a> (float Damage, <a href="../engine/pawn.html">Pawn</a> InstigatedBy, <a href="../core/object.html#Vector">vector</a> HitLocation, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType, <a href="../core/object.html#Vector">vector</a> Momentum))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PrecacheAnnouncer-" name="PrecacheAnnouncer" title="go to the details">PrecacheAnnouncer</a> (<a href="../engine/announcervoice.html">AnnouncerVoice</a> V, bool bRewardSounds))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_RefireRate-" name="RefireRate" title="go to the details">RefireRate</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_ReservationCostMultiplier-" name="ReservationCostMultiplier" title="go to the details">ReservationCostMultiplier</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ServerChangeDriverPosition-" name="ServerChangeDriverPosition" title="go to the details">ServerChangeDriverPosition</a> (byte F))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ServerPlayHorn-" name="ServerPlayHorn" title="go to the details">ServerPlayHorn</a> (int HornIndex))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ServerVerifyVehicleWeapon-" name="ServerVerifyVehicleWeapon" title="go to the details">ServerVerifyVehicleWeapon</a> (int Index))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetActiveWeapon-" name="SetActiveWeapon" title="go to the details">SetActiveWeapon</a> (int i))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetReservation-" name="SetReservation" title="go to the details">SetReservation</a> (<a href="../engine/controller.html">controller</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetTeamNum-" name="SetTeamNum" title="go to the details">SetTeamNum</a> (byte T))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_SpokenFor-" name="SpokenFor" title="go to the details">SpokenFor</a> (<a href="../engine/controller.html">Controller</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_StaticPrecache-" name="StaticPrecache" title="go to the details">StaticPrecache</a> (<a href="../engine/levelinfo.html">LevelInfo</a> L))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_SVehicleUpdateParams-" name="SVehicleUpdateParams" title="go to the details">SVehicleUpdateParams</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SwitchWeapon-" name="SwitchWeapon" title="go to the details">SwitchWeapon</a> (byte F))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> instigatedBy, <a href="../core/object.html#Vector">Vector</a> Hitlocation, <a href="../core/object.html#Vector">Vector</a> Momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_TakeImpactDamage-" name="TakeImpactDamage" title="go to the details">TakeImpactDamage</a> (float AccelMag))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_TeamChanged-" name="TeamChanged" title="go to the details">TeamChanged</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_TooCloseToAttack-" name="TooCloseToAttack" title="go to the details">TooCloseToAttack</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_TryToDrive-" name="TryToDrive" title="go to the details">TryToDrive</a> (<a href="../engine/pawn.html">Pawn</a> P))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheMaterials-" name="UpdatePrecacheMaterials" title="go to the details">UpdatePrecacheMaterials</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdatePrecacheStaticMeshes-" name="UpdatePrecacheStaticMeshes" title="go to the details">UpdatePrecacheStaticMeshes</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_VehicleCeaseFire-" name="VehicleCeaseFire" title="go to the details">VehicleCeaseFire</a> (bool bWasAltFire))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_VehicleExplosion-" name="VehicleExplosion" title="go to the details">VehicleExplosion</a> (<a href="../core/object.html#Vector">vector</a> MomentumNormal, float PercentMomentum))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_VehicleLocked-" name="VehicleLocked" title="go to the details">VehicleLocked</a> (Pawn P ))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/svehicle.html#Destroyed">Destroyed</a>, <a href="../engine/svehicle.html#Flip">Flip</a>, <a href="../engine/svehicle.html#GraphData">GraphData</a>, <a href="../engine/svehicle.html#JumpOffPawn">JumpOffPawn</a>, <a href="../engine/svehicle.html#KApplyForce">KApplyForce</a>, <a href="../engine/svehicle.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../engine/svehicle.html#SVehicleUpdateParams">SVehicleUpdateParams</a>, <a href="../engine/svehicle.html#Tick">Tick</a>, <a href="../engine/svehicle.html#UpdateVehicle">UpdateVehicle</a>, <a href="../engine/svehicle.html#VehicleStateReceived">VehicleStateReceived</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#ActivateOverlay">ActivateOverlay</a>, <a href="../engine/vehicle.html#AdjustDriverDamage">AdjustDriverDamage</a>, <a href="../engine/vehicle.html#AdjustedStrength">AdjustedStrength</a>, <a href="../engine/vehicle.html#AlternateTarget">AlternateTarget</a>, <a href="../engine/vehicle.html#AltFire">AltFire</a>, <a href="../engine/vehicle.html#AttachDriver">AttachDriver</a>, <a href="../engine/vehicle.html#AttachFlag">AttachFlag</a>, <a href="../engine/vehicle.html#BotDesireability">BotDesireability</a>, <a href="../engine/vehicle.html#ChangedReservation">ChangedReservation</a>, <a href="../engine/vehicle.html#ChargeBar">ChargeBar</a>, <a href="../engine/vehicle.html#CheatFly">CheatFly</a>, <a href="../engine/vehicle.html#CheatGhost">CheatGhost</a>, <a href="../engine/vehicle.html#CheatWalk">CheatWalk</a>, <a href="../engine/vehicle.html#CheckForHeadShot">CheckForHeadShot</a>, <a href="../engine/vehicle.html#CheckSuperBerserk">CheckSuperBerserk</a>, <a href="../engine/vehicle.html#CheckTauntValid">CheckTauntValid</a>, <a href="../engine/vehicle.html#ClientClearController">ClientClearController</a>, <a href="../engine/vehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../engine/vehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../engine/vehicle.html#ClientPlayForceFeedback">ClientPlayForceFeedback</a>, <a href="../engine/vehicle.html#ClientVehicleCeaseFire">ClientVehicleCeaseFire</a>, <a href="../engine/vehicle.html#Destroyed">Destroyed</a>, <a href="../engine/vehicle.html#Destroyed_HandleDriver">Destroyed_HandleDriver</a>, <a href="../engine/vehicle.html#DetachDriver">DetachDriver</a>, <a href="../engine/vehicle.html#Died">Died</a>, <a href="../engine/vehicle.html#DisplayDebug">DisplayDebug</a>, <a href="../engine/vehicle.html#DriverDied">DriverDied</a>, <a href="../engine/vehicle.html#DriverLeft">DriverLeft</a>, <a href="../engine/vehicle.html#DriverRadiusDamage">DriverRadiusDamage</a>, <a href="../engine/vehicle.html#DrivingStatusChanged">DrivingStatusChanged</a>, <a href="../engine/vehicle.html#EjectDriver">EjectDriver</a>, <a href="../engine/vehicle.html#EncroachedBy">EncroachedBy</a>, <a href="../engine/vehicle.html#EncroachingOn">EncroachingOn</a>, <a href="../engine/vehicle.html#FaceRotation">FaceRotation</a>, <a href="../engine/vehicle.html#FindEntryVehicle">FindEntryVehicle</a>, <a href="../engine/vehicle.html#FindValidTaunt">FindValidTaunt</a>, <a href="../engine/vehicle.html#Fire">Fire</a>, <a href="../engine/vehicle.html#FixPCRotation">FixPCRotation</a>, <a href="../engine/vehicle.html#Flip">Flip</a>, <a href="../engine/vehicle.html#GetBestEntry">GetBestEntry</a>, <a href="../engine/vehicle.html#GetBotPassenger">GetBotPassenger</a>, <a href="../engine/vehicle.html#GetCameraLocationStart">GetCameraLocationStart</a>, <a href="../engine/vehicle.html#GetInstigator">GetInstigator</a>, <a href="../engine/vehicle.html#GetMoveTargetFor">GetMoveTargetFor</a>, <a href="../engine/vehicle.html#GetSpree">GetSpree</a>, <a href="../engine/vehicle.html#GetTeamNum">GetTeamNum</a>, <a href="../engine/vehicle.html#GetTurrets">GetTurrets</a>, <a href="../engine/vehicle.html#GetVehiclePositionString">GetVehiclePositionString</a>, <a href="../engine/vehicle.html#HasOccupiedTurret">HasOccupiedTurret</a>, <a href="../engine/vehicle.html#HealDamage">HealDamage</a>, <a href="../engine/vehicle.html#ImportantVehicle">ImportantVehicle</a>, <a href="../engine/vehicle.html#IncomingMissile">IncomingMissile</a>, <a href="../engine/vehicle.html#IncrementSpree">IncrementSpree</a>, <a href="../engine/vehicle.html#IndependentVehicle">IndependentVehicle</a>, <a href="../engine/vehicle.html#IsArtillery">IsArtillery</a>, <a href="../engine/vehicle.html#IsVehicleEmpty">IsVehicleEmpty</a>, <a href="../engine/vehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../engine/vehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../engine/vehicle.html#LockOnWarning">LockOnWarning</a>, <a href="../engine/vehicle.html#NeedsFlip">NeedsFlip</a>, <a href="../engine/vehicle.html#NewReservationCostMultiplier">NewReservationCostMultiplier</a>, <a href="../engine/vehicle.html#NextWeapon">NextWeapon</a>, <a href="../engine/vehicle.html#NotifyEnemyLockedOn">NotifyEnemyLockedOn</a>, <a href="../engine/vehicle.html#NotifyEnemyLostLock">NotifyEnemyLostLock</a>, <a href="../engine/vehicle.html#NumPassengers">NumPassengers</a>, <a href="../engine/vehicle.html#Occupied">Occupied</a>, <a href="../engine/vehicle.html#OpenPositionFor">OpenPositionFor</a>, <a href="../engine/vehicle.html#PlaceExitingDriver">PlaceExitingDriver</a>, <a href="../engine/vehicle.html#PlayDying">PlayDying</a>, <a href="../engine/vehicle.html#PlayerChangedTeam">PlayerChangedTeam</a>, <a href="../engine/vehicle.html#PlayTakeHit">PlayTakeHit</a>, <a href="../engine/vehicle.html#PlayTeleportEffect">PlayTeleportEffect</a>, <a href="../engine/vehicle.html#PointOfView">PointOfView</a>, <a href="../engine/vehicle.html#PossessedBy">PossessedBy</a>, <a href="../engine/vehicle.html#PostBeginPlay">PostBeginPlay</a>, <a href="../engine/vehicle.html#POVChanged">POVChanged</a>, <a href="../engine/vehicle.html#PreBeginPlay">PreBeginPlay</a>, <a href="../engine/vehicle.html#PrevWeapon">PrevWeapon</a>, <a href="../engine/vehicle.html#RanInto">RanInto</a>, <a href="../engine/vehicle.html#ReservationCostMultiplier">ReservationCostMultiplier</a>, <a href="../engine/vehicle.html#ServerPlayHorn">ServerPlayHorn</a>, <a href="../engine/vehicle.html#SetAnimAction">SetAnimAction</a>, <a href="../engine/vehicle.html#SetBaseEyeheight">SetBaseEyeheight</a>, <a href="../engine/vehicle.html#SetInitialState">SetInitialState</a>, <a href="../engine/vehicle.html#SetReservation">SetReservation</a>, <a href="../engine/vehicle.html#SetTeamNum">SetTeamNum</a>, <a href="../engine/vehicle.html#SetWheelsScale">SetWheelsScale</a>, <a href="../engine/vehicle.html#ShootMissile">ShootMissile</a>, <a href="../engine/vehicle.html#ShootSpecial">ShootSpecial</a>, <a href="../engine/vehicle.html#ShouldTargetMissile">ShouldTargetMissile</a>, <a href="../engine/vehicle.html#SpecialCalcBehindView">SpecialCalcBehindView</a>, <a href="../engine/vehicle.html#SpecialCalcFirstPersonView">SpecialCalcFirstPersonView</a>, <a href="../engine/vehicle.html#SpecialCalcView">SpecialCalcView</a>, <a href="../engine/vehicle.html#SpectatorSpecialCalcView">SpectatorSpecialCalcView</a>, <a href="../engine/vehicle.html#SpokenFor">SpokenFor</a>, <a href="../engine/vehicle.html#Stalled">Stalled</a>, <a href="../engine/vehicle.html#StaticPrecache">StaticPrecache</a>, <a href="../engine/vehicle.html#StopForceFeedback">StopForceFeedback</a>, <a href="../engine/vehicle.html#StopWeaponFiring">StopWeaponFiring</a>, <a href="../engine/vehicle.html#StronglyRecommended">StronglyRecommended</a>, <a href="../engine/vehicle.html#Suicide">Suicide</a>, <a href="../engine/vehicle.html#TakeDamage">TakeDamage</a>, <a href="../engine/vehicle.html#TakeWaterDamage">TakeWaterDamage</a>, <a href="../engine/vehicle.html#TeamChanged">TeamChanged</a>, <a href="../engine/vehicle.html#TeamLink">TeamLink</a>, <a href="../engine/vehicle.html#TryToDrive">TryToDrive</a>, <a href="../engine/vehicle.html#UnPossessed">UnPossessed</a>, <a href="../engine/vehicle.html#UnStalled">UnStalled</a>, <a href="../engine/vehicle.html#UpdateEyeHeight">UpdateEyeHeight</a>, <a href="../engine/vehicle.html#UpdateTiltForceFeedback">UpdateTiltForceFeedback</a>, <a href="../engine/vehicle.html#UsedBy">UsedBy</a>, <a href="../engine/vehicle.html#VehicleCeaseFire">VehicleCeaseFire</a>, <a href="../engine/vehicle.html#VehicleFire">VehicleFire</a>, <a href="../engine/vehicle.html#VehicleLocked">VehicleLocked</a>, <a href="../engine/vehicle.html#VerifyLock">VerifyLock</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">States Summary</th>
+</tr>
+</table>
+
+<table>
+<tr>
+	<th>VehicleDestroyed <a href="../Source_onslaught/onsvehicle.html#1402" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> VehicleDestroyed <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_CallDestroy+VehicleDestroyed">CallDestroy</a>, <a href="#_Died+VehicleDestroyed">Died</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th>VehicleDisintegrated <a href="../Source_onslaught/onsvehicle.html#1422" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> VehicleDisintegrated <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_CallDestroy+VehicleDisintegrated">CallDestroy</a>, <a href="#_Died+VehicleDisintegrated">Died</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ActiveWeapon" class="hidden"></a>ActiveWeapon <a href="../Source_onslaught/onsvehicle.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> ActiveWeapon;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AltFocalPoint" class="hidden"></a>AltFocalPoint <a href="../Source_onslaught/onsvehicle.html#115" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> AltFocalPoint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bAltFocalPoint" class="hidden"></a>bAltFocalPoint <a href="../Source_onslaught/onsvehicle.html#113" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bAltFocalPoint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bCannotBeBased" class="hidden"></a>bCannotBeBased <a href="../Source_onslaught/onsvehicle.html#105" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bCannotBeBased;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bCustomAiming" class="hidden"></a>bCustomAiming <a href="../Source_onslaught/onsvehicle.html#110" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bCustomAiming;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bDestroyAppearance" class="hidden"></a>bDestroyAppearance <a href="../Source_onslaught/onsvehicle.html#96" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bDestroyAppearance;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bDisintegrateVehicle" class="hidden"></a>bDisintegrateVehicle <a href="../Source_onslaught/onsvehicle.html#97" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bDisintegrateVehicle;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bDriverCannotLeaveVehicle" class="hidden"></a>bDriverCannotLeaveVehicle <a href="../Source_onslaught/onsvehicle.html#104" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bDriverCannotLeaveVehicle;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bEjectPassengersWhenFlipped" class="hidden"></a>bEjectPassengersWhenFlipped <a href="../Source_onslaught/onsvehicle.html#103" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bEjectPassengersWhenFlipped;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHadFire" class="hidden"></a>bHadFire <a href="../Source_onslaught/onsvehicle.html#98" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHadFire;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHasAltFire" class="hidden"></a>bHasAltFire <a href="../Source_onslaught/onsvehicle.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHasAltFire;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHasAltFireImpulse" class="hidden"></a>bHasAltFireImpulse <a href="../Source_onslaught/onsvehicle.html#109" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHasAltFireImpulse;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHasBeenAwake" class="hidden"></a>bHasBeenAwake <a href="../Source_onslaught/onsvehicle.html#112" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">bool</span> bHasBeenAwake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHasFireImpulse" class="hidden"></a>bHasFireImpulse <a href="../Source_onslaught/onsvehicle.html#108" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHasFireImpulse;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bIsAwake" class="hidden"></a>bIsAwake <a href="../Source_onslaught/onsvehicle.html#111" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">const</span> <span class="source_keyword">bool</span> bIsAwake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bNeverReset" class="hidden"></a>bNeverReset <a href="../Source_onslaught/onsvehicle.html#102" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bNeverReset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bSoundsPrecached" class="hidden"></a>bSoundsPrecached <a href="../Source_onslaught/onsvehicle.html#101" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bSoundsPrecached;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CrosshairColor" class="hidden"></a>CrosshairColor <a href="../Source_onslaught/onsvehicle.html#172" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_type"><a href="../core/object.html#Color" class="source">Color</a></span> CrosshairColor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CrosshairTexture" class="hidden"></a>CrosshairTexture <a href="../Source_onslaught/onsvehicle.html#174" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span> CrosshairTexture;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CrosshairX" class="hidden"></a>CrosshairX <a href="../Source_onslaught/onsvehicle.html#173" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> CrosshairX;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CrosshairY" class="hidden"></a>CrosshairY <a href="../Source_onslaught/onsvehicle.html#173" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">float</span> CrosshairY;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CustomAim" class="hidden"></a>CustomAim <a href="../Source_onslaught/onsvehicle.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span> CustomAim;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffect" class="hidden"></a>DamagedEffect <a href="../Source_onslaught/onsvehicle.html#93" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsdamagedeffect.html" class="source">ONSDamagedEffect</a></span> DamagedEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectAccruedDamage" class="hidden"></a>DamagedEffectAccruedDamage <a href="../Source_onslaught/onsvehicle.html#92" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> DamagedEffectAccruedDamage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DebugInfo" class="hidden"></a>DebugInfo <a href="../Source_onslaught/onsvehicle.html#162" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> DebugInfo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedRoadKillDamageType" class="hidden"></a>DestroyedRoadKillDamageType <a href="../Source_onslaught/onsvehicle.html#83" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; DestroyedRoadKillDamageType;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionCount" class="hidden"></a>ExplosionCount <a href="../Source_onslaught/onsvehicle.html#73" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> ExplosionCount;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionDamage" class="hidden"></a>ExplosionDamage <a href="../Source_onslaught/onsvehicle.html#79" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ExplosionDamage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionDamageType" class="hidden"></a>ExplosionDamageType <a href="../Source_onslaught/onsvehicle.html#82" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; ExplosionDamageType;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionMomentum" class="hidden"></a>ExplosionMomentum <a href="../Source_onslaught/onsvehicle.html#81" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ExplosionMomentum;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionRadius" class="hidden"></a>ExplosionRadius <a href="../Source_onslaught/onsvehicle.html#80" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ExplosionRadius;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightCorona" class="hidden"></a>HeadlightCorona <a href="../Source_onslaught/onsvehicle.html#150" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsheadlightcorona.html" class="source">ONSHeadlightCorona</a></span>&gt; HeadlightCorona;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightProjector" class="hidden"></a>HeadlightProjector <a href="../Source_onslaught/onsvehicle.html#155" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsheadlightprojector.html" class="source">ONSHeadlightProjector</a></span> HeadlightProjector;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactInfo" class="hidden"></a>ImpactInfo <a href="../Source_onslaught/onsvehicle.html#135" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsvehicle.html#ImpactInfoStruct" class="source">ImpactInfoStruct</a></span> ImpactInfo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactTicksLeft" class="hidden"></a>ImpactTicksLeft <a href="../Source_onslaught/onsvehicle.html#136" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> ImpactTicksLeft;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastCheckUpsideDownTime" class="hidden"></a>LastCheckUpsideDownTime <a href="../Source_onslaught/onsvehicle.html#77" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastCheckUpsideDownTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastImpactExplosionTime" class="hidden"></a>LastImpactExplosionTime <a href="../Source_onslaught/onsvehicle.html#76" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastImpactExplosionTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastRunOverWarningTime" class="hidden"></a>LastRunOverWarningTime <a href="../Source_onslaught/onsvehicle.html#166" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastRunOverWarningTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastVelocitySize" class="hidden"></a>LastVelocitySize <a href="../Source_onslaught/onsvehicle.html#75" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastVelocitySize;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LockedOnSound" class="hidden"></a>LockedOnSound <a href="../Source_onslaught/onsvehicle.html#164" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span> LockedOnSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MinRunOverWarningAim" class="hidden"></a>MinRunOverWarningAim <a href="../Source_onslaught/onsvehicle.html#167" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> MinRunOverWarningAim;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OldExplosionCount" class="hidden"></a>OldExplosionCount <a href="../Source_onslaught/onsvehicle.html#74" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">byte</span> OldExplosionCount;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OldYaw" class="hidden"></a>OldYaw <a href="../Source_onslaught/onsvehicle.html#169" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> OldYaw;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Reservation" class="hidden"></a>Reservation <a href="../Source_onslaught/onsvehicle.html#168" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../unrealgame/bot.html" class="source">bot</a></span> Reservation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ResetTime" class="hidden"></a>ResetTime <a href="../Source_onslaught/onsvehicle.html#165" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ResetTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpsideDownDamage" class="hidden"></a>UpsideDownDamage <a href="../Source_onslaught/onsvehicle.html#78" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> UpsideDownDamage;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ViewShakeLastCheck" class="hidden"></a>ViewShakeLastCheck <a href="../Source_onslaught/onsvehicle.html#60" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ViewShakeLastCheck;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WeaponPawns" class="hidden"></a>WeaponPawns <a href="../Source_onslaught/onsvehicle.html#34" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsweaponpawn.html" class="source">ONSWeaponPawn</a></span>&gt; WeaponPawns;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Weapons" class="hidden"></a>Weapons <a href="../Source_onslaught/onsvehicle.html#26" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsweapon.html" class="source">ONSWeapon</a></span>&gt; Weapons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">ONSVehicle</h3>
+<h4><a name="_AltFireImpulse" class="hidden"></a>AltFireImpulse <a href="../Source_onslaught/onsvehicle.html#107" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> AltFireImpulse;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bEnableProximityViewShake" class="hidden"></a>bEnableProximityViewShake <a href="../Source_onslaught/onsvehicle.html#99" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">bool</span> bEnableProximityViewShake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BlueSkin" class="hidden"></a>BlueSkin <a href="../Source_onslaught/onsvehicle.html#43" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> BlueSkin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bOnlyViewShakeIfDriven" class="hidden"></a>bOnlyViewShakeIfDriven <a href="../Source_onslaught/onsvehicle.html#100" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">bool</span> bOnlyViewShakeIfDriven;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectAccScale" class="hidden"></a>DamagedEffectAccScale <a href="../Source_onslaught/onsvehicle.html#90" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> DamagedEffectAccScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectClass" class="hidden"></a>DamagedEffectClass <a href="../Source_onslaught/onsvehicle.html#85" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onsdamagedeffect.html" class="source">ONSDamagedEffect</a></span>&gt; DamagedEffectClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectFireDamagePerSec" class="hidden"></a>DamagedEffectFireDamagePerSec <a href="../Source_onslaught/onsvehicle.html#91" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> DamagedEffectFireDamagePerSec;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectHealthFireFactor" class="hidden"></a>DamagedEffectHealthFireFactor <a href="../Source_onslaught/onsvehicle.html#89" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> DamagedEffectHealthFireFactor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectHealthSmokeFactor" class="hidden"></a>DamagedEffectHealthSmokeFactor <a href="../Source_onslaught/onsvehicle.html#88" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> DamagedEffectHealthSmokeFactor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectOffset" class="hidden"></a>DamagedEffectOffset <a href="../Source_onslaught/onsvehicle.html#87" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> DamagedEffectOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DamagedEffectScale" class="hidden"></a>DamagedEffectScale <a href="../Source_onslaught/onsvehicle.html#86" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> DamagedEffectScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyedVehicleMesh" class="hidden"></a>DestroyedVehicleMesh <a href="../Source_onslaught/onsvehicle.html#63" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type">StaticMesh</span> DestroyedVehicleMesh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestructionAngularMomentum" class="hidden"></a>DestructionAngularMomentum <a href="../Source_onslaught/onsvehicle.html#68" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Range" class="source">range</a></span> DestructionAngularMomentum;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestructionEffectClass" class="hidden"></a>DestructionEffectClass <a href="../Source_onslaught/onsvehicle.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span>&gt; DestructionEffectClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestructionLinearMomentum" class="hidden"></a>DestructionLinearMomentum <a href="../Source_onslaught/onsvehicle.html#67" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Range" class="source">range</a></span> DestructionLinearMomentum;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisintegrationEffectClass" class="hidden"></a>DisintegrationEffectClass <a href="../Source_onslaught/onsvehicle.html#65" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span>&gt; DisintegrationEffectClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisintegrationHealth" class="hidden"></a>DisintegrationHealth <a href="../Source_onslaught/onsvehicle.html#66" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> DisintegrationHealth;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionSoundRadius" class="hidden"></a>ExplosionSoundRadius <a href="../Source_onslaught/onsvehicle.html#72" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ExplosionSoundRadius;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionSounds" class="hidden"></a>ExplosionSounds <a href="../Source_onslaught/onsvehicle.html#70" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>&gt; ExplosionSounds;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ExplosionSoundVolume" class="hidden"></a>ExplosionSoundVolume <a href="../Source_onslaught/onsvehicle.html#71" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ExplosionSoundVolume;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FireImpulse" class="hidden"></a>FireImpulse <a href="../Source_onslaught/onsvehicle.html#106" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> FireImpulse;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightCoronaMaterial" class="hidden"></a>HeadlightCoronaMaterial <a href="../Source_onslaught/onsvehicle.html#152" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> HeadlightCoronaMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightCoronaMaxSize" class="hidden"></a>HeadlightCoronaMaxSize <a href="../Source_onslaught/onsvehicle.html#153" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> HeadlightCoronaMaxSize;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightCoronaOffset" class="hidden"></a>HeadlightCoronaOffset <a href="../Source_onslaught/onsvehicle.html#151" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span>&gt; HeadlightCoronaOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightProjectorMaterial" class="hidden"></a>HeadlightProjectorMaterial <a href="../Source_onslaught/onsvehicle.html#156" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> HeadlightProjectorMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightProjectorOffset" class="hidden"></a>HeadlightProjectorOffset <a href="../Source_onslaught/onsvehicle.html#157" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HeadlightProjectorOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightProjectorRotation" class="hidden"></a>HeadlightProjectorRotation <a href="../Source_onslaught/onsvehicle.html#158" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> HeadlightProjectorRotation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HeadlightProjectorScale" class="hidden"></a>HeadlightProjectorScale <a href="../Source_onslaught/onsvehicle.html#159" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> HeadlightProjectorScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IdleSound" class="hidden"></a>IdleSound <a href="../Source_onslaught/onsvehicle.html#46" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> IdleSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageMult" class="hidden"></a>ImpactDamageMult <a href="../Source_onslaught/onsvehicle.html#140" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ImpactDamageMult;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageSounds" class="hidden"></a>ImpactDamageSounds <a href="../Source_onslaught/onsvehicle.html#142" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span>&gt; ImpactDamageSounds;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageThreshold" class="hidden"></a>ImpactDamageThreshold <a href="../Source_onslaught/onsvehicle.html#139" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ImpactDamageThreshold;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageTicks" class="hidden"></a>ImpactDamageTicks <a href="../Source_onslaught/onsvehicle.html#138" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ImpactDamageTicks;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RedSkin" class="hidden"></a>RedSkin <a href="../Source_onslaught/onsvehicle.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> RedSkin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShakeOffsetMag" class="hidden"></a>ShakeOffsetMag <a href="../Source_onslaught/onsvehicle.html#121" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ShakeOffsetMag;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShakeOffsetRate" class="hidden"></a>ShakeOffsetRate <a href="../Source_onslaught/onsvehicle.html#122" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ShakeOffsetRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShakeOffsetTime" class="hidden"></a>ShakeOffsetTime <a href="../Source_onslaught/onsvehicle.html#123" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ShakeOffsetTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShakeRotMag" class="hidden"></a>ShakeRotMag <a href="../Source_onslaught/onsvehicle.html#118" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ShakeRotMag;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShakeRotRate" class="hidden"></a>ShakeRotRate <a href="../Source_onslaught/onsvehicle.html#119" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ShakeRotRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShakeRotTime" class="hidden"></a>ShakeRotTime <a href="../Source_onslaught/onsvehicle.html#120" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ShakeRotTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShutDownForce" class="hidden"></a>ShutDownForce <a href="../Source_onslaught/onsvehicle.html#52" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">string</span> ShutDownForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShutDownSound" class="hidden"></a>ShutDownSound <a href="../Source_onslaught/onsvehicle.html#48" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> ShutDownSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SparkAdvanceFactor" class="hidden"></a>SparkAdvanceFactor <a href="../Source_onslaught/onsvehicle.html#147" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> SparkAdvanceFactor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SparkEffect" class="hidden"></a>SparkEffect <a href="../Source_onslaught/onsvehicle.html#146" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) editinline <span class="source_type"><a href="../onslaught/onsimpactsparks.html" class="source">ONSImpactSparks</a></span> SparkEffect;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SparkEffectClass" class="hidden"></a>SparkEffectClass <a href="../Source_onslaught/onsvehicle.html#145" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onsimpactsparks.html" class="source">ONSImpactSparks</a></span>&gt; SparkEffectClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartUpForce" class="hidden"></a>StartUpForce <a href="../Source_onslaught/onsvehicle.html#51" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">string</span> StartUpForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StartUpSound" class="hidden"></a>StartUpSound <a href="../Source_onslaught/onsvehicle.html#47" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> StartUpSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TimeBetweenImpactExplosions" class="hidden"></a>TimeBetweenImpactExplosions <a href="../Source_onslaught/onsvehicle.html#69" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> TimeBetweenImpactExplosions;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ViewShakeOffsetFreq" class="hidden"></a>ViewShakeOffsetFreq <a href="../Source_onslaught/onsvehicle.html#59" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ViewShakeOffsetFreq;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ViewShakeOffsetMag" class="hidden"></a>ViewShakeOffsetMag <a href="../Source_onslaught/onsvehicle.html#58" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ViewShakeOffsetMag;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ViewShakeRadius" class="hidden"></a>ViewShakeRadius <a href="../Source_onslaught/onsvehicle.html#55" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ViewShakeRadius;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ViewShakeRotFreq" class="hidden"></a>ViewShakeRotFreq <a href="../Source_onslaught/onsvehicle.html#57" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">float</span> ViewShakeRotFreq;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ViewShakeRotMag" class="hidden"></a>ViewShakeRotMag <a href="../Source_onslaught/onsvehicle.html#56" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> ViewShakeRotMag;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">SVehicle</h3>
+<h4><a name="_DriverWeapons" class="hidden"></a>DriverWeapons <a href="../Source_onslaught/onsvehicle.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../engine/svehicle.html" class="source">SVehicle</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsvehicle.html#DriverWeaponStruct" class="source">DriverWeaponStruct</a></span>&gt; DriverWeapons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PassengerWeapons" class="hidden"></a>PassengerWeapons <a href="../Source_onslaught/onsvehicle.html#33" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../engine/svehicle.html" class="source">SVehicle</a></span>) <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsvehicle.html#PassengerWeaponStruct" class="source">PassengerWeaponStruct</a></span>&gt; PassengerWeapons;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Structures Detail</th>
+</tr>
+</table>
+
+<h4><a name="_DriverWeaponStruct" class="hidden"></a>DriverWeaponStruct <a href="../Source_onslaught/onsvehicle.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_keyword2">native</span> <span class="source_type"><a href="../onslaught/onsvehicle.html#DriverWeaponStruct" class="source">DriverWeaponStruct</a></span><br />
+{<blockquote><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">name</span> WeaponBone;<br />
+<span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onsweapon.html" class="source">ONSWeapon</a></span>&gt; <span class="source_type">WeaponClass</span>;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactInfoStruct" class="hidden"></a>ImpactInfoStruct <a href="../Source_onslaught/onsvehicle.html#126" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_keyword2">native</span> <span class="source_type"><a href="../onslaught/onsvehicle.html#ImpactInfoStruct" class="source">ImpactInfoStruct</a></span><br />
+{<blockquote><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactAccel;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactNorm;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactVel;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Other</span>;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Pos;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PassengerWeaponStruct" class="hidden"></a>PassengerWeaponStruct <a href="../Source_onslaught/onsvehicle.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_keyword2">native</span> <span class="source_type"><a href="../onslaught/onsvehicle.html#PassengerWeaponStruct" class="source">PassengerWeaponStruct</a></span><br />
+{<blockquote><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">name</span> WeaponBone;<br />
+<span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onsvehicle.html" class="source">ONSVehicle</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../onslaught/onsweaponpawn.html" class="source">ONSWeaponPawn</a></span>&gt; WeaponPawnClass;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AltFire-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AltFire <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1127" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  AltFire ( <span class="source_keyword2">optional</span> <span class="source_keyword">float</span> <span class="source_type">F</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ApplyFireImpulse-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> ApplyFireImpulse <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1260" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  ApplyFireImpulse ( <span class="source_keyword">bool</span> bAlt) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CallDestroy-VehicleDestroyed" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CallDestroy <span class="function_state">VehicleDestroyed</span> <a href="../Source_onslaught/onsvehicle.html#1406" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  CallDestroy ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CallDestroy-VehicleDisintegrated" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CallDestroy <span class="function_state">VehicleDisintegrated</span> <a href="../Source_onslaught/onsvehicle.html#1426" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  CallDestroy ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CanAttack-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CanAttack <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#220" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanAttack ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangedReservation-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChangedReservation <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#319" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> ChangedReservation ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChargeBar-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChargeBar <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1185" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">float</span> ChargeBar ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CheckReset-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> CheckReset <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#784" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  CheckReset ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChooseFireAt-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ChooseFireAt <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#262" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ChooseFireAt ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> A) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientKDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientKDriverEnter <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#882" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientKDriverEnter ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientKDriverLeave-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientKDriverLeave <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#893" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientKDriverLeave ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientRegisterVehicleWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientRegisterVehicleWeapon <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#522" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientRegisterVehicleWeapon ( <span class="source_type"><a href="../onslaught/onsweapon.html" class="source">ONSWeapon</a></span> W, <span class="source_keyword">int</span> <span class="source_type">Index</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientVehicleCeaseFire-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientVehicleCeaseFire <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1135" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ClientVehicleCeaseFire ( <span class="source_keyword">bool</span> bWasAltFire) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientVehicleExplosion-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> ClientVehicleExplosion <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1352" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  ClientVehicleExplosion ( <span class="source_keyword">bool</span> bFinal) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Deploy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Deploy <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#228" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Deploy (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DestroyAppearance-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> DestroyAppearance <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1268" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  DestroyAppearance ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1022" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Died-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Died <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#909" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Died ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Died-VehicleDestroyed" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Died <span class="function_state">VehicleDestroyed</span> <a href="../Source_onslaught/onsvehicle.html#1411" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Died ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Died-VehicleDisintegrated" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Died <span class="function_state">VehicleDisintegrated</span> <a href="../Source_onslaught/onsvehicle.html#1431" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Died ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisplayDebug-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DisplayDebug <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#424" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DisplayDebug ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>, <span class="source_keyword2">out</span> <span class="source_keyword">float</span> <span class="source_type">YL</span>, <span class="source_keyword2">out</span> <span class="source_keyword">float</span> YPos) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawHUD-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawHUD <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1515" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DrawHUD ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DriverDied-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DriverDied <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#727" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DriverDied ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DriverLeft-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DriverLeft <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#758" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DriverLeft ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DriverRadiusDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DriverRadiusDamage <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1108" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DriverRadiusDamage ( <span class="source_keyword">float</span> DamageAmount, <span class="source_keyword">float</span> DamageRadius, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">EventInstigator</span>, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>, <span class="source_keyword">float</span> Momentum, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FastVehicle-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FastVehicle <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1194" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> FastVehicle ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FindEntryVehicle-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FindEntryVehicle <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#536" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span> FindEntryVehicle ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Fire-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Fire <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1119" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Fire ( <span class="source_keyword2">optional</span> <span class="source_keyword">float</span> <span class="source_type">F</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FireOnRelease-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> FireOnRelease <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#298" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> FireOnRelease ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetBotPassenger-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetBotPassenger <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#833" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/aicontroller.html" class="source">AIController</a></span> GetBotPassenger ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetInstigator-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetInstigator <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#843" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> GetInstigator ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetTurrets-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetTurrets <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1559" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span>&gt; GetTurrets ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasOccupiedTurret-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasOccupiedTurret <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#871" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasOccupiedTurret ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasUDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasUDamage <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1255" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasUDamage ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HasWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HasWeapon <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#215" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HasWeapon ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HealDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HealDamage <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1635" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> HealDamage ( <span class="source_keyword">int</span> <span class="source_type">Amount</span>, <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Healer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageModifier-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ImpactDamageModifier <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1167" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> ImpactDamageModifier ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsDeployed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> IsDeployed <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1199" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsDeployed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsFiring-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> IsFiring <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#288" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsFiring ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsVehicleEmpty-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> IsVehicleEmpty <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#857" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span> <span class="source_keyword">bool</span> IsVehicleEmpty ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KDriverEnter <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#645" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  KDriverEnter ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">p</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KDriverLeave-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KDriverLeave <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#684" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> KDriverLeave ( <span class="source_keyword">bool</span> <span class="source_type">bForceLeave</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KImpact-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> KImpact <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1172" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  KImpact ( <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Other</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Pos, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactVel, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactNorm) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LimitPitch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LimitPitch <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1479" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">int</span> LimitPitch ( <span class="source_keyword">int</span> pitch) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MayUndeploy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> MayUndeploy <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#229" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  MayUndeploy (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ModifyThreat-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ModifyThreat <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#311" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> ModifyThreat ( <span class="source_keyword">float</span> current, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> Threat) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NeedToTurn-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NeedToTurn <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#293" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> NeedToTurn ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> targ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NewReservationCostMultiplier-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NewReservationCostMultiplier <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#343" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> NewReservationCostMultiplier ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NotifyEnemyLockedOn-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> NotifyEnemyLockedOn <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#192" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  NotifyEnemyLockedOn ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NotifyEnemyLostLock-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> NotifyEnemyLostLock <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#205" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  NotifyEnemyLostLock ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NumPassengers-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NumPassengers <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#820" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">int</span> NumPassengers ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OpenPositionFor-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> OpenPositionFor <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#396" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span> OpenPositionFor ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayHit-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayHit <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1548" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PlayHit ( <span class="source_keyword">float</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> InstigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Momentum) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#451" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrecacheAnnouncer-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PrecacheAnnouncer <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1564" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PrecacheAnnouncer ( <span class="source_type"><a href="../engine/announcervoice.html" class="source">AnnouncerVoice</a></span> <span class="source_type">V</span>, <span class="source_keyword">bool</span> <span class="source_type">bRewardSounds</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RefireRate-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> RefireRate <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#275" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> RefireRate ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ReservationCostMultiplier-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ReservationCostMultiplier <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#333" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> ReservationCostMultiplier ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerChangeDriverPosition-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ServerChangeDriverPosition <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1225" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ServerChangeDriverPosition ( <span class="source_keyword">byte</span> <span class="source_type">F</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerPlayHorn-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ServerPlayHorn <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1487" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ServerPlayHorn ( <span class="source_keyword">int</span> HornIndex) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerVerifyVehicleWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ServerVerifyVehicleWeapon <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#530" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ServerVerifyVehicleWeapon ( <span class="source_keyword">int</span> <span class="source_type">Index</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetActiveWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetActiveWeapon <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#741" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetActiveWeapon ( <span class="source_keyword">int</span> <span class="source_type">i</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetReservation-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetReservation <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#390" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetReservation ( <span class="source_type"><a href="../engine/controller.html" class="source">controller</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetTeamNum-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetTeamNum <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1204" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  SetTeamNum ( <span class="source_keyword">byte</span> <span class="source_type">T</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpokenFor-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SpokenFor <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#355" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> SpokenFor ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StaticPrecache-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> StaticPrecache <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1582" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">static</span> <span class="source_keyword">function</span>  StaticPrecache ( <span class="source_type"><a href="../engine/levelinfo.html" class="source">LevelInfo</a></span> L) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SVehicleUpdateParams-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> SVehicleUpdateParams <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1441" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  SVehicleUpdateParams ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SwitchWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SwitchWeapon <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1220" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  SwitchWeapon ( <span class="source_keyword">byte</span> <span class="source_type">F</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1100" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">Hitlocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> Momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeImpactDamage-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> TakeImpactDamage <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1147" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  TakeImpactDamage ( <span class="source_keyword">float</span> AccelMag) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamChanged-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> TeamChanged <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1076" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  TeamChanged ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TooCloseToAttack-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TooCloseToAttack <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#231" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> TooCloseToAttack ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TryToDrive-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TryToDrive <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#620" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> TryToDrive ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheMaterials-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheMaterials <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1616" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheMaterials ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdatePrecacheStaticMeshes-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdatePrecacheStaticMeshes <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1608" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdatePrecacheStaticMeshes ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleCeaseFire-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> VehicleCeaseFire <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1065" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  VehicleCeaseFire ( <span class="source_keyword">bool</span> bWasAltFire) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleExplosion-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> VehicleExplosion <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#1324" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  VehicleExplosion ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> MomentumNormal, <span class="source_keyword">float</span> PercentMomentum) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleLocked-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> VehicleLocked <span class="function_state"></span> <a href="../Source_onslaught/onsvehicle.html#751" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  VehicleLocked ( <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     bHasAltFire=<span class="source_keyword">True</span>
+     ViewShakeRadius=<span class="source_int">100.000000</span>
+     DisintegrationHealth=-<span class="source_int">50.000000</span>
+     DestructionAngularMomentum=(Min=<span class="source_int">50.000000</span>,<span class="source_type">Max</span>=<span class="source_int">50.000000</span>)
+     TimeBetweenImpactExplosions=<span class="source_int">0.100000</span>
+     ExplosionSounds(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Explosions.VehicleExplosion01'</span>
+     ExplosionSounds(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Explosions.VehicleExplosion02'</span>
+     ExplosionSounds(<span class="source_int">2</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Explosions.VehicleExplosion03'</span>
+     ExplosionSounds(<span class="source_int">3</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Explosions.VehicleExplosion04'</span>
+     ExplosionSounds(<span class="source_int">4</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Explosions.VehicleExplosion05'</span>
+     ExplosionSoundVolume=<span class="source_int">5.000000</span>
+     ExplosionSoundRadius=<span class="source_int">200.000000</span>
+     ExplosionDamage=<span class="source_int">100.000000</span>
+     ExplosionRadius=<span class="source_int">300.000000</span>
+     ExplosionMomentum=<span class="source_int">60000.000000</span>
+     ExplosionDamageType=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.DamTypeONSVehicleExplosion'</span>
+     DestroyedRoadKillDamageType=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.DamTypeDestroyedVehicleRoadKill'</span>
+     DamagedEffectClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSDamagedEffect'</span>
+     DamagedEffectScale=<span class="source_int">1.000000</span>
+     DamagedEffectHealthSmokeFactor=<span class="source_int">0.500000</span>
+     DamagedEffectHealthFireFactor=<span class="source_int">0.250000</span>
+     DamagedEffectAccScale=<span class="source_int">0.250000</span>
+     DamagedEffectFireDamagePerSec=<span class="source_int">0.750000</span>
+     bOnlyViewShakeIfDriven=<span class="source_keyword">True</span>
+     bEjectPassengersWhenFlipped=<span class="source_keyword">True</span>
+     ShakeRotMag=(Z=<span class="source_int">250.000000</span>)
+     ShakeRotRate=(Z=<span class="source_int">2500.000000</span>)
+     ShakeRotTime=<span class="source_int">6.000000</span>
+     ShakeOffsetMag=(Z=<span class="source_int">10.000000</span>)
+     ShakeOffsetRate=(Z=<span class="source_int">200.000000</span>)
+     ShakeOffsetTime=<span class="source_int">10.000000</span>
+     ImpactDamageTicks=<span class="source_int">10.000000</span>
+     ImpactDamageThreshold=<span class="source_int">5000.000000</span>
+     ImpactDamageMult=<span class="source_int">0.000300</span>
+     ImpactDamageSounds(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision01'</span>
+     ImpactDamageSounds(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision02'</span>
+     ImpactDamageSounds(<span class="source_int">2</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision03'</span>
+     ImpactDamageSounds(<span class="source_int">3</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision04'</span>
+     ImpactDamageSounds(<span class="source_int">4</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision05'</span>
+     ImpactDamageSounds(<span class="source_int">5</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision06'</span>
+     ImpactDamageSounds(<span class="source_int">6</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.VehicleCollision07'</span>
+     SparkEffectClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSImpactSparks'</span>
+     SparkAdvanceFactor=<span class="source_int">1.500000</span>
+     LockedOnSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseGunTech.BSeekLost1'</span>
+     MinRunOverWarningAim=<span class="source_int">0.880000</span>
+     CrossHairColor=(G=<span class="source_int">255</span>,A=<span class="source_int">255</span>)
+     CrosshairX=<span class="source_int">32.000000</span>
+     CrosshairY=<span class="source_int">32.000000</span>
+     CrosshairTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSInterface-TX.tankBarrelAligned'</span>
+     bZeroPCRotOnEntry=<span class="source_keyword">False</span>
+     bTeamLocked=<span class="source_keyword">True</span>
+     bEnterringUnlocks=<span class="source_keyword">True</span>
+     <span class="source_type">Team</span>=<span class="source_int">0</span>
+     TeamBeaconTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'ONSInterface-TX.HealthBar'</span>
+     NoEntryTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'HUDContent.Generic.NoEntry'</span>
+     TeamBeaconBorderMaterial=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxD'</span>
+     RanOverDamageType=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.DamTypeRoadkill'</span>
+     CrushedDamageType=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.DamTypePancake'</span>
+     RanOverSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CollisionSounds.BodyHitbyVeh01'</span>
+     StolenAnnouncement=<span class="source_string">"Hijacked"</span>
+     StolenSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.CarAlarm.CarAlarm01'</span>
+     BulletSounds(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseShieldReflections.BBulletReflect1'</span>
+     BulletSounds(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseShieldReflections.BBulletReflect2'</span>
+     BulletSounds(<span class="source_int">2</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseShieldReflections.BBulletReflect3'</span>
+     BulletSounds(<span class="source_int">3</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseShieldReflections.BBulletReflect4'</span>
+     BulletSounds(<span class="source_int">4</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact1'</span>
+     BulletSounds(<span class="source_int">5</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact2'</span>
+     BulletSounds(<span class="source_int">6</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact3'</span>
+     BulletSounds(<span class="source_int">7</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact4'</span>
+     BulletSounds(<span class="source_int">8</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact5'</span>
+     BulletSounds(<span class="source_int">9</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact6'</span>
+     BulletSounds(<span class="source_int">10</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact7'</span>
+     BulletSounds(<span class="source_int">11</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact8'</span>
+     BulletSounds(<span class="source_int">12</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact9'</span>
+     BulletSounds(<span class="source_int">13</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact11'</span>
+     BulletSounds(<span class="source_int">14</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact12'</span>
+     BulletSounds(<span class="source_int">15</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact13'</span>
+     BulletSounds(<span class="source_int">16</span>)=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.BaseImpactAndExplosions.BBulletImpact14'</span>
+     WaterDamage=<span class="source_int">150.000000</span>
+     VehicleDrowningDamType=<span class="source_keyword">Class</span><span class="source_name">'Gameplay.Drowned'</span>
+     SpawnOverlay(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.PlayerShaders.VehicleSpawnShaderRed'</span>
+     SpawnOverlay(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.PlayerShaders.VehicleSpawnShaderBlue'</span>
+     VehicleIcon=(<span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'AS_FX_TX.HUD.TrackedVehicleIcon'</span>,SizeX=<span class="source_int">64.000000</span>,SizeY=<span class="source_int">64.000000</span>)
+     bSpecialHUD=<span class="source_keyword">True</span>
+     bSetPCRotOnPossess=<span class="source_keyword">False</span>
+     bCanTeleport=<span class="source_keyword">False</span>
+     SoundRadius=<span class="source_int">200.000000</span>
+     TransientSoundRadius=<span class="source_int">600.000000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onsvehicle.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSVehicle">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsvehdeathrv.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onsvehiclebuildeffect.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:03.499 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

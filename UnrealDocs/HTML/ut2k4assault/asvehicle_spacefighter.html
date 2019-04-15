@@ -1,0 +1,1082 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - UT2k4Assault.ASVehicle_SpaceFighter</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../ut2k4assault/ut2k4assault-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_ut2k4assault/asvehicle_spacefighter.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ASVehicle_SpaceFighter">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../ut2k4assault/asvehicle_sentinel_floor_swivel.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../ut2k4assault/damtypeexplobarrel.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#ut2k4assault/asvehicle_spacefighter.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../ut2k4assault/ut2k4assault-overview.html">UT2k4Assault</a>.ASVehicle_SpaceFighter</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../ut2k4assault/asvehicle.html">ASVehicle</a></dd>
+<dt>Modifiers</dt><dd>abstract config ( User ) </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a>
+         |   
+         +-- <a href="../ut2k4assault/ut2k4assault-overview.html">UT2k4Assault</a>.<a href="../ut2k4assault/asvehicle.html">ASVehicle</a>
+            |   
+            +-- <a href="../ut2k4assault/ut2k4assault-overview.html">UT2k4Assault</a>.<a href="../ut2k4assault/asvehicle_spacefighter.html">ASVehicle_SpaceFighter</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../ut2k4assaultfull/asvehicle_spacefighter_human.html">ASVehicle_SpaceFighter_Human</a>
+</blockquote>
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+<tr><td width="40%"><a href="#_SpeedFilterFrames" name="SpeedFilterFrames" title="go to the details">SpeedFilterFrames</a></td><td width="10%">=</td><td width="50%">20</td></tr>
+
+</table>
+
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bAutoTarget" name="bAutoTarget" title="go to the details">bAutoTarget</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bGearUp" name="bGearUp" title="go to the details">bGearUp</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bHumanShip" name="bHumanShip" title="go to the details">bHumanShip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bInitialized" name="bInitialized" title="go to the details">bInitialized</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bPostNetCalled" name="bPostNetCalled" title="go to the details">bPostNetCalled</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bRocketLoaded" name="bRocketLoaded" title="go to the details">bRocketLoaded</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bSpeedFilterWarmup" name="bSpeedFilterWarmup" title="go to the details">bSpeedFilterWarmup</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bTargetClosestToCrosshair" name="bTargetClosestToCrosshair" title="go to the details">bTargetClosestToCrosshair</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_CamRotationInertia" name="CamRotationInertia" title="go to the details">CamRotationInertia</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">Vector</a></td><td width="66%"><a href="#_CrosshairPos" name="CrosshairPos" title="go to the details">CrosshairPos</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/vehicle.html">Vehicle</a></td><td width="66%"><a href="#_CurrentTarget" name="CurrentTarget" title="go to the details">CurrentTarget</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DelayedDebugString" name="DelayedDebugString" title="go to the details">DelayedDebugString</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DesiredVelocity" name="DesiredVelocity" title="go to the details">DesiredVelocity</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">name</td><td width="66%"><a href="#_FlyingAnim" name="FlyingAnim" title="go to the details">FlyingAnim</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/actor.html">Actor</a>&gt;</td><td width="66%"><a href="#_GenericShieldEffect[2]" name="GenericShieldEffect[2]" title="go to the details">GenericShieldEffect[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastAutoTargetTime" name="LastAutoTargetTime" title="go to the details">LastAutoTargetTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Rotator">Rotator</a></td><td width="66%"><a href="#_LastCamRot" name="LastCamRot" title="go to the details">LastCamRot</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastTimeSeconds" name="LastTimeSeconds" title="go to the details">LastTimeSeconds</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxTargetingRange" name="MaxTargetingRange" title="go to the details">MaxTargetingRange</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_myDeltaTime" name="myDeltaTime" title="go to the details">myDeltaTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_NextShieldTime" name="NextShieldTime" title="go to the details">NextShieldTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_NextSpeedFilterSlot" name="NextSpeedFilterSlot" title="go to the details">NextSpeedFilterSlot</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_PitchAccel" name="PitchAccel" title="go to the details">PitchAccel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">Sound</a></td><td width="66%"><a href="#_RocketLoadedSound" name="RocketLoadedSound" title="go to the details">RocketLoadedSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">Vector</a></td><td width="66%"><a href="#_RocketOffset" name="RocketOffset" title="go to the details">RocketOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RollAccel" name="RollAccel" title="go to the details">RollAccel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/emitter.html">Emitter</a>&gt;</td><td width="66%"><a href="#_ShotDownFXClass" name="ShotDownFXClass" title="go to the details">ShotDownFXClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Rotator">Rotator</a></td><td width="66%"><a href="#_ShotDownRotation" name="ShotDownRotation" title="go to the details">ShotDownRotation</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/emitter.html">Emitter</a></td><td width="66%"><a href="#_SmokeTrail" name="SmokeTrail" title="go to the details">SmokeTrail</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SmoothedSpeedRatio" name="SmoothedSpeedRatio" title="go to the details">SmoothedSpeedRatio</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Quat">Quat</a></td><td width="66%"><a href="#_SpaceFighterRotation" name="SpaceFighterRotation" title="go to the details">SpaceFighterRotation</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SpeedFilter[SpeedFilterFrames]" name="SpeedFilter[SpeedFilterFrames]" title="go to the details">SpeedFilter[SpeedFilterFrames]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/texture.html">Texture</a></td><td width="66%"><a href="#_SpeedInfoTexture" name="SpeedInfoTexture" title="go to the details">SpeedInfoTexture</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">Sound</a></td><td width="66%"><a href="#_TargetAcquiredSound" name="TargetAcquiredSound" title="go to the details">TargetAcquiredSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_Text_Speed" name="Text_Speed" title="go to the details">Text_Speed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_TopGunCount" name="TopGunCount" title="go to the details">TopGunCount</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/emitter.html">Emitter</a></td><td width="66%"><a href="#_TrailEmitter" name="TrailEmitter" title="go to the details">TrailEmitter</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TrailOffset" name="TrailOffset" title="go to the details">TrailOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/texture.html">Texture</a></td><td width="66%"><a href="#_WeaponInfoTexture" name="WeaponInfoTexture" title="go to the details">WeaponInfoTexture</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_YawAccel" name="YawAccel" title="go to the details">YawAccel</a></td></tr>
+<tr><th colspan="2" class="small">ASVehicle_SpaceFighter</th></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EngineMinVelocity" name="EngineMinVelocity" title="go to the details">EngineMinVelocity</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxStrafe" name="MaxStrafe" title="go to the details">MaxStrafe</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RollAutoCorrectSpeed" name="RollAutoCorrectSpeed" title="go to the details">RollAutoCorrectSpeed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RotationInertia" name="RotationInertia" title="go to the details">RotationInertia</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StrafeAccel" name="StrafeAccel" title="go to the details">StrafeAccel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StrafeAccelRate" name="StrafeAccelRate" title="go to the details">StrafeAccelRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_VehicleRotationSpeed" name="VehicleRotationSpeed" title="go to the details">VehicleRotationSpeed</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../ut2k4assault/ut2k4assault-overview.html">UT2k4Assault</a>.<a href="../ut2k4assault/asvehicle.html">ASVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../ut2k4assault/asvehicle.html#bCHZeroYOffset">bCHZeroYOffset</a>, <a href="../ut2k4assault/asvehicle.html#bCustomHealthDisplay">bCustomHealthDisplay</a>, <a href="../ut2k4assault/asvehicle.html#BotError">BotError</a>, <a href="../ut2k4assault/asvehicle.html#CrosshairHitFeedbackTex">CrosshairHitFeedbackTex</a>, <a href="../ut2k4assault/asvehicle.html#CrosshairScale">CrosshairScale</a>, <a href="../ut2k4assault/asvehicle.html#DamLastDamageTime">DamLastDamageTime</a>, <a href="../ut2k4assault/asvehicle.html#DamLastInstigator">DamLastInstigator</a>, <a href="../ut2k4assault/asvehicle.html#DebugFX">DebugFX</a>, <a href="../ut2k4assault/asvehicle.html#DefaultCrosshair">DefaultCrosshair</a>, <a href="../ut2k4assault/asvehicle.html#DefaultWeaponClassName">DefaultWeaponClassName</a>, <a href="../ut2k4assault/asvehicle.html#DestroyPrevController">DestroyPrevController</a>, <a href="../ut2k4assault/asvehicle.html#ExplosionEffect">ExplosionEffect</a>, <a href="../ut2k4assault/asvehicle.html#LastCalcHA">LastCalcHA</a>, <a href="../ut2k4assault/asvehicle.html#LastCalcHL">LastCalcHL</a>, <a href="../ut2k4assault/asvehicle.html#LastCalcHN">LastCalcHN</a>, <a href="../ut2k4assault/asvehicle.html#LastCalcWeaponFire">LastCalcWeaponFire</a>, <a href="../ut2k4assault/asvehicle.html#LockedOnSound">LockedOnSound</a>, <a href="../ut2k4assault/asvehicle.html#OldTarget">OldTarget</a>, <a href="../ut2k4assault/asvehicle.html#VehicleProjSpawnOffset">VehicleProjSpawnOffset</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#AIMoveCheckTime">AIMoveCheckTime</a>, <a href="../engine/vehicle.html#AutoTurretControllerClass">AutoTurretControllerClass</a>, <a href="../engine/vehicle.html#bAdjustDriversHead">bAdjustDriversHead</a>, <a href="../engine/vehicle.html#bAllowViewChange">bAllowViewChange</a>, <a href="../engine/vehicle.html#bAllowWeaponToss">bAllowWeaponToss</a>, <a href="../engine/vehicle.html#bAutoTurret">bAutoTurret</a>, <a href="../engine/vehicle.html#bCanCarryFlag">bCanCarryFlag</a>, <a href="../engine/vehicle.html#bCanDoTrickJumps">bCanDoTrickJumps</a>, <a href="../engine/vehicle.html#bCanFlip">bCanFlip</a>, <a href="../engine/vehicle.html#bCanHover">bCanHover</a>, <a href="../engine/vehicle.html#bDefensive">bDefensive</a>, <a href="../engine/vehicle.html#bDesiredBehindView">bDesiredBehindView</a>, <a href="../engine/vehicle.html#bDrawDriverInTP">bDrawDriverInTP</a>, <a href="../engine/vehicle.html#bDrawMeshInFP">bDrawMeshInFP</a>, <a href="../engine/vehicle.html#bDrawVehicleShadow">bDrawVehicleShadow</a>, <a href="../engine/vehicle.html#bDriverCollideActors">bDriverCollideActors</a>, <a href="../engine/vehicle.html#bDriverHoldsFlag">bDriverHoldsFlag</a>, <a href="../engine/vehicle.html#bDriving">bDriving</a>, <a href="../engine/vehicle.html#bDropDetail">bDropDetail</a>, <a href="../engine/vehicle.html#bEjectDriver">bEjectDriver</a>, <a href="../engine/vehicle.html#bEnemyLockedOn">bEnemyLockedOn</a>, <a href="../engine/vehicle.html#bEnterringUnlocks">bEnterringUnlocks</a>, <a href="../engine/vehicle.html#bFollowLookDir">bFollowLookDir</a>, <a href="../engine/vehicle.html#bFPNoZFromCameraPitch">bFPNoZFromCameraPitch</a>, <a href="../engine/vehicle.html#bHasHandbrake">bHasHandbrake</a>, <a href="../engine/vehicle.html#bHasRadar">bHasRadar</a>, <a href="../engine/vehicle.html#bHideRemoteDriver">bHideRemoteDriver</a>, <a href="../engine/vehicle.html#bHighScoreKill">bHighScoreKill</a>, <a href="../engine/vehicle.html#bHUDTrackVehicle">bHUDTrackVehicle</a>, <a href="../engine/vehicle.html#bKeyVehicle">bKeyVehicle</a>, <a href="../engine/vehicle.html#bNoFriendlyFire">bNoFriendlyFire</a>, <a href="../engine/vehicle.html#bNonHumanControl">bNonHumanControl</a>, <a href="../engine/vehicle.html#bOldDriving">bOldDriving</a>, <a href="../engine/vehicle.html#bPCRelativeFPRotation">bPCRelativeFPRotation</a>, <a href="../engine/vehicle.html#bRelativeExitPos">bRelativeExitPos</a>, <a href="../engine/vehicle.html#bRemoteControlled">bRemoteControlled</a>, <a href="../engine/vehicle.html#bScriptedRise">bScriptedRise</a>, <a href="../engine/vehicle.html#bSeparateTurretFocus">bSeparateTurretFocus</a>, <a href="../engine/vehicle.html#bShowChargingBar">bShowChargingBar</a>, <a href="../engine/vehicle.html#bShowDamageOverlay">bShowDamageOverlay</a>, <a href="../engine/vehicle.html#bSpawnProtected">bSpawnProtected</a>, <a href="../engine/vehicle.html#bStalled">bStalled</a>, <a href="../engine/vehicle.html#bTeamLocked">bTeamLocked</a>, <a href="../engine/vehicle.html#bTurnInPlace">bTurnInPlace</a>, <a href="../engine/vehicle.html#BulletSounds">BulletSounds</a>, <a href="../engine/vehicle.html#bVehicleDestroyed">bVehicleDestroyed</a>, <a href="../engine/vehicle.html#bVehicleShadows">bVehicleShadows</a>, <a href="../engine/vehicle.html#bWeaponisAltFiring">bWeaponisAltFiring</a>, <a href="../engine/vehicle.html#bWeaponisFiring">bWeaponisFiring</a>, <a href="../engine/vehicle.html#bZeroPCRotOnEntry">bZeroPCRotOnEntry</a>, <a href="../engine/vehicle.html#CameraSpeed">CameraSpeed</a>, <a href="../engine/vehicle.html#CenterSpringForce">CenterSpringForce</a>, <a href="../engine/vehicle.html#CenterSpringRangePitch">CenterSpringRangePitch</a>, <a href="../engine/vehicle.html#CenterSpringRangeRoll">CenterSpringRangeRoll</a>, <a href="../engine/vehicle.html#CrushedDamageType">CrushedDamageType</a>, <a href="../engine/vehicle.html#DesiredTPCamDistance">DesiredTPCamDistance</a>, <a href="../engine/vehicle.html#DriveAnim">DriveAnim</a>, <a href="../engine/vehicle.html#DrivePos">DrivePos</a>, <a href="../engine/vehicle.html#Driver">Driver</a>, <a href="../engine/vehicle.html#DriverDamageMult">DriverDamageMult</a>, <a href="../engine/vehicle.html#DriveRot">DriveRot</a>, <a href="../engine/vehicle.html#DriverViewPitch">DriverViewPitch</a>, <a href="../engine/vehicle.html#DriverViewYaw">DriverViewYaw</a>, <a href="../engine/vehicle.html#EjectMomentum">EjectMomentum</a>, <a href="../engine/vehicle.html#EntryPosition">EntryPosition</a>, <a href="../engine/vehicle.html#EntryRadius">EntryRadius</a>, <a href="../engine/vehicle.html#ExitPositions">ExitPositions</a>, <a href="../engine/vehicle.html#FlagBone">FlagBone</a>, <a href="../engine/vehicle.html#FlagOffset">FlagOffset</a>, <a href="../engine/vehicle.html#FlagRotation">FlagRotation</a>, <a href="../engine/vehicle.html#FPCamPos">FPCamPos</a>, <a href="../engine/vehicle.html#FPCamViewOffset">FPCamViewOffset</a>, <a href="../engine/vehicle.html#HornSounds">HornSounds</a>, <a href="../engine/vehicle.html#HUDOverlay">HUDOverlay</a>, <a href="../engine/vehicle.html#HUDOverlayClass">HUDOverlayClass</a>, <a href="../engine/vehicle.html#HUDOverlayFOV">HUDOverlayFOV</a>, <a href="../engine/vehicle.html#HUDOverlayOffset">HUDOverlayOffset</a>, <a href="../engine/vehicle.html#LastCameraCalcTime">LastCameraCalcTime</a>, <a href="../engine/vehicle.html#LastHornTime">LastHornTime</a>, <a href="../engine/vehicle.html#LastLockWarningTime">LastLockWarningTime</a>, <a href="../engine/vehicle.html#LinkHealMult">LinkHealMult</a>, <a href="../engine/vehicle.html#LockOnClassString">LockOnClassString</a>, <a href="../engine/vehicle.html#LockWarningInterval">LockWarningInterval</a>, <a href="../engine/vehicle.html#MaxDesireability">MaxDesireability</a>, <a href="../engine/vehicle.html#MaxViewPitch">MaxViewPitch</a>, <a href="../engine/vehicle.html#MaxViewYaw">MaxViewYaw</a>, <a href="../engine/vehicle.html#MinRunOverSpeed">MinRunOverSpeed</a>, <a href="../engine/vehicle.html#MomentumMult">MomentumMult</a>, <a href="../engine/vehicle.html#myMarker">myMarker</a>, <a href="../engine/vehicle.html#NextVehicle">NextVehicle</a>, <a href="../engine/vehicle.html#NoEntryTexture">NoEntryTexture</a>, <a href="../engine/vehicle.html#ObjectiveGetOutDist">ObjectiveGetOutDist</a>, <a href="../engine/vehicle.html#OldSteering">OldSteering</a>, <a href="../engine/vehicle.html#OldTeam">OldTeam</a>, <a href="../engine/vehicle.html#ParentFactory">ParentFactory</a>, <a href="../engine/vehicle.html#PlayerEnterredRotation">PlayerEnterredRotation</a>, <a href="../engine/vehicle.html#PlayerStartTime">PlayerStartTime</a>, <a href="../engine/vehicle.html#PrevTeam">PrevTeam</a>, <a href="../engine/vehicle.html#RanOverDamageType">RanOverDamageType</a>, <a href="../engine/vehicle.html#RanOverSound">RanOverSound</a>, <a href="../engine/vehicle.html#Rise">Rise</a>, <a href="../engine/vehicle.html#ShadowCullDistance">ShadowCullDistance</a>, <a href="../engine/vehicle.html#ShadowMaxTraceDist">ShadowMaxTraceDist</a>, <a href="../engine/vehicle.html#SpawnOverlay[2]">SpawnOverlay[2]</a>, <a href="../engine/vehicle.html#Steering">Steering</a>, <a href="../engine/vehicle.html#StolenAnnouncement">StolenAnnouncement</a>, <a href="../engine/vehicle.html#StolenSound">StolenSound</a>, <a href="../engine/vehicle.html#StuckCount">StuckCount</a>, <a href="../engine/vehicle.html#StuckTime">StuckTime</a>, <a href="../engine/vehicle.html#Team">Team</a>, <a href="../engine/vehicle.html#TeamBeaconBorderMaterial">TeamBeaconBorderMaterial</a>, <a href="../engine/vehicle.html#TeamBeaconTexture">TeamBeaconTexture</a>, <a href="../engine/vehicle.html#TeamUseTime">TeamUseTime</a>, <a href="../engine/vehicle.html#Throttle">Throttle</a>, <a href="../engine/vehicle.html#ThrottleTime">ThrottleTime</a>, <a href="../engine/vehicle.html#TPCamDistance">TPCamDistance</a>, <a href="../engine/vehicle.html#TPCamDistRange">TPCamDistRange</a>, <a href="../engine/vehicle.html#TPCamLookat">TPCamLookat</a>, <a href="../engine/vehicle.html#TPCamWorldOffset">TPCamWorldOffset</a>, <a href="../engine/vehicle.html#TransEffects[2]">TransEffects[2]</a>, <a href="../engine/vehicle.html#VehicleDescription">VehicleDescription</a>, <a href="../engine/vehicle.html#VehicleDrowningDamType">VehicleDrowningDamType</a>, <a href="../engine/vehicle.html#VehicleIcon">VehicleIcon</a>, <a href="../engine/vehicle.html#VehicleLostTime">VehicleLostTime</a>, <a href="../engine/vehicle.html#VehicleMovingTime">VehicleMovingTime</a>, <a href="../engine/vehicle.html#VehicleNameString">VehicleNameString</a>, <a href="../engine/vehicle.html#VehiclePositionString">VehiclePositionString</a>, <a href="../engine/vehicle.html#VehicleShadow">VehicleShadow</a>, <a href="../engine/vehicle.html#WaterDamage">WaterDamage</a>, <a href="../engine/vehicle.html#WheelsScale">WheelsScale</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#SVehicleIcon">SVehicleIcon</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_AdjustFX-" name="AdjustFX" title="go to the details">AdjustFX</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_AnimEnd-" name="AnimEnd" title="go to the details">AnimEnd</a> (int Channel ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_AnimEnd-ShotDown" name="AnimEnd" title="go to the details">AnimEnd</a> (int Channel))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BaseChange-ShotDown" name="BaseChange" title="go to the details">BaseChange</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BeginState-ShotDown" name="BeginState" title="go to the details">BeginState</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BlowUp-" name="BlowUp" title="go to the details">BlowUp</a> (<a href="../core/object.html#Vector">vector</a> HitNormal)<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_BlowUp-ShotDown" name="BlowUp" title="go to the details">BlowUp</a> (vector HitNormal ))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Bump-" name="Bump" title="go to the details">Bump</a> (Actor Other ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CanAttack-" name="CanAttack" title="go to the details">CanAttack</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_ChangeAnimation-ShotDown" name="ChangeAnimation" title="go to the details">ChangeAnimation</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClientKDriverEnter-" name="ClientKDriverEnter" title="go to the details">ClientKDriverEnter</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Died-ShotDown" name="Died" title="go to the details">Died</a> (<a href="../engine/controller.html">Controller</a> Killer, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType, <a href="../core/object.html#Vector">vector</a> HitLocation))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DisplayDebug-" name="DisplayDebug" title="go to the details">DisplayDebug</a> (<a href="../engine/canvas.html">Canvas</a> Canvas, out float YL, out float YPos))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DoShieldEffect-" name="DoShieldEffect" title="go to the details">DoShieldEffect</a> (<a href="../core/object.html#Vector">vector</a> HitLocation, <a href="../core/object.html#Vector">vector</a> HitNormal))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DriverDied-" name="DriverDied" title="go to the details">DriverDied</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DriverDied-ShotDown" name="DriverDied" title="go to the details">DriverDied</a> ()<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_EndState-ShotDown" name="EndState" title="go to the details">EndState</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Explode-" name="Explode" title="go to the details">Explode</a> (<a href="../core/object.html#Vector">vector</a> HitLocation, vector HitNormal ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_FellOutOfWorld-ShotDown" name="FellOutOfWorld" title="go to the details">FellOutOfWorld</a> (<a href="../engine/actor.html#eKillZType">eKillZType</a> KillType))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../core/object.html#Vector">vector</a>&nbsp;</td><td><a href="#_GetBotError-" name="GetBotError" title="go to the details">GetBotError</a> (<a href="../core/object.html#Vector">vector</a> StartLocation))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../core/object.html#Vector">Vector</a>&nbsp;</td><td><a href="#_GetRocketSpawnLocation-" name="GetRocketSpawnLocation" title="go to the details">GetRocketSpawnLocation</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td><a href="../core/object.html#Rotator">rotator</a>&nbsp;</td><td><a href="#_GetViewRotation-" name="GetViewRotation" title="go to the details">GetViewRotation</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_HitWall-" name="HitWall" title="go to the details">HitWall</a> (<a href="../core/object.html#Vector">vector</a> HitNormal, <a href="../engine/actor.html">actor</a> Wall))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_IsTargetRelevant-" name="IsTargetRelevant" title="go to the details">IsTargetRelevant</a> (Vehicle Target ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_KDriverLeave-" name="KDriverLeave" title="go to the details">KDriverLeave</a> (bool bForceLeave ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Landed-" name="Landed" title="go to the details">Landed</a> (vector HitNormal ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LandThump-ShotDown" name="LandThump" title="go to the details">LandThump</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LieStill-ShotDown" name="LieStill" title="go to the details">LieStill</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_MyRandSpin-" name="MyRandSpin" title="go to the details">MyRandSpin</a> (float spinRate))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_NextWeapon-" name="NextWeapon" title="go to the details">NextWeapon</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_PlayDying-" name="PlayDying" title="go to the details">PlayDying</a> (class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; DamageType, <a href="../core/object.html#Vector">vector</a> HitLoc))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayFiring-ShotDown" name="PlayFiring" title="go to the details">PlayFiring</a> (float Rate, name FiringMode))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayNextAnimation-ShotDown" name="PlayNextAnimation" title="go to the details">PlayNextAnimation</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayTakeHit-ShotDown" name="PlayTakeHit" title="go to the details">PlayTakeHit</a> (<a href="../core/object.html#Vector">vector</a> HitLoc, int Damage, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayTakeOff-" name="PlayTakeOff" title="go to the details">PlayTakeOff</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PlayWeaponSwitch-ShotDown" name="PlayWeaponSwitch" title="go to the details">PlayWeaponSwitch</a> (<a href="../engine/weapon.html">Weapon</a> NewWeapon))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PossessedBy-" name="PossessedBy" title="go to the details">PossessedBy</a> (<a href="../engine/controller.html">Controller</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PrevWeapon-" name="PrevWeapon" title="go to the details">PrevWeapon</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ProcessMove-" name="ProcessMove" title="go to the details">ProcessMove</a> (float DeltaTime, <a href="../core/object.html#Vector">vector</a> NewAccel, <a href="../engine/actor.html#EDoubleClickDir">eDoubleClickDir</a> DoubleClickMove, <a href="../core/object.html#Rotator">rotator</a> DeltaRot))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ProcessMove-ShotDown" name="ProcessMove" title="go to the details">ProcessMove</a> (float DeltaTime, <a href="../core/object.html#Vector">vector</a> NewAccel, <a href="../engine/actor.html#EDoubleClickDir">eDoubleClickDir</a> DoubleClickMove, <a href="../core/object.html#Rotator">rotator</a> DeltaRot)<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ReduceCylinder-ShotDown" name="ReduceCylinder" title="go to the details">ReduceCylinder</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ServerNextTarget-" name="ServerNextTarget" title="go to the details">ServerNextTarget</a> (bool bTryOnce ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ServerPrevTarget-" name="ServerPrevTarget" title="go to the details">ServerPrevTarget</a> (bool bTryOnce ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ServerSetTarget-" name="ServerSetTarget" title="go to the details">ServerSetTarget</a> (<a href="../engine/vehicle.html">Vehicle</a> NewTarget))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SetTrailFX-" name="SetTrailFX" title="go to the details">SetTrailFX</a> ()<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_SpecialCalcFirstPersonView-" name="SpecialCalcFirstPersonView" title="go to the details">SpecialCalcFirstPersonView</a> (<a href="../engine/playercontroller.html">PlayerController</a> PC, out <a href="../engine/actor.html">actor</a> ViewActor, out <a href="../core/object.html#Vector">vector</a> CameraLocation, out rotator CameraRotation ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_SpecialCalcView-" name="SpecialCalcView" title="go to the details">SpecialCalcView</a> (out <a href="../engine/actor.html">actor</a> ViewActor, out <a href="../core/object.html#Vector">vector</a> CameraLocation, out rotator CameraRotation ))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_StopPlayFiring-ShotDown" name="StopPlayFiring" title="go to the details">StopPlayFiring</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> instigatedBy, <a href="../core/object.html#Vector">Vector</a> hitlocation, <a href="../core/object.html#Vector">Vector</a> momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TakeDamage-ShotDown" name="TakeDamage" title="go to the details">TakeDamage</a> (int Damage, <a href="../engine/pawn.html">Pawn</a> instigatedBy, <a href="../core/object.html#Vector">Vector</a> hitlocation, <a href="../core/object.html#Vector">Vector</a> momentum, class&lt;<a href="../engine/damagetype.html">DamageType</a>&gt; damageType))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TargetClosestToCrosshair-" name="TargetClosestToCrosshair" title="go to the details">TargetClosestToCrosshair</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_TargetUnSet-" name="TargetUnSet" title="go to the details">TargetUnSet</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_TeamChanged-" name="TeamChanged" title="go to the details">TeamChanged</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Timer-" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Timer-ShotDown" name="Timer" title="go to the details">Timer</a> ()))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Touch-" name="Touch" title="go to the details">Touch</a> (<a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateAutoTargetting-" name="UpdateAutoTargetting" title="go to the details">UpdateAutoTargetting</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateRocketAcceleration-" name="UpdateRocketAcceleration" title="go to the details">UpdateRocketAcceleration</a> (float DeltaTime, float YawChange, float PitchChange))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_UpdateRocketAcceleration-ShotDown" name="UpdateRocketAcceleration" title="go to the details">UpdateRocketAcceleration</a> (float DeltaTime, float YawChange, float PitchChange)<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_VehicleCollision-" name="VehicleCollision" title="go to the details">VehicleCollision</a> (<a href="../core/object.html#Vector">Vector</a> HitNormal, <a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_VehicleCollision-ShotDown" name="VehicleCollision" title="go to the details">VehicleCollision</a> (<a href="../core/object.html#Vector">Vector</a> HitNormal, <a href="../engine/actor.html">Actor</a> Other))<br /><span class="function_state">ShotDown</span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_VehicleSwitchView-ShotDown" name="VehicleSwitchView" title="go to the details">VehicleSwitchView</a> (bool bUpdating))<br /><span class="function_state">ShotDown</span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../ut2k4assault/ut2k4assault-overview.html">UT2k4Assault</a>.<a href="../ut2k4assault/asvehicle.html">ASVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../ut2k4assault/asvehicle.html#AddDefaultInventory">AddDefaultInventory</a>, <a href="../ut2k4assault/asvehicle.html#AnimEnd">AnimEnd</a>, <a href="../ut2k4assault/asvehicle.html#BaseChange">BaseChange</a>, <a href="../ut2k4assault/asvehicle.html#BeginState">BeginState</a>, <a href="../ut2k4assault/asvehicle.html#CalcInertia">CalcInertia</a>, <a href="../ut2k4assault/asvehicle.html#CalcWeaponFire">CalcWeaponFire</a>, <a href="../ut2k4assault/asvehicle.html#ChangeAnimation">ChangeAnimation</a>, <a href="../ut2k4assault/asvehicle.html#ClientDying">ClientDying</a>, <a href="../ut2k4assault/asvehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../ut2k4assault/asvehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../ut2k4assault/asvehicle.html#Destroyed">Destroyed</a>, <a href="../ut2k4assault/asvehicle.html#Died">Died</a>, <a href="../ut2k4assault/asvehicle.html#DrawCrosshair">DrawCrosshair</a>, <a href="../ut2k4assault/asvehicle.html#DrawCrosshairAlignment">DrawCrosshairAlignment</a>, <a href="../ut2k4assault/asvehicle.html#DrawEnemyName">DrawEnemyName</a>, <a href="../ut2k4assault/asvehicle.html#DrawHealthInfo">DrawHealthInfo</a>, <a href="../ut2k4assault/asvehicle.html#DrawHUD">DrawHUD</a>, <a href="../ut2k4assault/asvehicle.html#DrawVehicleHUD">DrawVehicleHUD</a>, <a href="../ut2k4assault/asvehicle.html#DrawWeaponInfo">DrawWeaponInfo</a>, <a href="../ut2k4assault/asvehicle.html#DriverDied">DriverDied</a>, <a href="../ut2k4assault/asvehicle.html#Explode">Explode</a>, <a href="../ut2k4assault/asvehicle.html#FellOutOfWorld">FellOutOfWorld</a>, <a href="../ut2k4assault/asvehicle.html#GetBotError">GetBotError</a>, <a href="../ut2k4assault/asvehicle.html#GetCrosshairWorldLocation">GetCrosshairWorldLocation</a>, <a href="../ut2k4assault/asvehicle.html#GetFireStart">GetFireStart</a>, <a href="../ut2k4assault/asvehicle.html#GetWeaponBoneFor">GetWeaponBoneFor</a>, <a href="../ut2k4assault/asvehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../ut2k4assault/asvehicle.html#Landed">Landed</a>, <a href="../ut2k4assault/asvehicle.html#LandThump">LandThump</a>, <a href="../ut2k4assault/asvehicle.html#LieStill">LieStill</a>, <a href="../ut2k4assault/asvehicle.html#NotifyEnemyLockedOn">NotifyEnemyLockedOn</a>, <a href="../ut2k4assault/asvehicle.html#PerformTrace">PerformTrace</a>, <a href="../ut2k4assault/asvehicle.html#PlayDying">PlayDying</a>, <a href="../ut2k4assault/asvehicle.html#PlayFiring">PlayFiring</a>, <a href="../ut2k4assault/asvehicle.html#PlayHit">PlayHit</a>, <a href="../ut2k4assault/asvehicle.html#PlayNextAnimation">PlayNextAnimation</a>, <a href="../ut2k4assault/asvehicle.html#PlayTakeHit">PlayTakeHit</a>, <a href="../ut2k4assault/asvehicle.html#PlayWeaponSwitch">PlayWeaponSwitch</a>, <a href="../ut2k4assault/asvehicle.html#PossessedBy">PossessedBy</a>, <a href="../ut2k4assault/asvehicle.html#PostBeginPlay">PostBeginPlay</a>, <a href="../ut2k4assault/asvehicle.html#ProcessMove">ProcessMove</a>, <a href="../ut2k4assault/asvehicle.html#ReduceCylinder">ReduceCylinder</a>, <a href="../ut2k4assault/asvehicle.html#SpecialDrawCrosshair">SpecialDrawCrosshair</a>, <a href="../ut2k4assault/asvehicle.html#StaticPrecache">StaticPrecache</a>, <a href="../ut2k4assault/asvehicle.html#StopPlayFiring">StopPlayFiring</a>, <a href="../ut2k4assault/asvehicle.html#StopWeaponFiring">StopWeaponFiring</a>, <a href="../ut2k4assault/asvehicle.html#TakeDamage">TakeDamage</a>, <a href="../ut2k4assault/asvehicle.html#Tick">Tick</a>, <a href="../ut2k4assault/asvehicle.html#Timer">Timer</a>, <a href="../ut2k4assault/asvehicle.html#UnPossessed">UnPossessed</a>, <a href="../ut2k4assault/asvehicle.html#UpdatePrecacheMaterials">UpdatePrecacheMaterials</a>, <a href="../ut2k4assault/asvehicle.html#UpdateRocketAcceleration">UpdateRocketAcceleration</a>, <a href="../ut2k4assault/asvehicle.html#VehicleSwitchView">VehicleSwitchView</a>, <a href="../ut2k4assault/asvehicle.html#WeaponHitsCrosshairsHL">WeaponHitsCrosshairsHL</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/vehicle.html#ActivateOverlay">ActivateOverlay</a>, <a href="../engine/vehicle.html#AdjustDriverDamage">AdjustDriverDamage</a>, <a href="../engine/vehicle.html#AdjustedStrength">AdjustedStrength</a>, <a href="../engine/vehicle.html#AlternateTarget">AlternateTarget</a>, <a href="../engine/vehicle.html#AltFire">AltFire</a>, <a href="../engine/vehicle.html#AttachDriver">AttachDriver</a>, <a href="../engine/vehicle.html#AttachFlag">AttachFlag</a>, <a href="../engine/vehicle.html#BotDesireability">BotDesireability</a>, <a href="../engine/vehicle.html#ChangedReservation">ChangedReservation</a>, <a href="../engine/vehicle.html#ChargeBar">ChargeBar</a>, <a href="../engine/vehicle.html#CheatFly">CheatFly</a>, <a href="../engine/vehicle.html#CheatGhost">CheatGhost</a>, <a href="../engine/vehicle.html#CheatWalk">CheatWalk</a>, <a href="../engine/vehicle.html#CheckForHeadShot">CheckForHeadShot</a>, <a href="../engine/vehicle.html#CheckSuperBerserk">CheckSuperBerserk</a>, <a href="../engine/vehicle.html#CheckTauntValid">CheckTauntValid</a>, <a href="../engine/vehicle.html#ClientClearController">ClientClearController</a>, <a href="../engine/vehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../engine/vehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../engine/vehicle.html#ClientPlayForceFeedback">ClientPlayForceFeedback</a>, <a href="../engine/vehicle.html#ClientVehicleCeaseFire">ClientVehicleCeaseFire</a>, <a href="../engine/vehicle.html#Destroyed">Destroyed</a>, <a href="../engine/vehicle.html#Destroyed_HandleDriver">Destroyed_HandleDriver</a>, <a href="../engine/vehicle.html#DetachDriver">DetachDriver</a>, <a href="../engine/vehicle.html#Died">Died</a>, <a href="../engine/vehicle.html#DisplayDebug">DisplayDebug</a>, <a href="../engine/vehicle.html#DriverDied">DriverDied</a>, <a href="../engine/vehicle.html#DriverLeft">DriverLeft</a>, <a href="../engine/vehicle.html#DriverRadiusDamage">DriverRadiusDamage</a>, <a href="../engine/vehicle.html#DrivingStatusChanged">DrivingStatusChanged</a>, <a href="../engine/vehicle.html#EjectDriver">EjectDriver</a>, <a href="../engine/vehicle.html#EncroachedBy">EncroachedBy</a>, <a href="../engine/vehicle.html#EncroachingOn">EncroachingOn</a>, <a href="../engine/vehicle.html#FaceRotation">FaceRotation</a>, <a href="../engine/vehicle.html#FindEntryVehicle">FindEntryVehicle</a>, <a href="../engine/vehicle.html#FindValidTaunt">FindValidTaunt</a>, <a href="../engine/vehicle.html#Fire">Fire</a>, <a href="../engine/vehicle.html#FixPCRotation">FixPCRotation</a>, <a href="../engine/vehicle.html#Flip">Flip</a>, <a href="../engine/vehicle.html#GetBestEntry">GetBestEntry</a>, <a href="../engine/vehicle.html#GetBotPassenger">GetBotPassenger</a>, <a href="../engine/vehicle.html#GetCameraLocationStart">GetCameraLocationStart</a>, <a href="../engine/vehicle.html#GetInstigator">GetInstigator</a>, <a href="../engine/vehicle.html#GetMoveTargetFor">GetMoveTargetFor</a>, <a href="../engine/vehicle.html#GetSpree">GetSpree</a>, <a href="../engine/vehicle.html#GetTeamNum">GetTeamNum</a>, <a href="../engine/vehicle.html#GetTurrets">GetTurrets</a>, <a href="../engine/vehicle.html#GetVehiclePositionString">GetVehiclePositionString</a>, <a href="../engine/vehicle.html#HasOccupiedTurret">HasOccupiedTurret</a>, <a href="../engine/vehicle.html#HealDamage">HealDamage</a>, <a href="../engine/vehicle.html#ImportantVehicle">ImportantVehicle</a>, <a href="../engine/vehicle.html#IncomingMissile">IncomingMissile</a>, <a href="../engine/vehicle.html#IncrementSpree">IncrementSpree</a>, <a href="../engine/vehicle.html#IndependentVehicle">IndependentVehicle</a>, <a href="../engine/vehicle.html#IsArtillery">IsArtillery</a>, <a href="../engine/vehicle.html#IsVehicleEmpty">IsVehicleEmpty</a>, <a href="../engine/vehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../engine/vehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../engine/vehicle.html#LockOnWarning">LockOnWarning</a>, <a href="../engine/vehicle.html#NeedsFlip">NeedsFlip</a>, <a href="../engine/vehicle.html#NewReservationCostMultiplier">NewReservationCostMultiplier</a>, <a href="../engine/vehicle.html#NextWeapon">NextWeapon</a>, <a href="../engine/vehicle.html#NotifyEnemyLockedOn">NotifyEnemyLockedOn</a>, <a href="../engine/vehicle.html#NotifyEnemyLostLock">NotifyEnemyLostLock</a>, <a href="../engine/vehicle.html#NumPassengers">NumPassengers</a>, <a href="../engine/vehicle.html#Occupied">Occupied</a>, <a href="../engine/vehicle.html#OpenPositionFor">OpenPositionFor</a>, <a href="../engine/vehicle.html#PlaceExitingDriver">PlaceExitingDriver</a>, <a href="../engine/vehicle.html#PlayDying">PlayDying</a>, <a href="../engine/vehicle.html#PlayerChangedTeam">PlayerChangedTeam</a>, <a href="../engine/vehicle.html#PlayTakeHit">PlayTakeHit</a>, <a href="../engine/vehicle.html#PlayTeleportEffect">PlayTeleportEffect</a>, <a href="../engine/vehicle.html#PointOfView">PointOfView</a>, <a href="../engine/vehicle.html#PossessedBy">PossessedBy</a>, <a href="../engine/vehicle.html#PostBeginPlay">PostBeginPlay</a>, <a href="../engine/vehicle.html#POVChanged">POVChanged</a>, <a href="../engine/vehicle.html#PreBeginPlay">PreBeginPlay</a>, <a href="../engine/vehicle.html#PrevWeapon">PrevWeapon</a>, <a href="../engine/vehicle.html#RanInto">RanInto</a>, <a href="../engine/vehicle.html#ReservationCostMultiplier">ReservationCostMultiplier</a>, <a href="../engine/vehicle.html#ServerPlayHorn">ServerPlayHorn</a>, <a href="../engine/vehicle.html#SetAnimAction">SetAnimAction</a>, <a href="../engine/vehicle.html#SetBaseEyeheight">SetBaseEyeheight</a>, <a href="../engine/vehicle.html#SetInitialState">SetInitialState</a>, <a href="../engine/vehicle.html#SetReservation">SetReservation</a>, <a href="../engine/vehicle.html#SetTeamNum">SetTeamNum</a>, <a href="../engine/vehicle.html#SetWheelsScale">SetWheelsScale</a>, <a href="../engine/vehicle.html#ShootMissile">ShootMissile</a>, <a href="../engine/vehicle.html#ShootSpecial">ShootSpecial</a>, <a href="../engine/vehicle.html#ShouldTargetMissile">ShouldTargetMissile</a>, <a href="../engine/vehicle.html#SpecialCalcBehindView">SpecialCalcBehindView</a>, <a href="../engine/vehicle.html#SpecialCalcFirstPersonView">SpecialCalcFirstPersonView</a>, <a href="../engine/vehicle.html#SpecialCalcView">SpecialCalcView</a>, <a href="../engine/vehicle.html#SpectatorSpecialCalcView">SpectatorSpecialCalcView</a>, <a href="../engine/vehicle.html#SpokenFor">SpokenFor</a>, <a href="../engine/vehicle.html#Stalled">Stalled</a>, <a href="../engine/vehicle.html#StaticPrecache">StaticPrecache</a>, <a href="../engine/vehicle.html#StopForceFeedback">StopForceFeedback</a>, <a href="../engine/vehicle.html#StopWeaponFiring">StopWeaponFiring</a>, <a href="../engine/vehicle.html#StronglyRecommended">StronglyRecommended</a>, <a href="../engine/vehicle.html#Suicide">Suicide</a>, <a href="../engine/vehicle.html#TakeDamage">TakeDamage</a>, <a href="../engine/vehicle.html#TakeWaterDamage">TakeWaterDamage</a>, <a href="../engine/vehicle.html#TeamChanged">TeamChanged</a>, <a href="../engine/vehicle.html#TeamLink">TeamLink</a>, <a href="../engine/vehicle.html#TryToDrive">TryToDrive</a>, <a href="../engine/vehicle.html#UnPossessed">UnPossessed</a>, <a href="../engine/vehicle.html#UnStalled">UnStalled</a>, <a href="../engine/vehicle.html#UpdateEyeHeight">UpdateEyeHeight</a>, <a href="../engine/vehicle.html#UpdateTiltForceFeedback">UpdateTiltForceFeedback</a>, <a href="../engine/vehicle.html#UsedBy">UsedBy</a>, <a href="../engine/vehicle.html#VehicleCeaseFire">VehicleCeaseFire</a>, <a href="../engine/vehicle.html#VehicleFire">VehicleFire</a>, <a href="../engine/vehicle.html#VehicleLocked">VehicleLocked</a>, <a href="../engine/vehicle.html#VerifyLock">VerifyLock</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">States Summary</th>
+</tr>
+</table>
+
+<table>
+<tr>
+	<th>ShotDown <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#907" class="small">Source code</a></th>
+</tr>
+<tr>
+	<td>
+	<span class="declaration"><span class="us_keyw"> state</span> ShotDown <span class="us_keyw"></span> </span><br />
+	<blockquote class="comment">
+	
+	</blockquote>
+	</td>
+</tr>
+<tr>
+	<td><a href="#_AnimEnd+ShotDown">AnimEnd</a>, <a href="#_BaseChange+ShotDown">BaseChange</a>, <a href="#_BeginState+ShotDown">BeginState</a>, <a href="#_BlowUp+ShotDown">BlowUp</a>, <a href="#_ChangeAnimation+ShotDown">ChangeAnimation</a>, <a href="#_Died+ShotDown">Died</a>, <a href="#_DriverDied+ShotDown">DriverDied</a>, <a href="#_EndState+ShotDown">EndState</a>, <a href="#_FellOutOfWorld+ShotDown">FellOutOfWorld</a>, <a href="#_LandThump+ShotDown">LandThump</a>, <a href="#_LieStill+ShotDown">LieStill</a>, <a href="#_PlayFiring+ShotDown">PlayFiring</a>, <a href="#_PlayNextAnimation+ShotDown">PlayNextAnimation</a>, <a href="#_PlayTakeHit+ShotDown">PlayTakeHit</a>, <a href="#_PlayWeaponSwitch+ShotDown">PlayWeaponSwitch</a>, <a href="#_ProcessMove+ShotDown">ProcessMove</a>, <a href="#_ReduceCylinder+ShotDown">ReduceCylinder</a>, <a href="#_StopPlayFiring+ShotDown">StopPlayFiring</a>, <a href="#_TakeDamage+ShotDown">TakeDamage</a>, <a href="#_Timer+ShotDown">Timer</a>, <a href="#_UpdateRocketAcceleration+ShotDown">UpdateRocketAcceleration</a>, <a href="#_VehicleCollision+ShotDown">VehicleCollision</a>, <a href="#_VehicleSwitchView+ShotDown">VehicleSwitchView</a></td>
+</tr>
+</table>
+
+
+<br />
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Detail</th>
+</tr>
+</table>
+
+<h4><a name="_SpeedFilterFrames" class="hidden"></a>SpeedFilterFrames <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#55" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">const</span> SpeedFilterFrames = <span class="source_int">20</span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_bAutoTarget" class="hidden"></a>bAutoTarget <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#27" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bAutoTarget;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bGearUp" class="hidden"></a>bGearUp <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#25" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bGearUp;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bHumanShip" class="hidden"></a>bHumanShip <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#30" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bHumanShip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bInitialized" class="hidden"></a>bInitialized <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bInitialized;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bPostNetCalled" class="hidden"></a>bPostNetCalled <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bPostNetCalled;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bRocketLoaded" class="hidden"></a>bRocketLoaded <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#29" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bRocketLoaded;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bSpeedFilterWarmup" class="hidden"></a>bSpeedFilterWarmup <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#26" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bSpeedFilterWarmup;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bTargetClosestToCrosshair" class="hidden"></a>bTargetClosestToCrosshair <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#28" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bTargetClosestToCrosshair;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CamRotationInertia" class="hidden"></a>CamRotationInertia <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#41" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> CamRotationInertia;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CrosshairPos" class="hidden"></a>CrosshairPos <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#71" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> CrosshairPos;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CurrentTarget" class="hidden"></a>CurrentTarget <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#68" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span> CurrentTarget;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DelayedDebugString" class="hidden"></a>DelayedDebugString <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> DelayedDebugString;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DesiredVelocity" class="hidden"></a>DesiredVelocity <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> DesiredVelocity;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FlyingAnim" class="hidden"></a>FlyingAnim <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#35" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">name</span> FlyingAnim;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GenericShieldEffect[2]" class="hidden"></a>GenericShieldEffect[2] <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span>&gt; GenericShieldEffect[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastAutoTargetTime" class="hidden"></a>LastAutoTargetTime <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#70" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastAutoTargetTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastCamRot" class="hidden"></a>LastCamRot <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#38" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span> LastCamRot;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastTimeSeconds" class="hidden"></a>LastTimeSeconds <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#40" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastTimeSeconds;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxTargetingRange" class="hidden"></a>MaxTargetingRange <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#69" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> MaxTargetingRange;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_myDeltaTime" class="hidden"></a>myDeltaTime <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> myDeltaTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextShieldTime" class="hidden"></a>NextShieldTime <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#65" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> NextShieldTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextSpeedFilterSlot" class="hidden"></a>NextSpeedFilterSlot <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#57" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> NextSpeedFilterSlot;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PitchAccel" class="hidden"></a>PitchAccel <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> PitchAccel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RocketLoadedSound" class="hidden"></a>RocketLoadedSound <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#76" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span> RocketLoadedSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RocketOffset" class="hidden"></a>RocketOffset <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#61" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> RocketOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RollAccel" class="hidden"></a>RollAccel <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> RollAccel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShotDownFXClass" class="hidden"></a>ShotDownFXClass <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#52" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span>&gt; ShotDownFXClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ShotDownRotation" class="hidden"></a>ShotDownRotation <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#32" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">Rotator</a></span> ShotDownRotation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SmokeTrail" class="hidden"></a>SmokeTrail <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#51" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> SmokeTrail;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SmoothedSpeedRatio" class="hidden"></a>SmoothedSpeedRatio <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#58" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> SmoothedSpeedRatio;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpaceFighterRotation" class="hidden"></a>SpaceFighterRotation <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Quat" class="source">Quat</a></span> SpaceFighterRotation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpeedFilter[SpeedFilterFrames]" class="hidden"></a>SpeedFilter[SpeedFilterFrames] <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#56" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> SpeedFilter[SpeedFilterFrames];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpeedInfoTexture" class="hidden"></a>SpeedInfoTexture <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#74" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span> SpeedInfoTexture;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TargetAcquiredSound" class="hidden"></a>TargetAcquiredSound <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#72" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span> TargetAcquiredSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Text_Speed" class="hidden"></a>Text_Speed <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#45" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> Text_Speed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TopGunCount" class="hidden"></a>TopGunCount <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#33" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> TopGunCount;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TrailEmitter" class="hidden"></a>TrailEmitter <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#48" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/emitter.html" class="source">Emitter</a></span> <span class="source_type"><a href="../engine/trailemitter.html" class="source">TrailEmitter</a></span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TrailOffset" class="hidden"></a>TrailOffset <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#49" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> TrailOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WeaponInfoTexture" class="hidden"></a>WeaponInfoTexture <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#74" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span> WeaponInfoTexture;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_YawAccel" class="hidden"></a>YawAccel <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> YawAccel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">ASVehicle_SpaceFighter</h3>
+<h4><a name="_EngineMinVelocity" class="hidden"></a>EngineMinVelocity <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">const</span> <span class="source_keyword">float</span> EngineMinVelocity;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxStrafe" class="hidden"></a>MaxStrafe <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">float</span> MaxStrafe;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RollAutoCorrectSpeed" class="hidden"></a>RollAutoCorrectSpeed <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">float</span> RollAutoCorrectSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RotationInertia" class="hidden"></a>RotationInertia <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">const</span> <span class="source_keyword">float</span> RotationInertia;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StrafeAccel" class="hidden"></a>StrafeAccel <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">float</span> StrafeAccel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StrafeAccelRate" class="hidden"></a>StrafeAccelRate <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">float</span> StrafeAccelRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleRotationSpeed" class="hidden"></a>VehicleRotationSpeed <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#17" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../ut2k4assault/asvehicle_spacefighter.html" class="source">ASVehicle_SpaceFighter</a></span>) <span class="source_keyword">const</span> <span class="source_keyword">float</span> VehicleRotationSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_AdjustFX-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> AdjustFX <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#785" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  AdjustFX (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AnimEnd-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> AnimEnd <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#771" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  AnimEnd ( <span class="source_keyword">int</span> <span class="source_type">Channel</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AnimEnd-ShotDown" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> AnimEnd <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#920" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  AnimEnd ( <span class="source_keyword">int</span> <span class="source_type">Channel</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BaseChange-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BaseChange <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#922" class="small">Source code</a></h4>
+<div class="declaration">singular <span class="source_keyword">function</span>  BaseChange ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BeginState-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BeginState <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#950" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  BeginState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BlowUp-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BlowUp <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#88" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  BlowUp ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span> )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BlowUp-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BlowUp <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#944" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  BlowUp ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Bump-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Bump <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#705" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Bump ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CanAttack-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CanAttack <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#198" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanAttack ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeAnimation-ShotDown" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> ChangeAnimation <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#911" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  ChangeAnimation ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClientKDriverEnter-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClientKDriverEnter <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#164" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  ClientKDriverEnter ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#116" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Died-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Died <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#923" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  Died ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> Killer, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DisplayDebug-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DisplayDebug <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#318" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DisplayDebug ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>, <span class="source_keyword2">out</span> <span class="source_keyword">float</span> YL, <span class="source_keyword2">out</span> <span class="source_keyword">float</span> YPos) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DoShieldEffect-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DoShieldEffect <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#754" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DoShieldEffect ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DriverDied-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DriverDied <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#192" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DriverDied ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DriverDied-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DriverDied <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#928" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  DriverDied (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EndState-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> EndState <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#972" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  EndState ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Explode-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Explode <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#834" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Explode ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FellOutOfWorld-ShotDown" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> FellOutOfWorld <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#917" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  FellOutOfWorld ( <span class="source_type"><a href="../engine/actor.html#eKillZType" class="source">eKillZType</a></span> KillType) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetBotError-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetBotError <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#137" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> GetBotError ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> StartLocation) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetRocketSpawnLocation-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetRocketSpawnLocation <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#811" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> GetRocketSpawnLocation ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetViewRotation-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetViewRotation <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#361" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> GetViewRotation ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HitWall-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> HitWall <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#689" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  HitWall ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> Wall) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IsTargetRelevant-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> IsTargetRelevant <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#465" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsTargetRelevant ( <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span> <span class="source_type">Target</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KDriverLeave-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> KDriverLeave <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#174" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> KDriverLeave ( <span class="source_keyword">bool</span> <span class="source_type">bForceLeave</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Landed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Landed <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#684" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Landed ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LandThump-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LandThump <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#919" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LandThump ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LieStill-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LieStill <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#921" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LieStill ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MyRandSpin-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> MyRandSpin <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#817" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword2">final</span> <span class="source_keyword">function</span>  MyRandSpin ( <span class="source_keyword">float</span> spinRate) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NextWeapon <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#486" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  NextWeapon ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayDying-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> PlayDying <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#859" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  PlayDying ( <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HitLoc) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayFiring-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayFiring <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#913" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PlayFiring ( <span class="source_keyword">float</span> Rate, <span class="source_keyword">name</span> <span class="source_type">FiringMode</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayNextAnimation-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayNextAnimation <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#916" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PlayNextAnimation ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayTakeHit-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayTakeHit <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#915" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PlayTakeHit ( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> HitLoc, <span class="source_keyword">int</span> Damage, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayTakeOff-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayTakeOff <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#101" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PlayTakeOff (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayWeaponSwitch-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayWeaponSwitch <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#914" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PlayWeaponSwitch ( <span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span> NewWeapon) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PossessedBy-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PossessedBy <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#128" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  PossessedBy ( <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#90" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrevWeapon-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PrevWeapon <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#481" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PrevWeapon ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ProcessMove-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ProcessMove <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#303" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ProcessMove ( <span class="source_keyword">float</span> DeltaTime, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> NewAccel, <span class="source_type"><a href="../engine/actor.html#EDoubleClickDir" class="source">eDoubleClickDir</a></span> DoubleClickMove, <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> DeltaRot) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ProcessMove-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ProcessMove <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#929" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ProcessMove ( <span class="source_keyword">float</span> DeltaTime, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> NewAccel, <span class="source_type"><a href="../engine/actor.html#EDoubleClickDir" class="source">eDoubleClickDir</a></span> DoubleClickMove, <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> DeltaRot )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ReduceCylinder-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ReduceCylinder <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#918" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ReduceCylinder ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerNextTarget-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ServerNextTarget <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#496" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ServerNextTarget ( <span class="source_keyword">bool</span> <span class="source_type">bTryOnce</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerPrevTarget-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ServerPrevTarget <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#539" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ServerPrevTarget ( <span class="source_keyword">bool</span> <span class="source_type">bTryOnce</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ServerSetTarget-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ServerSetTarget <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#580" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ServerSetTarget ( <span class="source_type"><a href="../engine/vehicle.html" class="source">Vehicle</a></span> NewTarget) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetTrailFX-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SetTrailFX <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#114" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  SetTrailFX (  )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpecialCalcFirstPersonView-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SpecialCalcFirstPersonView <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#369" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  SpecialCalcFirstPersonView ( <span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span> <span class="source_type">PC</span>, <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> ViewActor, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> CameraLocation, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> <span class="source_type">CameraRotation</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpecialCalcView-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> SpecialCalcView <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#391" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> SpecialCalcView ( <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> ViewActor, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> CameraLocation, <span class="source_keyword2">out</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> <span class="source_type">CameraRotation</span> ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StopPlayFiring-ShotDown" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> StopPlayFiring <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#912" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">event</span>  StopPlayFiring ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#716" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> Damage, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TakeDamage-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TakeDamage <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#924" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TakeDamage ( <span class="source_keyword">int</span> Damage, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> instigatedBy, <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">hitlocation</span>,
+							<span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">damageType</a></span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TargetClosestToCrosshair-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TargetClosestToCrosshair <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#491" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">exec</span> <span class="source_keyword">function</span>  TargetClosestToCrosshair ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TargetUnSet-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> TargetUnSet <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#590" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  TargetUnSet ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamChanged-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> TeamChanged <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#104" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  TeamChanged ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Timer <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#787" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Timer-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Timer <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#933" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Timer ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Touch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Touch <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#694" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> singular <span class="source_keyword">function</span>  Touch ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateAutoTargetting-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateAutoTargetting <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#597" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateAutoTargetting ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateRocketAcceleration-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateRocketAcceleration <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#210" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  UpdateRocketAcceleration ( <span class="source_keyword">float</span> DeltaTime, <span class="source_keyword">float</span> YawChange, <span class="source_keyword">float</span> PitchChange) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_UpdateRocketAcceleration-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> UpdateRocketAcceleration <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#931" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  UpdateRocketAcceleration ( <span class="source_keyword">float</span> DeltaTime, <span class="source_keyword">float</span> YawChange, <span class="source_keyword">float</span> PitchChange )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleCollision-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> VehicleCollision <span class="function_state"></span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#657" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  VehicleCollision ( <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleCollision-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> VehicleCollision <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#938" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  VehicleCollision ( <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_VehicleSwitchView-ShotDown" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> VehicleSwitchView <span class="function_state">ShotDown</span> <a href="../Source_ut2k4assault/asvehicle_spacefighter.html#927" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  VehicleSwitchView ( <span class="source_keyword">bool</span> bUpdating) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     EngineMinVelocity=<span class="source_int">600.000000</span>
+     VehicleRotationSpeed=<span class="source_int">0.009000</span>
+     RotationInertia=<span class="source_int">10.000000</span>
+     StrafeAccelRate=<span class="source_int">0.500000</span>
+     MaxStrafe=<span class="source_int">300.000000</span>
+     RollAutoCorrectSpeed=<span class="source_int">3000.000000</span>
+     bSpeedFilterWarmup=<span class="source_keyword">True</span>
+     bAutoTarget=<span class="source_keyword">True</span>
+     bHumanShip=<span class="source_keyword">True</span>
+     CamRotationInertia=<span class="source_int">0.330000</span>
+     Text_Speed=<span class="source_string">"Speed:"</span>
+     TrailOffset=<span class="source_int">80.000000</span>
+     MaxTargetingRange=<span class="source_int">20000.000000</span>
+     TargetAcquiredSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'AssaultSounds.HumanShip.TargetCycle01'</span>
+     RocketLoadedSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'AssaultSounds.HumanShip.HnShipFireReadyl01'</span>
+     DefaultCrosshair=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'Crosshairs.HUD.Crosshair_Circle1'</span>
+     CrosshairScale=<span class="source_int">0.500000</span>
+     bCHZeroYOffset=<span class="source_keyword">True</span>
+     bHasRadar=<span class="source_keyword">True</span>
+     CenterSpringForce=<span class="source_string">"SpringSpaceFighter"</span>
+     CenterSpringRangePitch=<span class="source_int">0</span>
+     CenterSpringRangeRoll=<span class="source_int">0</span>
+     DriverDamageMult=<span class="source_int">0.000000</span>
+     bCanFly=<span class="source_keyword">True</span>
+     bCanStrafe=<span class="source_keyword">True</span>
+     bSimulateGravity=<span class="source_keyword">False</span>
+     bDirectHitWall=<span class="source_keyword">True</span>
+     bServerMoveSetPawnRot=<span class="source_keyword">False</span>
+     bSpecialHUD=<span class="source_keyword">True</span>
+     bSpecialCalcView=<span class="source_keyword">True</span>
+     SightRadius=<span class="source_int">25000.000000</span>
+     AirSpeed=<span class="source_int">2000.000000</span>
+     AccelRate=<span class="source_int">2000.000000</span>
+     HealthMax=<span class="source_int">250.000000</span>
+     Health=<span class="source_int">250</span>
+     LandMovementState=<span class="source_string">"PlayerSpaceFlying"</span>
+     MinFlySpeed=<span class="source_int">1100.000000</span>
+     MaxRotation=<span class="source_int">0.850000</span>
+     Physics=PHYS_Flying
+     CollisionRadius=<span class="source_int">60.000000</span>
+     CollisionHeight=<span class="source_int">30.000000</span>
+     RotationRate=(Pitch=<span class="source_int">32768</span>,Yaw=<span class="source_int">32768</span>,Roll=<span class="source_int">32768</span>)
+     ForceType=FT_DragAlong
+     ForceRadius=<span class="source_int">100.000000</span>
+     ForceScale=<span class="source_int">5.000000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../ut2k4assault/ut2k4assault-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_ut2k4assault/asvehicle_spacefighter.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ASVehicle_SpaceFighter">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../ut2k4assault/asvehicle_sentinel_floor_swivel.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../ut2k4assault/damtypeexplobarrel.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:24:57.871 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

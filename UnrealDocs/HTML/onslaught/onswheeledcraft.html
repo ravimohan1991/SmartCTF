@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Onslaught.ONSWheeledCraft</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onswheeledcraft.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSWheeledCraft">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsweaponpawn.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onswheeledvehicleexplosioneffect.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#onslaught/onswheeledcraft.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../onslaught/onslaught-overview.html">Onslaught</a>.ONSWheeledCraft</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../onslaught/onsvehicle.html">ONSVehicle</a></dd>
+<dt>Modifiers</dt><dd>abstract native nativereplication </dd>
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/actor.html">Actor</a>
+   |   
+   +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/pawn.html">Pawn</a>
+      |   
+      +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/vehicle.html">Vehicle</a>
+         |   
+         +-- <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a>
+            |   
+            +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a>
+               |   
+               +-- <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onswheeledcraft.html">ONSWheeledCraft</a>
+</pre>
+
+<h4>Direct Known Subclasses:</h4>
+<blockquote>
+	<a href="../onslaughtfull/onsgenericsd.html">ONSGenericSD</a>, <a href="../onslaughtfull/onsmobileassaultstation.html">ONSMobileAssaultStation</a>, <a href="../onslaught/onsprv.html">ONSPRV</a>, <a href="../onslaught/onsrv.html">ONSRV</a>
+</blockquote>
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ActualSteering" name="ActualSteering" title="go to the details">ActualSteering</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bAllowBigWheels" name="bAllowBigWheels" title="go to the details">bAllowBigWheels</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bIsDriving" name="bIsDriving" title="go to the details">bIsDriving</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bIsInverted" name="bIsInverted" title="go to the details">bIsInverted</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bNewCarState" name="bNewCarState" title="go to the details">bNewCarState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bOldVehicleOnGround" name="bOldVehicleOnGround" title="go to the details">bOldVehicleOnGround</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bPushDown" name="bPushDown" title="go to the details">bPushDown</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onsbrakelightcorona.html">ONSBrakelightCorona</a></td><td width="66%"><a href="#_BrakeLight[2]" name="BrakeLight[2]" title="go to the details">BrakeLight[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_CarMPH" name="CarMPH" title="go to the details">CarMPH</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onswheeledcraft.html#SCarState">SCarState</a></td><td width="66%"><a href="#_CarState" name="CarState" title="go to the details">CarState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/actor.html#KRigidBodyState">KRigidBodyState</a></td><td width="66%"><a href="#_ChassisState" name="ChassisState" title="go to the details">ChassisState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_DaredevilPoints" name="DaredevilPoints" title="go to the details">DaredevilPoints</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DesiredJumpForce" name="DesiredJumpForce" title="go to the details">DesiredJumpForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">array&lt;<a href="../onslaught/onsdirtslipeffect.html">ONSDirtSlipEffect</a>&gt;</td><td width="66%"><a href="#_Dust" name="Dust" title="go to the details">Dust</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EngineRPM" name="EngineRPM" title="go to the details">EngineRPM</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FenderBenderSpeed" name="FenderBenderSpeed" title="go to the details">FenderBenderSpeed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ForwardVel" name="ForwardVel" title="go to the details">ForwardVel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_Gear" name="Gear" title="go to the details">Gear</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_InAirDistance" name="InAirDistance" title="go to the details">InAirDistance</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_InAirPitch" name="InAirPitch" title="go to the details">InAirPitch</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_InAirRoll" name="InAirRoll" title="go to the details">InAirRoll</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_InAirSpin" name="InAirSpin" title="go to the details">InAirSpin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_InAirTime" name="InAirTime" title="go to the details">InAirTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_JumpFeedbackForce" name="JumpFeedbackForce" title="go to the details">JumpFeedbackForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpForce" name="JumpForce" title="go to the details">JumpForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/texture.html">Texture</a></td><td width="66%"><a href="#_JumpMeterTexture" name="JumpMeterTexture" title="go to the details">JumpMeterTexture</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/sound.html">sound</a></td><td width="66%"><a href="#_JumpSound" name="JumpSound" title="go to the details">JumpSound</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpSpin" name="JumpSpin" title="go to the details">JumpSpin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_LastOnGroundLocation" name="LastOnGroundLocation" title="go to the details">LastOnGroundLocation</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LastOnGroundTime" name="LastOnGroundTime" title="go to the details">LastOnGroundTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_NumPoweredWheels" name="NumPoweredWheels" title="go to the details">NumPoweredWheels</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../onslaught/onswheeledcraft.html#SCarState">SCarState</a></td><td width="66%"><a href="#_OldCarState" name="OldCarState" title="go to the details">OldCarState</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Rotator">rotator</a></td><td width="66%"><a href="#_OldRotation" name="OldRotation" title="go to the details">OldRotation</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OutputBrake" name="OutputBrake" title="go to the details">OutputBrake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OutputGas" name="OutputGas" title="go to the details">OutputGas</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_OutputHandbrake" name="OutputHandbrake" title="go to the details">OutputHandbrake</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_OutputPitch" name="OutputPitch" title="go to the details">OutputPitch</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">material</a></td><td width="66%"><a href="#_RevMeterMaterial" name="RevMeterMaterial" title="go to the details">RevMeterMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TotalSpinVel" name="TotalSpinVel" title="go to the details">TotalSpinVel</a></td></tr>
+<tr><th colspan="2" class="small">ONSWheeledCraft</th></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_AirPitchDamping" name="AirPitchDamping" title="go to the details">AirPitchDamping</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_AirPitchTorque" name="AirPitchTorque" title="go to the details">AirPitchTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_AirRollDamping" name="AirRollDamping" title="go to the details">AirRollDamping</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_AirRollTorque" name="AirRollTorque" title="go to the details">AirRollTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_AirTurnTorque" name="AirTurnTorque" title="go to the details">AirTurnTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bAllowAirControl" name="bAllowAirControl" title="go to the details">bAllowAirControl</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bAllowChargingJump" name="bAllowChargingJump" title="go to the details">bAllowChargingJump</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bDoStuntInfo" name="bDoStuntInfo" title="go to the details">bDoStuntInfo</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">bool</td><td width="66%"><a href="#_bMakeBrakeLights" name="bMakeBrakeLights" title="go to the details">bMakeBrakeLights</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../engine/material.html">Material</a></td><td width="66%"><a href="#_BrakeLightMaterial" name="BrakeLightMaterial" title="go to the details">BrakeLightMaterial</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Vector">vector</a></td><td width="66%"><a href="#_BrakeLightOffset[2]" name="BrakeLightOffset[2]" title="go to the details">BrakeLightOffset[2]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ChangeDownPoint" name="ChangeDownPoint" title="go to the details">ChangeDownPoint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ChangeUpPoint" name="ChangeUpPoint" title="go to the details">ChangeUpPoint</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_ChassisTorqueScale" name="ChassisTorqueScale" title="go to the details">ChassisTorqueScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">class&lt;<a href="../engine/localmessage.html">LocalMessage</a>&gt;</td><td width="66%"><a href="#_DaredevilMessageClass" name="DaredevilMessageClass" title="go to the details">DaredevilMessageClass</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DaredevilThreshInAirDistance" name="DaredevilThreshInAirDistance" title="go to the details">DaredevilThreshInAirDistance</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DaredevilThreshInAirPitch" name="DaredevilThreshInAirPitch" title="go to the details">DaredevilThreshInAirPitch</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DaredevilThreshInAirRoll" name="DaredevilThreshInAirRoll" title="go to the details">DaredevilThreshInAirRoll</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DaredevilThreshInAirSpin" name="DaredevilThreshInAirSpin" title="go to the details">DaredevilThreshInAirSpin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DaredevilThreshInAirTime" name="DaredevilThreshInAirTime" title="go to the details">DaredevilThreshInAirTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DustSlipRate" name="DustSlipRate" title="go to the details">DustSlipRate</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_DustSlipThresh" name="DustSlipThresh" title="go to the details">DustSlipThresh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EngineBrakeFactor" name="EngineBrakeFactor" title="go to the details">EngineBrakeFactor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EngineBrakeRPMScale" name="EngineBrakeRPMScale" title="go to the details">EngineBrakeRPMScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EngineInertia" name="EngineInertia" title="go to the details">EngineInertia</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_EngineRPMSoundRange" name="EngineRPMSoundRange" title="go to the details">EngineRPMSoundRange</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_FTScale" name="FTScale" title="go to the details">FTScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_GearRatios[5]" name="GearRatios[5]" title="go to the details">GearRatios[5]</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_HandbrakeThresh" name="HandbrakeThresh" title="go to the details">HandbrakeThresh</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_IdleRPM" name="IdleRPM" title="go to the details">IdleRPM</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpChargeTime" name="JumpChargeTime" title="go to the details">JumpChargeTime</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_JumpMeterColor" name="JumpMeterColor" title="go to the details">JumpMeterColor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpMeterHeight" name="JumpMeterHeight" title="go to the details">JumpMeterHeight</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpMeterOriginX" name="JumpMeterOriginX" title="go to the details">JumpMeterOriginX</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpMeterOriginY" name="JumpMeterOriginY" title="go to the details">JumpMeterOriginY</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpMeterSpacing" name="JumpMeterSpacing" title="go to the details">JumpMeterSpacing</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_JumpMeterWidth" name="JumpMeterWidth" title="go to the details">JumpMeterWidth</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_LSDFactor" name="LSDFactor" title="go to the details">LSDFactor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxBrakeTorque" name="MaxBrakeTorque" title="go to the details">MaxBrakeTorque</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxJumpForce" name="MaxJumpForce" title="go to the details">MaxJumpForce</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MaxJumpSpin" name="MaxJumpSpin" title="go to the details">MaxJumpSpin</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#InterpCurve">InterpCurve</a></td><td width="66%"><a href="#_MaxSteerAngleCurve" name="MaxSteerAngleCurve" title="go to the details">MaxSteerAngleCurve</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MinAirControlDamping" name="MinAirControlDamping" title="go to the details">MinAirControlDamping</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_MinBrakeFriction" name="MinBrakeFriction" title="go to the details">MinBrakeFriction</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_NumForwardGears" name="NumForwardGears" title="go to the details">NumForwardGears</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RevMeterPosX" name="RevMeterPosX" title="go to the details">RevMeterPosX</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RevMeterPosY" name="RevMeterPosY" title="go to the details">RevMeterPosY</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RevMeterScale" name="RevMeterScale" title="go to the details">RevMeterScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_RevMeterSizeY" name="RevMeterSizeY" title="go to the details">RevMeterSizeY</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#Color">color</a></td><td width="66%"><a href="#_SpinMeterColor" name="SpinMeterColor" title="go to the details">SpinMeterColor</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#EAxis">EAxis</a></td><td width="66%"><a href="#_SteerBoneAxis" name="SteerBoneAxis" title="go to the details">SteerBoneAxis</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SteerBoneMaxAngle" name="SteerBoneMaxAngle" title="go to the details">SteerBoneMaxAngle</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">name</td><td width="66%"><a href="#_SteerBoneName" name="SteerBoneName" title="go to the details">SteerBoneName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_SteerSpeed" name="SteerSpeed" title="go to the details">SteerSpeed</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_StopThreshold" name="StopThreshold" title="go to the details">StopThreshold</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#InterpCurve">InterpCurve</a></td><td width="66%"><a href="#_TorqueCurve" name="TorqueCurve" title="go to the details">TorqueCurve</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TransRatio" name="TransRatio" title="go to the details">TransRatio</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_TurnDamping" name="TurnDamping" title="go to the details">TurnDamping</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelAdhesion" name="WheelAdhesion" title="go to the details">WheelAdhesion</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelHandbrakeFriction" name="WheelHandbrakeFriction" title="go to the details">WheelHandbrakeFriction</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelHandbrakeSlip" name="WheelHandbrakeSlip" title="go to the details">WheelHandbrakeSlip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelInertia" name="WheelInertia" title="go to the details">WheelInertia</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelLatFrictionScale" name="WheelLatFrictionScale" title="go to the details">WheelLatFrictionScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#InterpCurve">InterpCurve</a></td><td width="66%"><a href="#_WheelLatSlipFunc" name="WheelLatSlipFunc" title="go to the details">WheelLatSlipFunc</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../core/object.html#InterpCurve">InterpCurve</a></td><td width="66%"><a href="#_WheelLongFrictionFunc" name="WheelLongFrictionFunc" title="go to the details">WheelLongFrictionFunc</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelLongFrictionScale" name="WheelLongFrictionScale" title="go to the details">WheelLongFrictionScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelLongSlip" name="WheelLongSlip" title="go to the details">WheelLongSlip</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelPenOffset" name="WheelPenOffset" title="go to the details">WheelPenOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelPenScale" name="WheelPenScale" title="go to the details">WheelPenScale</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelRestitution" name="WheelRestitution" title="go to the details">WheelRestitution</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelSoftness" name="WheelSoftness" title="go to the details">WheelSoftness</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelSuspensionMaxRenderTravel" name="WheelSuspensionMaxRenderTravel" title="go to the details">WheelSuspensionMaxRenderTravel</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelSuspensionOffset" name="WheelSuspensionOffset" title="go to the details">WheelSuspensionOffset</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">float</td><td width="66%"><a href="#_WheelSuspensionTravel" name="WheelSuspensionTravel" title="go to the details">WheelSuspensionTravel</a></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onsvehicle.html#ActiveWeapon">ActiveWeapon</a>, <a href="../onslaught/onsvehicle.html#AltFireImpulse">AltFireImpulse</a>, <a href="../onslaught/onsvehicle.html#AltFocalPoint">AltFocalPoint</a>, <a href="../onslaught/onsvehicle.html#bAltFocalPoint">bAltFocalPoint</a>, <a href="../onslaught/onsvehicle.html#bCannotBeBased">bCannotBeBased</a>, <a href="../onslaught/onsvehicle.html#bCustomAiming">bCustomAiming</a>, <a href="../onslaught/onsvehicle.html#bDestroyAppearance">bDestroyAppearance</a>, <a href="../onslaught/onsvehicle.html#bDisintegrateVehicle">bDisintegrateVehicle</a>, <a href="../onslaught/onsvehicle.html#bDriverCannotLeaveVehicle">bDriverCannotLeaveVehicle</a>, <a href="../onslaught/onsvehicle.html#bEjectPassengersWhenFlipped">bEjectPassengersWhenFlipped</a>, <a href="../onslaught/onsvehicle.html#bEnableProximityViewShake">bEnableProximityViewShake</a>, <a href="../onslaught/onsvehicle.html#bHadFire">bHadFire</a>, <a href="../onslaught/onsvehicle.html#bHasAltFire">bHasAltFire</a>, <a href="../onslaught/onsvehicle.html#bHasAltFireImpulse">bHasAltFireImpulse</a>, <a href="../onslaught/onsvehicle.html#bHasBeenAwake">bHasBeenAwake</a>, <a href="../onslaught/onsvehicle.html#bHasFireImpulse">bHasFireImpulse</a>, <a href="../onslaught/onsvehicle.html#bIsAwake">bIsAwake</a>, <a href="../onslaught/onsvehicle.html#BlueSkin">BlueSkin</a>, <a href="../onslaught/onsvehicle.html#bNeverReset">bNeverReset</a>, <a href="../onslaught/onsvehicle.html#bOnlyViewShakeIfDriven">bOnlyViewShakeIfDriven</a>, <a href="../onslaught/onsvehicle.html#bSoundsPrecached">bSoundsPrecached</a>, <a href="../onslaught/onsvehicle.html#CrosshairColor">CrosshairColor</a>, <a href="../onslaught/onsvehicle.html#CrosshairTexture">CrosshairTexture</a>, <a href="../onslaught/onsvehicle.html#CrosshairX">CrosshairX</a>, <a href="../onslaught/onsvehicle.html#CrosshairY">CrosshairY</a>, <a href="../onslaught/onsvehicle.html#CustomAim">CustomAim</a>, <a href="../onslaught/onsvehicle.html#DamagedEffect">DamagedEffect</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectAccruedDamage">DamagedEffectAccruedDamage</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectAccScale">DamagedEffectAccScale</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectClass">DamagedEffectClass</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectFireDamagePerSec">DamagedEffectFireDamagePerSec</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectHealthFireFactor">DamagedEffectHealthFireFactor</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectHealthSmokeFactor">DamagedEffectHealthSmokeFactor</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectOffset">DamagedEffectOffset</a>, <a href="../onslaught/onsvehicle.html#DamagedEffectScale">DamagedEffectScale</a>, <a href="../onslaught/onsvehicle.html#DebugInfo">DebugInfo</a>, <a href="../onslaught/onsvehicle.html#DestroyedRoadKillDamageType">DestroyedRoadKillDamageType</a>, <a href="../onslaught/onsvehicle.html#DestroyedVehicleMesh">DestroyedVehicleMesh</a>, <a href="../onslaught/onsvehicle.html#DestructionAngularMomentum">DestructionAngularMomentum</a>, <a href="../onslaught/onsvehicle.html#DestructionEffectClass">DestructionEffectClass</a>, <a href="../onslaught/onsvehicle.html#DestructionLinearMomentum">DestructionLinearMomentum</a>, <a href="../onslaught/onsvehicle.html#DisintegrationEffectClass">DisintegrationEffectClass</a>, <a href="../onslaught/onsvehicle.html#DisintegrationHealth">DisintegrationHealth</a>, <a href="../onslaught/onsvehicle.html#DriverWeapons">DriverWeapons</a>, <a href="../onslaught/onsvehicle.html#ExplosionCount">ExplosionCount</a>, <a href="../onslaught/onsvehicle.html#ExplosionDamage">ExplosionDamage</a>, <a href="../onslaught/onsvehicle.html#ExplosionDamageType">ExplosionDamageType</a>, <a href="../onslaught/onsvehicle.html#ExplosionMomentum">ExplosionMomentum</a>, <a href="../onslaught/onsvehicle.html#ExplosionRadius">ExplosionRadius</a>, <a href="../onslaught/onsvehicle.html#ExplosionSoundRadius">ExplosionSoundRadius</a>, <a href="../onslaught/onsvehicle.html#ExplosionSounds">ExplosionSounds</a>, <a href="../onslaught/onsvehicle.html#ExplosionSoundVolume">ExplosionSoundVolume</a>, <a href="../onslaught/onsvehicle.html#FireImpulse">FireImpulse</a>, <a href="../onslaught/onsvehicle.html#HeadlightCorona">HeadlightCorona</a>, <a href="../onslaught/onsvehicle.html#HeadlightCoronaMaterial">HeadlightCoronaMaterial</a>, <a href="../onslaught/onsvehicle.html#HeadlightCoronaMaxSize">HeadlightCoronaMaxSize</a>, <a href="../onslaught/onsvehicle.html#HeadlightCoronaOffset">HeadlightCoronaOffset</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjector">HeadlightProjector</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorMaterial">HeadlightProjectorMaterial</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorOffset">HeadlightProjectorOffset</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorRotation">HeadlightProjectorRotation</a>, <a href="../onslaught/onsvehicle.html#HeadlightProjectorScale">HeadlightProjectorScale</a>, <a href="../onslaught/onsvehicle.html#IdleSound">IdleSound</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageMult">ImpactDamageMult</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageSounds">ImpactDamageSounds</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageThreshold">ImpactDamageThreshold</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageTicks">ImpactDamageTicks</a>, <a href="../onslaught/onsvehicle.html#ImpactInfo">ImpactInfo</a>, <a href="../onslaught/onsvehicle.html#ImpactTicksLeft">ImpactTicksLeft</a>, <a href="../onslaught/onsvehicle.html#LastCheckUpsideDownTime">LastCheckUpsideDownTime</a>, <a href="../onslaught/onsvehicle.html#LastImpactExplosionTime">LastImpactExplosionTime</a>, <a href="../onslaught/onsvehicle.html#LastRunOverWarningTime">LastRunOverWarningTime</a>, <a href="../onslaught/onsvehicle.html#LastVelocitySize">LastVelocitySize</a>, <a href="../onslaught/onsvehicle.html#LockedOnSound">LockedOnSound</a>, <a href="../onslaught/onsvehicle.html#MinRunOverWarningAim">MinRunOverWarningAim</a>, <a href="../onslaught/onsvehicle.html#OldExplosionCount">OldExplosionCount</a>, <a href="../onslaught/onsvehicle.html#OldYaw">OldYaw</a>, <a href="../onslaught/onsvehicle.html#PassengerWeapons">PassengerWeapons</a>, <a href="../onslaught/onsvehicle.html#RedSkin">RedSkin</a>, <a href="../onslaught/onsvehicle.html#Reservation">Reservation</a>, <a href="../onslaught/onsvehicle.html#ResetTime">ResetTime</a>, <a href="../onslaught/onsvehicle.html#ShakeOffsetMag">ShakeOffsetMag</a>, <a href="../onslaught/onsvehicle.html#ShakeOffsetRate">ShakeOffsetRate</a>, <a href="../onslaught/onsvehicle.html#ShakeOffsetTime">ShakeOffsetTime</a>, <a href="../onslaught/onsvehicle.html#ShakeRotMag">ShakeRotMag</a>, <a href="../onslaught/onsvehicle.html#ShakeRotRate">ShakeRotRate</a>, <a href="../onslaught/onsvehicle.html#ShakeRotTime">ShakeRotTime</a>, <a href="../onslaught/onsvehicle.html#ShutDownForce">ShutDownForce</a>, <a href="../onslaught/onsvehicle.html#ShutDownSound">ShutDownSound</a>, <a href="../onslaught/onsvehicle.html#SparkAdvanceFactor">SparkAdvanceFactor</a>, <a href="../onslaught/onsvehicle.html#SparkEffect">SparkEffect</a>, <a href="../onslaught/onsvehicle.html#SparkEffectClass">SparkEffectClass</a>, <a href="../onslaught/onsvehicle.html#StartUpForce">StartUpForce</a>, <a href="../onslaught/onsvehicle.html#StartUpSound">StartUpSound</a>, <a href="../onslaught/onsvehicle.html#TimeBetweenImpactExplosions">TimeBetweenImpactExplosions</a>, <a href="../onslaught/onsvehicle.html#UpsideDownDamage">UpsideDownDamage</a>, <a href="../onslaught/onsvehicle.html#ViewShakeLastCheck">ViewShakeLastCheck</a>, <a href="../onslaught/onsvehicle.html#ViewShakeOffsetFreq">ViewShakeOffsetFreq</a>, <a href="../onslaught/onsvehicle.html#ViewShakeOffsetMag">ViewShakeOffsetMag</a>, <a href="../onslaught/onsvehicle.html#ViewShakeRadius">ViewShakeRadius</a>, <a href="../onslaught/onsvehicle.html#ViewShakeRotFreq">ViewShakeRotFreq</a>, <a href="../onslaught/onsvehicle.html#ViewShakeRotMag">ViewShakeRotMag</a>, <a href="../onslaught/onsvehicle.html#WeaponPawns">WeaponPawns</a>, <a href="../onslaught/onsvehicle.html#Weapons">Weapons</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Variables from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/svehicle.html#bVehicleOnGround">bVehicleOnGround</a>, <a href="../engine/svehicle.html#DestroyEffectClass">DestroyEffectClass</a>, <a href="../engine/svehicle.html#FlipAxis">FlipAxis</a>, <a href="../engine/svehicle.html#FlipScale">FlipScale</a>, <a href="../engine/svehicle.html#FlipTime">FlipTime</a>, <a href="../engine/svehicle.html#FlipTimeLeft">FlipTimeLeft</a>, <a href="../engine/svehicle.html#FlipTorque">FlipTorque</a>, <a href="../engine/svehicle.html#VehicleMass">VehicleMass</a>, <a href="../engine/svehicle.html#Wheels">Wheels</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Structures Summary</th>
+</tr>
+<tr><td><a href="#_SCarState" name="SCarState" title="go to the details">SCarState</a><br /><span class="small">ChassisAngVel, ChassisLinVel, ChassisPosition, ChassisQuaternion, ServerBrake, ServerGas, ServerGear, ServerHandbrake, ServerSteering, ServerViewPitch, ServerViewYaw</span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Structures from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onsvehicle.html#DriverWeaponStruct">DriverWeaponStruct</a>, <a href="../onslaught/onsvehicle.html#ImpactInfoStruct">ImpactInfoStruct</a>, <a href="../onslaught/onsvehicle.html#PassengerWeaponStruct">PassengerWeaponStruct</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Destroyed-" name="Destroyed" title="go to the details">Destroyed</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_DrawHUD-" name="DrawHUD" title="go to the details">DrawHUD</a> (<a href="../engine/canvas.html">Canvas</a> C))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_DrivingStatusChanged-" name="DrivingStatusChanged" title="go to the details">DrivingStatusChanged</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>float&nbsp;</td><td><a href="#_ImpactDamageModifier-" name="ImpactDamageModifier" title="go to the details">ImpactDamageModifier</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_Jumping-" name="Jumping" title="go to the details">Jumping</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_KImpact-" name="KImpact" title="go to the details">KImpact</a> (<a href="../engine/actor.html">Actor</a> Other, <a href="../core/object.html#Vector">vector</a> Pos, <a href="../core/object.html#Vector">vector</a> ImpactVel, <a href="../core/object.html#Vector">vector</a> ImpactNorm))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>bool&nbsp;</td><td><a href="#_KUpdateState-" name="KUpdateState" title="go to the details">KUpdateState</a> (out <a href="../engine/actor.html#KRigidBodyState">KRigidBodyState</a> newState))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>int&nbsp;</td><td><a href="#_LimitPitch-" name="LimitPitch" title="go to the details">LimitPitch</a> (int pitch))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_OnDaredevil-" name="OnDaredevil" title="go to the details">OnDaredevil</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostBeginPlay-" name="PostBeginPlay" title="go to the details">PostBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PostNetBeginPlay-" name="PostNetBeginPlay" title="go to the details">PostNetBeginPlay</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_PrecacheAnnouncer-" name="PrecacheAnnouncer" title="go to the details">PrecacheAnnouncer</a> (<a href="../engine/announcervoice.html">AnnouncerVoice</a> V, bool bRewardSounds))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_SetWheelsScale-" name="SetWheelsScale" title="go to the details">SetWheelsScale</a> (float NewScale))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_event.gif" alt="event" title="event" /></td><td>&nbsp;</td><td><a href="#_SVehicleUpdateParams-" name="SVehicleUpdateParams" title="go to the details">SVehicleUpdateParams</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_Tick-" name="Tick" title="go to the details">Tick</a> (float dt))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../onslaught/onslaught-overview.html">Onslaught</a>.<a href="../onslaught/onsvehicle.html">ONSVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../onslaught/onsvehicle.html#AltFire">AltFire</a>, <a href="../onslaught/onsvehicle.html#ApplyFireImpulse">ApplyFireImpulse</a>, <a href="../onslaught/onsvehicle.html#CallDestroy">CallDestroy</a>, <a href="../onslaught/onsvehicle.html#CanAttack">CanAttack</a>, <a href="../onslaught/onsvehicle.html#ChangedReservation">ChangedReservation</a>, <a href="../onslaught/onsvehicle.html#ChargeBar">ChargeBar</a>, <a href="../onslaught/onsvehicle.html#CheckReset">CheckReset</a>, <a href="../onslaught/onsvehicle.html#ChooseFireAt">ChooseFireAt</a>, <a href="../onslaught/onsvehicle.html#ClientKDriverEnter">ClientKDriverEnter</a>, <a href="../onslaught/onsvehicle.html#ClientKDriverLeave">ClientKDriverLeave</a>, <a href="../onslaught/onsvehicle.html#ClientRegisterVehicleWeapon">ClientRegisterVehicleWeapon</a>, <a href="../onslaught/onsvehicle.html#ClientVehicleCeaseFire">ClientVehicleCeaseFire</a>, <a href="../onslaught/onsvehicle.html#ClientVehicleExplosion">ClientVehicleExplosion</a>, <a href="../onslaught/onsvehicle.html#Deploy">Deploy</a>, <a href="../onslaught/onsvehicle.html#DestroyAppearance">DestroyAppearance</a>, <a href="../onslaught/onsvehicle.html#Destroyed">Destroyed</a>, <a href="../onslaught/onsvehicle.html#Died">Died</a>, <a href="../onslaught/onsvehicle.html#DisplayDebug">DisplayDebug</a>, <a href="../onslaught/onsvehicle.html#DrawHUD">DrawHUD</a>, <a href="../onslaught/onsvehicle.html#DriverDied">DriverDied</a>, <a href="../onslaught/onsvehicle.html#DriverLeft">DriverLeft</a>, <a href="../onslaught/onsvehicle.html#DriverRadiusDamage">DriverRadiusDamage</a>, <a href="../onslaught/onsvehicle.html#FastVehicle">FastVehicle</a>, <a href="../onslaught/onsvehicle.html#FindEntryVehicle">FindEntryVehicle</a>, <a href="../onslaught/onsvehicle.html#Fire">Fire</a>, <a href="../onslaught/onsvehicle.html#FireOnRelease">FireOnRelease</a>, <a href="../onslaught/onsvehicle.html#GetBotPassenger">GetBotPassenger</a>, <a href="../onslaught/onsvehicle.html#GetInstigator">GetInstigator</a>, <a href="../onslaught/onsvehicle.html#GetTurrets">GetTurrets</a>, <a href="../onslaught/onsvehicle.html#HasOccupiedTurret">HasOccupiedTurret</a>, <a href="../onslaught/onsvehicle.html#HasUDamage">HasUDamage</a>, <a href="../onslaught/onsvehicle.html#HasWeapon">HasWeapon</a>, <a href="../onslaught/onsvehicle.html#HealDamage">HealDamage</a>, <a href="../onslaught/onsvehicle.html#ImpactDamageModifier">ImpactDamageModifier</a>, <a href="../onslaught/onsvehicle.html#IsDeployed">IsDeployed</a>, <a href="../onslaught/onsvehicle.html#IsFiring">IsFiring</a>, <a href="../onslaught/onsvehicle.html#IsVehicleEmpty">IsVehicleEmpty</a>, <a href="../onslaught/onsvehicle.html#KDriverEnter">KDriverEnter</a>, <a href="../onslaught/onsvehicle.html#KDriverLeave">KDriverLeave</a>, <a href="../onslaught/onsvehicle.html#KImpact">KImpact</a>, <a href="../onslaught/onsvehicle.html#LimitPitch">LimitPitch</a>, <a href="../onslaught/onsvehicle.html#MayUndeploy">MayUndeploy</a>, <a href="../onslaught/onsvehicle.html#ModifyThreat">ModifyThreat</a>, <a href="../onslaught/onsvehicle.html#NeedToTurn">NeedToTurn</a>, <a href="../onslaught/onsvehicle.html#NewReservationCostMultiplier">NewReservationCostMultiplier</a>, <a href="../onslaught/onsvehicle.html#NotifyEnemyLockedOn">NotifyEnemyLockedOn</a>, <a href="../onslaught/onsvehicle.html#NotifyEnemyLostLock">NotifyEnemyLostLock</a>, <a href="../onslaught/onsvehicle.html#NumPassengers">NumPassengers</a>, <a href="../onslaught/onsvehicle.html#OpenPositionFor">OpenPositionFor</a>, <a href="../onslaught/onsvehicle.html#PlayHit">PlayHit</a>, <a href="../onslaught/onsvehicle.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../onslaught/onsvehicle.html#PrecacheAnnouncer">PrecacheAnnouncer</a>, <a href="../onslaught/onsvehicle.html#RefireRate">RefireRate</a>, <a href="../onslaught/onsvehicle.html#ReservationCostMultiplier">ReservationCostMultiplier</a>, <a href="../onslaught/onsvehicle.html#ServerChangeDriverPosition">ServerChangeDriverPosition</a>, <a href="../onslaught/onsvehicle.html#ServerPlayHorn">ServerPlayHorn</a>, <a href="../onslaught/onsvehicle.html#ServerVerifyVehicleWeapon">ServerVerifyVehicleWeapon</a>, <a href="../onslaught/onsvehicle.html#SetActiveWeapon">SetActiveWeapon</a>, <a href="../onslaught/onsvehicle.html#SetReservation">SetReservation</a>, <a href="../onslaught/onsvehicle.html#SetTeamNum">SetTeamNum</a>, <a href="../onslaught/onsvehicle.html#SpokenFor">SpokenFor</a>, <a href="../onslaught/onsvehicle.html#StaticPrecache">StaticPrecache</a>, <a href="../onslaught/onsvehicle.html#SVehicleUpdateParams">SVehicleUpdateParams</a>, <a href="../onslaught/onsvehicle.html#SwitchWeapon">SwitchWeapon</a>, <a href="../onslaught/onsvehicle.html#TakeDamage">TakeDamage</a>, <a href="../onslaught/onsvehicle.html#TakeImpactDamage">TakeImpactDamage</a>, <a href="../onslaught/onsvehicle.html#TeamChanged">TeamChanged</a>, <a href="../onslaught/onsvehicle.html#TooCloseToAttack">TooCloseToAttack</a>, <a href="../onslaught/onsvehicle.html#TryToDrive">TryToDrive</a>, <a href="../onslaught/onsvehicle.html#UpdatePrecacheMaterials">UpdatePrecacheMaterials</a>, <a href="../onslaught/onsvehicle.html#UpdatePrecacheStaticMeshes">UpdatePrecacheStaticMeshes</a>, <a href="../onslaught/onsvehicle.html#VehicleCeaseFire">VehicleCeaseFire</a>, <a href="../onslaught/onsvehicle.html#VehicleExplosion">VehicleExplosion</a>, <a href="../onslaught/onsvehicle.html#VehicleLocked">VehicleLocked</a></td>
+</tr>
+</table>
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../engine/engine-overview.html">Engine</a>.<a href="../engine/svehicle.html">SVehicle</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../engine/svehicle.html#Destroyed">Destroyed</a>, <a href="../engine/svehicle.html#Flip">Flip</a>, <a href="../engine/svehicle.html#GraphData">GraphData</a>, <a href="../engine/svehicle.html#JumpOffPawn">JumpOffPawn</a>, <a href="../engine/svehicle.html#KApplyForce">KApplyForce</a>, <a href="../engine/svehicle.html#PostNetBeginPlay">PostNetBeginPlay</a>, <a href="../engine/svehicle.html#SVehicleUpdateParams">SVehicleUpdateParams</a>, <a href="../engine/svehicle.html#Tick">Tick</a>, <a href="../engine/svehicle.html#UpdateVehicle">UpdateVehicle</a>, <a href="../engine/svehicle.html#VehicleStateReceived">VehicleStateReceived</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_ActualSteering" class="hidden"></a>ActualSteering <a href="../Source_onslaught/onswheeledcraft.html#99" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ActualSteering;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bAllowBigWheels" class="hidden"></a>bAllowBigWheels <a href="../Source_onslaught/onswheeledcraft.html#158" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bAllowBigWheels;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bIsDriving" class="hidden"></a>bIsDriving <a href="../Source_onslaught/onswheeledcraft.html#93" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bIsDriving;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bIsInverted" class="hidden"></a>bIsInverted <a href="../Source_onslaught/onswheeledcraft.html#92" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bIsInverted;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bNewCarState" class="hidden"></a>bNewCarState <a href="../Source_onslaught/onswheeledcraft.html#152" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bNewCarState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bOldVehicleOnGround" class="hidden"></a>bOldVehicleOnGround <a href="../Source_onslaught/onswheeledcraft.html#154" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bOldVehicleOnGround;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bPushDown" class="hidden"></a>bPushDown <a href="../Source_onslaught/onswheeledcraft.html#161" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bPushDown;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BrakeLight[2]" class="hidden"></a>BrakeLight[2] <a href="../Source_onslaught/onswheeledcraft.html#111" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onsbrakelightcorona.html" class="source">ONSBrakelightCorona</a></span> BrakeLight[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CarMPH" class="hidden"></a>CarMPH <a href="../Source_onslaught/onswheeledcraft.html#98" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> CarMPH;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CarState" class="hidden"></a>CarState <a href="../Source_onslaught/onswheeledcraft.html#150" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onswheeledcraft.html#SCarState" class="source">SCarState</a></span> CarState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChassisState" class="hidden"></a>ChassisState <a href="../Source_onslaught/onswheeledcraft.html#151" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/actor.html#KRigidBodyState" class="source">KRigidBodyState</a></span> ChassisState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilPoints" class="hidden"></a>DaredevilPoints <a href="../Source_onslaught/onswheeledcraft.html#125" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> DaredevilPoints;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DesiredJumpForce" class="hidden"></a>DesiredJumpForce <a href="../Source_onslaught/onswheeledcraft.html#170" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> DesiredJumpForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Dust" class="hidden"></a>Dust <a href="../Source_onslaught/onswheeledcraft.html#81" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../onslaught/onsdirtslipeffect.html" class="source">ONSDirtSlipEffect</a></span>&gt; Dust;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EngineRPM" class="hidden"></a>EngineRPM <a href="../Source_onslaught/onswheeledcraft.html#97" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> EngineRPM;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FenderBenderSpeed" class="hidden"></a>FenderBenderSpeed <a href="../Source_onslaught/onswheeledcraft.html#189" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> FenderBenderSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ForwardVel" class="hidden"></a>ForwardVel <a href="../Source_onslaught/onswheeledcraft.html#91" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> ForwardVel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Gear" class="hidden"></a>Gear <a href="../Source_onslaught/onswheeledcraft.html#89" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> Gear;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InAirDistance" class="hidden"></a>InAirDistance <a href="../Source_onslaught/onswheeledcraft.html#123" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> InAirDistance;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InAirPitch" class="hidden"></a>InAirPitch <a href="../Source_onslaught/onswheeledcraft.html#120" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> InAirPitch;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InAirRoll" class="hidden"></a>InAirRoll <a href="../Source_onslaught/onswheeledcraft.html#121" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> InAirRoll;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InAirSpin" class="hidden"></a>InAirSpin <a href="../Source_onslaught/onswheeledcraft.html#119" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> InAirSpin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InAirTime" class="hidden"></a>InAirTime <a href="../Source_onslaught/onswheeledcraft.html#122" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> InAirTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpFeedbackForce" class="hidden"></a>JumpFeedbackForce <a href="../Source_onslaught/onswheeledcraft.html#171" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> JumpFeedbackForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpForce" class="hidden"></a>JumpForce <a href="../Source_onslaught/onswheeledcraft.html#164" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> JumpForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterTexture" class="hidden"></a>JumpMeterTexture <a href="../Source_onslaught/onswheeledcraft.html#178" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span> JumpMeterTexture;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpSound" class="hidden"></a>JumpSound <a href="../Source_onslaught/onswheeledcraft.html#173" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span> JumpSound;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpSpin" class="hidden"></a>JumpSpin <a href="../Source_onslaught/onswheeledcraft.html#167" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> JumpSpin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastOnGroundLocation" class="hidden"></a>LastOnGroundLocation <a href="../Source_onslaught/onswheeledcraft.html#116" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> LastOnGroundLocation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LastOnGroundTime" class="hidden"></a>LastOnGroundTime <a href="../Source_onslaught/onswheeledcraft.html#117" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> LastOnGroundTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NumPoweredWheels" class="hidden"></a>NumPoweredWheels <a href="../Source_onslaught/onswheeledcraft.html#94" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> NumPoweredWheels;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OldCarState" class="hidden"></a>OldCarState <a href="../Source_onslaught/onswheeledcraft.html#150" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../onslaught/onswheeledcraft.html#SCarState" class="source">SCarState</a></span> OldCarState;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OldRotation" class="hidden"></a>OldRotation <a href="../Source_onslaught/onswheeledcraft.html#115" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> OldRotation;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputBrake" class="hidden"></a>OutputBrake <a href="../Source_onslaught/onswheeledcraft.html#86" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OutputBrake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputGas" class="hidden"></a>OutputGas <a href="../Source_onslaught/onswheeledcraft.html#87" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OutputGas;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputHandbrake" class="hidden"></a>OutputHandbrake <a href="../Source_onslaught/onswheeledcraft.html#88" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">bool</span> OutputHandbrake;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OutputPitch" class="hidden"></a>OutputPitch <a href="../Source_onslaught/onswheeledcraft.html#181" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> OutputPitch;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RevMeterMaterial" class="hidden"></a>RevMeterMaterial <a href="../Source_onslaught/onswheeledcraft.html#102" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">material</a></span> RevMeterMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TotalSpinVel" class="hidden"></a>TotalSpinVel <a href="../Source_onslaught/onswheeledcraft.html#96" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">float</span> TotalSpinVel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h3 class="vartag">ONSWheeledCraft</h3>
+<h4><a name="_AirPitchDamping" class="hidden"></a>AirPitchDamping <a href="../Source_onslaught/onswheeledcraft.html#184" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> AirPitchDamping;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AirPitchTorque" class="hidden"></a>AirPitchTorque <a href="../Source_onslaught/onswheeledcraft.html#183" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> AirPitchTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AirRollDamping" class="hidden"></a>AirRollDamping <a href="../Source_onslaught/onswheeledcraft.html#186" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> AirRollDamping;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AirRollTorque" class="hidden"></a>AirRollTorque <a href="../Source_onslaught/onswheeledcraft.html#185" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> AirRollTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_AirTurnTorque" class="hidden"></a>AirTurnTorque <a href="../Source_onslaught/onswheeledcraft.html#182" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> AirTurnTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bAllowAirControl" class="hidden"></a>bAllowAirControl <a href="../Source_onslaught/onswheeledcraft.html#156" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">bool</span> bAllowAirControl;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bAllowChargingJump" class="hidden"></a>bAllowChargingJump <a href="../Source_onslaught/onswheeledcraft.html#157" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">bool</span> bAllowChargingJump;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bDoStuntInfo" class="hidden"></a>bDoStuntInfo <a href="../Source_onslaught/onswheeledcraft.html#155" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">bool</span> bDoStuntInfo;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_bMakeBrakeLights" class="hidden"></a>bMakeBrakeLights <a href="../Source_onslaught/onswheeledcraft.html#109" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">bool</span> bMakeBrakeLights;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BrakeLightMaterial" class="hidden"></a>BrakeLightMaterial <a href="../Source_onslaught/onswheeledcraft.html#112" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> BrakeLightMaterial;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_BrakeLightOffset[2]" class="hidden"></a>BrakeLightOffset[2] <a href="../Source_onslaught/onswheeledcraft.html#110" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> BrakeLightOffset[<span class="source_int">2</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeDownPoint" class="hidden"></a>ChangeDownPoint <a href="../Source_onslaught/onswheeledcraft.html#58" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> ChangeDownPoint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChangeUpPoint" class="hidden"></a>ChangeUpPoint <a href="../Source_onslaught/onswheeledcraft.html#57" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> ChangeUpPoint;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ChassisTorqueScale" class="hidden"></a>ChassisTorqueScale <a href="../Source_onslaught/onswheeledcraft.html#49" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> ChassisTorqueScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilMessageClass" class="hidden"></a>DaredevilMessageClass <a href="../Source_onslaught/onswheeledcraft.html#132" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/localmessage.html" class="source">LocalMessage</a></span>&gt; DaredevilMessageClass;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilThreshInAirDistance" class="hidden"></a>DaredevilThreshInAirDistance <a href="../Source_onslaught/onswheeledcraft.html#131" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DaredevilThreshInAirDistance;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilThreshInAirPitch" class="hidden"></a>DaredevilThreshInAirPitch <a href="../Source_onslaught/onswheeledcraft.html#128" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DaredevilThreshInAirPitch;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilThreshInAirRoll" class="hidden"></a>DaredevilThreshInAirRoll <a href="../Source_onslaught/onswheeledcraft.html#129" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DaredevilThreshInAirRoll;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilThreshInAirSpin" class="hidden"></a>DaredevilThreshInAirSpin <a href="../Source_onslaught/onswheeledcraft.html#127" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DaredevilThreshInAirSpin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DaredevilThreshInAirTime" class="hidden"></a>DaredevilThreshInAirTime <a href="../Source_onslaught/onswheeledcraft.html#130" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DaredevilThreshInAirTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DustSlipRate" class="hidden"></a>DustSlipRate <a href="../Source_onslaught/onswheeledcraft.html#82" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DustSlipRate;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DustSlipThresh" class="hidden"></a>DustSlipThresh <a href="../Source_onslaught/onswheeledcraft.html#83" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> DustSlipThresh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EngineBrakeFactor" class="hidden"></a>EngineBrakeFactor <a href="../Source_onslaught/onswheeledcraft.html#61" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> EngineBrakeFactor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EngineBrakeRPMScale" class="hidden"></a>EngineBrakeRPMScale <a href="../Source_onslaught/onswheeledcraft.html#62" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> EngineBrakeRPMScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EngineInertia" class="hidden"></a>EngineInertia <a href="../Source_onslaught/onswheeledcraft.html#71" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> EngineInertia;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_EngineRPMSoundRange" class="hidden"></a>EngineRPMSoundRange <a href="../Source_onslaught/onswheeledcraft.html#74" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> EngineRPMSoundRange;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_FTScale" class="hidden"></a>FTScale <a href="../Source_onslaught/onswheeledcraft.html#48" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> FTScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GearRatios[5]" class="hidden"></a>GearRatios[5] <a href="../Source_onslaught/onswheeledcraft.html#54" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> GearRatios[<span class="source_int">5</span>];</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_HandbrakeThresh" class="hidden"></a>HandbrakeThresh <a href="../Source_onslaught/onswheeledcraft.html#69" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> HandbrakeThresh;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_IdleRPM" class="hidden"></a>IdleRPM <a href="../Source_onslaught/onswheeledcraft.html#73" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> IdleRPM;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpChargeTime" class="hidden"></a>JumpChargeTime <a href="../Source_onslaught/onswheeledcraft.html#169" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> JumpChargeTime;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterColor" class="hidden"></a>JumpMeterColor <a href="../Source_onslaught/onswheeledcraft.html#177" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> JumpMeterColor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterHeight" class="hidden"></a>JumpMeterHeight <a href="../Source_onslaught/onswheeledcraft.html#176" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> JumpMeterHeight;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterOriginX" class="hidden"></a>JumpMeterOriginX <a href="../Source_onslaught/onswheeledcraft.html#175" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> JumpMeterOriginX;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterOriginY" class="hidden"></a>JumpMeterOriginY <a href="../Source_onslaught/onswheeledcraft.html#175" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> JumpMeterOriginY;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterSpacing" class="hidden"></a>JumpMeterSpacing <a href="../Source_onslaught/onswheeledcraft.html#176" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> JumpMeterSpacing;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_JumpMeterWidth" class="hidden"></a>JumpMeterWidth <a href="../Source_onslaught/onswheeledcraft.html#176" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> JumpMeterWidth;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LSDFactor" class="hidden"></a>LSDFactor <a href="../Source_onslaught/onswheeledcraft.html#59" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> LSDFactor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxBrakeTorque" class="hidden"></a>MaxBrakeTorque <a href="../Source_onslaught/onswheeledcraft.html#64" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> MaxBrakeTorque;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxJumpForce" class="hidden"></a>MaxJumpForce <a href="../Source_onslaught/onswheeledcraft.html#163" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> MaxJumpForce;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxJumpSpin" class="hidden"></a>MaxJumpSpin <a href="../Source_onslaught/onswheeledcraft.html#166" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> MaxJumpSpin;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MaxSteerAngleCurve" class="hidden"></a>MaxSteerAngleCurve <a href="../Source_onslaught/onswheeledcraft.html#52" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#InterpCurve" class="source">InterpCurve</a></span> MaxSteerAngleCurve;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MinAirControlDamping" class="hidden"></a>MinAirControlDamping <a href="../Source_onslaught/onswheeledcraft.html#187" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> MinAirControlDamping;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MinBrakeFriction" class="hidden"></a>MinBrakeFriction <a href="../Source_onslaught/onswheeledcraft.html#50" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> MinBrakeFriction;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NumForwardGears" class="hidden"></a>NumForwardGears <a href="../Source_onslaught/onswheeledcraft.html#55" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">int</span> NumForwardGears;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RevMeterPosX" class="hidden"></a>RevMeterPosX <a href="../Source_onslaught/onswheeledcraft.html#103" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> RevMeterPosX;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RevMeterPosY" class="hidden"></a>RevMeterPosY <a href="../Source_onslaught/onswheeledcraft.html#104" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> RevMeterPosY;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RevMeterScale" class="hidden"></a>RevMeterScale <a href="../Source_onslaught/onswheeledcraft.html#105" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> RevMeterScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_RevMeterSizeY" class="hidden"></a>RevMeterSizeY <a href="../Source_onslaught/onswheeledcraft.html#106" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> RevMeterSizeY;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SpinMeterColor" class="hidden"></a>SpinMeterColor <a href="../Source_onslaught/onswheeledcraft.html#177" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#Color" class="source">color</a></span> SpinMeterColor;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerBoneAxis" class="hidden"></a>SteerBoneAxis <a href="../Source_onslaught/onswheeledcraft.html#77" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#EAxis" class="source">EAxis</a></span> SteerBoneAxis;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerBoneMaxAngle" class="hidden"></a>SteerBoneMaxAngle <a href="../Source_onslaught/onswheeledcraft.html#78" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> SteerBoneMaxAngle;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerBoneName" class="hidden"></a>SteerBoneName <a href="../Source_onslaught/onswheeledcraft.html#76" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">name</span> SteerBoneName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SteerSpeed" class="hidden"></a>SteerSpeed <a href="../Source_onslaught/onswheeledcraft.html#65" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> SteerSpeed;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_StopThreshold" class="hidden"></a>StopThreshold <a href="../Source_onslaught/onswheeledcraft.html#68" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> StopThreshold;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TorqueCurve" class="hidden"></a>TorqueCurve <a href="../Source_onslaught/onswheeledcraft.html#53" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#InterpCurve" class="source">InterpCurve</a></span> TorqueCurve;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TransRatio" class="hidden"></a>TransRatio <a href="../Source_onslaught/onswheeledcraft.html#56" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> TransRatio;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TurnDamping" class="hidden"></a>TurnDamping <a href="../Source_onslaught/onswheeledcraft.html#66" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> TurnDamping;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelAdhesion" class="hidden"></a>WheelAdhesion <a href="../Source_onslaught/onswheeledcraft.html#35" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelAdhesion;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelHandbrakeFriction" class="hidden"></a>WheelHandbrakeFriction <a href="../Source_onslaught/onswheeledcraft.html#43" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelHandbrakeFriction;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelHandbrakeSlip" class="hidden"></a>WheelHandbrakeSlip <a href="../Source_onslaught/onswheeledcraft.html#42" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelHandbrakeSlip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelInertia" class="hidden"></a>WheelInertia <a href="../Source_onslaught/onswheeledcraft.html#36" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelInertia;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelLatFrictionScale" class="hidden"></a>WheelLatFrictionScale <a href="../Source_onslaught/onswheeledcraft.html#41" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelLatFrictionScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelLatSlipFunc" class="hidden"></a>WheelLatSlipFunc <a href="../Source_onslaught/onswheeledcraft.html#39" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#InterpCurve" class="source">InterpCurve</a></span> WheelLatSlipFunc;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelLongFrictionFunc" class="hidden"></a>WheelLongFrictionFunc <a href="../Source_onslaught/onswheeledcraft.html#37" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_type"><a href="../core/object.html#InterpCurve" class="source">InterpCurve</a></span> WheelLongFrictionFunc;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelLongFrictionScale" class="hidden"></a>WheelLongFrictionScale <a href="../Source_onslaught/onswheeledcraft.html#40" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelLongFrictionScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelLongSlip" class="hidden"></a>WheelLongSlip <a href="../Source_onslaught/onswheeledcraft.html#38" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelLongSlip;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelPenOffset" class="hidden"></a>WheelPenOffset <a href="../Source_onslaught/onswheeledcraft.html#33" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelPenOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelPenScale" class="hidden"></a>WheelPenScale <a href="../Source_onslaught/onswheeledcraft.html#32" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelPenScale;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelRestitution" class="hidden"></a>WheelRestitution <a href="../Source_onslaught/onswheeledcraft.html#34" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelRestitution;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelSoftness" class="hidden"></a>WheelSoftness <a href="../Source_onslaught/onswheeledcraft.html#31" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelSoftness;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelSuspensionMaxRenderTravel" class="hidden"></a>WheelSuspensionMaxRenderTravel <a href="../Source_onslaught/onswheeledcraft.html#46" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelSuspensionMaxRenderTravel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelSuspensionOffset" class="hidden"></a>WheelSuspensionOffset <a href="../Source_onslaught/onswheeledcraft.html#45" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelSuspensionOffset;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_WheelSuspensionTravel" class="hidden"></a>WheelSuspensionTravel <a href="../Source_onslaught/onswheeledcraft.html#44" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span>(<span class="source_type"><a href="../onslaught/onswheeledcraft.html" class="source">ONSWheeledCraft</a></span>) <span class="source_keyword">float</span> WheelSuspensionTravel;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Structures Detail</th>
+</tr>
+</table>
+
+<h4><a name="_SCarState" class="hidden"></a>SCarState <a href="../Source_onslaught/onswheeledcraft.html#134" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">struct</span> <span class="source_type"><a href="../onslaught/onswheeledcraft.html#SCarState" class="source">SCarState</a></span><br />
+{<blockquote><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ChassisAngVel;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ChassisLinVel;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ChassisPosition;<br />
+<span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Quat" class="source">Quat</a></span> ChassisQuaternion;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">byte</span> ServerBrake;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">byte</span> ServerGas;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">byte</span> ServerGear;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">byte</span> ServerHandbrake;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">byte</span> ServerSteering;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">int</span> ServerViewPitch;<br />
+<span class="source_keyword">var</span> <span class="source_keyword">int</span> ServerViewYaw;<br />
+</blockquote>};
+</div>
+<blockquote class="comment">
+
+<br />
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_Destroyed-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Destroyed <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#236" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Destroyed ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrawHUD-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DrawHUD <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#439" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  DrawHUD ( <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type">C</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DrivingStatusChanged-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> DrivingStatusChanged <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#320" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  DrivingStatusChanged ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ImpactDamageModifier-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ImpactDamageModifier <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#404" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">float</span> ImpactDamageModifier ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Jumping-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> Jumping <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#479" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  Jumping ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KImpact-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> KImpact <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#429" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  KImpact ( <span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Pos, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactVel, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> ImpactNorm) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_KUpdateState-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> KUpdateState <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#263" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> <span class="source_keyword">bool</span> KUpdateState ( <span class="source_keyword2">out</span> <span class="source_type"><a href="../engine/actor.html#KRigidBodyState" class="source">KRigidBodyState</a></span> newState) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LimitPitch-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LimitPitch <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#527" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">int</span> LimitPitch ( <span class="source_keyword">int</span> pitch) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_OnDaredevil-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> OnDaredevil <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#502" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  OnDaredevil ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#206" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PostNetBeginPlay-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PostNetBeginPlay <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#214" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PostNetBeginPlay ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrecacheAnnouncer-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PrecacheAnnouncer <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#228" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  PrecacheAnnouncer ( <span class="source_type"><a href="../engine/announcervoice.html" class="source">AnnouncerVoice</a></span> <span class="source_type">V</span>, <span class="source_keyword">bool</span> <span class="source_type">bRewardSounds</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SetWheelsScale-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> SetWheelsScale <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#487" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  SetWheelsScale ( <span class="source_keyword">float</span> NewScale) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_SVehicleUpdateParams-" class="hidden"></a><img src="../img_event.gif" alt="" title="event" /> SVehicleUpdateParams <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#280" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span>  SVehicleUpdateParams ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Tick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> Tick <span class="function_state"></span> <a href="../Source_onslaught/onswheeledcraft.html#373" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword2">simulated</span> <span class="source_keyword">function</span>  Tick ( <span class="source_keyword">float</span> <span class="source_type">dt</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     NumForwardGears=<span class="source_int">4</span>
+     DustSlipRate=<span class="source_int">2.800000</span>
+     DustSlipThresh=<span class="source_int">50.000000</span>
+     DaredevilThreshInAirSpin=<span class="source_int">100.000000</span>
+     DaredevilThreshInAirPitch=<span class="source_int">300.000000</span>
+     DaredevilThreshInAirRoll=<span class="source_int">300.000000</span>
+     DaredevilThreshInAirTime=<span class="source_int">1.500000</span>
+     DaredevilThreshInAirDistance=<span class="source_int">17.000000</span>
+     DaredevilMessageClass=<span class="source_keyword">Class</span><span class="source_name">'Onslaught.ONSDaredevilMessage'</span>
+     bOldVehicleOnGround=<span class="source_keyword">True</span>
+     MaxJumpForce=<span class="source_int">200000.000000</span>
+     MaxJumpSpin=<span class="source_int">30000.000000</span>
+     JumpChargeTime=<span class="source_int">1.000000</span>
+     JumpFeedbackForce=<span class="source_string">"HoverBikeJump"</span>
+     JumpSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'ONSVehicleSounds-S.Hydraulics.Hydraulic10'</span>
+     JumpMeterOriginX=<span class="source_int">0.275000</span>
+     JumpMeterOriginY=<span class="source_int">0.943000</span>
+     JumpMeterWidth=<span class="source_int">0.136000</span>
+     JumpMeterHeight=<span class="source_int">0.057000</span>
+     JumpMeterSpacing=<span class="source_int">0.010000</span>
+     JumpMeterColor=(<span class="source_type">R</span>=<span class="source_int">215</span>,A=<span class="source_int">255</span>)
+     SpinMeterColor=(<span class="source_type">B</span>=<span class="source_int">215</span>,G=<span class="source_int">100</span>,A=<span class="source_int">255</span>)
+     JumpMeterTexture=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'Engine.WhiteTexture'</span>
+     MinAirControlDamping=<span class="source_int">0.100000</span>
+     FenderBenderSpeed=<span class="source_int">750.000000</span>
+     bCanFlip=<span class="source_keyword">True</span>
+     CenterSpringRangePitch=<span class="source_int">5000</span>
+     CenterSpringRangeRoll=<span class="source_int">5000</span>
+     StolenAnnouncement=<span class="source_string">"Car_jacked"</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../onslaught/onslaught-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_onslaught/onswheeledcraft.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#ONSWheeledCraft">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../onslaught/onsweaponpawn.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../onslaught/onswheeledvehicleexplosioneffect.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:03.570 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

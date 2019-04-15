@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - XInterface.Tab_SPProfileNew</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_spprofilenew.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_SPProfileNew">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_spprofileload.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_sproster.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#xinterface/tab_spprofilenew.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xinterface/xinterface-overview.html">XInterface</a>.Tab_SPProfileNew</h1>
+
+<dl>
+<dt>Extends</dt><dd><a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a></dd>
+
+</dl>
+
+<p></p>
+
+<pre class="tree"><a href="../core/core-overview.html">Core</a>.<a href="../core/object.html">Object</a>
+|   
++-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/gui.html">GUI</a>
+   |   
+   +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guicomponent.html">GUIComponent</a>
+      |   
+      +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guimulticomponent.html">GUIMultiComponent</a>
+         |   
+         +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guipanel.html">GUIPanel</a>
+            |   
+            +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/guitabpanel.html">GUITabPanel</a>
+               |   
+               +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/ut2k3tabpanel.html">UT2K3TabPanel</a>
+                  |   
+                  +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a>
+                     |   
+                     +-- <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_spprofilenew.html">Tab_SPProfileNew</a>
+</pre>
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Summary</th>
+</tr>
+<tr><td width="40%"><a href="#_MAXSYMBOL" name="MAXSYMBOL" title="go to the details">MAXSYMBOL</a></td><td width="10%">=</td><td width="50%">22</td></tr>
+<tr><td width="40%"><a href="#_MINSYMBOL" name="MINSYMBOL" title="go to the details">MINSYMBOL</a></td><td width="10%">=</td><td width="50%">1</td></tr>
+
+</table>
+
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th colspan="2" class="title">Variables Summary</th>
+</tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guicombobox.html">GUIComboBox</a></td><td width="66%"><a href="#_cDifficulty" name="cDifficulty" title="go to the details">cDifficulty</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guicharacterlistteam.html">GUICharacterListTeam</a></td><td width="66%"><a href="#_clPlayerSkins" name="clPlayerSkins" title="go to the details">clPlayerSkins</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_CurrentTeamSymbolNum" name="CurrentTeamSymbolNum" title="go to the details">CurrentTeamSymbolNum</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DefaultCharacter" name="DefaultCharacter" title="go to the details">DefaultCharacter</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DefaultName" name="DefaultName" title="go to the details">DefaultName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_DefaultTeamName" name="DefaultTeamName" title="go to the details">DefaultTeamName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">int</td><td width="66%"><a href="#_DefaultTeamSymbol" name="DefaultTeamSymbol" title="go to the details">DefaultTeamSymbol</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guieditbox.html">GUIEditBox</a></td><td width="66%"><a href="#_ePlayerName" name="ePlayerName" title="go to the details">ePlayerName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_Err_CantCreateProfile" name="Err_CantCreateProfile" title="go to the details">Err_CantCreateProfile</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_Err_ProfileExists" name="Err_ProfileExists" title="go to the details">Err_ProfileExists</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guieditbox.html">GUIEditBox</a></td><td width="66%"><a href="#_eTeamName" name="eTeamName" title="go to the details">eTeamName</a></td></tr>
+<tr><td nowrap="nowrap" width="33%"><a href="../xinterface/guiimagelist.html">GUIImageList</a></td><td width="66%"><a href="#_iTeamSymbols" name="iTeamSymbols" title="go to the details">iTeamSymbols</a></td></tr>
+<tr><td nowrap="nowrap" width="33%">string</td><td width="66%"><a href="#_TeamSymbolPrefix" name="TeamSymbolPrefix" title="go to the details">TeamSymbolPrefix</a></td></tr>
+
+</table>
+
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Functions Summary</th>
+</tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_BackClick-" name="BackClick" title="go to the details">BackClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_ClearStats-" name="ClearStats" title="go to the details">ClearStats</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_CreateClick-" name="CreateClick" title="go to the details">CreateClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>string&nbsp;</td><td><a href="#_CurrentTeamSymbolName-" name="CurrentTeamSymbolName" title="go to the details">CurrentTeamSymbolName</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_DefaultsClick-" name="DefaultsClick" title="go to the details">DefaultsClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>string&nbsp;</td><td><a href="#_GetTeamSymbolName-" name="GetTeamSymbolName" title="go to the details">GetTeamSymbolName</a> (int idx))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitComponent-" name="InitComponent" title="go to the details">InitComponent</a> (<a href="../xinterface/guicontroller.html">GUIController</a> pMyController, <a href="../xinterface/guicomponent.html">GUIComponent</a> MyOwner))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_InitPanel-" name="InitPanel" title="go to the details">InitPanel</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>&nbsp;</td><td><a href="#_LoadSymbols-" name="LoadSymbols" title="go to the details">LoadSymbols</a> ()))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_NextSkin-" name="NextSkin" title="go to the details">NextSkin</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_NextSymbol-" name="NextSymbol" title="go to the details">NextSymbol</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PlayerOnClick-" name="PlayerOnClick" title="go to the details">PlayerOnClick</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PrevSkin-" name="PrevSkin" title="go to the details">PrevSkin</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+<tr><td nowrap="nowrap"><img src="../img_function.gif" alt="function" title="function" /></td><td>bool&nbsp;</td><td><a href="#_PrevSymbol-" name="PrevSymbol" title="go to the details">PrevSymbol</a> (<a href="../xinterface/guicomponent.html">GUIComponent</a> Sender))<br /><span class="function_state"></span></td></tr>
+
+</table>
+
+<table>
+<tr>
+	<th class="inherittitle">Inherited Functions from <a href="../xinterface/xinterface-overview.html">XInterface</a>.<a href="../xinterface/tab_sppanelbase.html">Tab_SPPanelBase</a></th>
+</tr>
+<tr>
+	<td class="small"><a href="../xinterface/tab_sppanelbase.html#GetProfile">GetProfile</a>, <a href="../xinterface/tab_sppanelbase.html#MatchUpdated">MatchUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#MyTabControl">MyTabControl</a>, <a href="../xinterface/tab_sppanelbase.html#OnMatchUpdated">OnMatchUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#OnProfileUpdated">OnProfileUpdated</a>, <a href="../xinterface/tab_sppanelbase.html#ProfileUpdated">ProfileUpdated</a></td>
+</tr>
+</table>
+
+
+<br />
+
+
+
+<hr />
+
+<table class="title">
+<tr>
+	<th colspan="3" class="title">Constants Detail</th>
+</tr>
+</table>
+
+<h4><a name="_MAXSYMBOL" class="hidden"></a>MAXSYMBOL <a href="../Source_xinterface/tab_spprofilenew.html#27" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">const</span> MAXSYMBOL = <span class="source_int">22</span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_MINSYMBOL" class="hidden"></a>MINSYMBOL <a href="../Source_xinterface/tab_spprofilenew.html#26" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">const</span> MINSYMBOL = <span class="source_int">1</span>;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+<table class="title">
+<tr>
+	<th class="title">Variables Detail</th>
+</tr>
+</table>
+
+<h4><a name="_cDifficulty" class="hidden"></a>cDifficulty <a href="../Source_xinterface/tab_spprofilenew.html#14" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guicombobox.html" class="source">GUIComboBox</a></span> cDifficulty;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_clPlayerSkins" class="hidden"></a>clPlayerSkins <a href="../Source_xinterface/tab_spprofilenew.html#15" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span> clPlayerSkins;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CurrentTeamSymbolNum" class="hidden"></a>CurrentTeamSymbolNum <a href="../Source_xinterface/tab_spprofilenew.html#21" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> CurrentTeamSymbolNum;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DefaultCharacter" class="hidden"></a>DefaultCharacter <a href="../Source_xinterface/tab_spprofilenew.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> DefaultCharacter;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DefaultName" class="hidden"></a>DefaultName <a href="../Source_xinterface/tab_spprofilenew.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> DefaultName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DefaultTeamName" class="hidden"></a>DefaultTeamName <a href="../Source_xinterface/tab_spprofilenew.html#18" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> DefaultTeamName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DefaultTeamSymbol" class="hidden"></a>DefaultTeamSymbol <a href="../Source_xinterface/tab_spprofilenew.html#20" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">int</span> DefaultTeamSymbol;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ePlayerName" class="hidden"></a>ePlayerName <a href="../Source_xinterface/tab_spprofilenew.html#12" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span> ePlayerName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Err_CantCreateProfile" class="hidden"></a>Err_CantCreateProfile <a href="../Source_xinterface/tab_spprofilenew.html#24" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> Err_CantCreateProfile;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_Err_ProfileExists" class="hidden"></a>Err_ProfileExists <a href="../Source_xinterface/tab_spprofilenew.html#23" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> Err_ProfileExists;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_eTeamName" class="hidden"></a>eTeamName <a href="../Source_xinterface/tab_spprofilenew.html#13" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span> eTeamName;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_iTeamSymbols" class="hidden"></a>iTeamSymbols <a href="../Source_xinterface/tab_spprofilenew.html#16" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guiimagelist.html" class="source">GUIImageList</a></span> iTeamSymbols;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_TeamSymbolPrefix" class="hidden"></a>TeamSymbolPrefix <a href="../Source_xinterface/tab_spprofilenew.html#19" class="small">Source code</a></h4>
+<div class="declaration"><span class="source_keyword">var</span> <span class="source_keyword">string</span> TeamSymbolPrefix;</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+
+
+
+
+
+<table class="title">
+<tr>
+	<th class="title">Functions Detail</th>
+</tr>
+</table>
+
+<h4><a name="_BackClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> BackClick <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#250" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> BackClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_ClearStats-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> ClearStats <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#117" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  ClearStats ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CreateClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CreateClick <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#136" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> CreateClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_CurrentTeamSymbolName-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> CurrentTeamSymbolName <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#96" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">string</span> CurrentTeamSymbolName ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_DefaultsClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> DefaultsClick <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#262" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> DefaultsClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_GetTeamSymbolName-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> GetTeamSymbolName <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#91" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">string</span> GetTeamSymbolName ( <span class="source_keyword">int</span> <span class="source_type">idx</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitComponent-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitComponent <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#29" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitComponent ( <span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> pMyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_InitPanel-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> InitPanel <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#69" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  InitPanel ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_LoadSymbols-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> LoadSymbols <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#101" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span>  LoadSymbols ( ) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextSkin-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NextSkin <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#232" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> NextSkin ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_NextSymbol-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> NextSymbol <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#244" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> NextSymbol ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PlayerOnClick-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PlayerOnClick <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#77" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PlayerOnClick ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrevSkin-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PrevSkin <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#226" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PrevSkin ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+<h4><a name="_PrevSymbol-" class="hidden"></a><img src="../img_function.gif" alt="" title="function" /> PrevSymbol <span class="function_state"></span> <a href="../Source_xinterface/tab_spprofilenew.html#238" class="small">Source code</a></h4>
+<div class="declaration"> <span class="source_keyword">function</span> <span class="source_keyword">bool</span> PrevSymbol ( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>) )</div>
+<blockquote class="comment">
+
+</blockquote>
+<hr class="small" />
+
+
+<br />
+
+
+<table class="title">
+<tr>
+	<th class="title">Defaultproperties</th>
+</tr>
+</table>
+<br />
+<div class="source"><table class="source"><tr><td class="source"><pre class="source"><span class="source_keyword">defaultproperties</span>
+{
+     DefaultName=<span class="source_string">"Player"</span>
+     DefaultTeamName=<span class="source_string">"Team"</span>
+     DefaultCharacter=<span class="source_string">"Gorge"</span>
+     TeamSymbolPrefix=<span class="source_string">"TeamSymbols_UT2003.sym"</span>
+     DefaultTeamSymbol=<span class="source_int">1</span>
+     Err_ProfileExists=<span class="source_string">"Profile with name %prof% already exists!"</span>
+     Err_CantCreateProfile=<span class="source_string">"Profile creation failed."</span>
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=btnSaveProfile
+         <span class="source_type">Caption</span>=<span class="source_string">"CREATE PROFILE"</span>
+         Hint=<span class="source_string">"Create a profile with these settings"</span>
+         WinTop=<span class="source_int">0.925000</span>
+         WinLeft=<span class="source_int">0.744060</span>
+         WinWidth=<span class="source_int">0.223438</span>
+         WinHeight=<span class="source_int">0.075000</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.CreateClick
+         OnKeyEvent=btnSaveProfile.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">0</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnSaveProfile'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=imgEditsBack
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.EditBox'</span>
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.073000</span>
+         WinLeft=<span class="source_int">0.504375</span>
+         WinWidth=<span class="source_int">0.444304</span>
+         WinHeight=<span class="source_int">0.770000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">1</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.imgEditsBack'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span> <span class="source_keyword">Name</span>=moebPlayerName
+         bVerticalLayout=<span class="source_keyword">True</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Player Name: "</span>
+         LabelFont=<span class="source_string">"UT2SmallFont"</span>
+         LabelColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span> <span class="source_keyword">Name</span>=ebNameEdit
+             TextStr=<span class="source_string">"PlayerName"</span>
+             AllowedCharSet=<span class="source_string">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"</span>
+             OnActivate=ebNameEdit.InternalActivate
+             OnDeActivate=ebNameEdit.InternalDeactivate
+             OnKeyType=ebNameEdit.InternalOnKeyType
+             OnKeyEvent=ebNameEdit.InternalOnKeyEvent
+         End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+         MyComponent=<span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.ebNameEdit'</span>
+
+         OnCreateComponent=moebPlayerName.InternalOnCreateComponent
+         Hint=<span class="source_string">"Your character's name"</span>
+         WinTop=<span class="source_int">0.286087</span>
+         WinLeft=<span class="source_int">0.553125</span>
+         WinWidth=<span class="source_int">0.345000</span>
+         WinHeight=<span class="source_int">0.122500</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">2</span>)=<span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.moebPlayerName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span> <span class="source_keyword">Name</span>=moebTeamName
+         bVerticalLayout=<span class="source_keyword">True</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Team Name: "</span>
+         LabelFont=<span class="source_string">"UT2SmallFont"</span>
+         LabelColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span> <span class="source_keyword">Name</span>=ebTeamEdit
+             TextStr=<span class="source_string">"TeamName"</span>
+             AllowedCharSet=<span class="source_string">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"</span>
+             OnActivate=ebTeamEdit.InternalActivate
+             OnDeActivate=ebTeamEdit.InternalDeactivate
+             OnKeyType=ebTeamEdit.InternalOnKeyType
+             OnKeyEvent=ebTeamEdit.InternalOnKeyEvent
+         End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+         MyComponent=<span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.ebTeamEdit'</span>
+
+         OnCreateComponent=moebTeamName.InternalOnCreateComponent
+         Hint=<span class="source_string">"The name of your team"</span>
+         WinTop=<span class="source_int">0.428007</span>
+         WinLeft=<span class="source_int">0.553125</span>
+         WinWidth=<span class="source_int">0.345000</span>
+         WinHeight=<span class="source_int">0.122500</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">3</span>)=<span class="source_type"><a href="../xinterface/moeditbox.html" class="source">moEditBox</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.moebTeamName'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/mocombobox.html" class="source">moComboBox</a></span> <span class="source_keyword">Name</span>=mocbDifficulty
+         bVerticalLayout=<span class="source_keyword">True</span>
+         <span class="source_type">Caption</span>=<span class="source_string">"Difficulty: "</span>
+         LabelFont=<span class="source_string">"UT2SmallFont"</span>
+         LabelColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guicombobox.html" class="source">GUIComboBox</a></span> <span class="source_keyword">Name</span>=cbDifficulty
+             bReadOnly=<span class="source_keyword">True</span>
+             OnKeyEvent=cbDifficulty.InternalOnKeyEvent
+         End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+         MyComponent=<span class="source_type"><a href="../xinterface/guicombobox.html" class="source">GUIComboBox</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.cbDifficulty'</span>
+
+         OnCreateComponent=mocbDifficulty.InternalOnCreateComponent
+         Hint=<span class="source_string">"Customize your challenge"</span>
+         WinTop=<span class="source_int">0.568803</span>
+         WinLeft=<span class="source_int">0.553125</span>
+         WinWidth=<span class="source_int">0.345000</span>
+         WinHeight=<span class="source_int">0.122500</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">4</span>)=<span class="source_type"><a href="../xinterface/mocombobox.html" class="source">moComboBox</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.mocbDifficulty'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=imgSkinsBack
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.EditBox'</span>
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.073000</span>
+         WinLeft=<span class="source_int">0.055938</span>
+         WinWidth=<span class="source_int">0.215000</span>
+         WinHeight=<span class="source_int">0.770000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">5</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.imgSkinsBack'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span> <span class="source_keyword">Name</span>=clistPlayerSkins
+         FixedItemsPerPage=<span class="source_int">1</span>
+         StyleName=<span class="source_string">"CharButton"</span>
+         Hint=<span class="source_string">"Your character's appearance, use arrow keys to change"</span>
+         WinTop=<span class="source_int">0.117917</span>
+         WinLeft=<span class="source_int">0.083462</span>
+         WinWidth=<span class="source_int">0.124694</span>
+         WinHeight=<span class="source_int">0.500000</span>
+         OnClick=clistPlayerSkins.InternalOnClick
+         OnRightClick=clistPlayerSkins.InternalOnRightClick
+         OnMousePressed=clistPlayerSkins.InternalOnMousePressed
+         OnMouseRelease=clistPlayerSkins.InternalOnMouseRelease
+         OnKeyEvent=clistPlayerSkins.InternalOnKeyEvent
+         OnBeginDrag=clistPlayerSkins.InternalOnBeginDrag
+         OnEndDrag=clistPlayerSkins.InternalOnEndDrag
+         OnDragDrop=clistPlayerSkins.InternalOnDragDrop
+         OnDragEnter=clistPlayerSkins.InternalOnDragEnter
+         OnDragLeave=clistPlayerSkins.InternalOnDragLeave
+         OnDragOver=clistPlayerSkins.InternalOnDragOver
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">6</span>)=<span class="source_type"><a href="../xinterface/guicharacterlistteam.html" class="source">GUICharacterListTeam</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.clistPlayerSkins'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span> <span class="source_keyword">Name</span>=btnPrevSkin
+         Graphic=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.Menu.fbArrowLeft'</span>
+         Position=ICP_Scaled
+         Hint=<span class="source_string">"Selects a new appearance for your character"</span>
+         WinTop=<span class="source_int">0.640000</span>
+         WinLeft=<span class="source_int">0.080000</span>
+         WinWidth=<span class="source_int">0.080000</span>
+         WinHeight=<span class="source_int">0.080000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.PrevSkin
+         OnKeyEvent=btnPrevSkin.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">7</span>)=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnPrevSkin'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span> <span class="source_keyword">Name</span>=btnNextSkin
+         Graphic=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.Menu.fbArrowRight'</span>
+         Position=ICP_Scaled
+         Hint=<span class="source_string">"Selects a new appearance for your character"</span>
+         WinTop=<span class="source_int">0.640000</span>
+         WinLeft=<span class="source_int">0.172187</span>
+         WinWidth=<span class="source_int">0.080000</span>
+         WinHeight=<span class="source_int">0.080000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.NextSkin
+         OnKeyEvent=btnNextSkin.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">8</span>)=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnNextSkin'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=imgSymbolsBack
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.EditBox'</span>
+         ImageStyle=ISTY_Stretched
+         WinTop=<span class="source_int">0.073000</span>
+         WinLeft=<span class="source_int">0.280243</span>
+         WinWidth=<span class="source_int">0.215000</span>
+         WinHeight=<span class="source_int">0.770000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">9</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.imgSymbolsBack'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimagelist.html" class="source">GUIImageList</a></span> <span class="source_keyword">Name</span>=ilTeamSymbols
+         bWrap=<span class="source_keyword">True</span>
+         ImageStyle=ISTY_Justified
+         ImageRenderStyle=MSTY_Normal
+         ImageAlign=IMGA_Center
+         Hint=<span class="source_string">"Your team's symbol; use arrow keys to change"</span>
+         WinTop=<span class="source_int">0.137175</span>
+         WinLeft=<span class="source_int">0.303972</span>
+         WinWidth=<span class="source_int">0.167212</span>
+         WinHeight=<span class="source_int">0.500000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">10</span>)=<span class="source_type"><a href="../xinterface/guiimagelist.html" class="source">GUIImageList</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.ilTeamSymbols'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span> <span class="source_keyword">Name</span>=btnPrevSymbol
+         Graphic=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.Menu.fbArrowLeft'</span>
+         Position=ICP_Scaled
+         Hint=<span class="source_string">"Selects a new symbol for your team"</span>
+         WinTop=<span class="source_int">0.640000</span>
+         WinLeft=<span class="source_int">0.298750</span>
+         WinWidth=<span class="source_int">0.080000</span>
+         WinHeight=<span class="source_int">0.080000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.PrevSymbol
+         OnKeyEvent=btnPrevSymbol.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">11</span>)=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnPrevSymbol'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span> <span class="source_keyword">Name</span>=btnNextSymbol
+         Graphic=<span class="source_type"><a href="../engine/finalblend.html" class="source">FinalBlend</a></span><span class="source_name">'InterfaceContent.Menu.fbArrowRight'</span>
+         Position=ICP_Scaled
+         Hint=<span class="source_string">"Selects a new symbol for your team"</span>
+         WinTop=<span class="source_int">0.640000</span>
+         WinLeft=<span class="source_int">0.389375</span>
+         WinWidth=<span class="source_int">0.080000</span>
+         WinHeight=<span class="source_int">0.080000</span>
+         bNeverFocus=<span class="source_keyword">True</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.NextSymbol
+         OnKeyEvent=btnNextSymbol.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">12</span>)=<span class="source_type"><a href="../xinterface/guigfxbutton.html" class="source">GUIGFXButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnNextSymbol'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=btnBack
+         <span class="source_type">Caption</span>=<span class="source_string">"BACK"</span>
+         Hint=<span class="source_string">"Return to previous menu"</span>
+         WinTop=<span class="source_int">0.925000</span>
+         WinLeft=<span class="source_int">0.028125</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         WinHeight=<span class="source_int">0.075000</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.BackClick
+         OnKeyEvent=btnBack.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">13</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnBack'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=btnDefaults
+         <span class="source_type">Caption</span>=<span class="source_string">"SET TO DEFAULTS"</span>
+         Hint=<span class="source_string">"Set this profile back to default values"</span>
+         WinTop=<span class="source_int">0.925000</span>
+         WinLeft=<span class="source_int">0.367500</span>
+         WinWidth=<span class="source_int">0.232813</span>
+         WinHeight=<span class="source_int">0.075000</span>
+         OnClick=<span class="source_type"><a href="../xinterface/tab_spprofilenew.html" class="source">Tab_SPProfileNew</a></span>.DefaultsClick
+         OnKeyEvent=btnDefaults.InternalOnKeyEvent
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">14</span>)=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.btnDefaults'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=lblCharacter
+         <span class="source_type">Caption</span>=<span class="source_string">"Select|Character"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         TextFont=<span class="source_string">"UT2SmallFont"</span>
+         bMultiLine=<span class="source_keyword">True</span>
+         WinTop=<span class="source_int">0.724583</span>
+         WinLeft=<span class="source_int">0.064062</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         WinHeight=<span class="source_int">0.100000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">15</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.lblCharacter'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span> <span class="source_keyword">Name</span>=lblTeamSymbol
+         <span class="source_type">Caption</span>=<span class="source_string">"Select|Team Symbol"</span>
+         TextAlign=TXTA_Center
+         TextColor=(<span class="source_type">B</span>=<span class="source_int">255</span>,G=<span class="source_int">255</span>,<span class="source_type">R</span>=<span class="source_int">255</span>)
+         TextFont=<span class="source_string">"UT2SmallFont"</span>
+         bMultiLine=<span class="source_keyword">True</span>
+         WinTop=<span class="source_int">0.724583</span>
+         WinLeft=<span class="source_int">0.284375</span>
+         WinWidth=<span class="source_int">0.200000</span>
+         WinHeight=<span class="source_int">0.100000</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">16</span>)=<span class="source_type"><a href="../xinterface/guilabel.html" class="source">GUILabel</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.lblTeamSymbol'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=symbolBackground
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxA1'</span>
+         ImageStyle=ISTY_Stretched
+         ImageRenderStyle=MSTY_Normal
+         WinTop=<span class="source_int">0.237865</span>
+         WinLeft=<span class="source_int">0.296196</span>
+         WinWidth=<span class="source_int">0.179101</span>
+         WinHeight=<span class="source_int">0.297265</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">17</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.symbolBackground'</span>
+
+     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=portraitBackground
+         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/texture.html" class="source">Texture</a></span><span class="source_name">'InterfaceContent.Menu.BorderBoxA1'</span>
+         ImageStyle=ISTY_Stretched
+         ImageRenderStyle=MSTY_Normal
+         WinTop=<span class="source_int">0.110469</span>
+         WinLeft=<span class="source_int">0.094141</span>
+         WinWidth=<span class="source_int">0.146680</span>
+         WinHeight=<span class="source_int">0.506094</span>
+         bVisible=<span class="source_keyword">False</span>
+     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+     Controls(<span class="source_int">18</span>)=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'XInterface.Tab_SPProfileNew.portraitBackground'</span>
+
+     WinTop=<span class="source_int">0.150000</span>
+     WinHeight=<span class="source_int">0.770000</span>
+}
+</pre></td></tr></table></div>
+
+
+
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xinterface/xinterface-overview.html">Package</a></td>
+	<td class="header_hilight">Class</td>
+	<td class="header"><a href="../Source_xinterface/tab_spprofilenew.html">Source</a></td>
+	<td class="header"><a class="header" href="../classtree.html#Tab_SPProfileNew">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../xinterface/tab_spprofileload.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../xinterface/tab_sproster.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Creation time: Mon 15/4/2019 10:25:05.630 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

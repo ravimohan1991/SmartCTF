@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: GUI2K4.UT2K4SP_HighScores</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header"><a href="../gui2k4/ut2k4sp_highscores.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SP_HighScores">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_gui2k4/ut2k4sp_detailsteam.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_gui2k4/ut2k4sp_injury.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_gui2k4/ut2k4sp_highscores.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sp_highscores.html">UT2K4SP_HighScores</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105<br />00106<br />00107<br />00108<br />00109<br />00110<br />00111<br />00112<br />00113<br />00114<br />00115<br />00116<br />00117<br />00118<br />00119<br />00120<br />
+00121<br />00122<br />00123<br />00124<br />00125<br />00126<br />00127<br />00128<br />00129<br />00130<br />00131<br />00132<br />00133<br />00134<br />00135<br />00136<br />00137<br />00138<br />00139<br />00140<br />
+00141<br />00142<br />00143<br />00144<br />00145<br />00146<br />00147<br />00148<br />00149<br />00150<br />00151<br />00152<br />00153<br />00154<br />00155<br />00156<br />00157<br />00158<br />00159<br />00160<br />
+00161<br />00162<br />00163<br />00164<br />00165<br />00166<br />00167<br />00168<br />00169<br />00170<br />00171<br />00172<br />00173<br />00174<br />00175<br />00176<br />00177<br />00178<br />00179<br />00180<br />
+00181<br />00182<br />00183<br />00184<br />00185<br />00186<br />00187<br />00188<br />00189<br />00190<br />00191<br />00192<br />00193<br />00194<br />00195<br />00196<br />00197<br />00198<br />00199<br />00200<br />
+00201<br />00202<br />00203<br />00204<br />00205<br />00206<br />00207<br />00208<br />00209<br />00210<br />00211<br />00212<br />00213<br />00214<br />00215<br />00216<br />00217<br />00218<br />00219<br />00220<br />
+00221<br />00222<br />00223<br />00224<br />00225<br />00226<br />00227<br />00228<br />00229<br />00230<br />00231<br />00232<br />00233<br />00234<br />00235<br />00236<br />00237<br />00238<br />00239<br />00240<br />
+00241<br />00242<br />00243<br />00244<br />00245<br />00246<br />00247<br />00248<br />00249<br />00250<br />00251<br />00252<br />00253<br />00254<br />00255<br />00256<br />00257<br />00258<br />00259<br />00260<br />
+00261<br />00262<br />00263<br />00264<br />00265<br />00266<br />00267<br />00268<br />00269<br />00270<br />00271<br />00272<br />00273<br />00274<br />00275<br />00276<br />00277<br />00278<br />00279<br />00280<br />
+00281<br />00282<br />00283<br />00284<br />00285<br />00286<br />00287<br />00288<br />00289<br />00290<br />00291<br />00292<br />00293<br />00294<br />00295<br />00296<br />00297<br />00298<br />00299<br />00300<br />
+00301<br />00302<br />00303<br />00304<br />00305<br />00306<br />00307<br />00308<br />00309<br />00310<br />00311<br />00312<br />00313<br />00314<br />00315<br />00316<br />00317<br />00318<br />00319<br />00320<br />
+00321<br />00322<br />00323<br />00324<br />00325<br />00326<br />00327<br />00328<br />00329<br />00330<br />00331<br />00332<br />00333<br />00334<br />00335<br />00336<br />00337<br />00338<br />00339<br />00340<br />
+00341<br />00342<br />00343<br />00344<br />00345<br />00346<br />00347<br />00348<br />00349<br />00350<br />00351<br />00352<br />00353<br />00354<br />00355<br />00356<br />00357<br />00358<br />00359<br />00360<br />
+00361<br />00362<br />00363<br />00364<br />00365<br />00366<br />00367<br />00368<br />00369<br />00370<br />00371<br />00372<br />00373<br />00374<br />00375<br />00376<br />00377<br />00378<br />00379<br />00380<br />
+00381<br />00382<br />00383<br />00384<br />00385<br />00386<br />00387<br />00388<br />00389<br />00390<br />00391<br />00392<br />00393<br />00394<br />00395<br />00396<br />00397<br />00398<br />00399<br />00400<br />
+00401<br />00402<br />00403<br />00404<br />00405<br />00406<br />00407<br />00408<br />00409<br />00410<br />00411<br />00412<br />00413<br />00414<br />00415<br />00416<br />00417<br />00418<br />00419<br />00420<br />
+00421<br />00422<br />00423<br />00424<br />00425<br />00426<br />00427<br />00428<br />00429<br />00430<br />00431<br />00432<br />00433<br />00434<br />00435<br />00436<br />00437<br />00438<br />00439<br />00440<br />
+00441<br />00442<br />00443<br />00444<br />00445<br />00446<br />00447<br />00448<br />00449<br />00450<br />00451<br />00452<br />00453<br />00454<br />00455<br />00456<br />00457<br />00458<br />00459<br />00460<br />
+00461<br />00462<br />00463<br />00464</span></td>
+<td class="source"><pre class="source"><a name="1"></a><span class="source_comment">//==============================================================================
+</span><a name="2"></a><span class="source_comment">// Single Player highscore list
+</span><a name="3"></a><span class="source_comment">//
+</span><a name="4"></a><span class="source_comment">// Written by Michiel Hendriks
+</span><a name="5"></a><span class="source_comment">// (c) 2003, Epic Games, Inc. All Rights Reserved
+</span><a name="6"></a><span class="source_comment">//==============================================================================
+</span><a name="7"></a>
+<a name="8"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../xinterface/ut2k4guipage.html" class="source">UT2K4GUIPage</a></span>;
+<a name="9"></a>
+<a name="10"></a><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> imgBackground, imgDraw;
+<a name="11"></a><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnExport;
+<a name="12"></a><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guivertscrollbar.html" class="source">GUIVertScrollBar</a></span> sbScores;
+<a name="13"></a>
+<a name="14"></a><span class="source_comment">/** highscore data file */</span>
+<a name="15"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/sphighscore.html" class="source">SPHighScore</a></span> HS;
+<a name="16"></a><span class="source_comment">/** used for drawing */</span>
+<a name="17"></a><span class="source_keyword">var</span> <span class="source_keyword">float</span> curY, incY, lineHeight;
+<a name="18"></a><span class="source_comment">/** finished scrolling the list */</span>
+<a name="19"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span> bFinished;
+<a name="20"></a><span class="source_comment">/** hilight this entry, pass an int value on HandleParameters to set it */</span>
+<a name="21"></a><span class="source_keyword">var</span> <span class="source_keyword">int</span> HilighEntry;
+<a name="22"></a><span class="source_comment">/** start drawing from this entry */</span>
+<a name="23"></a><span class="source_keyword">var</span> <span class="source_keyword">int</span> startoffset;
+<a name="24"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guifont.html" class="source">GUIFont</a></span> MainFont, TinyFont;
+<a name="25"></a>
+<a name="26"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> ColumnHeaders[<span class="source_int">4</span>];
+<a name="27"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> ClickToExit;
+<a name="28"></a>
+<a name="29"></a><span class="source_keyword">var</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xgame/xutil.html" class="source">xUtil</a></span>.<span class="source_type"><a href="../xgame/xutil.html#PlayerRecord" class="source">PlayerRecord</a></span>&gt; PlayerList;
+<a name="30"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/spinnyweap.html" class="source">SpinnyWeap</a></span>			SpinnyDude; <span class="source_comment">// MUST be set to null when you leave the window
+</span><a name="31"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span>				SpinnyDudeOffset;
+<a name="32"></a><span class="source_keyword">var</span> <span class="source_keyword">int</span>					nfov;
+<a name="33"></a>
+<a name="34"></a><span class="source_keyword">function</span> InitComponent(<span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>)
+<a name="35"></a>{
+<a name="36"></a>	<span class="source_keyword">Super</span>.Initcomponent(MyController, <span class="source_type">MyOwner</span>);
+<a name="37"></a>	HS = PlayerOwner().<span class="source_type">Level</span>.Game.LoadDataObject(<span class="source_keyword">class</span><span class="source_name">'GUI2K4.SPHighScore'</span>, <span class="source_string">"SPHighScore"</span>, <span class="source_keyword">class</span><span class="source_name">'UT2K4SP_Main'</span>.default.HighScoreFile);
+<a name="38"></a>	<span class="source_keyword">if</span> (HS == <span class="source_keyword">none</span>)
+<a name="39"></a>	{
+<a name="40"></a>		Log(<span class="source_string">"UT2K4SP_HighScores - UT2004HighScores doesn't exist, creating..."</span>);
+<a name="41"></a>		HS = PlayerOwner().<span class="source_type">Level</span>.Game.CreateDataObject(<span class="source_keyword">class</span><span class="source_name">'GUI2K4.SPHighScore'</span>, <span class="source_string">"SPHighScore"</span>, <span class="source_keyword">class</span><span class="source_name">'UT2K4SP_Main'</span>.default.HighScoreFile);
+<a name="42"></a>	}
+<a name="43"></a>	MainFont = new <span class="source_keyword">class</span><span class="source_name">'fntUT2k4Large'</span>;
+<a name="44"></a>	TinyFont = new <span class="source_keyword">class</span><span class="source_name">'fntUT2k4Small'</span>;
+<a name="45"></a>	bInit = <span class="source_keyword">false</span>;
+<a name="46"></a>	startoffset = <span class="source_int">0</span>;
+<a name="47"></a>	sbScores.ItemCount = HS.Scores.length;
+<a name="48"></a>	sbScores.ItemsPerPage = <span class="source_int">10</span>;
+<a name="49"></a>	sbScores.BigStep = <span class="source_int">5</span>;
+<a name="50"></a>	sbScores.CurPos = startoffset;
+<a name="51"></a>
+<a name="52"></a>	<span class="source_keyword">class</span><span class="source_name">'xUtil'</span>.<span class="source_keyword2">static</span>.GetPlayerList(PlayerList);
+<a name="53"></a>	<span class="source_comment">// Spawn spinning character actor
+</span><a name="54"></a>	<span class="source_keyword">if</span> ( SpinnyDude == <span class="source_keyword">None</span> )
+<a name="55"></a>		SpinnyDude = PlayerOwner().spawn(<span class="source_keyword">class</span><span class="source_name">'XInterface.SpinnyWeap'</span>);
+<a name="56"></a>
+<a name="57"></a>	SpinnyDude.SetDrawType(DT_Mesh);
+<a name="58"></a>	SpinnyDude.SetDrawScale(<span class="source_int">0.9</span>);
+<a name="59"></a>	SpinnyDude.SpinRate = <span class="source_int">2004</span>;
+<a name="60"></a>	SpinnyDude.bPlayCrouches = <span class="source_keyword">false</span>;
+<a name="61"></a>	SpinnyDude.bPlayRandomAnims = <span class="source_keyword">true</span>;
+<a name="62"></a>	SpinnyDude.AnimChangeInterval = <span class="source_int">5.0</span>;
+<a name="63"></a>	SpinnyDude.AnimNames.length = <span class="source_int">0</span>;
+<a name="64"></a>	SpinnyDude.AnimNames[<span class="source_int">0</span>] = <span class="source_name">'idle_rest'</span>;
+<a name="65"></a>	SpinnyDude.AnimNames[<span class="source_int">1</span>] = <span class="source_name">'idle_rest'</span>;
+<a name="66"></a>	SpinnyDude.AnimNames[<span class="source_int">2</span>] = <span class="source_name">'idle_rest'</span>;
+<a name="67"></a>	SpinnyDude.AnimNames[<span class="source_int">3</span>] = <span class="source_name">'idle_rest'</span>;
+<a name="68"></a>	SpinnyDude.AnimNames[<span class="source_int">4</span>] = <span class="source_name">'idle_rest'</span>;
+<a name="69"></a>	SpinnyDude.AnimNames[<span class="source_int">5</span>] = <span class="source_name">'gesture_cheer'</span>;
+<a name="70"></a>	SpinnyDude.AnimNames[<span class="source_int">6</span>] = <span class="source_name">'gesture_taunt01'</span>;
+<a name="71"></a>	SpinnyDude.AnimNames[<span class="source_int">7</span>] = <span class="source_name">'gesture_taunt02'</span>;
+<a name="72"></a>	SpinnyDude.AnimNames[<span class="source_int">8</span>] = <span class="source_name">'pthrust'</span>;
+<a name="73"></a>	UpdateSpinnyDude();
+<a name="74"></a>}
+<a name="75"></a>
+<a name="76"></a><span class="source_keyword">event</span> HandleParameters(<span class="source_keyword">string</span> Param1, <span class="source_keyword">string</span> <span class="source_type">Param2</span>)
+<a name="77"></a>{
+<a name="78"></a>	SetTimer(<span class="source_int">0.02</span>, <span class="source_keyword">true</span>);
+<a name="79"></a>	HilighEntry = -<span class="source_int">1</span>;
+<a name="80"></a>	<span class="source_keyword">if</span> (Param1 != <span class="source_string">""</span>) HilighEntry = <span class="source_keyword">int</span>(Param1);
+<a name="81"></a>	<span class="source_keyword">else</span> {
+<a name="82"></a>		bFinished = <span class="source_keyword">true</span>;
+<a name="83"></a>		bTimerRepeat = <span class="source_keyword">false</span>;
+<a name="84"></a>		TimerInterval = <span class="source_int">0</span>;
+<a name="85"></a>		sbScores.bVisible=<span class="source_keyword">true</span>;
+<a name="86"></a>	}
+<a name="87"></a>}
+<a name="88"></a>
+<a name="89"></a><span class="source_keyword">event</span> Opened( <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span> )
+<a name="90"></a>{
+<a name="91"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> <span class="source_type">R</span>;
+<a name="92"></a>
+<a name="93"></a>	<span class="source_keyword">super</span>.Opened(<span class="source_type">Sender</span>);
+<a name="94"></a>
+<a name="95"></a>	<span class="source_keyword">if</span> ( SpinnyDude != <span class="source_keyword">None</span> )
+<a name="96"></a>	{
+<a name="97"></a>		<span class="source_type">R</span>.Yaw = <span class="source_int">32768</span>;
+<a name="98"></a>		SpinnyDude.SetRotation( <span class="source_type">R</span> + PlayerOwner().<span class="source_type">Rotation</span> );
+<a name="99"></a>	}
+<a name="100"></a>}
+<a name="101"></a>
+<a name="102"></a><span class="source_keyword">event</span> Timer()
+<a name="103"></a>{
+<a name="104"></a>	<span class="source_keyword">if</span> (!bInit) <span class="source_keyword">return</span>;
+<a name="105"></a>	curY += incY;
+<a name="106"></a>	<span class="source_keyword">if</span> (curY &gt;= (lineHeight/<span class="source_int">2</span>))
+<a name="107"></a>	{
+<a name="108"></a>		bFinished = <span class="source_keyword">true</span>;
+<a name="109"></a>		bTimerRepeat = <span class="source_keyword">false</span>;
+<a name="110"></a>		TimerInterval = <span class="source_int">0</span>;
+<a name="111"></a>		sbScores.bVisible=<span class="source_keyword">true</span>;
+<a name="112"></a>		<span class="source_comment">//btnExport.bVisible = true;
+</span><a name="113"></a>	}
+<a name="114"></a>}
+<a name="115"></a>
+<a name="116"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> InternalOnDraw(<span class="source_type"><a href="../engine/canvas.html" class="source">canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>)
+<a name="117"></a>{
+<a name="118"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> CamPos, <span class="source_type">X</span>, <span class="source_type">Y</span>, <span class="source_type">Z</span>;
+<a name="119"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span> <span class="source_type">CamRot</span>;
+<a name="120"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span>   oOrgX, oOrgY;
+<a name="121"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span>   oClipX, oClipY;
+<a name="122"></a>
+<a name="123"></a>   	oOrgX = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.OrgX;
+<a name="124"></a>    oOrgY = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.OrgY;
+<a name="125"></a>    oClipX = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipX;
+<a name="126"></a>    oClipY = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipY;
+<a name="127"></a>
+<a name="128"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.OrgX = imgDraw.ActualLeft();
+<a name="129"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.OrgY = imgDraw.ActualTop();
+<a name="130"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipX = imgDraw.ActualWidth();
+<a name="131"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipY = imgDraw.ActualHeight();
+<a name="132"></a>
+<a name="133"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">canvas</a></span>.GetCameraLocation(CamPos, <span class="source_type">CamRot</span>);
+<a name="134"></a>    GetAxes(<span class="source_type">CamRot</span>, <span class="source_type">X</span>, <span class="source_type">Y</span>, <span class="source_type">Z</span>);
+<a name="135"></a>
+<a name="136"></a>    SpinnyDude.SetLocation(CamPos + (SpinnyDudeOffset.<span class="source_type">X</span> * <span class="source_type">X</span>) + (SpinnyDudeOffset.<span class="source_type">Y</span> * <span class="source_type">Y</span>) + (SpinnyDudeOffset.<span class="source_type">Z</span> * <span class="source_type">Z</span>));
+<a name="137"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">canvas</a></span>.DrawActorClipped(SpinnyDude, <span class="source_keyword">false</span>,  imgDraw.ActualLeft(), imgDraw.ActualTop(), imgDraw.ActualWidth(), imgDraw.ActualHeight(), <span class="source_keyword">true</span>, nFOV);
+<a name="138"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.OrgX = oOrgX;
+<a name="139"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.OrgY = oOrgY;
+<a name="140"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipX = oClipX;
+<a name="141"></a>    <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipY = oClipY;
+<a name="142"></a>
+<a name="143"></a>	OnDrawScores(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>);
+<a name="144"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="145"></a>}
+<a name="146"></a>
+<a name="147"></a><span class="source_keyword">function</span> OnDrawScores(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>)
+<a name="148"></a>{
+<a name="149"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="150"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> cX, cY, outX, outY;
+<a name="151"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> columns[<span class="source_int">5</span>]; <span class="source_comment">// collumn width
+</span><a name="152"></a>
+<a name="153"></a>	<span class="source_keyword">if</span> (!bInit)
+<a name="154"></a>	{
+<a name="155"></a>		lineHeight = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY/<span class="source_int">11</span>;
+<a name="156"></a>		<span class="source_keyword">if</span> (!bFinished)	curY = -<span class="source_int">1</span>*HS.Scores.length*lineHeight;
+<a name="157"></a>		<span class="source_keyword">else</span> curY = lineHeight/<span class="source_int">2</span>;
+<a name="158"></a>		incY = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY*<span class="source_int">0.01</span>;
+<a name="159"></a>		bInit = <span class="source_keyword">true</span>;
+<a name="160"></a>	}
+<a name="161"></a>
+<a name="162"></a>	<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.Reset();
+<a name="163"></a>	<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.Style = <span class="source_int">5</span>;
+<a name="164"></a>	cY = CurY;
+<a name="165"></a>	cX = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX*<span class="source_int">0.05</span>;
+<a name="166"></a>	columns[<span class="source_int">0</span>] = cX*<span class="source_int">2</span>;					<span class="source_comment">// 10%
+</span><a name="167"></a>	columns[<span class="source_int">1</span>] = columns[<span class="source_int">0</span>]+cX*<span class="source_int">7</span>;		<span class="source_comment">// 35%
+</span><a name="168"></a>	columns[<span class="source_int">2</span>] = columns[<span class="source_int">1</span>]+cX*<span class="source_int">6</span>;		<span class="source_comment">// 30%
+</span><a name="169"></a>	columns[<span class="source_int">3</span>] = columns[<span class="source_int">2</span>]+cX*<span class="source_int">2</span>;		<span class="source_comment">// 10%
+</span><a name="170"></a>	columns[<span class="source_int">4</span>] = columns[<span class="source_int">3</span>]+cX*<span class="source_int">2</span>;		<span class="source_comment">// 10%
+</span><a name="171"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; HS.Scores.length; <span class="source_type">i</span>++)
+<a name="172"></a>	{
+<a name="173"></a>		<span class="source_keyword">if</span> (cY &gt; <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY) <span class="source_keyword">break</span>;
+<a name="174"></a>		<span class="source_keyword">if</span> (<span class="source_type">i</span>+startoffset &gt;= HS.Scores.length) <span class="source_keyword">break</span>;
+<a name="175"></a>		<span class="source_keyword">if</span> (cY+lineHeight &gt; <span class="source_int">0</span>)
+<a name="176"></a>		{
+<a name="177"></a>			<span class="source_keyword">if</span> (MainFont != <span class="source_keyword">None</span>) <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.<span class="source_type">Font</span> = MainFont.GetFont(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX / <span class="source_int">3</span>);
+<a name="178"></a>			<span class="source_keyword">if</span> (HilighEntry == <span class="source_type">i</span>+startoffset) <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SetDrawColor(<span class="source_int">255</span>, <span class="source_int">225</span>, <span class="source_int">0</span>, <span class="source_int">255</span>); <span class="source_comment">// highlight this line
+</span><a name="179"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (HS.Scores[<span class="source_type">i</span>+startoffset].bDrone) <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SetDrawColor(<span class="source_int">255</span>, <span class="source_int">255</span>, <span class="source_int">255</span>, <span class="source_int">128</span>); <span class="source_comment">// not a real player
+</span><a name="180"></a>			<span class="source_keyword">else</span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SetDrawColor(<span class="source_int">255</span>, <span class="source_int">255</span>, <span class="source_int">255</span>, <span class="source_int">255</span>);
+<a name="181"></a>
+<a name="182"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified((<span class="source_type">i</span>+startoffset+<span class="source_int">1</span>)$<span class="source_string">". "</span>, <span class="source_int">2</span>, <span class="source_int">0</span>, cY, columns[<span class="source_int">0</span>], cY+lineHeight);
+<a name="183"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(HS.Scores[<span class="source_type">i</span>+startoffset].<span class="source_keyword">Name</span>, <span class="source_int">0</span>, columns[<span class="source_int">0</span>], cY, columns[<span class="source_int">2</span>], cY+lineHeight);
+<a name="184"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.StrLen(HS.Scores[<span class="source_type">i</span>+startoffset].<span class="source_keyword">Name</span>, outX, outY);
+<a name="185"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(<span class="source_keyword">class</span><span class="source_name">'UT2K4GameProfile'</span>.<span class="source_keyword2">static</span>.MoneyToString(HS.Scores[<span class="source_type">i</span>+startoffset].Balance), <span class="source_int">2</span>, columns[<span class="source_int">0</span>], cY, columns[<span class="source_int">2</span>], cY+lineHeight);
+<a name="186"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(<span class="source_keyword">string</span>(HS.Scores[<span class="source_type">i</span>+startoffset].Matches), <span class="source_int">2</span>, columns[<span class="source_int">2</span>], cY, columns[<span class="source_int">3</span>], cY+lineHeight);
+<a name="187"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(<span class="source_keyword">string</span>(HS.Scores[<span class="source_type">i</span>+startoffset].Wins), <span class="source_int">2</span>, columns[<span class="source_int">3</span>], cY, columns[<span class="source_int">4</span>], cY+lineHeight);
+<a name="188"></a>
+<a name="189"></a>			<span class="source_keyword">if</span> (TinyFont != <span class="source_keyword">None</span>)
+<a name="190"></a>				<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.<span class="source_type">Font</span> = TinyFont.GetFont(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX);
+<a name="191"></a>
+<a name="192"></a><span class="source_comment">//			Canvas.DrawTextJustified(class'UT2K4SPTab_ProfileNew'.default.DifficultyLevels[int(HS.Scores[i+startoffset].Difficulty)], 0, columns[0], cY+lineHeight-(outY/2), columns[1], cY+lineHeight);
+</span><a name="193"></a>			<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(<span class="source_keyword">class</span><span class="source_name">'UT2K4SPTab_ProfileNew'</span>.default.DifficultyLevels[<span class="source_keyword">int</span>(HS.Scores[<span class="source_type">i</span>+startoffset].Difficulty)], <span class="source_int">0</span>, columns[<span class="source_int">0</span>], cY+outY+(LineHeight*<span class="source_int">0.2</span>), columns[<span class="source_int">1</span>], cY+lineHeight);
+<a name="194"></a>		}
+<a name="195"></a>		cY += lineHeight;
+<a name="196"></a>		<span class="source_keyword">if</span> (bFinished && <span class="source_type">i</span> == <span class="source_int">9</span>) <span class="source_keyword">break</span>;
+<a name="197"></a>	}
+<a name="198"></a>	<span class="source_keyword">if</span> (bFinished)
+<a name="199"></a>	{
+<a name="200"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SetDrawColor(<span class="source_int">255</span>, <span class="source_int">255</span>, <span class="source_int">255</span>, <span class="source_int">196</span>);
+<a name="201"></a>		cY = lineHeight*<span class="source_int">0.1</span>;
+<a name="202"></a>		<span class="source_keyword">if</span> (TinyFont != <span class="source_keyword">None</span>) <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.<span class="source_type">Font</span> = TinyFont.GetFont(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX);
+<a name="203"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(ColumnHeaders[<span class="source_int">0</span>], <span class="source_int">1</span>, columns[<span class="source_int">0</span>], cY, columns[<span class="source_int">1</span>], cY+(lineHeight/<span class="source_int">2</span>));
+<a name="204"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(ColumnHeaders[<span class="source_int">1</span>], <span class="source_int">1</span>, columns[<span class="source_int">1</span>], cY, columns[<span class="source_int">2</span>], cY+(lineHeight/<span class="source_int">2</span>));
+<a name="205"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(ColumnHeaders[<span class="source_int">2</span>], <span class="source_int">1</span>, columns[<span class="source_int">2</span>], cY, columns[<span class="source_int">3</span>], cY+(lineHeight/<span class="source_int">2</span>));
+<a name="206"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(ColumnHeaders[<span class="source_int">3</span>], <span class="source_int">1</span>, columns[<span class="source_int">3</span>], cY, columns[<span class="source_int">4</span>], cY+(lineHeight/<span class="source_int">2</span>));
+<a name="207"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.CurX = cX/<span class="source_int">2</span>;
+<a name="208"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawHorizontal(cY+(lineHeight/<span class="source_int">2</span>), cX*<span class="source_int">18.5</span>); <span class="source_comment">// 90%
+</span><a name="209"></a>
+<a name="210"></a>		<span class="source_keyword">if</span> (TinyFont != <span class="source_keyword">None</span>) <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.<span class="source_type">Font</span> = TinyFont.GetFont(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX);
+<a name="211"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.TextSize(ClickToExit, outX, outY);
+<a name="212"></a>		outY *= <span class="source_int">1.005</span>;
+<a name="213"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SetDrawColor(<span class="source_int">0</span>, <span class="source_int">0</span>, <span class="source_int">0</span>, <span class="source_int">196</span>);
+<a name="214"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(ClickToExit, <span class="source_int">1</span>, <span class="source_int">0</span>+<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX*<span class="source_int">0.001</span>, (<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY-outY)*<span class="source_int">1.001</span>, <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX*<span class="source_int">1.001</span>, <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY*<span class="source_int">1.001</span>);
+<a name="215"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SetDrawColor(<span class="source_int">226</span>, <span class="source_int">196</span>, <span class="source_int">0</span>, <span class="source_int">196</span>);
+<a name="216"></a>		<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.DrawTextJustified(ClickToExit, <span class="source_int">1</span>, <span class="source_int">0</span>, <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY-outY, <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeX, <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.SizeY);
+<a name="217"></a>	}
+<a name="218"></a>}
+<a name="219"></a>
+<a name="220"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> OnImgClick(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="221"></a>{
+<a name="222"></a>	Log(<span class="source_type">Sender</span>);
+<a name="223"></a>	<span class="source_keyword">return</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.CloseMenu(<span class="source_keyword">false</span>);
+<a name="224"></a>}
+<a name="225"></a>
+<a name="226"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> OnExportClick(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="227"></a>{
+<a name="228"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../xinterface/guiquestionpage.html" class="source">GUIQuestionPage</a></span> QPage;
+<a name="229"></a>	ExportToFile();
+<a name="230"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(<span class="source_string">"GUI2K4.GUI2K4QuestionPage"</span>))
+<a name="231"></a>	{
+<a name="232"></a>		QPage=<span class="source_type"><a href="../xinterface/guiquestionpage.html" class="source">GUIQuestionPage</a></span>(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.TopPage());
+<a name="233"></a>		QPage.SetupQuestion(<span class="source_string">"High scores saved to: ..\\UserLogs\\UT2004_HighScores.txt"</span>, QBTN_Ok, QBTN_Ok);
+<a name="234"></a>	}
+<a name="235"></a>	<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="236"></a>}
+<a name="237"></a>
+<a name="238"></a><span class="source_keyword">function</span> ExportToFile()
+<a name="239"></a>{
+<a name="240"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="241"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/filelog.html" class="source">FileLog</a></span> output;
+<a name="242"></a>	output = PlayerOwner().Spawn(<span class="source_keyword">class</span><span class="source_name">'FileLog'</span>);
+<a name="243"></a>	output.OpenLog(<span class="source_string">"UT2004_HighScores"</span>, <span class="source_string">"txt"</span>);
+<a name="244"></a>	output.Logf(chr(<span class="source_int">9</span>)$<span class="source_string">"name"</span>$chr(<span class="source_int">9</span>)$<span class="source_string">"balance"</span>$chr(<span class="source_int">9</span>)$<span class="source_string">"matches"</span>$chr(<span class="source_int">9</span>)$<span class="source_string">"wins"</span>);
+<a name="245"></a>	output.Logf(<span class="source_string">"--------------------------------------------------------------------------------"</span>);
+<a name="246"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; HS.Scores.length; <span class="source_type">i</span>++)
+<a name="247"></a>	{
+<a name="248"></a>		output.Logf(<span class="source_keyword">string</span>(<span class="source_type">i</span>+<span class="source_int">1</span>)$chr(<span class="source_int">9</span>)$HS.Scores[<span class="source_type">i</span>].<span class="source_keyword">Name</span>$chr(<span class="source_int">9</span>)$<span class="source_keyword">string</span>(HS.Scores[<span class="source_type">i</span>].Balance)$chr(<span class="source_int">9</span>)$<span class="source_keyword">string</span>(HS.Scores[<span class="source_type">i</span>].Matches)$chr(<span class="source_int">9</span>)$<span class="source_keyword">string</span>(HS.Scores[<span class="source_type">i</span>].Wins));
+<a name="249"></a>	}
+<a name="250"></a>	output.CloseLog();
+<a name="251"></a>}
+<a name="252"></a>
+<a name="253"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> WindowOnKeyEvent(<span class="source_keyword2">out</span> <span class="source_keyword">byte</span> Key, <span class="source_keyword2">out</span> <span class="source_keyword">byte</span> <span class="source_keyword">State</span>, <span class="source_keyword">float</span> <span class="source_type">delta</span>)
+<a name="254"></a>{
+<a name="255"></a>	<span class="source_keyword">if</span> (!bFinished) <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="256"></a>	<span class="source_keyword">if</span> (<span class="source_keyword">State</span> != <span class="source_int">1</span>) <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="257"></a>	<span class="source_keyword">if</span> ((Key == <span class="source_int">0x26</span>) || (Key == <span class="source_int">236</span>)) <span class="source_comment">//up
+</span><a name="258"></a>	{
+<a name="259"></a>		sbScores.WheelUp();
+<a name="260"></a>		<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="261"></a>	}
+<a name="262"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> ((Key == <span class="source_int">0x28</span>) || (Key == <span class="source_int">237</span>)) <span class="source_comment">//down
+</span><a name="263"></a>	{
+<a name="264"></a>		sbScores.WheelDown();
+<a name="265"></a>		<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="266"></a>	}
+<a name="267"></a>	<span class="source_comment">// debug stuff
+</span><a name="268"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x32</span>) <span class="source_comment">// 2
+</span><a name="269"></a>	{
+<a name="270"></a>		SpinnyDudeOffset.<span class="source_type">X</span> = SpinnyDudeOffset.<span class="source_type">X</span>+<span class="source_int">1</span>;
+<a name="271"></a>	}
+<a name="272"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x31</span>) <span class="source_comment">// 1
+</span><a name="273"></a>	{
+<a name="274"></a>		SpinnyDudeOffset.<span class="source_type">X</span> = SpinnyDudeOffset.<span class="source_type">X</span>-<span class="source_int">1</span>;
+<a name="275"></a>	}
+<a name="276"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x34</span>) <span class="source_comment">// 4
+</span><a name="277"></a>	{
+<a name="278"></a>		SpinnyDudeOffset.<span class="source_type">Y</span> = SpinnyDudeOffset.<span class="source_type">Y</span>+<span class="source_int">1</span>;
+<a name="279"></a>	}
+<a name="280"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x33</span>) <span class="source_comment">// 3
+</span><a name="281"></a>	{
+<a name="282"></a>		SpinnyDudeOffset.<span class="source_type">Y</span> = SpinnyDudeOffset.<span class="source_type">Y</span>-<span class="source_int">1</span>;
+<a name="283"></a>	}
+<a name="284"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x36</span>) <span class="source_comment">// 6
+</span><a name="285"></a>	{
+<a name="286"></a>		SpinnyDudeOffset.<span class="source_type">Z</span> = SpinnyDudeOffset.<span class="source_type">Z</span>+<span class="source_int">1</span>;
+<a name="287"></a>	}
+<a name="288"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x35</span>) <span class="source_comment">// 5
+</span><a name="289"></a>	{
+<a name="290"></a>		SpinnyDudeOffset.<span class="source_type">Z</span> = SpinnyDudeOffset.<span class="source_type">Z</span>-<span class="source_int">1</span>;
+<a name="291"></a>	}
+<a name="292"></a>	<span class="source_keyword">else</span>  <span class="source_keyword">if</span> (Key == <span class="source_int">0x38</span>) <span class="source_comment">// 8
+</span><a name="293"></a>	{
+<a name="294"></a>		SpinnyDude.SpinRate = SpinnyDude.SpinRate+<span class="source_int">1</span>;
+<a name="295"></a>	}
+<a name="296"></a>	<span class="source_keyword">else</span>  <span class="source_keyword">if</span> (Key == <span class="source_int">0x37</span>) <span class="source_comment">// 7
+</span><a name="297"></a>	{
+<a name="298"></a>		SpinnyDude.SpinRate = SpinnyDude.SpinRate-<span class="source_int">1</span>;
+<a name="299"></a>	}
+<a name="300"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> (Key == <span class="source_int">0x30</span>) <span class="source_comment">// 0
+</span><a name="301"></a>	{
+<a name="302"></a>		Log(<span class="source_string">"SpinnyDudeOffset ="</span>@SpinnyDudeOffset@<span class="source_string">" SpinnyDudeSpinRate ="</span>@SpinnyDude.SpinRate);
+<a name="303"></a>	}
+<a name="304"></a>
+<a name="305"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="306"></a>}
+<a name="307"></a>
+<a name="308"></a><span class="source_keyword">function</span> OnScrollPosChanged(<span class="source_keyword">int</span> NewPos)
+<a name="309"></a>{
+<a name="310"></a>	startoffset=NewPos;
+<a name="311"></a>}
+<a name="312"></a>
+<a name="313"></a><span class="source_keyword">function</span> UpdateSpinnyDude()
+<a name="314"></a>{
+<a name="315"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">idx</span>;
+<a name="316"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../xgame/xutil.html" class="source">xUtil</a></span>.<span class="source_type"><a href="../xgame/xutil.html#PlayerRecord" class="source">PlayerRecord</a></span> Rec;
+<a name="317"></a>	<span class="source_keyword">local</span> <span class="source_type">Mesh</span> PlayerMesh;
+<a name="318"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span> BodySkin, HeadSkin;
+<a name="319"></a>    <span class="source_keyword">local</span> <span class="source_keyword">string</span> BodySkinName, HeadSkinName;
+<a name="320"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../xgame/ut2k4gameprofile.html" class="source">UT2K4GameProfile</a></span> GP;
+<a name="321"></a>
+<a name="322"></a>    GP = <span class="source_type"><a href="../xgame/ut2k4gameprofile.html" class="source">UT2K4GameProfile</a></span>(PlayerOwner().<span class="source_type">Level</span>.Game.CurrentGameProfile);
+<a name="323"></a>    <span class="source_keyword">if</span> (GP != <span class="source_keyword">none</span>)
+<a name="324"></a>    {
+<a name="325"></a>    	<span class="source_keyword">if</span> (GP.bCompleted && (GP.PlayerCharacter ~= <span class="source_string">"Mr.Crow"</span>))
+<a name="326"></a>    	{
+<a name="327"></a>    		PlayerMesh = <span class="source_type">Mesh</span>(DynamicLoadObject(<span class="source_string">"GenericSD.TC"</span>, <span class="source_keyword">class</span><span class="source_name">'Mesh'</span>));
+<a name="328"></a>    		SpinnyDude.LinkMesh(PlayerMesh);
+<a name="329"></a>			SpinnyDude.Skins[<span class="source_int">0</span>] = <span class="source_type"><a href="../engine/texture.html" class="source">texture</a></span>(DynamicLoadObject(<span class="source_string">"GenericSD.ToiletCar"</span>, <span class="source_keyword">class</span><span class="source_name">'Texture'</span>));
+<a name="330"></a>			SpinnyDudeOffset=vect(<span class="source_int">354.00</span>,<span class="source_int">0.00</span>,-<span class="source_int">19.00</span>);
+<a name="331"></a>			SpinnyDude.bPlayRandomAnims = <span class="source_keyword">false</span>;
+<a name="332"></a>			<span class="source_keyword">return</span>;
+<a name="333"></a>    	}
+<a name="334"></a>    	<span class="source_keyword">if</span> (GP.bCompleted)
+<a name="335"></a>    	{
+<a name="336"></a>    		<span class="source_keyword">if</span> (HS.UnlockedChars.length &gt; <span class="source_int">0</span>)
+<a name="337"></a>	    		BodySkinName = HS.UnlockedChars[HS.UnlockedChars.length-<span class="source_int">1</span>];
+<a name="338"></a>    	}
+<a name="339"></a>    }
+<a name="340"></a>
+<a name="341"></a>	<span class="source_type">idx</span> = -<span class="source_int">1</span>;
+<a name="342"></a>	<span class="source_keyword">if</span> (BodySkinName != <span class="source_string">""</span>)
+<a name="343"></a>	{
+<a name="344"></a>	    <span class="source_keyword">for</span> (<span class="source_type">idx</span> = <span class="source_int">0</span>; <span class="source_type">idx</span> &lt; Playerlist.length; <span class="source_type">idx</span>++)
+<a name="345"></a>    	{
+<a name="346"></a>    		<span class="source_keyword">if</span> (PlayerList[<span class="source_type">idx</span>].DefaultName ~= BodySkinName) <span class="source_keyword">break</span>;
+<a name="347"></a>	    }
+<a name="348"></a>    	BodySkinName = <span class="source_string">""</span>;
+<a name="349"></a>    }
+<a name="350"></a>
+<a name="351"></a>	<span class="source_keyword">if</span> (<span class="source_type">idx</span> &gt;= Playerlist.Length || <span class="source_type">idx</span> == -<span class="source_int">1</span>) <span class="source_type">idx</span> = rand(Playerlist.Length);
+<a name="352"></a>	<span class="source_keyword">if</span> ( <span class="source_type">idx</span> &lt; <span class="source_int">0</span> || <span class="source_type">idx</span> &gt;= Playerlist.Length )
+<a name="353"></a>		<span class="source_keyword">return</span>;
+<a name="354"></a>
+<a name="355"></a>	Rec = PlayerList[<span class="source_type">idx</span>];
+<a name="356"></a>
+<a name="357"></a>	<span class="source_keyword">if</span> (Rec.Race ~= <span class="source_string">"Juggernaut"</span> || Rec.DefaultName~=<span class="source_string">"Axon"</span> || Rec.DefaultName~=<span class="source_string">"Cyclops"</span> || Rec.DefaultName ~=<span class="source_string">"Virus"</span> )
+<a name="358"></a>    	SpinnyDudeOffset=vect(<span class="source_int">273.0</span>,<span class="source_int">0.00</span>,-<span class="source_int">11.00</span>);
+<a name="359"></a>    <span class="source_keyword">else</span>
+<a name="360"></a>	    SpinnyDudeOffset=vect(<span class="source_int">273.0</span>,<span class="source_int">0.00</span>,-<span class="source_int">17.00</span>);
+<a name="361"></a>
+<a name="362"></a>	PlayerMesh = <span class="source_type">Mesh</span>(DynamicLoadObject(Rec.MeshName, <span class="source_keyword">class</span><span class="source_name">'Mesh'</span>));
+<a name="363"></a>	<span class="source_keyword">if</span>(PlayerMesh == <span class="source_keyword">None</span>)
+<a name="364"></a>	{
+<a name="365"></a>		Log(<span class="source_string">"Could not load mesh: "</span>$Rec.MeshName$<span class="source_string">" for player: "</span>$Rec.DefaultName);
+<a name="366"></a>		<span class="source_keyword">return</span>;
+<a name="367"></a>	}
+<a name="368"></a>
+<a name="369"></a>	<span class="source_comment">// Get the body skin
+</span><a name="370"></a>    BodySkinName = Rec.BodySkinName;
+<a name="371"></a>
+<a name="372"></a>	<span class="source_comment">// Get the head skin
+</span><a name="373"></a>    HeadSkinName = Rec.FaceSkinName;
+<a name="374"></a>
+<a name="375"></a>	BodySkin = <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>(DynamicLoadObject(BodySkinName, <span class="source_keyword">class</span><span class="source_name">'Material'</span>));
+<a name="376"></a>	<span class="source_keyword">if</span>(BodySkin == <span class="source_keyword">None</span>)
+<a name="377"></a>	{
+<a name="378"></a>		Log(<span class="source_string">"Could not load body material: "</span>$Rec.BodySkinName$<span class="source_string">" For player: "</span>$Rec.DefaultName);
+<a name="379"></a>		<span class="source_keyword">return</span>;
+<a name="380"></a>	}
+<a name="381"></a>
+<a name="382"></a>	HeadSkin = <span class="source_type"><a href="../engine/material.html" class="source">Material</a></span>(DynamicLoadObject(HeadSkinName, <span class="source_keyword">class</span><span class="source_name">'Material'</span>));
+<a name="383"></a>	<span class="source_keyword">if</span>(HeadSkin == <span class="source_keyword">None</span>)
+<a name="384"></a>	{
+<a name="385"></a>		Log(<span class="source_string">"Could not load head material: "</span>$HeadSkinName$<span class="source_string">" For player: "</span>$Rec.DefaultName);
+<a name="386"></a>		<span class="source_keyword">return</span>;
+<a name="387"></a>	}
+<a name="388"></a>
+<a name="389"></a>	SpinnyDude.LinkMesh(PlayerMesh);
+<a name="390"></a>	SpinnyDude.Skins[<span class="source_int">0</span>] = BodySkin;
+<a name="391"></a>	SpinnyDude.Skins[<span class="source_int">1</span>] = HeadSkin;
+<a name="392"></a>	SpinnyDude.LoopAnim( <span class="source_name">'Idle_Rest'</span>, <span class="source_int">1.0</span>/SpinnyDude.<span class="source_type">Level</span>.TimeDilation );
+<a name="393"></a>}
+<a name="394"></a>
+<a name="395"></a><span class="source_keyword">function</span> Free()
+<a name="396"></a>{
+<a name="397"></a>	<span class="source_keyword">Super</span>.Free();
+<a name="398"></a>	<span class="source_keyword">if</span> ( SpinnyDude != <span class="source_keyword">None</span> ) SpinnyDude.Destroy();
+<a name="399"></a>	SpinnyDude = <span class="source_keyword">None</span>;
+<a name="400"></a>}
+<a name="401"></a>
+<a name="402"></a><span class="source_keyword">defaultproperties</span>
+<a name="403"></a>{
+<a name="404"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPMimgBackground
+<a name="405"></a>         <span class="source_type">Image</span>=<span class="source_type"><a href="../engine/materialsequence.html" class="source">MaterialSequence</a></span><span class="source_name">'2K4Menus.Controls.background_anim'</span>
+<a name="406"></a>         ImageStyle=ISTY_Scaled
+<a name="407"></a>         ImageRenderStyle=MSTY_Normal
+<a name="408"></a>         WinHeight=<span class="source_int">1.000000</span>
+<a name="409"></a>         RenderWeight=<span class="source_int">0.001000</span>
+<a name="410"></a>         bAcceptsInput=<span class="source_keyword">True</span>
+<a name="411"></a>         bNeverFocus=<span class="source_keyword">True</span>
+<a name="412"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.OnImgClick
+<a name="413"></a>         OnKeyEvent=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.WindowOnKeyEvent
+<a name="414"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="415"></a>     imgBackground=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4SP_HighScores.SPMimgBackground'</span>
+<a name="416"></a>
+<a name="417"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span> <span class="source_keyword">Name</span>=SPMimgDraw
+<a name="418"></a>         WinHeight=<span class="source_int">1.000000</span>
+<a name="419"></a>         RenderWeight=<span class="source_int">0.002000</span>
+<a name="420"></a>         bAcceptsInput=<span class="source_keyword">True</span>
+<a name="421"></a>         bNeverFocus=<span class="source_keyword">True</span>
+<a name="422"></a>         OnDraw=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.InternalOnDraw
+<a name="423"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.OnImgClick
+<a name="424"></a>         OnKeyEvent=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.WindowOnKeyEvent
+<a name="425"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="426"></a>     imgDraw=<span class="source_type"><a href="../xinterface/guiimage.html" class="source">GUIImage</a></span><span class="source_name">'GUI2K4.UT2K4SP_HighScores.SPMimgDraw'</span>
+<a name="427"></a>
+<a name="428"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPMbtnExport
+<a name="429"></a>         <span class="source_type">Caption</span>=<span class="source_string">"SAVE TO FILE"</span>
+<a name="430"></a>         FontScale=FNS_Small
+<a name="431"></a>         WinTop=<span class="source_int">0.950000</span>
+<a name="432"></a>         WinLeft=<span class="source_int">0.400000</span>
+<a name="433"></a>         WinWidth=<span class="source_int">0.200000</span>
+<a name="434"></a>         WinHeight=<span class="source_int">0.004000</span>
+<a name="435"></a>         RenderWeight=<span class="source_int">0.200000</span>
+<a name="436"></a>         bVisible=<span class="source_keyword">False</span>
+<a name="437"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.OnExportClick
+<a name="438"></a>         OnKeyEvent=SPMbtnExport.InternalOnKeyEvent
+<a name="439"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="440"></a>     btnExport=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_HighScores.SPMbtnExport'</span>
+<a name="441"></a>
+<a name="442"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guivertscrollbar.html" class="source">GUIVertScrollBar</a></span> <span class="source_keyword">Name</span>=SPMsbScores
+<a name="443"></a>         PositionChanged=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.OnScrollPosChanged
+<a name="444"></a>         WinLeft=<span class="source_int">0.962500</span>
+<a name="445"></a>         WinWidth=<span class="source_int">0.037500</span>
+<a name="446"></a>         WinHeight=<span class="source_int">1.000000</span>
+<a name="447"></a>         RenderWeight=<span class="source_int">1.000000</span>
+<a name="448"></a>         bVisible=<span class="source_keyword">False</span>
+<a name="449"></a>         OnPreDraw=SPMsbScores.GripPreDraw
+<a name="450"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="451"></a>     sbScores=<span class="source_type"><a href="../xinterface/guivertscrollbar.html" class="source">GUIVertScrollBar</a></span><span class="source_name">'GUI2K4.UT2K4SP_HighScores.SPMsbScores'</span>
+<a name="452"></a>
+<a name="453"></a>     ColumnHeaders(<span class="source_int">0</span>)=<span class="source_string">"name"</span>
+<a name="454"></a>     ColumnHeaders(<span class="source_int">1</span>)=<span class="source_string">"balance"</span>
+<a name="455"></a>     ColumnHeaders(<span class="source_int">2</span>)=<span class="source_string">"matches"</span>
+<a name="456"></a>     ColumnHeaders(<span class="source_int">3</span>)=<span class="source_string">"wins"</span>
+<a name="457"></a>     ClickToExit=<span class="source_string">"C L I C K   T O   E X I T"</span>
+<a name="458"></a>     SpinnyDudeOffset=(<span class="source_type">X</span>=<span class="source_int">273.000000</span>,<span class="source_type">Z</span>=-<span class="source_int">11.000000</span>)
+<a name="459"></a>     nfov=<span class="source_int">15</span>
+<a name="460"></a>     WinTop=<span class="source_int">0.000000</span>
+<a name="461"></a>     WinHeight=<span class="source_int">1.000000</span>
+<a name="462"></a>     OnKeyEvent=<span class="source_type"><a href="../gui2k4/ut2k4sp_highscores.html" class="source">UT2K4SP_HighScores</a></span>.WindowOnKeyEvent
+<a name="463"></a>}
+<a name="464"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header"><a href="../gui2k4/ut2k4sp_highscores.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SP_HighScores">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_gui2k4/ut2k4sp_detailsteam.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_gui2k4/ut2k4sp_injury.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:02.000 - Creation time: Mon 15/4/2019 10:25:13.410 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

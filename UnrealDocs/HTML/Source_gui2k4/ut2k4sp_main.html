@@ -1,0 +1,967 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: GUI2K4.UT2K4SP_Main</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header"><a href="../gui2k4/ut2k4sp_main.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SP_Main">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_gui2k4/ut2k4sp_ladderloading.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_gui2k4/ut2k4sp_mapchallenge.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_gui2k4/ut2k4sp_main.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../gui2k4/gui2k4-overview.html">GUI2K4</a>.<a href="../gui2k4/ut2k4sp_main.html">UT2K4SP_Main</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105<br />00106<br />00107<br />00108<br />00109<br />00110<br />00111<br />00112<br />00113<br />00114<br />00115<br />00116<br />00117<br />00118<br />00119<br />00120<br />
+00121<br />00122<br />00123<br />00124<br />00125<br />00126<br />00127<br />00128<br />00129<br />00130<br />00131<br />00132<br />00133<br />00134<br />00135<br />00136<br />00137<br />00138<br />00139<br />00140<br />
+00141<br />00142<br />00143<br />00144<br />00145<br />00146<br />00147<br />00148<br />00149<br />00150<br />00151<br />00152<br />00153<br />00154<br />00155<br />00156<br />00157<br />00158<br />00159<br />00160<br />
+00161<br />00162<br />00163<br />00164<br />00165<br />00166<br />00167<br />00168<br />00169<br />00170<br />00171<br />00172<br />00173<br />00174<br />00175<br />00176<br />00177<br />00178<br />00179<br />00180<br />
+00181<br />00182<br />00183<br />00184<br />00185<br />00186<br />00187<br />00188<br />00189<br />00190<br />00191<br />00192<br />00193<br />00194<br />00195<br />00196<br />00197<br />00198<br />00199<br />00200<br />
+00201<br />00202<br />00203<br />00204<br />00205<br />00206<br />00207<br />00208<br />00209<br />00210<br />00211<br />00212<br />00213<br />00214<br />00215<br />00216<br />00217<br />00218<br />00219<br />00220<br />
+00221<br />00222<br />00223<br />00224<br />00225<br />00226<br />00227<br />00228<br />00229<br />00230<br />00231<br />00232<br />00233<br />00234<br />00235<br />00236<br />00237<br />00238<br />00239<br />00240<br />
+00241<br />00242<br />00243<br />00244<br />00245<br />00246<br />00247<br />00248<br />00249<br />00250<br />00251<br />00252<br />00253<br />00254<br />00255<br />00256<br />00257<br />00258<br />00259<br />00260<br />
+00261<br />00262<br />00263<br />00264<br />00265<br />00266<br />00267<br />00268<br />00269<br />00270<br />00271<br />00272<br />00273<br />00274<br />00275<br />00276<br />00277<br />00278<br />00279<br />00280<br />
+00281<br />00282<br />00283<br />00284<br />00285<br />00286<br />00287<br />00288<br />00289<br />00290<br />00291<br />00292<br />00293<br />00294<br />00295<br />00296<br />00297<br />00298<br />00299<br />00300<br />
+00301<br />00302<br />00303<br />00304<br />00305<br />00306<br />00307<br />00308<br />00309<br />00310<br />00311<br />00312<br />00313<br />00314<br />00315<br />00316<br />00317<br />00318<br />00319<br />00320<br />
+00321<br />00322<br />00323<br />00324<br />00325<br />00326<br />00327<br />00328<br />00329<br />00330<br />00331<br />00332<br />00333<br />00334<br />00335<br />00336<br />00337<br />00338<br />00339<br />00340<br />
+00341<br />00342<br />00343<br />00344<br />00345<br />00346<br />00347<br />00348<br />00349<br />00350<br />00351<br />00352<br />00353<br />00354<br />00355<br />00356<br />00357<br />00358<br />00359<br />00360<br />
+00361<br />00362<br />00363<br />00364<br />00365<br />00366<br />00367<br />00368<br />00369<br />00370<br />00371<br />00372<br />00373<br />00374<br />00375<br />00376<br />00377<br />00378<br />00379<br />00380<br />
+00381<br />00382<br />00383<br />00384<br />00385<br />00386<br />00387<br />00388<br />00389<br />00390<br />00391<br />00392<br />00393<br />00394<br />00395<br />00396<br />00397<br />00398<br />00399<br />00400<br />
+00401<br />00402<br />00403<br />00404<br />00405<br />00406<br />00407<br />00408<br />00409<br />00410<br />00411<br />00412<br />00413<br />00414<br />00415<br />00416<br />00417<br />00418<br />00419<br />00420<br />
+00421<br />00422<br />00423<br />00424<br />00425<br />00426<br />00427<br />00428<br />00429<br />00430<br />00431<br />00432<br />00433<br />00434<br />00435<br />00436<br />00437<br />00438<br />00439<br />00440<br />
+00441<br />00442<br />00443<br />00444<br />00445<br />00446<br />00447<br />00448<br />00449<br />00450<br />00451<br />00452<br />00453<br />00454<br />00455<br />00456<br />00457<br />00458<br />00459<br />00460<br />
+00461<br />00462<br />00463<br />00464<br />00465<br />00466<br />00467<br />00468<br />00469<br />00470<br />00471<br />00472<br />00473<br />00474<br />00475<br />00476<br />00477<br />00478<br />00479<br />00480<br />
+00481<br />00482<br />00483<br />00484<br />00485<br />00486<br />00487<br />00488<br />00489<br />00490<br />00491<br />00492<br />00493<br />00494<br />00495<br />00496<br />00497<br />00498<br />00499<br />00500<br />
+00501<br />00502<br />00503<br />00504<br />00505<br />00506<br />00507<br />00508<br />00509<br />00510<br />00511<br />00512<br />00513<br />00514<br />00515<br />00516<br />00517<br />00518<br />00519<br />00520<br />
+00521<br />00522<br />00523<br />00524<br />00525<br />00526<br />00527<br />00528<br />00529<br />00530<br />00531<br />00532<br />00533<br />00534<br />00535<br />00536<br />00537<br />00538<br />00539<br />00540<br />
+00541<br />00542<br />00543<br />00544<br />00545<br />00546<br />00547<br />00548<br />00549<br />00550<br />00551<br />00552<br />00553<br />00554<br />00555<br />00556<br />00557<br />00558<br />00559<br />00560<br />
+00561<br />00562<br />00563<br />00564<br />00565<br />00566<br />00567<br />00568<br />00569<br />00570<br />00571<br />00572<br />00573<br />00574<br />00575<br />00576<br />00577<br />00578<br />00579<br />00580<br />
+00581<br />00582<br />00583<br />00584<br />00585<br />00586<br />00587<br />00588<br />00589<br />00590<br />00591<br />00592<br />00593<br />00594<br />00595<br />00596<br />00597<br />00598<br />00599<br />00600<br />
+00601<br />00602<br />00603<br />00604<br />00605<br />00606<br />00607<br />00608<br />00609<br />00610<br />00611<br />00612<br />00613<br />00614<br />00615<br />00616<br />00617<br />00618<br />00619<br />00620<br />
+00621<br />00622<br />00623<br />00624<br />00625<br />00626<br />00627<br />00628<br />00629<br />00630<br />00631<br />00632<br />00633<br />00634<br />00635<br />00636<br />00637<br />00638<br />00639<br />00640<br />
+00641<br />00642<br />00643<br />00644<br />00645<br />00646<br />00647<br />00648<br />00649<br />00650<br />00651<br />00652<br />00653<br />00654<br />00655<br />00656<br />00657<br />00658<br />00659<br />00660<br />
+00661<br />00662<br />00663<br />00664<br />00665<br />00666<br />00667<br />00668<br />00669<br />00670<br />00671<br />00672<br />00673<br />00674<br />00675<br />00676<br />00677<br />00678<br />00679<br />00680<br />
+00681<br />00682<br />00683<br />00684<br />00685<br />00686<br />00687<br />00688<br />00689<br />00690<br />00691<br />00692<br />00693<br />00694<br />00695<br />00696<br />00697<br />00698<br />00699<br />00700<br />
+00701<br />00702<br />00703<br />00704<br />00705<br />00706<br />00707<br />00708<br />00709<br />00710<br />00711<br />00712<br />00713<br />00714<br />00715<br />00716<br />00717<br />00718<br />00719<br />00720<br />
+00721<br />00722<br />00723<br />00724<br />00725<br />00726<br />00727<br />00728<br />00729<br />00730<br />00731<br />00732<br />00733<br />00734<br />00735<br />00736<br />00737<br />00738<br />00739<br />00740<br />
+00741<br />00742<br />00743<br />00744<br />00745<br />00746<br />00747<br />00748<br />00749<br />00750<br />00751<br />00752<br />00753<br />00754<br />00755<br />00756<br />00757<br />00758<br />00759<br />00760<br />
+00761<br />00762<br />00763<br />00764<br />00765<br />00766<br />00767<br />00768<br />00769<br />00770<br />00771<br />00772<br />00773<br />00774<br />00775<br />00776<br />00777<br />00778<br />00779<br />00780<br />
+00781<br />00782<br />00783<br />00784<br />00785<br />00786<br />00787<br />00788<br />00789<br />00790<br />00791<br />00792<br />00793<br />00794<br />00795<br />00796<br />00797<br />00798<br />00799<br />00800<br />
+00801<br />00802<br />00803<br />00804<br />00805<br />00806<br />00807<br />00808<br />00809<br />00810<br />00811<br />00812<br />00813<br />00814<br />00815<br />00816<br />00817<br />00818<br />00819<br />00820<br />
+00821<br />00822<br />00823<br />00824<br />00825<br />00826<br />00827<br />00828<br />00829<br />00830<br />00831<br />00832<br />00833<br />00834<br />00835<br />00836<br />00837<br />00838<br />00839<br />00840<br />
+00841<br />00842<br />00843<br />00844<br />00845<br />00846<br />00847<br />00848<br />00849<br />00850<br />00851<br />00852<br />00853<br />00854<br />00855<br />00856<br />00857<br />00858<br />00859<br />00860<br />
+00861<br />00862<br />00863<br />00864<br />00865<br />00866</span></td>
+<td class="source"><pre class="source"><a name="1"></a><span class="source_comment">//==============================================================================
+</span><a name="2"></a><span class="source_comment">// Single Player Main Menu
+</span><a name="3"></a><span class="source_comment">//
+</span><a name="4"></a><span class="source_comment">// Written by Michiel Hendriks
+</span><a name="5"></a><span class="source_comment">// (c) 2003, 2004, Epic Games, Inc. All Rights Reserved
+</span><a name="6"></a><span class="source_comment">//==============================================================================
+</span><a name="7"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../gui2k4/ut2k4mainpage.html" class="source">UT2K4MainPage</a></span>;
+<a name="8"></a>
+<a name="9"></a><span class="source_comment">// Automated Controls
+</span><a name="10"></a><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span>	btnBack, btnPlay, btnDetails;
+<a name="11"></a>
+<a name="12"></a><span class="source_comment">// debug controlls
+</span><a name="13"></a><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> btnDebugExec;
+<a name="14"></a><span class="source_keyword">var</span> automated <span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span> edDebugExec;
+<a name="15"></a>
+<a name="16"></a><span class="source_comment">// localized strings
+</span><a name="17"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> PageCaption;
+<a name="18"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> LoadedPageCaption; <span class="source_comment">// used when a profile is loaded
+</span><a name="19"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">String</span> LadderCompleteMsg;
+<a name="20"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">string</span> msgFullTeamRequired;
+<a name="21"></a><span class="source_comment">/** random donation message */</span>
+<a name="22"></a><span class="source_keyword">var</span> <span class="source_keyword2">localized</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; DonationMsg;
+<a name="23"></a>
+<a name="24"></a><span class="source_comment">/** prefix for profile names */</span>
+<a name="25"></a><span class="source_keyword">var</span> <span class="source_keyword">string</span> ProfilePrefix;
+<a name="26"></a>
+<a name="27"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_profile.html" class="source">UT2K4SPTab_Profile</a></span> tpProfile;
+<a name="28"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_tutorials.html" class="source">UT2K4SPTab_Tutorials</a></span> tpTutorials;
+<a name="29"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_qualification.html" class="source">UT2K4SPTab_Qualification</a></span> tpQualification;
+<a name="30"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_teamqualification.html" class="source">UT2K4SPTab_TeamQualification</a></span> tpTeamQualification;
+<a name="31"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_ladder.html" class="source">UT2K4SPTab_Ladder</a></span> tpLadder;
+<a name="32"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span> tpTeamManagement;
+<a name="33"></a>
+<a name="34"></a>
+<a name="35"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../xgame/ut2k4gameprofile.html" class="source">UT2K4GameProfile</a></span> GP;
+<a name="36"></a>
+<a name="37"></a><span class="source_comment">/** various menu pages to open */</span>
+<a name="38"></a><span class="source_keyword">var</span> <span class="source_keyword">string</span> DetailsPage, InjuryPage, MessagePage, PictureMessagePage, HighScorePage;
+<a name="39"></a>
+<a name="40"></a><span class="source_comment">/** the map to open when the game has been completed */</span>
+<a name="41"></a><span class="source_keyword">var</span> <span class="source_keyword">string</span> EndGameMap;
+<a name="42"></a>
+<a name="43"></a><span class="source_comment">/** the pending active tab, will be activated after all tabs are added */</span>
+<a name="44"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> SetActiveTab;
+<a name="45"></a>
+<a name="46"></a><span class="source_comment">/**
+<a name="47"></a>	the ladder with the currently selected match
+<a name="48"></a>	used for the "play" button in the team management window
+<a name="49"></a>*/</span>
+<a name="50"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_ladderbase.html" class="source">UT2K4SPTab_LadderBase</a></span> LastLadderPage;
+<a name="51"></a>
+<a name="52"></a><span class="source_keyword">var</span> <span class="source_keyword2">config</span> <span class="source_keyword">bool</span> bEnableTC;
+<a name="53"></a>
+<a name="54"></a><span class="source_comment">// FIXME: set to false before shipping !!!
+</span><a name="55"></a><span class="source_keyword">const</span> SPDEBUGMODE = <span class="source_keyword">false</span>;
+<a name="56"></a>
+<a name="57"></a><span class="source_keyword">function</span> InitComponent(<span class="source_type"><a href="../xinterface/guicontroller.html" class="source">GUIController</a></span> MyController, <span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">MyOwner</span>)
+<a name="58"></a>{
+<a name="59"></a>	<span class="source_keyword">Super</span>.Initcomponent(MyController, <span class="source_type">MyOwner</span>);
+<a name="60"></a>	t_Header.SetCaption(PageCaption);
+<a name="61"></a>	tpProfile = <span class="source_type"><a href="../gui2k4/ut2k4sptab_profile.html" class="source">UT2K4SPTab_Profile</a></span>(addTab(<span class="source_int">0</span>, <span class="source_keyword">True</span>));
+<a name="62"></a>	tpTutorials = <span class="source_type"><a href="../gui2k4/ut2k4sptab_tutorials.html" class="source">UT2K4SPTab_Tutorials</a></span>(addTab(<span class="source_int">2</span>, <span class="source_keyword">False</span>));
+<a name="63"></a>}
+<a name="64"></a>
+<a name="65"></a><span class="source_keyword">event</span> HandleParameters(<span class="source_keyword">string</span> Param1, <span class="source_keyword">string</span> <span class="source_type">Param2</span>)
+<a name="66"></a>{
+<a name="67"></a>	UpdateTabs();
+<a name="68"></a>	HandleGameProfile();
+<a name="69"></a>	<span class="source_keyword">if</span> (SetActiveTab != <span class="source_keyword">none</span>) c_Tabs.ActivateTab(SetActiveTab.MyButton, <span class="source_keyword">true</span>);
+<a name="70"></a>}
+<a name="71"></a>
+<a name="72"></a><span class="source_keyword">function</span> HandleGameProfile()
+<a name="73"></a>{
+<a name="74"></a>	<span class="source_keyword">local</span> <span class="source_keyword">bool</span> bDonation;
+<a name="75"></a>	bDonation = <span class="source_keyword">false</span>;
+<a name="76"></a>	<span class="source_keyword">if</span> (GP != <span class="source_keyword">none</span>)
+<a name="77"></a>	{
+<a name="78"></a>		<span class="source_comment">// we don't have a game-over state
+</span><a name="79"></a>		<span class="source_comment">// sponsor will always invest up to 50 credits (entry fee of the first match)
+</span><a name="80"></a>		<span class="source_keyword">if</span> (GP.Balance &lt; GP.MinBalance)
+<a name="81"></a>		{
+<a name="82"></a>			GP.Balance = GP.MinBalance;
+<a name="83"></a>			<span class="source_keyword">if</span> (InStr(GP.SpecialEvent, <span class="source_string">";DONATION"</span>) &lt; <span class="source_int">0</span>)
+<a name="84"></a>			{
+<a name="85"></a>				bDonation = <span class="source_keyword">true</span>;
+<a name="86"></a>			}
+<a name="87"></a>		}
+<a name="88"></a>
+<a name="89"></a>		<span class="source_keyword">if</span> (GP.bInLadderGame && GP.bShowDetails && GP.lmdFreshInfo) <span class="source_comment">// intro work-around
+</span><a name="90"></a>		{
+<a name="91"></a>			<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(DetailsPage);
+<a name="92"></a>		}
+<a name="93"></a>		<span class="source_keyword">if</span> (GP.SpecialEvent != <span class="source_string">""</span> && GP.bInLadderGame)
+<a name="94"></a>		{
+<a name="95"></a>			HandleSpecialEvent(GP.SpecialEvent);
+<a name="96"></a>		}
+<a name="97"></a>		<span class="source_keyword">if</span> (GP.LastInjured != -<span class="source_int">1</span>)
+<a name="98"></a>		{
+<a name="99"></a>			<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(InjuryPage, <span class="source_keyword">string</span>(GP.LastInjured));
+<a name="100"></a>			GP.LastInjured = -<span class="source_int">1</span>;
+<a name="101"></a>		}
+<a name="102"></a>		GP.bInLadderGame = <span class="source_keyword">false</span>;
+<a name="103"></a>		GP.bIsChallenge = <span class="source_keyword">false</span>;
+<a name="104"></a>		<span class="source_keyword">if</span> (bDonation) reportDonation();
+<a name="105"></a>	}
+<a name="106"></a>}
+<a name="107"></a>
+<a name="108"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> InternalOnPreDraw(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span> <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>)
+<a name="109"></a>{
+<a name="110"></a>	<span class="source_keyword">local</span> <span class="source_keyword">float</span> XL,<span class="source_type">YL</span>;
+<a name="111"></a>	<span class="source_keyword">if</span> (btnDetails.bVisible) btnDetails.Style.TextSize(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>, btnDetails.MenuState, btnDetails.<span class="source_type">Caption</span>, XL, <span class="source_type">YL</span>, btnDetails.FontScale);
+<a name="112"></a>		<span class="source_keyword">else</span> btnPlay.Style.TextSize(<span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>, btnPlay.MenuState, btnPlay.<span class="source_type">Caption</span>, XL, <span class="source_type">YL</span>, btnPlay.FontScale);
+<a name="113"></a>
+<a name="114"></a>	<span class="source_comment">// Automatically size the buttons based on the size of their captions
+</span><a name="115"></a>	btnBack.WinWidth = XL+<span class="source_int">32</span>;
+<a name="116"></a>	btnBack.WinLeft = <span class="source_type"><a href="../engine/canvas.html" class="source">Canvas</a></span>.ClipX-btnBack.WinWidth;
+<a name="117"></a>
+<a name="118"></a>	btnPlay.WinWidth = XL+<span class="source_int">32</span>;
+<a name="119"></a>	btnPlay.WinLeft = btnBack.WinLeft-btnPlay.WinWidth;
+<a name="120"></a>
+<a name="121"></a>	btnDetails.WinWidth = XL+<span class="source_int">32</span>;
+<a name="122"></a>	btnDetails.WinLeft = btnPlay.WinLeft-btnDetails.WinWidth;
+<a name="123"></a>
+<a name="124"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="125"></a>}
+<a name="126"></a>
+<a name="127"></a><span class="source_comment">/** BACK button clicked, ask what to do  */</span>
+<a name="128"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> btnBackOnClick(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="129"></a>{
+<a name="130"></a>	<span class="source_keyword">if</span> (c_Tabs.ActiveTab  != <span class="source_keyword">none</span>)
+<a name="131"></a>	{
+<a name="132"></a>		<span class="source_keyword">if</span> (<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(c_Tabs.ActiveTab.MyPanel) != <span class="source_keyword">none</span>)
+<a name="133"></a>		{
+<a name="134"></a>			<span class="source_keyword">if</span> (<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(c_Tabs.ActiveTab.MyPanel).onBackClick()) <span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="135"></a>		}
+<a name="136"></a>	}
+<a name="137"></a>	<span class="source_keyword">if</span> (OnCanClose(<span class="source_keyword">true</span>)) <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.CloseMenu(<span class="source_keyword">true</span>);
+<a name="138"></a>	<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="139"></a>}
+<a name="140"></a>
+<a name="141"></a><span class="source_comment">/** PLAY button clicked, ask what to do  */</span>
+<a name="142"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> btnPlayOnClick(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="143"></a>{
+<a name="144"></a>	<span class="source_keyword">if</span> (c_Tabs.ActiveTab == <span class="source_keyword">none</span>) <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="145"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(c_Tabs.ActiveTab.MyPanel) != <span class="source_keyword">none</span>)
+<a name="146"></a>	{
+<a name="147"></a>		<span class="source_keyword">return</span> <span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(c_Tabs.ActiveTab.MyPanel).onPlayClick();
+<a name="148"></a>	}
+<a name="149"></a>	<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="150"></a>}
+<a name="151"></a>
+<a name="152"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> btnDetailsOnClick(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="153"></a>{
+<a name="154"></a>	<span class="source_keyword">return</span> <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(DetailsPage);
+<a name="155"></a>}
+<a name="156"></a>
+<a name="157"></a><span class="source_comment">/**
+<a name="158"></a>	Clicked a TabButton
+<a name="159"></a>*/</span>
+<a name="160"></a><span class="source_keyword">function</span> InternalOnChange(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="161"></a>{
+<a name="162"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../xinterface/guitabbutton.html" class="source">GUITabButton</a></span>(<span class="source_type">Sender</span>)==<span class="source_keyword">none</span>)	<span class="source_keyword">return</span>;
+<a name="163"></a>	<span class="source_keyword">if</span> (GP == <span class="source_keyword">none</span>) t_Header.SetCaption(PageCaption@<span class="source_string">"|"</span>@<span class="source_type"><a href="../xinterface/guitabbutton.html" class="source">GUITabButton</a></span>(<span class="source_type">Sender</span>).<span class="source_type">Caption</span>);
+<a name="164"></a>		<span class="source_keyword">else</span> t_Header.SetCaption(GP.<span class="source_type">PlayerName</span>$LoadedPageCaption@<span class="source_string">"|"</span>@<span class="source_type"><a href="../xinterface/guitabbutton.html" class="source">GUITabButton</a></span>(<span class="source_type">Sender</span>).<span class="source_type">Caption</span>);
+<a name="165"></a>}
+<a name="166"></a>
+<a name="167"></a><span class="source_comment">/**
+<a name="168"></a>	Update tabs when a gameprofile is loaded
+<a name="169"></a>*/</span>
+<a name="170"></a><span class="source_keyword">function</span> UpdateTabs(<span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bPurge, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bSetActive)
+<a name="171"></a>{
+<a name="172"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> tmp;
+<a name="173"></a>	<span class="source_comment">// most of the time this function is called when a new GP has been loaded
+</span><a name="174"></a>	GP = <span class="source_type"><a href="../xgame/ut2k4gameprofile.html" class="source">UT2K4GameProfile</a></span>(PlayerOwner().<span class="source_type">Level</span>.Game.CurrentGameProfile);
+<a name="175"></a>	<span class="source_keyword">if</span> ((GP == <span class="source_keyword">none</span>) || (bPurge))
+<a name="176"></a>	{
+<a name="177"></a>		removeTab(tpQualification);
+<a name="178"></a>		removeTab(tpTeamQualification);
+<a name="179"></a>		removeTab(tpLadder);
+<a name="180"></a>		removeTab(tpTeamManagement);
+<a name="181"></a>		btnDetails.bVisible = <span class="source_keyword">false</span>;
+<a name="182"></a>	}
+<a name="183"></a>	<span class="source_keyword">if</span> (GP != <span class="source_keyword">none</span>)
+<a name="184"></a>	{
+<a name="185"></a>		btnDetails.bVisible = (GP.lmdGameType != <span class="source_string">""</span>);
+<a name="186"></a>		tmp = addTab(<span class="source_int">3</span>, <span class="source_keyword">true</span>);
+<a name="187"></a>		<span class="source_keyword">if</span> (tmp != <span class="source_keyword">none</span>) tpQualification = <span class="source_type"><a href="../gui2k4/ut2k4sptab_qualification.html" class="source">UT2K4SPTab_Qualification</a></span>(tmp);
+<a name="188"></a>		<span class="source_comment">// Team Qualification
+</span><a name="189"></a>		<span class="source_keyword">if</span> (GP.LadderProgress[GP.UT2K4GameLadder.default.LID_TDM] != -<span class="source_int">1</span>)
+<a name="190"></a>		{
+<a name="191"></a>			tmp = addTab(<span class="source_int">4</span>, (GP.Balance &gt; GP.MinBalance));
+<a name="192"></a>			<span class="source_keyword">if</span> (tmp != <span class="source_keyword">none</span>) tpTeamQualification = <span class="source_type"><a href="../gui2k4/ut2k4sptab_teamqualification.html" class="source">UT2K4SPTab_TeamQualification</a></span>(tmp);
+<a name="193"></a>		}
+<a name="194"></a>		<span class="source_keyword">else</span> {
+<a name="195"></a>			removeTab(tpTeamQualification);
+<a name="196"></a>		}
+<a name="197"></a>		<span class="source_comment">// Main ladder
+</span><a name="198"></a>		<span class="source_keyword">if</span> (GP.completedLadder(GP.UT2K4GameLadder.default.LID_TDM))
+<a name="199"></a>		{
+<a name="200"></a>			tmp = addTab(<span class="source_int">5</span>, (GP.Balance &gt; GP.MinBalance));
+<a name="201"></a>			<span class="source_keyword">if</span> (tmp != <span class="source_keyword">none</span>) tpLadder = <span class="source_type"><a href="../gui2k4/ut2k4sptab_ladder.html" class="source">UT2K4SPTab_Ladder</a></span>(tmp);
+<a name="202"></a>		}
+<a name="203"></a>		<span class="source_keyword">else</span> {
+<a name="204"></a>			removeTab(tpLadder);
+<a name="205"></a>		}
+<a name="206"></a>		<span class="source_comment">// Team management
+</span><a name="207"></a>		<span class="source_keyword">if</span> (GP.LadderProgress[GP.UT2K4GameLadder.default.LID_TDM] != -<span class="source_int">1</span>)
+<a name="208"></a>		{
+<a name="209"></a>			tmp = addTab(<span class="source_int">6</span>, <span class="source_keyword">false</span>);
+<a name="210"></a>			<span class="source_keyword">if</span> (tmp != <span class="source_keyword">none</span>) tpTeamManagement = <span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>(tmp);
+<a name="211"></a>			<span class="source_keyword">if</span> (!GP.completedLadder(GP.UT2K4GameLadder.default.LID_TDM))
+<a name="212"></a>			{
+<a name="213"></a>				<span class="source_keyword">if</span> (tpTeamManagement != <span class="source_keyword">none</span>) tpTeamManagement.LockManagementTools();
+<a name="214"></a>			}
+<a name="215"></a>		}
+<a name="216"></a>		<span class="source_keyword">else</span> {
+<a name="217"></a>			<span class="source_keyword">if</span> (tpTeamManagement != <span class="source_keyword">none</span>)
+<a name="218"></a>			{
+<a name="219"></a>				<span class="source_keyword">if</span> (!tpTeamManagement.bInitialDraft) removeTab(tpTeamManagement);
+<a name="220"></a>			}
+<a name="221"></a>			<span class="source_keyword">else</span> removeTab(tpTeamManagement);
+<a name="222"></a>		}
+<a name="223"></a>
+<a name="224"></a>		<span class="source_keyword">if</span> (GP.bCompleted)
+<a name="225"></a>		{
+<a name="226"></a>			<span class="source_keyword">if</span> (GP.UT2K4GameLadder.default.AdditionalLadders.length &gt; <span class="source_int">0</span>) addTab(<span class="source_int">7</span>, <span class="source_keyword">false</span>);
+<a name="227"></a>		}
+<a name="228"></a>		<span class="source_keyword">else</span> c_Tabs.RemoveTab(PanelCaption[<span class="source_int">7</span>]);
+<a name="229"></a>	}
+<a name="230"></a>	<span class="source_keyword">if</span> (SetActiveTab != <span class="source_keyword">none</span> && bSetActive) c_Tabs.ActivateTab(SetActiveTab.MyButton, <span class="source_keyword">true</span>);
+<a name="231"></a>}
+<a name="232"></a>
+<a name="233"></a><span class="source_comment">/**
+<a name="234"></a>	Add a preconfigured tab
+<a name="235"></a>*/</span>
+<a name="236"></a><span class="source_keyword">function</span> <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> addTab(<span class="source_keyword">int</span> <span class="source_type">index</span>, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bActive)
+<a name="237"></a>{
+<a name="238"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> res;
+<a name="239"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">x</span>;
+<a name="240"></a>	<span class="source_type">x</span> = c_tabs.TabIndex(PanelCaption[<span class="source_type">index</span>]);
+<a name="241"></a>	<span class="source_keyword">if</span> (<span class="source_type">x</span> &gt; -<span class="source_int">1</span>)
+<a name="242"></a>	{
+<a name="243"></a>		<span class="source_keyword">if</span> (bActive) SetActiveTab = c_tabs.TabStack[<span class="source_type">x</span>].MyPanel;
+<a name="244"></a>		<span class="source_keyword">return</span> <span class="source_keyword">none</span>;
+<a name="245"></a>	}
+<a name="246"></a>	res = c_Tabs.AddTab(PanelCaption[<span class="source_type">index</span>], <span class="source_type">PanelClass</span>[<span class="source_type">index</span>], , PanelHint[<span class="source_type">index</span>], <span class="source_keyword">false</span>);
+<a name="247"></a>	<span class="source_keyword">if</span> (bActive) SetActiveTab = res;
+<a name="248"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(res) != <span class="source_keyword">none</span>) <span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(res).MainWindow = self;
+<a name="249"></a>	<span class="source_keyword">return</span> res;
+<a name="250"></a>}
+<a name="251"></a>
+<a name="252"></a><span class="source_comment">/**
+<a name="253"></a>	Replace an existing tab
+<a name="254"></a>*/</span>
+<a name="255"></a><span class="source_keyword">function</span> <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> replaceTab(<span class="source_keyword">int</span> <span class="source_type">index</span>, <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> previousPage, <span class="source_keyword2">optional</span> <span class="source_keyword">bool</span> bActive)
+<a name="256"></a>{
+<a name="257"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> res;
+<a name="258"></a>	res = c_Tabs.ReplaceTab(previousPage.MyButton, PanelCaption[<span class="source_type">index</span>], <span class="source_type">PanelClass</span>[<span class="source_type">index</span>], , PanelHint[<span class="source_type">index</span>], <span class="source_keyword">false</span>);
+<a name="259"></a>	<span class="source_keyword">if</span> (bActive) SetActiveTab = res;
+<a name="260"></a>	<span class="source_keyword">if</span> (<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(res) != <span class="source_keyword">none</span>) <span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(res).MainWindow = self;
+<a name="261"></a>	<span class="source_keyword">return</span> res;
+<a name="262"></a>}
+<a name="263"></a>
+<a name="264"></a><span class="source_comment">/**
+<a name="265"></a>	Shorthand to remove a tab
+<a name="266"></a>*/</span>
+<a name="267"></a><span class="source_keyword">function</span> removeTab(<span class="source_type"><a href="../xinterface/guitabpanel.html" class="source">GUITabPanel</a></span> <span class="source_type">tab</span>)
+<a name="268"></a>{
+<a name="269"></a>	<span class="source_keyword">if</span> (<span class="source_type">tab</span> != <span class="source_keyword">none</span>)
+<a name="270"></a>	{
+<a name="271"></a>		<span class="source_keyword">if</span> (SetActiveTab == <span class="source_type">tab</span>) SetActiveTab = <span class="source_keyword">none</span>;
+<a name="272"></a>		c_Tabs.RemoveTab(, <span class="source_type">tab</span>.MyButton);
+<a name="273"></a>		<span class="source_type">tab</span> = <span class="source_keyword">none</span>;
+<a name="274"></a>	}
+<a name="275"></a>}
+<a name="276"></a>
+<a name="277"></a><span class="source_comment">/** handle special events, delimited by semi-colons */</span>
+<a name="278"></a><span class="source_keyword">function</span> HandleSpecialEvent(<span class="source_keyword">string</span> SpecialEvent)
+<a name="279"></a>{
+<a name="280"></a>	<span class="source_keyword">local</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; Events, CurEvent;
+<a name="281"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>, j;
+<a name="282"></a>	<span class="source_keyword">local</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xgame/challengegame.html" class="source">ChallengeGame</a></span>.<span class="source_type"><a href="../xgame/challengegame.html#TriString" class="source">TriString</a></span>&gt; ChalPages;
+<a name="283"></a>
+<a name="284"></a>	<span class="source_keyword">if</span> (GP == <span class="source_keyword">none</span>) <span class="source_keyword">return</span>;
+<a name="285"></a>
+<a name="286"></a>	split(SpecialEvent, <span class="source_string">";"</span>, Events);
+<a name="287"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; Events.length; <span class="source_type">i</span>++)
+<a name="288"></a>	{
+<a name="289"></a>		<span class="source_keyword">if</span> (Events[<span class="source_type">i</span>] == <span class="source_string">""</span>) continue;
+<a name="290"></a>		split(Events[<span class="source_type">i</span>], <span class="source_string">" "</span>, CurEvent);
+<a name="291"></a>		<span class="source_keyword">if</span> (CurEvent.length == <span class="source_int">0</span>) continue;
+<a name="292"></a>		<span class="source_keyword">if</span> (SPDEBUGMODE) log(<span class="source_string">"HandleSpecialEvent("</span>@Events[<span class="source_type">i</span>]@<span class="source_string">")"</span>, GP.LogPrefix);
+<a name="293"></a>		<span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"WELCOME"</span>)
+<a name="294"></a>		{
+<a name="295"></a>			<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, <span class="source_string">"0"</span>);
+<a name="296"></a>		}
+<a name="297"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"DRAFT"</span>)
+<a name="298"></a>		{
+<a name="299"></a>			<span class="source_comment">// check if we already have a team
+</span><a name="300"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; GP.GetMaxTeamSize(); j++)
+<a name="301"></a>			{
+<a name="302"></a>				<span class="source_keyword">if</span> (GP.PlayerTeam[j] == <span class="source_string">""</span>) <span class="source_keyword">break</span>;
+<a name="303"></a>			}
+<a name="304"></a>			<span class="source_comment">// show team management window in draft mode;
+</span><a name="305"></a>			<span class="source_keyword">if</span> (j != GP.GetMaxTeamSize())
+<a name="306"></a>			{
+<a name="307"></a>				tpTeamManagement = <span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>(replaceTab(<span class="source_int">6</span>, tpQualification, <span class="source_keyword">true</span>));
+<a name="308"></a>				tpTeamManagement.bInitialDraft = <span class="source_keyword">true</span>;
+<a name="309"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, <span class="source_string">"1"</span>);
+<a name="310"></a>			}
+<a name="311"></a>		}
+<a name="312"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"QUALIFIED"</span>)
+<a name="313"></a>		{
+<a name="314"></a>			<span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"SINGLE"</span>)
+<a name="315"></a>			{
+<a name="316"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, <span class="source_string">"2"</span>);
+<a name="317"></a>			}
+<a name="318"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"TEAM"</span>)
+<a name="319"></a>			{
+<a name="320"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, <span class="source_string">"3"</span>);
+<a name="321"></a>				<span class="source_keyword">class</span><span class="source_name">'UT2K4SPTab_Tutorials'</span>.<span class="source_keyword2">static</span>.unlockButton(<span class="source_string">"TDM"</span>);
+<a name="322"></a>				<span class="source_comment">// won all matches up till now, add the secret Epic Phantom Team
+</span><a name="323"></a>				<span class="source_keyword">if</span> (GP.Matches == GP.Wins) GP.GetTeamPosition(<span class="source_string">"xGame.PhantomEpic"</span>, <span class="source_keyword">true</span>);
+<a name="324"></a>			}
+<a name="325"></a>		}
+<a name="326"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"OPEN"</span>) <span class="source_comment">// open a ladder
+</span><a name="327"></a>		{
+<a name="328"></a>			j = -<span class="source_int">1</span>;
+<a name="329"></a>			<span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"TDM"</span>) GP.enableLadder(GP.UT2K4GameLadder.default.LID_TDM);
+<a name="330"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"CTF"</span>)
+<a name="331"></a>			{
+<a name="332"></a>				GP.enableLadder(GP.UT2K4GameLadder.default.LID_CTF);
+<a name="333"></a>				j = <span class="source_int">4</span>;
+<a name="334"></a>			}
+<a name="335"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"BR"</span>)
+<a name="336"></a>			{
+<a name="337"></a>				GP.enableLadder(GP.UT2K4GameLadder.default.LID_BR);
+<a name="338"></a>				j = <span class="source_int">5</span>;
+<a name="339"></a>			}
+<a name="340"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"DOM"</span>) GP.enableLadder(GP.UT2K4GameLadder.default.LID_DOM);
+<a name="341"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"AS"</span>)
+<a name="342"></a>			{
+<a name="343"></a>				GP.enableLadder(GP.UT2K4GameLadder.default.LID_AS);
+<a name="344"></a>				j = <span class="source_int">6</span>;
+<a name="345"></a>			}
+<a name="346"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"CHAMP"</span>)
+<a name="347"></a>			{
+<a name="348"></a>				GP.enableLadder(GP.UT2K4GameLadder.default.LID_CHAMP);
+<a name="349"></a>				<span class="source_comment">// note: this will set the final team
+</span><a name="350"></a>				CurEvent[<span class="source_int">1</span>] = GP.GetEnemyTeamName(GP.GetMatchInfo(GP.UT2K4GameLadder.default.LID_CHAMP, <span class="source_int">0</span>).EnemyTeamName);
+<a name="351"></a>				<span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] ~= <span class="source_string">"xGame.TeamThundercrash"</span>) j = <span class="source_int">8</span>;
+<a name="352"></a>				<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] ~= <span class="source_string">"xGame.TeamIronSkull"</span>) j = <span class="source_int">7</span>;
+<a name="353"></a>				<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] ~= <span class="source_string">"xGame.TeamCorrupt"</span>) j = <span class="source_int">9</span>;
+<a name="354"></a>			}
+<a name="355"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"ALL"</span>) GP.enableLadder(-<span class="source_int">1</span>); <span class="source_comment">// all except championship
+</span><a name="356"></a>			UpdateTabs(<span class="source_keyword">true</span>, <span class="source_keyword">true</span>);
+<a name="357"></a>			<span class="source_keyword">if</span> (j &gt; -<span class="source_int">1</span>) <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, <span class="source_keyword">string</span>(j));
+<a name="358"></a>		}
+<a name="359"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"COMPLETED"</span>) <span class="source_comment">// open a ladder
+</span><a name="360"></a>		{
+<a name="361"></a>			<span class="source_keyword">class</span><span class="source_name">'UT2K4SPTab_Tutorials'</span>.<span class="source_keyword2">static</span>.unlockButton(CurEvent[<span class="source_int">1</span>]);
+<a name="362"></a>			<span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"CHAMP"</span>)
+<a name="363"></a>			{
+<a name="364"></a>				<span class="source_comment">// What's up with this Mr.Crow crazyness
+</span><a name="365"></a>				<span class="source_keyword">if</span> (GP.PlayerCharacter ~= <span class="source_string">"Mr.Crow"</span>)
+<a name="366"></a>				{
+<a name="367"></a>					bEnableTC = <span class="source_keyword">true</span>;
+<a name="368"></a>					SaveConfig();
+<a name="369"></a>				}
+<a name="370"></a>
+<a name="371"></a>				GP.bInLadderGame = <span class="source_keyword">true</span>;  <span class="source_comment">// return to display hiscore
+</span><a name="372"></a>				<span class="source_keyword">if</span> (!GP.bCompleted)
+<a name="373"></a>				{
+<a name="374"></a>					GP.SpecialEvent = <span class="source_string">"SHOWSCORE"</span>@<span class="source_keyword">string</span>(DoHighScore());
+<a name="375"></a>				}
+<a name="376"></a>				GP.bCompleted = <span class="source_keyword">true</span>;
+<a name="377"></a>				PlayerOwner().<span class="source_type">Level</span>.Game.SavePackage(GP.PackageName);
+<a name="378"></a>				<span class="source_keyword">if</span> (EndGameMap != <span class="source_string">""</span>)
+<a name="379"></a>				{
+<a name="380"></a>					Log(<span class="source_string">"Starting endgame movie"</span>, GP.LogPrefix);
+<a name="381"></a>					bAllowedAsLast = <span class="source_keyword">true</span>; <span class="source_comment">// workaround, or else the main window will pop up
+</span><a name="382"></a>					<span class="source_type"><a href="../engine/console.html" class="source">Console</a></span>(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.Master.<span class="source_type"><a href="../engine/console.html" class="source">Console</a></span>).DelayedConsoleCommand(<span class="source_string">"START "</span>$EndGameMap$<span class="source_string">"?quickstart=true?TeamScreen=false?savegame="</span>$GP.PackageName);
+<a name="383"></a>					<span class="source_comment">//PlayerOwner().ConsoleCommand("START "$EndGameMap$"?quickstart=true?TeamScreen=false?savegame="$GP.PackageName, true);
+</span><a name="384"></a>					<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.CloseAll(<span class="source_keyword">false</span>,<span class="source_keyword">true</span>);
+<a name="385"></a>					<span class="source_keyword">return</span>;
+<a name="386"></a>				}
+<a name="387"></a>				<span class="source_keyword">else</span> {
+<a name="388"></a>					<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, <span class="source_string">"10"</span>);
+<a name="389"></a>				}
+<a name="390"></a>			}
+<a name="391"></a>			<span class="source_keyword">else</span> {
+<a name="392"></a>				<span class="source_comment">/*
+<a name="393"></a>				if (CurEvent[1] == "CTF")
+<a name="394"></a>					Controller.OpenMenu(PictureMessagePage, GP.GetLadderDescription(GP.UT2K4GameLadder.default.LID_CTF)@LadderCompleteMsg, "LadderShots.CTFMoneyShot");
+<a name="395"></a>				else if (CurEvent[1] == "BR")
+<a name="396"></a>					Controller.OpenMenu(PictureMessagePage, GP.GetLadderDescription(GP.UT2K4GameLadder.default.LID_BR)@LadderCompleteMsg, "LadderShots.BRMoneyShot");
+<a name="397"></a>				else if (CurEvent[1] == "DOM")
+<a name="398"></a>					Controller.OpenMenu(PictureMessagePage, GP.GetLadderDescription(GP.UT2K4GameLadder.default.LID_DOM)@LadderCompleteMsg, "LadderShots.DOMMoneyShot");
+<a name="399"></a>				else if (CurEvent[1] == "AS") // TODO: Assult image
+<a name="400"></a>					Controller.OpenMenu(PictureMessagePage, GP.GetLadderDescription(GP.UT2K4GameLadder.default.LID_AS)@LadderCompleteMsg, "LadderShots.TeamDMMoneyShot");
+<a name="401"></a>				*/</span>
+<a name="402"></a>
+<a name="403"></a>				<span class="source_keyword">if</span> (GP.openChampionshipLadder())
+<a name="404"></a>				{
+<a name="405"></a>					Log(<span class="source_string">"Opening championship ladder"</span>, GP.LogPrefix);
+<a name="406"></a>					HandleSpecialEvent(<span class="source_string">"OPEN CHAMP"</span>);
+<a name="407"></a>				}
+<a name="408"></a>			}
+<a name="409"></a>		}
+<a name="410"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"BALANCE"</span>) <span class="source_comment">// update balance
+</span><a name="411"></a>		{
+<a name="412"></a>			GP.Balance += <span class="source_keyword">int</span>(CurEvent[<span class="source_int">1</span>]);
+<a name="413"></a>		}
+<a name="414"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"UPDATETEAMS"</span>) <span class="source_comment">// find "free agent" teams
+</span><a name="415"></a>		{
+<a name="416"></a>			UpdateFreeAgentTeams();
+<a name="417"></a>		}
+<a name="418"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"SHOWSCORE"</span>)
+<a name="419"></a>		{
+<a name="420"></a>			<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(HighScorePage, CurEvent[<span class="source_int">1</span>]);
+<a name="421"></a>		}
+<a name="422"></a>		<span class="source_comment">// challenge team game
+</span><a name="423"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"CHALLENGE"</span>)
+<a name="424"></a>		{
+<a name="425"></a>			<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(GP.GetChallengeGame(CurEvent[<span class="source_int">2</span>]).default.ChallengeMenu, CurEvent[<span class="source_int">1</span>], <span class="source_string">"true"</span>);
+<a name="426"></a>		}
+<a name="427"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"DONATION"</span>)
+<a name="428"></a>		{
+<a name="429"></a>			reportDonation();
+<a name="430"></a>		}
+<a name="431"></a>
+<a name="432"></a>
+<a name="433"></a>		<span class="source_comment">// debug commands --
+</span><a name="434"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">0</span>] == <span class="source_string">"DEBUG"</span> && SPDEBUGMODE)
+<a name="435"></a>		{
+<a name="436"></a>			<span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"UPDATETABS"</span>) UpdateTabs(<span class="source_keyword">true</span>);
+<a name="437"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"SETLADDER"</span>) GP.LadderProgress[<span class="source_keyword">int</span>(CurEvent[<span class="source_int">2</span>])] = <span class="source_keyword">int</span>(CurEvent[<span class="source_int">3</span>]);
+<a name="438"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"INLADDERGAME"</span>) GP.bInLadderGame = <span class="source_keyword">true</span>;
+<a name="439"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"INJURY"</span>) <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(<span class="source_string">"GUI2K4.UT2K4SP_Injury"</span>, CurEvent[<span class="source_int">2</span>]);
+<a name="440"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"HEALTH"</span>) GP.BotStats[<span class="source_keyword">int</span>(CurEvent[<span class="source_int">2</span>])].Health = <span class="source_keyword">byte</span>(CurEvent[<span class="source_int">3</span>]);
+<a name="441"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"ALTPATH"</span>)
+<a name="442"></a>			{
+<a name="443"></a>				<span class="source_keyword">if</span> (CurEvent.length &lt;= <span class="source_int">2</span>) GP.AltPath = rand(MaxInt); <span class="source_keyword">else</span> GP.AltPath = <span class="source_keyword">int</span>(CurEvent[<span class="source_int">2</span>]);
+<a name="444"></a>			}
+<a name="445"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"DUMP"</span>)
+<a name="446"></a>			{
+<a name="447"></a>				<span class="source_keyword">if</span> (CurEvent[<span class="source_int">2</span>]== <span class="source_string">"BOTSTATS"</span>)
+<a name="448"></a>				{
+<a name="449"></a>					<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; GP.BotStats.Length; j++)
+<a name="450"></a>					{
+<a name="451"></a>						Log(<span class="source_string">"::"</span>@j@GP.BotStats[j].<span class="source_keyword">Name</span>@GP.BotStats[j].Price@GP.BotStats[j].Health@GP.BotStats[j].FreeAgent@GP.BotStats[j].TeamId, GP.LogPrefix);
+<a name="452"></a>					}
+<a name="453"></a>				}
+<a name="454"></a>				<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">2</span>]== <span class="source_string">"TEAMSTATS"</span>)
+<a name="455"></a>				{
+<a name="456"></a>					<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; GP.TeamStats.Length; j++)
+<a name="457"></a>					{
+<a name="458"></a>						Log(<span class="source_string">"::"</span>@j@GP.TeamStats[j].<span class="source_keyword">Name</span>@GP.TeamStats[j].<span class="source_type">Level</span>@GP.TeamStats[j].Matches@GP.TeamStats[j].Won@GP.TeamStats[j].<span class="source_type">Rating</span>);
+<a name="459"></a>					}
+<a name="460"></a>				}
+<a name="461"></a>			}
+<a name="462"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"MESG"</span>) <span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(MessagePage, CurEvent[<span class="source_int">2</span>]);
+<a name="463"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"NCOMPL"</span>)
+<a name="464"></a>			{
+<a name="465"></a>				GP.bCompleted = <span class="source_keyword">false</span>;
+<a name="466"></a>				GP.LadderProgress[<span class="source_int">6</span>] = <span class="source_int">1</span>;
+<a name="467"></a>			}
+<a name="468"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"ON"</span>) GP.bDebug = <span class="source_keyword">true</span>;
+<a name="469"></a>			<span class="source_keyword">else</span> <span class="source_keyword">if</span> (CurEvent[<span class="source_int">1</span>] == <span class="source_string">"OFF"</span>) GP.bDebug = <span class="source_keyword">false</span>;
+<a name="470"></a>		}
+<a name="471"></a>		<span class="source_comment">// -- debug commands
+</span><a name="472"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (GP.lmdbChallengeGame && GP.ChallengeGameClass != <span class="source_keyword">none</span>)
+<a name="473"></a>		{
+<a name="474"></a>			ChalPages.length = <span class="source_int">0</span>;
+<a name="475"></a>			GP.ChallengeGameClass.<span class="source_keyword2">static</span>.HandleSpecialEvent(GP, CurEvent, ChalPages);
+<a name="476"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; ChalPages.length; j++)
+<a name="477"></a>			{
+<a name="478"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(ChalPages[j].<span class="source_type"><a href="../xinterface/guipage.html" class="source">GUIPage</a></span>, ChalPages[j].Param1, ChalPages[j].<span class="source_type">Param2</span>);
+<a name="479"></a>			}
+<a name="480"></a>		}
+<a name="481"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (GP.LastCustomCladder != <span class="source_keyword">none</span>)
+<a name="482"></a>		{
+<a name="483"></a>			ChalPages.length = <span class="source_int">0</span>;
+<a name="484"></a>			GP.LastCustomCladder.<span class="source_keyword2">static</span>.HandleSpecialEvent(GP, CurEvent, ChalPages);
+<a name="485"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; ChalPages.length; j++)
+<a name="486"></a>			{
+<a name="487"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(ChalPages[j].<span class="source_type"><a href="../xinterface/guipage.html" class="source">GUIPage</a></span>, ChalPages[j].Param1, ChalPages[j].<span class="source_type">Param2</span>);
+<a name="488"></a>			}
+<a name="489"></a>		}
+<a name="490"></a>		<span class="source_keyword">else</span> Log(<span class="source_string">"Unknown special event: '"</span>$Events[<span class="source_type">i</span>]$<span class="source_string">"'"</span>, GP.LogPrefix);
+<a name="491"></a>	}
+<a name="492"></a>}
+<a name="493"></a>
+<a name="494"></a><span class="source_comment">/** parse match requirement string, returns false when a single requirement is not met */</span>
+<a name="495"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> HandleRequirements(<span class="source_keyword">string</span> reqstring)
+<a name="496"></a>{
+<a name="497"></a>	<span class="source_keyword">local</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; reqs, curreq;
+<a name="498"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>, j;
+<a name="499"></a>	<span class="source_keyword">local</span> <span class="source_keyword">array</span>&lt;<span class="source_type"><a href="../xgame/challengegame.html" class="source">ChallengeGame</a></span>.<span class="source_type"><a href="../xgame/challengegame.html#TriString" class="source">TriString</a></span>&gt; ChalPages;
+<a name="500"></a>	<span class="source_keyword">local</span> <span class="source_keyword">bool</span> tempres;
+<a name="501"></a>
+<a name="502"></a>	<span class="source_keyword">if</span> (GP == <span class="source_keyword">none</span>) <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="503"></a>	<span class="source_keyword">if</span> (reqstring == <span class="source_string">""</span>) <span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="504"></a>	split(reqstring, <span class="source_string">";"</span>, reqs);
+<a name="505"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; reqs.length; <span class="source_type">i</span>++)
+<a name="506"></a>	{
+<a name="507"></a>		<span class="source_keyword">if</span> (split(reqs[<span class="source_type">i</span>], <span class="source_string">" "</span>, curreq) == <span class="source_int">0</span>) continue;
+<a name="508"></a>		<span class="source_keyword">if</span> (curreq[<span class="source_int">0</span>] == <span class="source_string">"FULLTEAM"</span>)
+<a name="509"></a>		{
+<a name="510"></a>			<span class="source_keyword">if</span> (!GP.HasFullTeam())
+<a name="511"></a>			{
+<a name="512"></a>				Log(<span class="source_string">"Failed requirement: FULLTEAM"</span>, GP.LogPrefix);
+<a name="513"></a>				<span class="source_keyword">if</span> (GP.completedLadder(GP.UT2K4GameLadder.default.LID_DM))
+<a name="514"></a>				{
+<a name="515"></a>					<span class="source_keyword">if</span> (c_Tabs.ActiveTab != tpTeamManagement.MyButton)
+<a name="516"></a>						c_Tabs.ActivateTab(tpTeamManagement.MyButton, <span class="source_keyword">true</span>);
+<a name="517"></a>				}
+<a name="518"></a>				<span class="source_keyword">else</span> {
+<a name="519"></a>					<span class="source_keyword">if</span> (c_Tabs.ActiveTab.MyPanel != tpTeamManagement)
+<a name="520"></a>					{
+<a name="521"></a>						tpTeamManagement = <span class="source_type"><a href="../gui2k4/ut2k4sptab_teammanagement.html" class="source">UT2K4SPTab_TeamManagement</a></span>(replaceTab(<span class="source_int">6</span>, tpQualification, <span class="source_keyword">true</span>));
+<a name="522"></a>						tpTeamManagement.bInitialDraft = <span class="source_keyword">true</span>;
+<a name="523"></a>						c_Tabs.ActivateTab(tpTeamManagement.MyButton, <span class="source_keyword">true</span>);
+<a name="524"></a>					}
+<a name="525"></a>				}
+<a name="526"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.ShowQuestionDialog(msgFullTeamRequired);
+<a name="527"></a>				<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="528"></a>			}
+<a name="529"></a>		}
+<a name="530"></a>
+<a name="531"></a>
+<a name="532"></a>		<span class="source_comment">// we assume that these vars have been set before this method is called
+</span><a name="533"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (GP.ChallengeGameClass != <span class="source_keyword">none</span>)
+<a name="534"></a>		{
+<a name="535"></a>			ChalPages.length = <span class="source_int">0</span>;
+<a name="536"></a>			tempres = GP.ChallengeGameClass.<span class="source_keyword2">static</span>.HandleRequirements(GP, curreq, ChalPages);
+<a name="537"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; ChalPages.length; j++)
+<a name="538"></a>			{
+<a name="539"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(ChalPages[j].<span class="source_type"><a href="../xinterface/guipage.html" class="source">GUIPage</a></span>, ChalPages[j].Param1, ChalPages[j].<span class="source_type">Param2</span>);
+<a name="540"></a>			}
+<a name="541"></a>			<span class="source_keyword">if</span> (!tempres)
+<a name="542"></a>			{
+<a name="543"></a>				Log(<span class="source_string">"Failed requirement:"</span>@curreq[<span class="source_int">0</span>], GP.LogPrefix);
+<a name="544"></a>				<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="545"></a>			}
+<a name="546"></a>		}
+<a name="547"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (GP.LastCustomCladder != <span class="source_keyword">none</span>)
+<a name="548"></a>		{
+<a name="549"></a>			ChalPages.length = <span class="source_int">0</span>;
+<a name="550"></a>			tempres = GP.LastCustomCladder.<span class="source_keyword2">static</span>.HandleRequirements(GP, curreq, ChalPages);
+<a name="551"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; ChalPages.length; j++)
+<a name="552"></a>			{
+<a name="553"></a>				<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.OpenMenu(ChalPages[j].<span class="source_type"><a href="../xinterface/guipage.html" class="source">GUIPage</a></span>, ChalPages[j].Param1, ChalPages[j].<span class="source_type">Param2</span>);
+<a name="554"></a>			}
+<a name="555"></a>			<span class="source_keyword">if</span> (!tempres)
+<a name="556"></a>			{
+<a name="557"></a>				Log(<span class="source_string">"Failed requirement:"</span>@curreq[<span class="source_int">0</span>], GP.LogPrefix);
+<a name="558"></a>				<span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="559"></a>			}
+<a name="560"></a>		}
+<a name="561"></a>		<span class="source_keyword">else</span> Log(<span class="source_string">"Unknown special event:"</span>@reqs[<span class="source_type">i</span>], GP.LogPrefix);
+<a name="562"></a>	}
+<a name="563"></a>	<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="564"></a>}
+<a name="565"></a>
+<a name="566"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> btnDebugExecOnClick(<span class="source_type"><a href="../xinterface/guicomponent.html" class="source">GUIComponent</a></span> <span class="source_type">Sender</span>)
+<a name="567"></a>{
+<a name="568"></a>	<span class="source_keyword">if</span> (!SPDEBUGMODE) <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="569"></a>	HandleSpecialEvent(Caps(edDebugExec.GetText()));
+<a name="570"></a>	edDebugExec.SetText(<span class="source_string">""</span>);
+<a name="571"></a>	<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="572"></a>}
+<a name="573"></a>
+<a name="574"></a><span class="source_comment">/** calculate which bots are available to be hired */</span>
+<a name="575"></a><span class="source_keyword">function</span> UpdateFreeAgentTeams()
+<a name="576"></a>{
+<a name="577"></a>	<span class="source_keyword">local</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">string</span>&gt; groups, teams, tmp;
+<a name="578"></a>	<span class="source_keyword">local</span> <span class="source_keyword">array</span>&lt;<span class="source_keyword">int</span>&gt; freegroups, freeteams;
+<a name="579"></a>	<span class="source_keyword">local</span> <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../xgame/ut2k4rostergroup.html" class="source">UT2K4RosterGroup</a></span>&gt; rgp;
+<a name="580"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>, j, k, teamid;
+<a name="581"></a>
+<a name="582"></a>	<span class="source_comment">// gather groups and team;
+</span><a name="583"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = GP.UT2K4GameLadder.default.LID_TDM; <span class="source_type">i</span> &lt; GP.UT2K4GameLadder.default.LID_CHAMP; <span class="source_type">i</span>++)
+<a name="584"></a>	{
+<a name="585"></a>		<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; GP.LengthOfLadder(<span class="source_type">i</span>); j++)
+<a name="586"></a>		{
+<a name="587"></a>			Split(GP.GetMatchInfo(<span class="source_type">i</span>, j).EnemyTeamName, <span class="source_string">";"</span>, tmp);
+<a name="588"></a>			<span class="source_keyword">if</span> (tmp.length &gt; <span class="source_int">1</span>)
+<a name="589"></a>			{
+<a name="590"></a>				<span class="source_keyword">for</span> (k = <span class="source_int">0</span>; k &lt; groups.length; k++)
+<a name="591"></a>				{
+<a name="592"></a>					<span class="source_keyword">if</span> (groups[k] ~= tmp[<span class="source_int">1</span>]) <span class="source_keyword">break</span>;
+<a name="593"></a>				}
+<a name="594"></a>				<span class="source_keyword">if</span> (k == groups.length)
+<a name="595"></a>				{
+<a name="596"></a>					groups.length = k+<span class="source_int">1</span>;
+<a name="597"></a>					groups[k] = tmp[<span class="source_int">1</span>];
+<a name="598"></a>					freegroups.length = k+<span class="source_int">1</span>;
+<a name="599"></a>					freegroups[k] = <span class="source_int">1</span>;
+<a name="600"></a>				}
+<a name="601"></a>				<span class="source_keyword">if</span> (GP.LadderProgress[<span class="source_type">i</span>] &lt;= j)
+<a name="602"></a>				{
+<a name="603"></a>					freegroups[k] = <span class="source_int">0</span>;
+<a name="604"></a>				}
+<a name="605"></a>			}
+<a name="606"></a>			<span class="source_keyword">else</span> {
+<a name="607"></a>				<span class="source_keyword">for</span> (k = <span class="source_int">0</span>; k &lt; teams.length; k++)
+<a name="608"></a>				{
+<a name="609"></a>					<span class="source_keyword">if</span> (teams[k] ~= tmp[<span class="source_int">0</span>]) <span class="source_keyword">break</span>;
+<a name="610"></a>				}
+<a name="611"></a>				<span class="source_keyword">if</span> (k == teams.length)
+<a name="612"></a>				{
+<a name="613"></a>					teams.length = k+<span class="source_int">1</span>;
+<a name="614"></a>					teams[k] = tmp[<span class="source_int">0</span>];
+<a name="615"></a>					freeteams.length = k+<span class="source_int">1</span>;
+<a name="616"></a>					freeteams[k] = <span class="source_int">1</span>;
+<a name="617"></a>				}
+<a name="618"></a>				<span class="source_keyword">if</span> (GP.LadderProgress[<span class="source_type">i</span>] &lt;= j)
+<a name="619"></a>				{
+<a name="620"></a>					freeteams[k] = <span class="source_int">0</span>;
+<a name="621"></a>				}
+<a name="622"></a>			}
+<a name="623"></a>		}
+<a name="624"></a>	}
+<a name="625"></a>	<span class="source_comment">// merge groups with teams
+</span><a name="626"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; groups.length; <span class="source_type">i</span>++)
+<a name="627"></a>	{
+<a name="628"></a>		<span class="source_keyword">if</span> (freegroups[<span class="source_type">i</span>] &gt; <span class="source_int">0</span>)
+<a name="629"></a>		{
+<a name="630"></a>			rgp = <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../xgame/ut2k4rostergroup.html" class="source">UT2K4RosterGroup</a></span>&gt;(DynamicLoadObject(groups[<span class="source_type">i</span>], <span class="source_keyword">class</span><span class="source_name">'Class'</span>));
+<a name="631"></a>			<span class="source_keyword">if</span> (rgp == <span class="source_keyword">none</span>) continue;
+<a name="632"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; rgp.default.Rosters.length; j++)
+<a name="633"></a>			{
+<a name="634"></a>				<span class="source_keyword">for</span> (k = <span class="source_int">0</span>; k &lt; teams.length; k++)
+<a name="635"></a>				{
+<a name="636"></a>					<span class="source_keyword">if</span> (teams[k] ~= rgp.default.Rosters[j]) <span class="source_keyword">break</span>;
+<a name="637"></a>				}
+<a name="638"></a>				<span class="source_keyword">if</span> (k == teams.length)
+<a name="639"></a>				{
+<a name="640"></a>					teams.length = k+<span class="source_int">1</span>;
+<a name="641"></a>					teams[k] = rgp.default.Rosters[j];
+<a name="642"></a>					freeteams.length = k+<span class="source_int">1</span>;
+<a name="643"></a>					freeteams[k] = <span class="source_int">1</span>;
+<a name="644"></a>				}
+<a name="645"></a>			}
+<a name="646"></a>		}
+<a name="647"></a>	}
+<a name="648"></a>	<span class="source_comment">// we now have all free teams, flag all bots
+</span><a name="649"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; teams.length; <span class="source_type">i</span>++)
+<a name="650"></a>	{
+<a name="651"></a>		teamid = GP.GetTeamPosition(teams[<span class="source_type">i</span>]);
+<a name="652"></a>		<span class="source_keyword">if</span> (teamid != -<span class="source_int">1</span>)
+<a name="653"></a>		{
+<a name="654"></a>			<span class="source_keyword">for</span> (j = <span class="source_int">0</span>; j &lt; GP.BotStats.length; j++)
+<a name="655"></a>			{
+<a name="656"></a>				<span class="source_keyword">if</span> (GP.BotStats[j].TeamId == teamid) GP.BotStats[j].FreeAgent = (freeteams[<span class="source_type">i</span>] &gt; <span class="source_int">0</span>) && (!GP.IsTeammate(GP.BotStats[j].<span class="source_keyword">Name</span>));
+<a name="657"></a>			}
+<a name="658"></a>		}
+<a name="659"></a>	}
+<a name="660"></a>}
+<a name="661"></a>
+<a name="662"></a><span class="source_comment">/** Add the current profile to the highscore */</span>
+<a name="663"></a><span class="source_keyword">function</span> <span class="source_keyword">int</span> DoHighScore()
+<a name="664"></a>{
+<a name="665"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../gui2k4/sphighscore.html" class="source">SPHighScore</a></span> HS;
+<a name="666"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> res;
+<a name="667"></a>
+<a name="668"></a>	<span class="source_keyword">if</span> (GP == <span class="source_keyword">none</span>)
+<a name="669"></a>	{
+<a name="670"></a>		Warn(<span class="source_string">"GP == none"</span>);
+<a name="671"></a>		<span class="source_keyword">return</span> -<span class="source_int">1</span>;
+<a name="672"></a>	}
+<a name="673"></a>	HS = PlayerOwner().<span class="source_type">Level</span>.Game.LoadDataObject(<span class="source_keyword">class</span><span class="source_name">'GUI2K4.SPHighScore'</span>, <span class="source_string">"SPHighScore"</span>, HighScoreFile);
+<a name="674"></a>	<span class="source_keyword">if</span> (HS == <span class="source_keyword">none</span>)
+<a name="675"></a>	{
+<a name="676"></a>		Log(<span class="source_string">"UT2K4SP_Main - UT2004HighScores doesn't exist, creating..."</span>, GP.LogPrefix);
+<a name="677"></a>		HS = PlayerOwner().<span class="source_type">Level</span>.Game.CreateDataObject(<span class="source_keyword">class</span><span class="source_name">'GUI2K4.SPHighScore'</span>, <span class="source_string">"SPHighScore"</span>, HighScoreFile);
+<a name="678"></a>	}
+<a name="679"></a>	res = HS.AddHighScore(GP);
+<a name="680"></a>
+<a name="681"></a>	HS.CharUnlocked = ProfileUnlockChar;
+<a name="682"></a>
+<a name="683"></a>	<span class="source_comment">// unlock chars, only when the player made the highscores
+</span><a name="684"></a>	<span class="source_keyword">if</span> ((res &gt; -<span class="source_int">1</span>) && !GP.isCheater() && !GP.isLocked() || SPDEBUGMODE)
+<a name="685"></a>	{
+<a name="686"></a>		<span class="source_keyword">if</span> (GP.FinalEnemyTeam ~= <span class="source_string">"xGame.TeamThundercrash"</span>) HS.UnlockChar(<span class="source_string">"MALCOLM"</span>, PlayerOwner().GetPlayerIDHash());
+<a name="687"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (GP.FinalEnemyTeam ~= <span class="source_string">"xGame.TeamIronSkull"</span>) HS.UnlockChar(<span class="source_string">"CLANLORD"</span>, PlayerOwner().GetPlayerIDHash());
+<a name="688"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> (GP.FinalEnemyTeam ~= <span class="source_string">"xGame.TeamCorrupt"</span>) HS.UnlockChar(<span class="source_string">"XAN"</span>, PlayerOwner().GetPlayerIDHash());
+<a name="689"></a>		<span class="source_keyword">else</span> Log(<span class="source_string">"Unknown final team:"</span>@GP.FinalEnemyTeam, GP.LogPrefix);
+<a name="690"></a>	}
+<a name="691"></a>	HS.CharUnlocked = <span class="source_keyword">none</span>;
+<a name="692"></a>	PlayerOwner().<span class="source_type">Level</span>.Game.SavePackage(HighScoreFile);
+<a name="693"></a>	<span class="source_keyword">return</span> res;
+<a name="694"></a>}
+<a name="695"></a>
+<a name="696"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> InternalOnCanClose(<span class="source_keyword2">optional</span> <span class="source_keyword">Bool</span> <span class="source_type">bCancelled</span>)
+<a name="697"></a>{
+<a name="698"></a>	<span class="source_keyword">local</span> <span class="source_keyword">int</span> <span class="source_type">i</span>;
+<a name="699"></a>	<span class="source_keyword">for</span> (<span class="source_type">i</span> = <span class="source_int">0</span>; <span class="source_type">i</span> &lt; c_Tabs.TabStack.length; <span class="source_type">i</span> ++)
+<a name="700"></a>	{
+<a name="701"></a>		<span class="source_keyword">if</span> (<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(c_Tabs.TabStack[<span class="source_type">i</span>].MyPanel) != <span class="source_keyword">none</span>)
+<a name="702"></a>		{
+<a name="703"></a>			<span class="source_keyword">if</span> (!<span class="source_type"><a href="../gui2k4/ut2k4sptab_base.html" class="source">UT2K4SPTab_Base</a></span>(c_Tabs.TabStack[<span class="source_type">i</span>].MyPanel).CanClose(<span class="source_type">bCancelled</span>)) <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="704"></a>		}
+<a name="705"></a>	}
+<a name="706"></a>	<span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="707"></a>}
+<a name="708"></a>
+<a name="709"></a><span class="source_keyword">function</span> ProfileUnlockChar( <span class="source_keyword">string</span> <span class="source_type">Char</span> )
+<a name="710"></a>{
+<a name="711"></a>	<span class="source_keyword">if</span> ( <span class="source_type">Char</span> == <span class="source_string">""</span> )
+<a name="712"></a>		<span class="source_keyword">return</span>;
+<a name="713"></a>
+<a name="714"></a>	UnlockCharacter(<span class="source_type">Char</span>);
+<a name="715"></a>}
+<a name="716"></a>
+<a name="717"></a><span class="source_keyword">function</span> thisOnReOpen()
+<a name="718"></a>{
+<a name="719"></a>	<span class="source_keyword">if</span> (LastLadderPage != <span class="source_keyword">none</span>)
+<a name="720"></a>	{
+<a name="721"></a>		<span class="source_keyword">if</span> (c_Tabs.ActiveTab.MyPanel != LastLadderPage) <span class="source_keyword">return</span>;
+<a name="722"></a>		LastLadderPage.UpdateBalance();
+<a name="723"></a>		<span class="source_keyword">if</span> (LastLadderPage.SelectedMatch != <span class="source_keyword">none</span>)
+<a name="724"></a>			LastLadderPage.showMatchDetails(LastLadderPage.SelectedMatch.<span class="source_type"><a href="../engine/matchinfo.html" class="source">MatchInfo</a></span>);
+<a name="725"></a>	}
+<a name="726"></a>}
+<a name="727"></a>
+<a name="728"></a><span class="source_keyword">function</span> reportDonation()
+<a name="729"></a>{
+<a name="730"></a>	<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.ShowQuestionDialog(DonationMsg[rand(DonationMsg.length)]);
+<a name="731"></a>}
+<a name="732"></a>
+<a name="733"></a><span class="source_keyword">defaultproperties</span>
+<a name="734"></a>{
+<a name="735"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPbtnBack
+<a name="736"></a>         <span class="source_type">Caption</span>=<span class="source_string">"BACK"</span>
+<a name="737"></a>         StyleName=<span class="source_string">"FooterButton"</span>
+<a name="738"></a>         Hint=<span class="source_string">"Return to Previous Menu"</span>
+<a name="739"></a>         WinTop=<span class="source_int">0.959479</span>
+<a name="740"></a>         WinWidth=<span class="source_int">0.120000</span>
+<a name="741"></a>         WinHeight=<span class="source_int">0.040703</span>
+<a name="742"></a>         RenderWeight=<span class="source_int">1.000000</span>
+<a name="743"></a>         TabOrder=<span class="source_int">2</span>
+<a name="744"></a>         bBoundToParent=<span class="source_keyword">True</span>
+<a name="745"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.btnBackOnClick
+<a name="746"></a>         OnKeyEvent=SPbtnBack.InternalOnKeyEvent
+<a name="747"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="748"></a>     btnBack=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPbtnBack'</span>
+<a name="749"></a>
+<a name="750"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPbtnPlay
+<a name="751"></a>         <span class="source_type">Caption</span>=<span class="source_string">"PLAY"</span>
+<a name="752"></a>         StyleName=<span class="source_string">"FooterButton"</span>
+<a name="753"></a>         Hint=<span class="source_string">"Continue this tournament"</span>
+<a name="754"></a>         WinTop=<span class="source_int">0.959479</span>
+<a name="755"></a>         WinLeft=<span class="source_int">0.880000</span>
+<a name="756"></a>         WinWidth=<span class="source_int">0.120000</span>
+<a name="757"></a>         WinHeight=<span class="source_int">0.040703</span>
+<a name="758"></a>         RenderWeight=<span class="source_int">1.000000</span>
+<a name="759"></a>         TabOrder=<span class="source_int">1</span>
+<a name="760"></a>         bBoundToParent=<span class="source_keyword">True</span>
+<a name="761"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.btnPlayOnClick
+<a name="762"></a>         OnKeyEvent=SPbtnPlay.InternalOnKeyEvent
+<a name="763"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="764"></a>     btnPlay=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPbtnPlay'</span>
+<a name="765"></a>
+<a name="766"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPbtnDetails
+<a name="767"></a>         <span class="source_type">Caption</span>=<span class="source_string">"DETAILS"</span>
+<a name="768"></a>         StyleName=<span class="source_string">"FooterButton"</span>
+<a name="769"></a>         Hint=<span class="source_string">"Show profile details"</span>
+<a name="770"></a>         WinTop=<span class="source_int">0.959479</span>
+<a name="771"></a>         WinLeft=<span class="source_int">0.760000</span>
+<a name="772"></a>         WinWidth=<span class="source_int">0.120000</span>
+<a name="773"></a>         WinHeight=<span class="source_int">0.040703</span>
+<a name="774"></a>         RenderWeight=<span class="source_int">1.000000</span>
+<a name="775"></a>         TabOrder=<span class="source_int">0</span>
+<a name="776"></a>         bBoundToParent=<span class="source_keyword">True</span>
+<a name="777"></a>         bVisible=<span class="source_keyword">False</span>
+<a name="778"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.btnDetailsOnClick
+<a name="779"></a>         OnKeyEvent=SPbtnDetails.InternalOnKeyEvent
+<a name="780"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="781"></a>     btnDetails=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPbtnDetails'</span>
+<a name="782"></a>
+<a name="783"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span> <span class="source_keyword">Name</span>=SPbtnDebugExec
+<a name="784"></a>         <span class="source_type">Caption</span>=<span class="source_string">"EXEC"</span>
+<a name="785"></a>         Hint=<span class="source_string">"Execute special event"</span>
+<a name="786"></a>         WinTop=<span class="source_int">0.959479</span>
+<a name="787"></a>         WinLeft=<span class="source_int">0.300000</span>
+<a name="788"></a>         WinWidth=<span class="source_int">0.120000</span>
+<a name="789"></a>         WinHeight=<span class="source_int">0.033203</span>
+<a name="790"></a>         RenderWeight=<span class="source_int">1.000000</span>
+<a name="791"></a>         TabOrder=<span class="source_int">4</span>
+<a name="792"></a>         bVisible=<span class="source_keyword">False</span>
+<a name="793"></a>         OnClick=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.btnDebugExecOnClick
+<a name="794"></a>         OnKeyEvent=SPbtnDebugExec.InternalOnKeyEvent
+<a name="795"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="796"></a>     btnDebugExec=<span class="source_type"><a href="../xinterface/guibutton.html" class="source">GUIButton</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPbtnDebugExec'</span>
+<a name="797"></a>
+<a name="798"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span> <span class="source_keyword">Name</span>=SPedDebugExec
+<a name="799"></a>         WinTop=<span class="source_int">0.966146</span>
+<a name="800"></a>         WinWidth=<span class="source_int">0.300000</span>
+<a name="801"></a>         WinHeight=<span class="source_int">0.033203</span>
+<a name="802"></a>         RenderWeight=<span class="source_int">1.000000</span>
+<a name="803"></a>         TabOrder=<span class="source_int">3</span>
+<a name="804"></a>         bVisible=<span class="source_keyword">False</span>
+<a name="805"></a>         OnActivate=SPedDebugExec.InternalActivate
+<a name="806"></a>         OnDeActivate=SPedDebugExec.InternalDeactivate
+<a name="807"></a>         OnKeyType=SPedDebugExec.InternalOnKeyType
+<a name="808"></a>         OnKeyEvent=SPedDebugExec.InternalOnKeyEvent
+<a name="809"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="810"></a>     edDebugExec=<span class="source_type"><a href="../xinterface/guieditbox.html" class="source">GUIEditBox</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPedDebugExec'</span>
+<a name="811"></a>
+<a name="812"></a>     PageCaption=<span class="source_string">"Tournament"</span>
+<a name="813"></a>     LoadedPageCaption=<span class="source_string">"'s Tournament"</span>
+<a name="814"></a>     LadderCompleteMsg=<span class="source_string">"completed"</span>
+<a name="815"></a>     msgFullTeamRequired=<span class="source_string">"A full team is required to play this match."</span>
+<a name="816"></a>     DonationMsg(<span class="source_int">0</span>)=<span class="source_string">"You were almost broke, but an anonymous benefactor donated some credits so you can continue your tournament."</span>
+<a name="817"></a>     DonationMsg(<span class="source_int">1</span>)=<span class="source_string">"A fan saved you from going bankrupt, you can now continue with the tournament."</span>
+<a name="818"></a>     ProfilePrefix=<span class="source_string">"SP_"</span>
+<a name="819"></a>     DetailsPage=<span class="source_string">"GUI2K4.UT2K4SP_Details"</span>
+<a name="820"></a>     InjuryPage=<span class="source_string">"GUI2K4.UT2K4SP_Injury"</span>
+<a name="821"></a>     MessagePage=<span class="source_string">"GUI2K4.UT2K4SP_Message"</span>
+<a name="822"></a>     PictureMessagePage=<span class="source_string">"GUI2K4.UT2K4SP_PictureMessage"</span>
+<a name="823"></a>     HighScorePage=<span class="source_string">"GUI2K4.UT2K4SP_HighScores"</span>
+<a name="824"></a>     EndGameMap=<span class="source_string">"endgame"</span>
+<a name="825"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../xinterface/guiheader.html" class="source">GUIHeader</a></span> <span class="source_keyword">Name</span>=SPhdrHeader
+<a name="826"></a>         RenderWeight=<span class="source_int">0.100000</span>
+<a name="827"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="828"></a>     t_Header=<span class="source_type"><a href="../xinterface/guiheader.html" class="source">GUIHeader</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPhdrHeader'</span>
+<a name="829"></a>
+<a name="830"></a>     Begin <span class="source_type"><a href="../core/object.html" class="source">Object</a></span> <span class="source_keyword">Class</span>=<span class="source_type"><a href="../gui2k4/buttonfooter.html" class="source">ButtonFooter</a></span> <span class="source_keyword">Name</span>=SPftrFooter
+<a name="831"></a>         RenderWeight=<span class="source_int">0.100000</span>
+<a name="832"></a>         OnPreDraw=SPftrFooter.InternalOnPreDraw
+<a name="833"></a>     End <span class="source_type"><a href="../core/object.html" class="source">Object</a></span>
+<a name="834"></a>     t_Footer=<span class="source_type"><a href="../gui2k4/buttonfooter.html" class="source">ButtonFooter</a></span><span class="source_name">'GUI2K4.UT2K4SP_Main.SPftrFooter'</span>
+<a name="835"></a>
+<a name="836"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">0</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_Profile"</span>
+<a name="837"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">1</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_ProfileNew"</span>
+<a name="838"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">2</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_Tutorials"</span>
+<a name="839"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">3</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_Qualification"</span>
+<a name="840"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">4</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_TeamQualification"</span>
+<a name="841"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">5</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_Ladder"</span>
+<a name="842"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">6</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_TeamManagement"</span>
+<a name="843"></a>     <span class="source_type">PanelClass</span>(<span class="source_int">7</span>)=<span class="source_string">"GUI2K4.UT2K4SPTab_ExtraLadder"</span>
+<a name="844"></a>     PanelCaption(<span class="source_int">0</span>)=<span class="source_string">"Profile"</span>
+<a name="845"></a>     PanelCaption(<span class="source_int">1</span>)=<span class="source_string">"New profile"</span>
+<a name="846"></a>     PanelCaption(<span class="source_int">2</span>)=<span class="source_string">"Tutorials"</span>
+<a name="847"></a>     PanelCaption(<span class="source_int">3</span>)=<span class="source_string">"Qualification"</span>
+<a name="848"></a>     PanelCaption(<span class="source_int">4</span>)=<span class="source_string">"Team Qualification"</span>
+<a name="849"></a>     PanelCaption(<span class="source_int">5</span>)=<span class="source_string">"Ladder"</span>
+<a name="850"></a>     PanelCaption(<span class="source_int">6</span>)=<span class="source_string">"Team Management"</span>
+<a name="851"></a>     PanelCaption(<span class="source_int">7</span>)=<span class="source_string">"Additional"</span>
+<a name="852"></a>     PanelHint(<span class="source_int">0</span>)=<span class="source_string">"Manage your profiles"</span>
+<a name="853"></a>     PanelHint(<span class="source_int">1</span>)=<span class="source_string">"Create a new profile"</span>
+<a name="854"></a>     PanelHint(<span class="source_int">2</span>)=<span class="source_string">"Gametype tutorials"</span>
+<a name="855"></a>     PanelHint(<span class="source_int">3</span>)=<span class="source_string">"Qualify to enter the tournament"</span>
+<a name="856"></a>     PanelHint(<span class="source_int">4</span>)=<span class="source_string">"Qualify your team to enter the tournament"</span>
+<a name="857"></a>     PanelHint(<span class="source_int">5</span>)=<span class="source_string">"The tournament ladder"</span>
+<a name="858"></a>     PanelHint(<span class="source_int">6</span>)=<span class="source_string">"Manage your team"</span>
+<a name="859"></a>     PanelHint(<span class="source_int">7</span>)=<span class="source_string">"Additional ladders"</span>
+<a name="860"></a>     bPersistent=<span class="source_keyword">False</span>
+<a name="861"></a>     OnReOpen=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.thisOnReOpen
+<a name="862"></a>     OnCanClose=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.InternalOnCanClose
+<a name="863"></a>     bDrawFocusedLast=<span class="source_keyword">False</span>
+<a name="864"></a>     OnPreDraw=<span class="source_type"><a href="../gui2k4/ut2k4sp_main.html" class="source">UT2K4SP_Main</a></span>.InternalOnPreDraw
+<a name="865"></a>}
+<a name="866"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../gui2k4/gui2k4-overview.html">Package</a></td>
+	<td class="header"><a href="../gui2k4/ut2k4sp_main.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#UT2K4SP_Main">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_gui2k4/ut2k4sp_ladderloading.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_gui2k4/ut2k4sp_mapchallenge.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:02.000 - Creation time: Mon 15/4/2019 10:25:13.423 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>

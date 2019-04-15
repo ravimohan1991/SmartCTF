@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>UT2004 UnrealScript - Source: XGame.xBombFlag</title>
+	<meta name="Generator" content="UnCodeX 241" />
+	<link rel="stylesheet" href="../DocStyle2.css" type="text/css" title="Original Purple" />
+	<link rel="alternative stylesheet" href="../DocStyle2-blue.css" type="text/css" title="Blue" />
+	<link rel="alternative stylesheet" href="../DocStyle2-red.css" type="text/css" title="Red" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="../DocStyle2-msie.css" type="text/css" />
+	<![endif]-->
+	<script src="../styleswitcher.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header">
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xgame/xgame-overview.html">Package</a></td>
+	<td class="header"><a href="../xgame/xbombflag.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#xBombFlag">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_xgame/xbombdeliveryhole.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_xgame/xbombhudmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html#Source_xgame/xbombflag.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+</div>
+<div class="spacer"></div>
+
+<h1><a href="../xgame/xgame-overview.html">XGame</a>.<a href="../xgame/xbombflag.html">xBombFlag</a></h1>
+<br />
+<div class="source"><table class="source"><tr><td class="source_lineno"><span class="source_lineno">00001<br />00002<br />00003<br />00004<br />00005<br />00006<br />00007<br />00008<br />00009<br />00010<br />00011<br />00012<br />00013<br />00014<br />00015<br />00016<br />00017<br />00018<br />00019<br />00020<br />
+00021<br />00022<br />00023<br />00024<br />00025<br />00026<br />00027<br />00028<br />00029<br />00030<br />00031<br />00032<br />00033<br />00034<br />00035<br />00036<br />00037<br />00038<br />00039<br />00040<br />
+00041<br />00042<br />00043<br />00044<br />00045<br />00046<br />00047<br />00048<br />00049<br />00050<br />00051<br />00052<br />00053<br />00054<br />00055<br />00056<br />00057<br />00058<br />00059<br />00060<br />
+00061<br />00062<br />00063<br />00064<br />00065<br />00066<br />00067<br />00068<br />00069<br />00070<br />00071<br />00072<br />00073<br />00074<br />00075<br />00076<br />00077<br />00078<br />00079<br />00080<br />
+00081<br />00082<br />00083<br />00084<br />00085<br />00086<br />00087<br />00088<br />00089<br />00090<br />00091<br />00092<br />00093<br />00094<br />00095<br />00096<br />00097<br />00098<br />00099<br />00100<br />
+00101<br />00102<br />00103<br />00104<br />00105<br />00106<br />00107<br />00108<br />00109<br />00110<br />00111<br />00112<br />00113<br />00114<br />00115<br />00116<br />00117<br />00118<br />00119<br />00120<br />
+00121<br />00122<br />00123<br />00124<br />00125<br />00126<br />00127<br />00128<br />00129<br />00130<br />00131<br />00132<br />00133<br />00134<br />00135<br />00136<br />00137<br />00138<br />00139<br />00140<br />
+00141<br />00142<br />00143<br />00144<br />00145<br />00146<br />00147<br />00148<br />00149<br />00150<br />00151<br />00152<br />00153<br />00154<br />00155<br />00156<br />00157<br />00158<br />00159<br />00160<br />
+00161<br />00162<br />00163<br />00164<br />00165<br />00166<br />00167<br />00168<br />00169<br />00170<br />00171<br />00172<br />00173<br />00174<br />00175<br />00176<br />00177<br />00178<br />00179<br />00180<br />
+00181<br />00182<br />00183<br />00184<br />00185<br />00186<br />00187<br />00188<br />00189<br />00190<br />00191<br />00192<br />00193<br />00194<br />00195<br />00196<br />00197<br />00198<br />00199<br />00200<br />
+00201<br />00202<br />00203<br />00204<br />00205<br />00206<br />00207<br />00208<br />00209<br />00210<br />00211<br />00212<br />00213<br />00214<br />00215<br />00216<br />00217<br />00218<br />00219<br />00220<br />
+00221<br />00222<br />00223<br />00224<br />00225<br />00226<br />00227<br />00228<br />00229<br />00230<br />00231<br />00232<br />00233<br />00234<br />00235<br />00236<br />00237<br />00238<br />00239<br />00240<br />
+00241<br />00242<br />00243<br />00244<br />00245<br />00246<br />00247<br />00248<br />00249<br />00250<br />00251<br />00252<br />00253<br />00254<br />00255<br />00256<br />00257<br />00258<br />00259<br />00260<br />
+00261<br />00262<br />00263<br />00264<br />00265<br />00266<br />00267<br />00268<br />00269<br />00270<br />00271<br />00272<br />00273<br />00274<br />00275<br />00276<br />00277<br />00278<br />00279<br />00280<br />
+00281<br />00282<br />00283<br />00284<br />00285<br />00286<br />00287<br />00288<br />00289<br />00290<br />00291<br />00292<br />00293<br />00294<br />00295<br />00296<br />00297<br />00298<br />00299<br />00300<br />
+00301<br />00302<br />00303<br />00304<br />00305<br />00306<br />00307<br />00308<br />00309<br />00310<br />00311<br />00312<br />00313<br />00314<br />00315<br />00316<br />00317<br />00318<br />00319<br />00320<br />
+00321<br />00322<br />00323<br />00324<br />00325<br />00326<br />00327<br />00328<br />00329<br />00330<br />00331<br />00332<br />00333<br />00334<br />00335<br />00336<br />00337<br />00338<br />00339<br />00340<br />
+00341<br />00342<br />00343<br />00344<br />00345<br />00346<br />00347<br />00348<br />00349<br />00350<br />00351<br />00352<br />00353<br />00354<br />00355<br />00356<br />00357<br />00358<br />00359<br />00360<br />
+00361<br />00362<br />00363<br />00364<br />00365<br />00366<br />00367<br />00368<br />00369<br />00370<br />00371<br />00372<br />00373<br />00374<br />00375<br />00376<br />00377<br />00378<br />00379<br />00380<br />
+00381<br />00382<br />00383<br />00384<br />00385<br />00386<br />00387<br />00388<br />00389<br />00390<br />00391<br />00392<br />00393<br />00394<br />00395<br />00396<br />00397<br />00398<br />00399<br />00400<br />
+00401<br />00402<br />00403<br />00404<br />00405<br />00406<br />00407<br />00408<br />00409<br />00410<br />00411<br />00412<br />00413<br />00414<br />00415<br />00416<br />00417<br />00418<br />00419<br />00420<br />
+00421<br />00422<br />00423<br />00424<br />00425<br />00426<br />00427<br />00428<br />00429<br />00430<br />00431<br />00432<br />00433<br />00434<br />00435<br />00436<br />00437<br />00438<br />00439<br />00440<br />
+00441<br />00442<br />00443<br />00444<br />00445<br />00446<br />00447<br />00448<br />00449<br />00450<br />00451<br />00452<br />00453<br />00454<br />00455<br />00456<br />00457<br />00458<br />00459<br />00460<br />
+00461<br />00462<br />00463<br />00464<br />00465<br />00466<br />00467<br />00468<br />00469<br />00470<br />00471<br />00472<br />00473<br />00474<br />00475<br />00476<br />00477<br />00478<br />00479<br />00480<br />
+00481<br />00482<br />00483<br />00484<br />00485<br />00486<br />00487<br />00488<br />00489<br />00490<br />00491<br />00492<br />00493<br />00494<br />00495<br />00496<br />00497<br />00498<br />00499<br />00500<br />
+00501<br />00502<br />00503<br />00504<br />00505<br />00506<br />00507<br />00508<br />00509<br />00510<br />00511<br />00512<br />00513<br />00514<br />00515<br />00516<br />00517<br />00518<br />00519<br />00520<br />
+00521<br />00522<br />00523<br />00524<br />00525<br />00526<br />00527<br />00528<br />00529<br />00530<br />00531<br />00532<br />00533<br />00534<br />00535<br />00536<br />00537<br />00538<br />00539<br />00540<br />
+00541<br />00542<br />00543<br />00544<br />00545<br />00546<br />00547<br />00548<br />00549<br />00550<br />00551<br />00552<br />00553<br />00554<br />00555<br />00556<br />00557<br />00558<br />00559<br />00560<br />
+00561<br />00562<br />00563<br />00564</span></td>
+<td class="source"><pre class="source"><a name="1"></a><span class="source_comment">//=============================================================================
+</span><a name="2"></a><span class="source_comment">// xBomb
+</span><a name="3"></a><span class="source_comment">// This is the bomb.  Someone set us up the bomb.
+</span><a name="4"></a><span class="source_comment">//=============================================================================
+</span><a name="5"></a><span class="source_keyword">class</span> <span class="source_type"><a href="../xgame/xbombflag.html" class="source">xBombFlag</a></span> <span class="source_keyword">extends</span> <span class="source_type"><a href="../unrealgame/gameobject.html" class="source">GameObject</a></span>;
+<a name="6"></a>
+<a name="7"></a><span class="source_keyword">var</span>() <span class="source_keyword">String</span>        BombLauncherClassName;
+<a name="8"></a><span class="source_keyword">var</span>() <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>&gt; PrevWeaponClass;
+<a name="9"></a><span class="source_keyword">var</span>() <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>          PassTarget;
+<a name="10"></a><span class="source_keyword">var</span>() <span class="source_keyword">float</span>         ThrowSpeed;
+<a name="11"></a><span class="source_keyword">var</span>() <span class="source_keyword">float</span>         Elasticity;
+<a name="12"></a><span class="source_keyword">var</span>() <span class="source_type"><a href="../engine/sound.html" class="source">sound</a></span>         ImpactSound;
+<a name="13"></a><span class="source_keyword">var</span>() <span class="source_keyword">float</span>         ThrowerTouchDelay;
+<a name="14"></a><span class="source_keyword">var</span>() <span class="source_keyword">float</span>         ThrowerTime;
+<a name="15"></a><span class="source_keyword">var</span>() <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span>        InitialDir;
+<a name="16"></a><span class="source_keyword">var</span>() <span class="source_keyword">float</span>         SeekInterval;
+<a name="17"></a><span class="source_keyword">var</span>() <span class="source_keyword2">transient</span> <span class="source_keyword">float</span>         SeekAccum;
+<a name="18"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">material</a></span> TeamShader[<span class="source_int">2</span>];
+<a name="19"></a><span class="source_keyword">var</span> <span class="source_keyword">byte</span> TeamHue[<span class="source_int">2</span>];
+<a name="20"></a>
+<a name="21"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span>	bThrownBomb;
+<a name="22"></a><span class="source_keyword">var</span> <span class="source_keyword">bool</span>	bBallDrainsTransloc;
+<a name="23"></a>
+<a name="24"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/material.html" class="source">material</a></span> SecondRepSkin;
+<a name="25"></a><span class="source_keyword">var</span> <span class="source_type"><a href="../engine/xemitter.html" class="source">xEmitter</a></span> TossTrail;
+<a name="26"></a><span class="source_macro">#exec OBJ LOAD FILE=XGameShaders.utx
+</span><a name="27"></a>
+<a name="28"></a>
+<a name="29"></a><span class="source_keyword">replication</span>
+<a name="30"></a>{
+<a name="31"></a>    <span class="source_keyword">reliable</span> <span class="source_keyword">if</span> (Role == ROLE_Authority)
+<a name="32"></a>        SecondRepSkin, bBallDrainsTransloc;
+<a name="33"></a>}
+<a name="34"></a>
+<a name="35"></a><span class="source_keyword">function</span> Destroyed()
+<a name="36"></a>{
+<a name="37"></a>	<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="38"></a>		TossTrail.Destroy();
+<a name="39"></a>
+<a name="40"></a>	<span class="source_keyword">Super</span>.Destroyed();
+<a name="41"></a>}
+<a name="42"></a>
+<a name="43"></a><span class="source_keyword2">simulated</span> <span class="source_keyword">event</span> PostNetReceive()
+<a name="44"></a>{
+<a name="45"></a>	Skins[<span class="source_int">2</span>] = SecondRepSkin;
+<a name="46"></a>}
+<a name="47"></a>
+<a name="48"></a><span class="source_keyword">function</span> ClearHolder()
+<a name="49"></a>{
+<a name="50"></a>    <span class="source_keyword">if</span> (Holder == <span class="source_keyword">None</span>)
+<a name="51"></a>        <span class="source_keyword">return</span>;
+<a name="52"></a>
+<a name="53"></a>	<span class="source_keyword">if</span> ( Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> != <span class="source_keyword">None</span> )
+<a name="54"></a>	{
+<a name="55"></a>		Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.HasFlag = <span class="source_keyword">None</span>;
+<a name="56"></a>		Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.NetUpdateTime = <span class="source_type">Level</span>.TimeSeconds - <span class="source_int">1</span>;
+<a name="57"></a>	}
+<a name="58"></a>    <span class="source_keyword">if</span> ( (Holder.PendingWeapon != <span class="source_keyword">None</span>) && Holder.PendingWeapon.IsA(<span class="source_name">'BallLauncher'</span>) )
+<a name="59"></a>		Holder.PendingWeapon = <span class="source_keyword">None</span>;
+<a name="60"></a>    <span class="source_keyword">if</span> ( (Holder.<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span> != <span class="source_keyword">None</span>) && (Holder.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> != <span class="source_keyword">None</span>) && Holder.<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.IsA(<span class="source_name">'BallLauncher'</span>) )
+<a name="61"></a>		Holder.<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span>.ClientSwitchToBestWeapon();
+<a name="62"></a>    Holder = <span class="source_keyword">None</span>;
+<a name="63"></a>    HolderPRI = <span class="source_keyword">None</span>;
+<a name="64"></a>}
+<a name="65"></a>
+<a name="66"></a><span class="source_comment">// State transitions
+</span><a name="67"></a><span class="source_keyword">function</span> SetHolder(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">C</span>)
+<a name="68"></a>{
+<a name="69"></a>    <span class="source_keyword">local</span> <span class="source_keyword">Class</span>&lt;<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>&gt; BombLauncherClass;
+<a name="70"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span> W;
+<a name="71"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../unrealgame/bombingrunsquadai.html" class="source">BombingRunSquadAI</a></span> <span class="source_type">S</span>;
+<a name="72"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/inventory.html" class="source">Inventory</a></span> Inv;
+<a name="73"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>;
+<a name="74"></a>
+<a name="75"></a>	<span class="source_comment">// update AI before changing states
+</span><a name="76"></a>    <span class="source_keyword">if</span> ( <span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span>(<span class="source_type">C</span>) != <span class="source_keyword">None</span> )
+<a name="77"></a>		<span class="source_type">S</span> = <span class="source_type"><a href="../unrealgame/bombingrunsquadai.html" class="source">BombingRunSquadAI</a></span>(<span class="source_type"><a href="../unrealgame/bot.html" class="source">Bot</a></span>(<span class="source_type">C</span>).Squad);
+<a name="78"></a>	<span class="source_keyword">else</span> <span class="source_keyword">if</span> ( (<span class="source_type"><a href="../engine/playercontroller.html" class="source">PlayerController</a></span>(<span class="source_type">C</span>) != <span class="source_keyword">None</span>) && (<span class="source_type"><a href="../unrealgame/unrealteaminfo.html" class="source">UnrealTeamInfo</a></span>(<span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>).AI != <span class="source_keyword">None</span>) )
+<a name="79"></a>	{
+<a name="80"></a>        <span class="source_type">S</span> = <span class="source_type"><a href="../unrealgame/bombingrunsquadai.html" class="source">BombingRunSquadAI</a></span>(<span class="source_type"><a href="../unrealgame/unrealteaminfo.html" class="source">UnrealTeamInfo</a></span>(<span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>).AI.FindHumanSquad());
+<a name="81"></a>        <span class="source_keyword">if</span> ( <span class="source_type">S</span> != <span class="source_keyword">None</span> && <span class="source_type">S</span>.SquadLeader != <span class="source_type">C</span> )
+<a name="82"></a>			<span class="source_type">S</span> = <span class="source_keyword">None</span>;
+<a name="83"></a>    }
+<a name="84"></a>    <span class="source_keyword">if</span> ( <span class="source_type">S</span> != <span class="source_keyword">None</span> )
+<a name="85"></a>		<span class="source_type">S</span>.BombTakenBy(<span class="source_type">C</span>);
+<a name="86"></a>
+<a name="87"></a>    <span class="source_keyword">Super</span>.SetHolder(<span class="source_type">C</span>);
+<a name="88"></a>	<span class="source_type">Instigator</span> = Holder;
+<a name="89"></a>	bThrownBomb = <span class="source_keyword">false</span>;
+<a name="90"></a>    <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagTarget = <span class="source_keyword">None</span>;
+<a name="91"></a>
+<a name="92"></a>    BombLauncherClass = <span class="source_keyword">Class</span>&lt;<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>&gt;( DynamicLoadObject( BombLauncherClassName , <span class="source_keyword">class</span><span class="source_name">'Class'</span> ) );
+<a name="93"></a>    PrevWeaponClass = <span class="source_type">C</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>.<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.<span class="source_keyword">Class</span>;
+<a name="94"></a>
+<a name="95"></a>    <span class="source_keyword">if</span>( ClassIsChildOf( PrevWeaponClass, BombLauncherClass ) )
+<a name="96"></a>        PrevWeaponClass = <span class="source_keyword">None</span>;
+<a name="97"></a>
+<a name="98"></a>	<span class="source_comment">// Make sure the new holds has the BombLauncher
+</span><a name="99"></a>
+<a name="100"></a>	<span class="source_type">P</span> = <span class="source_type">C</span>.<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>;
+<a name="101"></a>	<span class="source_keyword">if</span> (<span class="source_type">P</span>==<span class="source_keyword">None</span>)
+<a name="102"></a>		<span class="source_keyword">return</span>;
+<a name="103"></a>
+<a name="104"></a>	<span class="source_keyword">for</span>( Inv=<span class="source_type">P</span>.<span class="source_type"><a href="../engine/inventory.html" class="source">Inventory</a></span>; Inv!=<span class="source_keyword">None</span>; Inv=Inv.<span class="source_type"><a href="../engine/inventory.html" class="source">Inventory</a></span> )
+<a name="105"></a>	{
+<a name="106"></a>		<span class="source_keyword">if</span> ( ClassIsChildOf(Inv.<span class="source_keyword">Class</span>, BombLauncherClass) )
+<a name="107"></a>			<span class="source_keyword">break</span>;
+<a name="108"></a>	}
+<a name="109"></a>
+<a name="110"></a>	<span class="source_keyword">if</span> (Inv==<span class="source_keyword">None</span>)
+<a name="111"></a>	{
+<a name="112"></a>		<span class="source_comment">//	Give the Ball Launcher to the player
+</span><a name="113"></a>        W = Spawn(BombLauncherClass,,,<span class="source_type">P</span>.Location);
+<a name="114"></a>        <span class="source_keyword">if</span>( W == <span class="source_keyword">None</span> )
+<a name="115"></a>        {
+<a name="116"></a>			log(self@<span class="source_string">"could not spawn a launcher for player"</span>@<span class="source_type">p</span>);
+<a name="117"></a>			<span class="source_keyword">return</span>;
+<a name="118"></a>        }
+<a name="119"></a>        w.GiveTo(<span class="source_type">P</span>);
+<a name="120"></a>	}
+<a name="121"></a>
+<a name="122"></a>    <span class="source_type">C</span>.ClientSetWeapon( BombLauncherClass );
+<a name="123"></a>}
+<a name="124"></a>
+<a name="125"></a><span class="source_keyword">function</span> SetThrow(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">start</span>)
+<a name="126"></a>{
+<a name="127"></a>	<span class="source_type">Instigator</span> = Holder;
+<a name="128"></a>	ThrowerTime = <span class="source_type">Level</span>.TimeSeconds;
+<a name="129"></a>	bThrownBomb = <span class="source_keyword">true</span>;
+<a name="130"></a>    SetLocation(<span class="source_type">start</span>);
+<a name="131"></a>}
+<a name="132"></a>
+<a name="133"></a><span class="source_keyword">function</span> Throw(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">start</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> dir)
+<a name="134"></a>{
+<a name="135"></a>    SetThrow(<span class="source_type">start</span>);
+<a name="136"></a>    Drop(Dir);
+<a name="137"></a>    <span class="source_keyword">if</span>( PassTarget != <span class="source_keyword">None</span> )
+<a name="138"></a>    {
+<a name="139"></a>        Enable(<span class="source_name">'Tick'</span>);
+<a name="140"></a>        SetPhysics(PHYS_Projectile);
+<a name="141"></a>    }
+<a name="142"></a>    <span class="source_keyword">else</span>
+<a name="143"></a>		Disable(<span class="source_name">'Tick'</span>);
+<a name="144"></a>	<span class="source_keyword">if</span> ( PassTarget == <span class="source_keyword">None</span> )
+<a name="145"></a>		<span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagTarget = <span class="source_keyword">None</span>;
+<a name="146"></a>	<span class="source_keyword">else</span>
+<a name="147"></a>		<span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagTarget = PassTarget.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>;
+<a name="148"></a>    <span class="source_keyword">if</span> ( TossTrail == <span class="source_keyword">None</span> )
+<a name="149"></a>		TossTrail = Spawn(<span class="source_keyword">class</span><span class="source_name">'BombTrail'</span>, self);
+<a name="150"></a>
+<a name="151"></a>	TossTrail.SetBase(self);
+<a name="152"></a>	TossTrail.SetRelativeLocation(vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>));
+<a name="153"></a>	<span class="source_keyword">if</span> ( (PassTarget != <span class="source_keyword">None</span>) && (PassTarget != <span class="source_type">Instigator</span>) )
+<a name="154"></a>	{
+<a name="155"></a>		<span class="source_keyword">if</span> ( <span class="source_type">Instigator</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex == <span class="source_int">0</span> )
+<a name="156"></a>		{
+<a name="157"></a>			TossTrail.mColorRange[<span class="source_int">0</span>].G = <span class="source_int">0</span>;
+<a name="158"></a>			TossTrail.mColorRange[<span class="source_int">1</span>].<span class="source_type">B</span> = <span class="source_int">0</span>;
+<a name="159"></a>			TossTrail.mColorRange[<span class="source_int">0</span>].<span class="source_type">B</span> = <span class="source_int">0</span>;
+<a name="160"></a>			TossTrail.mColorRange[<span class="source_int">1</span>].G = <span class="source_int">0</span>;
+<a name="161"></a>		}
+<a name="162"></a>		<span class="source_keyword">else</span>
+<a name="163"></a>		{
+<a name="164"></a>			TossTrail.mColorRange[<span class="source_int">0</span>].G = <span class="source_int">0</span>;
+<a name="165"></a>			TossTrail.mColorRange[<span class="source_int">1</span>].<span class="source_type">R</span> = <span class="source_int">0</span>;
+<a name="166"></a>			TossTrail.mColorRange[<span class="source_int">0</span>].<span class="source_type">R</span> = <span class="source_int">0</span>;
+<a name="167"></a>			TossTrail.mColorRange[<span class="source_int">1</span>].G = <span class="source_int">0</span>;
+<a name="168"></a>		}
+<a name="169"></a>	}
+<a name="170"></a>}
+<a name="171"></a>
+<a name="172"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanBePickedUpBy(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>)
+<a name="173"></a>{
+<a name="174"></a>	<span class="source_keyword">return</span> ( (<span class="source_type">P</span> != <span class="source_type">Instigator</span>) || (<span class="source_type">Level</span>.TimeSeconds - ThrowerTime &gt;= ThrowerTouchDelay - VSize(Location - <span class="source_type">P</span>.Location)/<span class="source_int">440</span>) );
+<a name="175"></a>}
+<a name="176"></a>
+<a name="177"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> ValidHolder(<span class="source_type"><a href="../engine/actor.html" class="source">Actor</a></span> <span class="source_type">Other</span>)
+<a name="178"></a>{
+<a name="179"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>;
+<a name="180"></a>    <span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">Vector</a></span> RefNormal;
+<a name="181"></a>
+<a name="182"></a>    <span class="source_keyword">if</span> ( (<span class="source_type">Other</span> == <span class="source_type">Instigator</span>) && (<span class="source_type">Level</span>.TimeSeconds - ThrowerTime &lt; ThrowerTouchDelay) )
+<a name="183"></a>        <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="184"></a>
+<a name="185"></a>    <span class="source_type">P</span> = <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span>(<span class="source_type">Other</span>);
+<a name="186"></a>    <span class="source_keyword">if</span>( <span class="source_type">P</span> != <span class="source_keyword">None</span> && <span class="source_type">P</span>.<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span> != <span class="source_keyword">None</span> )
+<a name="187"></a>    {
+<a name="188"></a>        <span class="source_comment">// bounce the ball off the shield
+</span><a name="189"></a>        <span class="source_keyword">if</span>( <span class="source_type">P</span>.<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.CheckReflect( Location, RefNormal, <span class="source_int">0</span> ) )
+<a name="190"></a>        {
+<a name="191"></a>            <span class="source_type">P</span>.<span class="source_type"><a href="../engine/weapon.html" class="source">Weapon</a></span>.DoReflectEffect(<span class="source_int">10</span>);
+<a name="192"></a>            Velocity = (Elasticity * <span class="source_int">2.5</span>) * (( Velocity dot RefNormal ) * RefNormal * (-<span class="source_int">2.0</span>) + Velocity);
+<a name="193"></a>	        RandSpin(<span class="source_int">30000</span>);
+<a name="194"></a>            <span class="source_keyword">return</span> <span class="source_keyword">false</span>;
+<a name="195"></a>        }
+<a name="196"></a>    }
+<a name="197"></a>    <span class="source_keyword">return</span> <span class="source_keyword">Super</span>.ValidHolder(<span class="source_type">Other</span>);
+<a name="198"></a>}
+<a name="199"></a>
+<a name="200"></a><span class="source_keyword">function</span> RandSpin(<span class="source_keyword">float</span> spinRate)
+<a name="201"></a>{
+<a name="202"></a>	DesiredRotation = RotRand();
+<a name="203"></a>	RotationRate.Yaw = spinRate * <span class="source_int">2</span> *FRand() - spinRate;
+<a name="204"></a>	RotationRate.Pitch = spinRate * <span class="source_int">2</span> *FRand() - spinRate;
+<a name="205"></a>	RotationRate.Roll = spinRate * <span class="source_int">2</span> *FRand() - spinRate;
+<a name="206"></a>    bFixedRotationDir = <span class="source_keyword">true</span>;
+<a name="207"></a>}
+<a name="208"></a>
+<a name="209"></a><span class="source_comment">// Events
+</span><a name="210"></a><span class="source_keyword">function</span> <span class="source_type">HitWall</span>( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Wall</span> )
+<a name="211"></a>{
+<a name="212"></a>	Velocity = Elasticity*(( Velocity dot <span class="source_type">HitNormal</span> ) * <span class="source_type">HitNormal</span> * (-<span class="source_int">2.0</span>) + Velocity);
+<a name="213"></a>	RandSpin(<span class="source_int">30000</span>);
+<a name="214"></a>
+<a name="215"></a>    PlaySound(ImpactSound, SLOT_Misc );
+<a name="216"></a>
+<a name="217"></a>	<span class="source_keyword">if</span> ( (VSize(Velocity) &lt; <span class="source_int">20</span>) && (<span class="source_type">HitNormal</span>.<span class="source_type">Z</span> &gt;= <span class="source_int">0.7</span>) && <span class="source_type">Wall</span>.bWorldGeometry )
+<a name="218"></a>        Landed(<span class="source_type">HitNormal</span>);
+<a name="219"></a>    <span class="source_keyword">else</span> <span class="source_keyword">if</span> (VSize(Velocity) &lt; <span class="source_int">300</span> )
+<a name="220"></a>    {
+<a name="221"></a>		<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="222"></a>			TossTrail.Destroy();
+<a name="223"></a>	}
+<a name="224"></a>}
+<a name="225"></a>
+<a name="226"></a><span class="source_keyword">function</span> Landed(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">hitNormal</span>)
+<a name="227"></a>{
+<a name="228"></a>	<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="229"></a>		TossTrail.Destroy();
+<a name="230"></a>    Velocity = vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>);
+<a name="231"></a>    <span class="source_keyword">if</span> ( Holder == <span class="source_keyword">None</span> )
+<a name="232"></a>		SetPhysics(PHYS_Rotating);
+<a name="233"></a>}
+<a name="234"></a>
+<a name="235"></a><span class="source_keyword">function</span> TakeDamage( <span class="source_keyword">int</span> <span class="source_type">Damage</span>, <span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">EventInstigator</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitLocation</span>, <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Momentum, <span class="source_keyword">class</span>&lt;<span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>&gt; <span class="source_type"><a href="../engine/damagetype.html" class="source">DamageType</a></span>)
+<a name="236"></a>{
+<a name="237"></a>    <span class="source_keyword">if</span> (Momentum != Vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>) && !bHome && (Holder == <span class="source_keyword">None</span>) )
+<a name="238"></a>    {
+<a name="239"></a>        SetPhysics(PHYS_Falling);
+<a name="240"></a>        Velocity += Momentum/Mass;
+<a name="241"></a>    }
+<a name="242"></a>}
+<a name="243"></a>
+<a name="244"></a><span class="source_comment">// Logging
+</span><a name="245"></a><span class="source_keyword">function</span> LogDropped()
+<a name="246"></a>{
+<a name="247"></a>	<span class="source_keyword">local</span> <span class="source_type"><a href="../engine/teaminfo.html" class="source">TeamInfo</a></span> <span class="source_type">T</span>;
+<a name="248"></a>
+<a name="249"></a>	<span class="source_keyword">if</span> ( Holder == <span class="source_keyword">None</span> )
+<a name="250"></a>		<span class="source_keyword">return</span>;
+<a name="251"></a>
+<a name="252"></a>	<span class="source_keyword">if</span> ( Holder.Health &lt;= <span class="source_int">0</span> )
+<a name="253"></a>	{
+<a name="254"></a>		<span class="source_keyword">if</span> ( Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span> != <span class="source_keyword">None</span> )
+<a name="255"></a>		{
+<a name="256"></a>			<span class="source_keyword">if</span> ( bLastSecondSave )
+<a name="257"></a>			{
+<a name="258"></a>				<span class="source_keyword">if</span> ( Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex == <span class="source_int">0</span> )
+<a name="259"></a>					<span class="source_type">T</span> = <span class="source_type"><a href="../unrealgame/teamgame.html" class="source">TeamGame</a></span>(<span class="source_type">Level</span>.Game).Teams[<span class="source_int">1</span>];
+<a name="260"></a>				<span class="source_keyword">else</span>
+<a name="261"></a>					<span class="source_type">T</span> = <span class="source_type"><a href="../unrealgame/teamgame.html" class="source">TeamGame</a></span>(<span class="source_type">Level</span>.Game).Teams[<span class="source_int">0</span>];
+<a name="262"></a>			}
+<a name="263"></a>			<span class="source_keyword">else</span>
+<a name="264"></a>				<span class="source_type">T</span> = <span class="source_type"><a href="../unrealgame/teamgame.html" class="source">TeamGame</a></span>(<span class="source_type">Level</span>.Game).Teams[Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex];
+<a name="265"></a>		}
+<a name="266"></a>		<span class="source_keyword">if</span> ( bLastSecondSave )
+<a name="267"></a>			BroadcastLocalizedMessage( <span class="source_keyword">class</span><span class="source_name">'LastSecondMessage'</span>, <span class="source_int">0</span>, Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>, <span class="source_keyword">None</span>, <span class="source_type">T</span> );
+<a name="268"></a>		<span class="source_keyword">else</span>
+<a name="269"></a>			BroadcastLocalizedMessage( MessageClass, <span class="source_int">2</span>, Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>, <span class="source_keyword">None</span>, <span class="source_type">T</span> );
+<a name="270"></a>	}
+<a name="271"></a>    <span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).GameEvent(<span class="source_string">"bomb_dropped"</span>,<span class="source_string">"255"</span>,Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>);
+<a name="272"></a>}
+<a name="273"></a>
+<a name="274"></a><span class="source_keyword">function</span> LogReturned()
+<a name="275"></a>{
+<a name="276"></a>	<span class="source_keyword">if</span> ( <span class="source_type">Level</span>.Game.ResetCountDown == <span class="source_int">0</span> )
+<a name="277"></a>		BroadcastLocalizedMessage( MessageClass, <span class="source_int">3</span>, <span class="source_keyword">None</span>, <span class="source_keyword">None</span>, <span class="source_keyword">None</span> );
+<a name="278"></a>}
+<a name="279"></a>
+<a name="280"></a><span class="source_keyword">function</span> SendHomeDisabled(<span class="source_keyword">float</span> TimeOut)
+<a name="281"></a>{
+<a name="282"></a>	<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="283"></a>		TossTrail.Destroy();
+<a name="284"></a>    CalcSetHome();
+<a name="285"></a>    GotoState(<span class="source_name">'HomeDisabled'</span>);
+<a name="286"></a>}
+<a name="287"></a>
+<a name="288"></a>
+<a name="289"></a><span class="source_keyword">function</span> <span class="source_keyword">bool</span> CanBeThrownBy(<span class="source_type"><a href="../engine/pawn.html" class="source">Pawn</a></span> <span class="source_type">P</span>)
+<a name="290"></a>{
+<a name="291"></a><span class="source_comment">//	assert(bBallDrainsTransloc == xBombingRun(Level.Game).bBallDrainsTransloc);
+</span><a name="292"></a>
+<a name="293"></a><span class="source_comment">//	return !xBombingRun(Level.Game).bBallDrainsTransloc || (P.Health &lt; 45);
+</span><a name="294"></a>	<span class="source_keyword">return</span> !bBallDrainsTransloc || <span class="source_type">P</span>.Health &lt; <span class="source_int">45</span>;
+<a name="295"></a>}
+<a name="296"></a>
+<a name="297"></a><span class="source_comment">// States
+</span><a name="298"></a><span class="source_keyword2">auto</span> <span class="source_keyword">state</span> Home
+<a name="299"></a>{
+<a name="300"></a>    <span class="source_keyword">ignores</span> SendHome, <span class="source_type">Score</span>, Drop;
+<a name="301"></a>
+<a name="302"></a>    <span class="source_keyword">function</span> LogTaken(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">c</span>)
+<a name="303"></a>    {
+<a name="304"></a>		OldTeam = <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>;
+<a name="305"></a>        BroadcastLocalizedMessage( MessageClass, <span class="source_int">6</span>, <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>, <span class="source_keyword">None</span>, <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span> );
+<a name="306"></a>        <span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).GameEvent(<span class="source_string">"bomb_taken"</span>,<span class="source_string">"255"</span>,<span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>);
+<a name="307"></a>    }
+<a name="308"></a>
+<a name="309"></a>    <span class="source_keyword">function</span> BeginState()
+<a name="310"></a>    {
+<a name="311"></a>		<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="312"></a>			TossTrail.Destroy();
+<a name="313"></a>        Skins[<span class="source_int">2</span>] = Default.Skins[<span class="source_int">2</span>];
+<a name="314"></a>        SecondRepSkin = Skins[<span class="source_int">2</span>];
+<a name="315"></a>		<span class="source_keyword">Super</span>.BeginState();
+<a name="316"></a>		SetPhysics(PHYS_Rotating);
+<a name="317"></a>        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">0</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_Home;
+<a name="318"></a>        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">1</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_Home;
+<a name="319"></a>	}
+<a name="320"></a>}
+<a name="321"></a>
+<a name="322"></a>
+<a name="323"></a><span class="source_keyword">state</span> HomeDisabled
+<a name="324"></a>{
+<a name="325"></a>    <span class="source_keyword">ignores</span> <span class="source_type">Score</span>, Drop;
+<a name="326"></a>
+<a name="327"></a>    <span class="source_keyword">function</span> <span class="source_keyword">bool</span> IsHome()
+<a name="328"></a>    {
+<a name="329"></a>        <span class="source_keyword">return</span> <span class="source_keyword">true</span>;
+<a name="330"></a>    }
+<a name="331"></a>
+<a name="332"></a>    <span class="source_keyword">function</span> BeginState()
+<a name="333"></a>    {
+<a name="334"></a> 		<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="335"></a>			TossTrail.Destroy();
+<a name="336"></a>		Skins[<span class="source_int">2</span>] = Default.Skins[<span class="source_int">2</span>];
+<a name="337"></a>        SecondRepSkin = Skins[<span class="source_int">2</span>];
+<a name="338"></a>        SetDisable(<span class="source_keyword">true</span>);
+<a name="339"></a>        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">0</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_Home;
+<a name="340"></a>        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">1</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_Home;
+<a name="341"></a>        bHome = <span class="source_keyword">true</span>;
+<a name="342"></a>        SetLocation(HomeBase.Location);
+<a name="343"></a>        SetRotation(HomeBase.<span class="source_type">Rotation</span>);
+<a name="344"></a>        SetCollision(<span class="source_keyword">false</span>, <span class="source_keyword">false</span>, <span class="source_keyword">false</span>);
+<a name="345"></a>        bHidden = <span class="source_keyword">true</span>;
+<a name="346"></a>    }
+<a name="347"></a>
+<a name="348"></a>    <span class="source_keyword">function</span> EndState()
+<a name="349"></a>    {
+<a name="350"></a>        SetDisable(<span class="source_keyword">false</span>);
+<a name="351"></a>        bHome = <span class="source_keyword">false</span>;
+<a name="352"></a>        SetCollision(<span class="source_keyword">true</span>, <span class="source_keyword">false</span>, <span class="source_keyword">false</span>);
+<a name="353"></a>        bHidden = <span class="source_keyword">false</span>;
+<a name="354"></a>    }
+<a name="355"></a>}
+<a name="356"></a>
+<a name="357"></a><span class="source_keyword">state</span> Held
+<a name="358"></a>{
+<a name="359"></a>    <span class="source_keyword">ignores</span> SetHolder, SendHome;
+<a name="360"></a>
+<a name="361"></a>	<span class="source_keyword">function</span> BeginState()
+<a name="362"></a>    {
+<a name="363"></a>		<span class="source_keyword">if</span> ( TossTrail != <span class="source_keyword">None</span> )
+<a name="364"></a>			TossTrail.Destroy();
+<a name="365"></a>        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_HeldFriendly;
+<a name="366"></a>        <span class="source_keyword">if</span> ( Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex == <span class="source_int">0</span> )
+<a name="367"></a>	        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">1</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_HeldEnemy;
+<a name="368"></a>        <span class="source_keyword">else</span>
+<a name="369"></a>	        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">0</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_HeldEnemy;
+<a name="370"></a>        <span class="source_keyword">Super</span>.BeginState();
+<a name="371"></a>		bDynamicLight = <span class="source_keyword">false</span>;
+<a name="372"></a>		LightType = LT_None;
+<a name="373"></a>        Skins[<span class="source_int">0</span>] = TeamShader[Holder.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>.TeamIndex];
+<a name="374"></a>        RepSkin = Skins[<span class="source_int">0</span>];
+<a name="375"></a>		Skins[<span class="source_int">2</span>] = RepSkin;
+<a name="376"></a>		SecondRepSkin = Skins[<span class="source_int">2</span>];
+<a name="377"></a>        SetStaticMesh(<span class="source_type">StaticMesh</span><span class="source_name">'XGame_RC.BombEffectMesh'</span>);
+<a name="378"></a>        SetDrawScale(<span class="source_int">1.0</span>);
+<a name="379"></a>    }
+<a name="380"></a>
+<a name="381"></a>    <span class="source_keyword">function</span> EndState()
+<a name="382"></a>    {
+<a name="383"></a>        <span class="source_keyword">Super</span>.EndState();
+<a name="384"></a>		bDynamicLight = <span class="source_keyword">true</span>;
+<a name="385"></a>		LightType = LT_Steady;
+<a name="386"></a>        Skins[<span class="source_int">0</span>] = Default.Skins[<span class="source_int">0</span>];
+<a name="387"></a>        RepSkin = Skins[<span class="source_int">0</span>];
+<a name="388"></a>        SetStaticMesh(Default.<span class="source_type">StaticMesh</span>);
+<a name="389"></a>        SetDrawScale(Default.DrawScale);
+<a name="390"></a>    }
+<a name="391"></a>}
+<a name="392"></a>
+<a name="393"></a><span class="source_keyword">state</span> Dropped
+<a name="394"></a>{
+<a name="395"></a>    <span class="source_keyword">ignores</span> Drop;
+<a name="396"></a>
+<a name="397"></a>	<span class="source_keyword">function</span> <span class="source_type">HitWall</span>( <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">HitNormal</span>, <span class="source_type"><a href="../engine/actor.html" class="source">actor</a></span> <span class="source_type">Wall</span> )
+<a name="398"></a>	{
+<a name="399"></a>		<span class="source_keyword">if</span> ( (PassTarget != <span class="source_keyword">None</span>) 
+<a name="400"></a>			&& (((Acceleration Dot <span class="source_type">HitNormal</span>) &lt; <span class="source_int">0</span>) || ((Velocity Dot (PassTarget.Location - Location)) &lt; <span class="source_int">0</span>)) )
+<a name="401"></a>		{
+<a name="402"></a>			Disable(<span class="source_name">'Tick'</span>);
+<a name="403"></a>			<span class="source_keyword">if</span> ( Physics == PHYS_Projectile )
+<a name="404"></a>				SetPhysics(PHYS_Falling);
+<a name="405"></a>		}
+<a name="406"></a>		Global.<span class="source_type">HitWall</span>(<span class="source_type">HitNormal</span>, <span class="source_type">Wall</span>);
+<a name="407"></a>	}
+<a name="408"></a>
+<a name="409"></a>	<span class="source_comment">// pass seeking
+</span><a name="410"></a>	<span class="source_keyword">function</span> Tick(<span class="source_keyword">float</span> <span class="source_type">delta</span>)
+<a name="411"></a>	{
+<a name="412"></a>		<span class="source_keyword">local</span> <span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> Dir;
+<a name="413"></a>		<span class="source_keyword">local</span> <span class="source_keyword">float</span> <span class="source_type">Z</span>;
+<a name="414"></a>
+<a name="415"></a>		SeekAccum += <span class="source_type">delta</span>;
+<a name="416"></a>
+<a name="417"></a>		<span class="source_keyword">if</span>( SeekAccum &gt;= SeekInterval )
+<a name="418"></a>		{
+<a name="419"></a>			SeekAccum -= SeekInterval;
+<a name="420"></a>
+<a name="421"></a>			<span class="source_keyword">if</span> ( (PassTarget != <span class="source_keyword">None</span>) && (PassTarget != <span class="source_type">Instigator</span>) )
+<a name="422"></a>			{
+<a name="423"></a>				Dir = Normal((PassTarget.Location + (vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">1</span>)*PassTarget.CollisionHeight*<span class="source_int">0.5</span>)) - Location);
+<a name="424"></a>				Acceleration = <span class="source_int">1.25</span> * ThrowSpeed * Dir;
+<a name="425"></a>				<span class="source_keyword">if</span> ( VSize(Location - PassTarget.Location) &lt; <span class="source_int">250</span> )
+<a name="426"></a>				{
+<a name="427"></a>					Velocity = Velocity + <span class="source_int">10</span> * Acceleration * <span class="source_type">delta</span>;
+<a name="428"></a>					<span class="source_keyword">if</span> ( (Dir Dot Normal(Velocity)) &lt; <span class="source_int">0.9</span> )
+<a name="429"></a>						Acceleration *= <span class="source_int">0.4</span>;
+<a name="430"></a>				}
+<a name="431"></a>				SetRotation(<span class="source_type"><a href="../core/object.html#Rotator" class="source">rotator</a></span>(Acceleration));
+<a name="432"></a>				<span class="source_keyword">if</span> ( <span class="source_type">Level</span>.TimeSeconds - ThrowerTime &gt; <span class="source_int">4</span> )
+<a name="433"></a>				{
+<a name="434"></a>					Disable(<span class="source_name">'Tick'</span>);
+<a name="435"></a>					<span class="source_keyword">if</span> ( Physics == PHYS_Projectile )
+<a name="436"></a>						SetPhysics(PHYS_Falling);
+<a name="437"></a>				}
+<a name="438"></a>			}
+<a name="439"></a>			<span class="source_keyword">else</span>
+<a name="440"></a>			{
+<a name="441"></a>				Disable(<span class="source_name">'Tick'</span>);
+<a name="442"></a>				<span class="source_keyword">if</span> ( Physics == PHYS_Projectile )
+<a name="443"></a>					SetPhysics(PHYS_Falling);
+<a name="444"></a>			}
+<a name="445"></a>		}
+<a name="446"></a>		<span class="source_keyword">if</span> ( Physics == PHYS_Projectile )
+<a name="447"></a>			Velocity = Velocity + <span class="source_int">10</span> * Acceleration * <span class="source_type">delta</span>;
+<a name="448"></a>		<span class="source_keyword">else</span>
+<a name="449"></a>		{
+<a name="450"></a>			Disable(<span class="source_name">'Tick'</span>);
+<a name="451"></a>			Acceleration = vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>);
+<a name="452"></a>			<span class="source_type">Z</span> = Velocity.<span class="source_type">Z</span>;
+<a name="453"></a>			Velocity.<span class="source_type">Z</span> = <span class="source_int">0</span>;
+<a name="454"></a>			<span class="source_keyword">if</span> ( VSize(Velocity) &gt; <span class="source_int">800</span> )
+<a name="455"></a>			{
+<a name="456"></a>				Velocity = <span class="source_int">800</span> * Normal(Velocity);
+<a name="457"></a>				Velocity.<span class="source_type">Z</span> = FMin(<span class="source_int">100</span>,<span class="source_type">Z</span>);
+<a name="458"></a>			}
+<a name="459"></a>		}
+<a name="460"></a>	}
+<a name="461"></a>
+<a name="462"></a>	<span class="source_keyword">function</span> Landed(<span class="source_type"><a href="../core/object.html#Vector" class="source">vector</a></span> <span class="source_type">hitNormal</span>)
+<a name="463"></a>	{
+<a name="464"></a>		<span class="source_keyword">if</span> ( Skins[<span class="source_int">2</span>] != Default.Skins[<span class="source_int">2</span>] )
+<a name="465"></a>		{
+<a name="466"></a>			Skins[<span class="source_int">2</span>] = Default.Skins[<span class="source_int">2</span>];
+<a name="467"></a>			SecondRepSkin = Skins[<span class="source_int">2</span>];
+<a name="468"></a>		}
+<a name="469"></a>		Velocity = vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>);
+<a name="470"></a>		Acceleration = vect(<span class="source_int">0</span>,<span class="source_int">0</span>,<span class="source_int">0</span>);
+<a name="471"></a>		SetPhysics(PHYS_Rotating);
+<a name="472"></a>		<span class="source_keyword">if</span> ( (Location.<span class="source_type">Z</span> &lt; Region.Zone.KillZ) || IsInPain() )
+<a name="473"></a>			Timer();
+<a name="474"></a>	}
+<a name="475"></a>
+<a name="476"></a>    <span class="source_keyword">function</span> LogTaken(<span class="source_type"><a href="../engine/controller.html" class="source">Controller</a></span> <span class="source_type">c</span>)
+<a name="477"></a>    {
+<a name="478"></a>		<span class="source_keyword">if</span> ( <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span> != OldTeam )
+<a name="479"></a>			BroadcastLocalizedMessage( MessageClass, <span class="source_int">4</span>, <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>, <span class="source_keyword">None</span>, <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span> );
+<a name="480"></a>		OldTeam = <span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>.<span class="source_type">Team</span>;
+<a name="481"></a>        <span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).GameEvent(<span class="source_string">"bomb_pickup"</span>,<span class="source_string">"255"</span>,<span class="source_type">C</span>.<span class="source_type"><a href="../engine/playerreplicationinfo.html" class="source">PlayerReplicationInfo</a></span>);
+<a name="482"></a>    }
+<a name="483"></a>
+<a name="484"></a>	<span class="source_keyword">function</span> Timer()
+<a name="485"></a>	{
+<a name="486"></a>        <span class="source_type"><a href="../unrealgame/unrealmpgameinfo.html" class="source">UnrealMPGameInfo</a></span>(<span class="source_type">Level</span>.Game).GameEvent(<span class="source_string">"bomb_returned_timeout"</span>,<span class="source_string">"255"</span>,<span class="source_keyword">None</span>);
+<a name="487"></a>		<span class="source_keyword">Super</span>.Timer();
+<a name="488"></a>	}
+<a name="489"></a>
+<a name="490"></a>	<span class="source_keyword">function</span> BeginState()
+<a name="491"></a>	{
+<a name="492"></a>		<span class="source_keyword">if</span> ( ((PassTarget == <span class="source_keyword">None</span>) || (PassTarget == <span class="source_type">Instigator</span>)) && (Skins[<span class="source_int">2</span>] != Default.Skins[<span class="source_int">2</span>]) )
+<a name="493"></a>		{
+<a name="494"></a>			Skins[<span class="source_int">2</span>] = Default.Skins[<span class="source_int">2</span>];
+<a name="495"></a>			SecondRepSkin = Skins[<span class="source_int">2</span>];
+<a name="496"></a> 	       SetPhysics(PHYS_Falling);
+<a name="497"></a>		}
+<a name="498"></a>		<span class="source_keyword">else</span> <span class="source_keyword">if</span> ( Physics != PHYS_Projectile )
+<a name="499"></a>			SetPhysics(PHYS_Falling);
+<a name="500"></a>		SetTimer(MaxDropTime, <span class="source_keyword">false</span>);
+<a name="501"></a>        SetPhysics(PHYS_Falling);
+<a name="502"></a>		<span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">0</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_Down;
+<a name="503"></a>        <span class="source_type">Level</span>.Game.<span class="source_type"><a href="../engine/gamereplicationinfo.html" class="source">GameReplicationInfo</a></span>.FlagState[<span class="source_int">1</span>] = <span class="source_type"><a href="../engine/actor.html#EFlagState" class="source">EFlagState</a></span>.FLAG_Down;
+<a name="504"></a>    }
+<a name="505"></a>
+<a name="506"></a>    <span class="source_keyword">function</span> EndState()
+<a name="507"></a>    {
+<a name="508"></a>		PassTarget = <span class="source_keyword">None</span>;
+<a name="509"></a>		<span class="source_keyword">if</span> ( Skins[<span class="source_int">2</span>] != Default.Skins[<span class="source_int">2</span>] )
+<a name="510"></a>		{
+<a name="511"></a>			Skins[<span class="source_int">2</span>] = Default.Skins[<span class="source_int">2</span>];
+<a name="512"></a>			SecondRepSkin = Skins[<span class="source_int">2</span>];
+<a name="513"></a>		}
+<a name="514"></a>		<span class="source_keyword">Super</span>.EndState();
+<a name="515"></a>	}
+<a name="516"></a>}
+<a name="517"></a>
+<a name="518"></a><span class="source_keyword">defaultproperties</span>
+<a name="519"></a>{
+<a name="520"></a>     BombLauncherClassName=<span class="source_string">"XWeapons.BallLauncher"</span>
+<a name="521"></a>     ThrowSpeed=<span class="source_int">1300.000000</span>
+<a name="522"></a>     Elasticity=<span class="source_int">0.400000</span>
+<a name="523"></a>     ImpactSound=<span class="source_type"><a href="../engine/sound.html" class="source">Sound</a></span><span class="source_name">'WeaponSounds.Misc.ball_bounce_v3a'</span>
+<a name="524"></a>     ThrowerTouchDelay=<span class="source_int">1.000000</span>
+<a name="525"></a>     SeekInterval=<span class="source_int">0.050000</span>
+<a name="526"></a>     TeamShader(<span class="source_int">0</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconRS'</span>
+<a name="527"></a>     TeamShader(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconBS'</span>
+<a name="528"></a>     TeamHue(<span class="source_int">1</span>)=<span class="source_int">170</span>
+<a name="529"></a>     SecondRepSkin=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconYS'</span>
+<a name="530"></a>     bHome=<span class="source_keyword">True</span>
+<a name="531"></a>     GameObjBone=<span class="source_string">"spine"</span>
+<a name="532"></a>     LightType=LT_Steady
+<a name="533"></a>     LightEffect=LE_QuadraticNonIncidence
+<a name="534"></a>     LightHue=<span class="source_int">40</span>
+<a name="535"></a>     LightBrightness=<span class="source_int">255.000000</span>
+<a name="536"></a>     LightRadius=<span class="source_int">6.000000</span>
+<a name="537"></a>     DrawType=DT_StaticMesh
+<a name="538"></a>     <span class="source_type">StaticMesh</span>=<span class="source_type">StaticMesh</span><span class="source_name">'E_Pickups.BombBall.FullBomb'</span>
+<a name="539"></a>     bStatic=<span class="source_keyword">False</span>
+<a name="540"></a>     bDynamicLight=<span class="source_keyword">True</span>
+<a name="541"></a>     bStasis=<span class="source_keyword">False</span>
+<a name="542"></a>     Physics=PHYS_Rotating
+<a name="543"></a>     NetUpdateFrequency=<span class="source_int">100.000000</span>
+<a name="544"></a>     NetPriority=<span class="source_int">3.000000</span>
+<a name="545"></a>     DrawScale=<span class="source_int">1.500000</span>
+<a name="546"></a>     PrePivot=(<span class="source_type">X</span>=<span class="source_int">2.000000</span>,<span class="source_type">Z</span>=<span class="source_int">0.500000</span>)
+<a name="547"></a>     Skins(<span class="source_int">1</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconYS'</span>
+<a name="548"></a>     Skins(<span class="source_int">2</span>)=<span class="source_type"><a href="../engine/shader.html" class="source">Shader</a></span><span class="source_name">'XGameShaders.BRShaders.BombIconYS'</span>
+<a name="549"></a>     Style=STY_Masked
+<a name="550"></a>     bUnlit=<span class="source_keyword">True</span>
+<a name="551"></a>     SoundRadius=<span class="source_int">250.000000</span>
+<a name="552"></a>     CollisionRadius=<span class="source_int">24.000000</span>
+<a name="553"></a>     CollisionHeight=<span class="source_int">20.000000</span>
+<a name="554"></a>     bCollideActors=<span class="source_keyword">True</span>
+<a name="555"></a>     bCollideWorld=<span class="source_keyword">True</span>
+<a name="556"></a>     bProjTarget=<span class="source_keyword">True</span>
+<a name="557"></a>     bBounce=<span class="source_keyword">True</span>
+<a name="558"></a>     bFixedRotationDir=<span class="source_keyword">True</span>
+<a name="559"></a>     Buoyancy=<span class="source_int">20.000000</span>
+<a name="560"></a>     RotationRate=(Yaw=<span class="source_int">30000</span>)
+<a name="561"></a>     DesiredRotation=(Yaw=<span class="source_int">30000</span>)
+<a name="562"></a>     MessageClass=<span class="source_keyword">Class</span><span class="source_name">'XGame.xBombMessage'</span>
+<a name="563"></a>}
+<a name="564"></a></pre></td></tr></table></div>
+<hr />
+<table class="header">
+<tr class="header">
+	<td class="header"><a href="../overview.html">Overview</a></td>
+	<td class="header"><a href="../xgame/xgame-overview.html">Package</a></td>
+	<td class="header"><a href="../xgame/xbombflag.html">Class</a></td>
+	<td class="header_hilight">Source</td>
+	<td class="header"><a class="header" href="../classtree.html#xBombFlag">Class tree</a></td>
+	<td class="header"><a class="header" href="../glossary_A.html">Glossary</a></td>
+	<td class="logo" rowspan="2">UnrealScript<br />Documentation</td>
+</tr>
+<tr>
+	<td class="subheader" colspan="3"><a href="../Source_xgame/xbombdeliveryhole.html">previous class</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../Source_xgame/xbombhudmessage.html">next class</a></td>
+	<td class="subheader" colspan="2"><a href="../index.html" target="_top">frames</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" target="_top">no frames</a></td>
+</tr>
+</table>
+
+<div class="stats">Class file time: Sun 31/3/2019 17:32:30.000 - Creation time: Mon 15/4/2019 10:25:13.854 - Created with <a href="http://wiki.beyondunreal.com/wiki/UnCodeX" target="_blank">UnCodeX</a></div>
+
+</body>
+</html>
