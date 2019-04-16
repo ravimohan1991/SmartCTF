@@ -113,9 +113,10 @@ replication{
      if(bShowFCLocation)
         Level.Game.HUDType = string(class'SmartCTFHudCCaptureTheFlag');
      Witness = Level.Game.Spawn(class'UTServerAdminSpectator');
-     Witness.PlayerReplicationInfo.PlayerName = "Witness";
-     if(Witness != none)
+     if(Witness != none){
         Log("| Successfully Spawned the Witness"@Witness, 'SmartCTF');
+        Witness.PlayerReplicationInfo.PlayerName = "Witness";
+     }
      else
         Log("ERROR! Couldn't Spawn the Witness", 'SmartCTF');
 
@@ -368,7 +369,7 @@ replication{
        // if Killed's FC has not been set / if Killed's FC doesn't have our Flag
        if(!bKilledTeamHasFlag){
           // If Killed and Killer's FC are in Killer's Flag Zone
-          if(IsInZone(KilledPRI, KillerPRI.Team.TeamIndex) || IsInzone(FCs[KillerPRI.Team.TeamIndex].PlayerReplicationInfo, KillerPRI.Team.TeamIndex)){
+          if(IsInZone(KilledPRI, KillerPRI.Team.TeamIndex) && IsInzone(FCs[KillerPRI.Team.TeamIndex].PlayerReplicationInfo, KillerPRI.Team.TeamIndex)){
              // Killer SEALED THE BASE
              if(KillerStats != none)
                 KillerStats.Seals++;

@@ -262,12 +262,13 @@ In this section, we will explore the actual but brief working of SmartCTF by dir
 \label{Sec:witness}
 The class {\color{Orange}SmartCTF.uc} spawns an instance named ``Witness'' to enforce actual counting of the player statistics.  The code is 
 \begin{lstlisting}[frame=single]
-  Witness = Level.Game.Spawn(class'UTServerAdminSpectator');
-  Witness.PlayerReplicationInfo.PlayerName = "Witness";
-  if(Witness != none)
-     Log("### Successfully Spawned the Witness"@Witness, 'SmartCTF');
-  else
-     Log("ERROR! Couldn't Spawn the Witness", 'SmartCTF');
+     Witness = Level.Game.Spawn(class'UTServerAdminSpectator');
+     if(Witness != none){
+        Log("| Successfully Spawned the Witness"@Witness, 'SmartCTF');
+        Witness.PlayerReplicationInfo.PlayerName = "Witness";
+     }
+     else
+        Log("ERROR! Couldn't Spawn the Witness", 'SmartCTF');
 %* \ldots *)
 \end{lstlisting}
 
@@ -377,7 +378,7 @@ The relevant code is
        // if Killed's FC has not been set / if Killed's FC doesn't have our Flag
        if(!bKilledTeamHasFlag){
           // If Killed and Killer's FC are in Killer's Flag Zone
-          if(IsInZone(KilledPRI, KillerPRI.Team.TeamIndex) || IsInzone(FCs[KillerPRI.Team.TeamIndex].PlayerReplicationInfo, KillerPRI.Team.TeamIndex)){
+          if(IsInZone(KilledPRI, KillerPRI.Team.TeamIndex) && IsInzone(FCs[KillerPRI.Team.TeamIndex].PlayerReplicationInfo, KillerPRI.Team.TeamIndex)){
              // Killer SEALED THE BASE
              if(KillerStats != none)
                 KillerStats.Seals++;
