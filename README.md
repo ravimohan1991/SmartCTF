@@ -11,7 +11,7 @@ The Mutator to promote and enhance the "TeamPlay" in UT2004 CTF game.
 
 USAGE
 ========
-Consult the [a relative link] (Release/SmartCTF1A/ReadMe.pdf) located in Release/SmartCTF1A/
+Consult the [ReadMe](Release/SmartCTF1A/ReadMe.pdf) located in Release/SmartCTF1A/
 
 
 CHANGELOG
