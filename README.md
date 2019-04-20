@@ -3,7 +3,8 @@ SmartCTF
 
 > [v1A]
 
-The Mutator to promote and enhance the “TeamPlay” in UT2004 CTF game.
+The Mutator to promote and enhance the "TeamPlay" in UT2004 CTF game.
+<br>
 <br>
 ![Alt Text](/repofiles/screenshotalpha.png)
 
