@@ -76,7 +76,10 @@ class SmartCTF extends Mutator config (SmartCTF);
  /** Switch for broadcasting Monsterkill and above.*/
  var()   config           bool         bBroadcastMonsterKillsAndAbove;
 
-
+// Replication block could be turned off in the subsequent versions.  Was only for
+// testing purpose.  Stats restoration should work without GoneSmartPRI being
+// replicated to clients because SmartCTFPlayerReplicationInfo stats are
+// repicated anyway.
 replication{
 
     // Things the server should send to the client.
