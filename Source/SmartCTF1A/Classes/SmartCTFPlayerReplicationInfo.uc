@@ -147,6 +147,7 @@ class SmartCTFPlayerReplicationInfo extends ReplicationInfo;
  *
  * @see LinkActor.GetIPInfo
  * @since version 1A
+ * @author [es]Rush
  */
 
  event Timer(){
