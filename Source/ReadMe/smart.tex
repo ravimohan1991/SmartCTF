@@ -9,7 +9,7 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\newcommand{\SmartVersion}{1A}
+\newcommand{\SmartVersion}{1B}
     
 \title{SmartCTF}
 \author{The\_Cowboy}
@@ -102,9 +102,10 @@ The {\color{Orange}SmartCTF.ini} file is included with the package and contains 
         SealAdrenalineUnits=5\\
         RedFlagZone=RED BASE LOWER LEVEL\\
         BlueFlagZone=BLUE BASE LOWER LEVEL\\
-        ScoreBoardType=SmartCTF1A.SmartCTFScoreBoard\\
+        ScoreBoardType=SmartCTF\SmartVersion.SmartCTFScoreBoard\\
         bShowFCLocation=True\\
-        bBroadcastMonsterKillAndAbove=True
+        bBroadcastMonsterKillAndAbove=True\\
+        bDisableOvertime=False
     }%
 } \\
 
@@ -112,7 +113,9 @@ Most configurable variables are self-explanatory. To identify a ``Seal'', the ad
 
 bShowFCLocation if set true will display the team FC location at the top of the HUD to all the team players.
 
-bBroadcastMonsterKillAndAbove is set to true will broaccast the Monsterkill message to all the players when someone achieves it.
+bBroadcastMonsterKillAndAbove if set to true will broaccast the Monsterkill message to all the players when someone achieves it.
+
+bDisableOvertime if set to true will disable the default overtime and end the game in draw if both the teams have same score.  This feature was implemented on the request made \href{https://miasma.rocks/index.php?topic=1357.msg19336#msg19336}{\color{Blue}here}.
 
 \subsection{IpToNation.ini}
 SmartCTF has built in IpToNation mutator which is based on IpToCountry mutator developed by [es]Rush and Matthew 'MSuLL' Sullivan for UT99.  An excerpt from the IpToCountry readme
@@ -165,7 +168,7 @@ MaxTimeout is the time in seconds after which IpToNation gives up querying the s
 ErrorLimit is the limiting number of times before IpToNation starts querying another serverhost after restart.
 
 \subsection{Server.ini}
-SmartCTF logo splash can be highly configured in the section SmartCTF1A.SmartCTFLogo generated in the  {\color{Purple}UT2004.ini} or {\color{Purple}Server.ini}.
+SmartCTF logo splash can be highly configured in the section SmartCTF\SmartVersion.SmartCTFLogo generated in the  {\color{Purple}UT2004.ini} or {\color{Purple}Server.ini}.
 
 \fbox{%
     \parbox{\textwidth}{%
