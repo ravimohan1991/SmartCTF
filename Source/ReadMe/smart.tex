@@ -5,11 +5,13 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{csquotes}
+\usepackage{changelog}
+
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\newcommand{\SmartVersion}{1B}
+\newcommand{\SmartVersion}{1C}
     
 \title{SmartCTF}
 \author{The\_Cowboy}
@@ -70,7 +72,7 @@ This document concerns with the incarnation of SmartCTF (version \SmartVersion) 
   \fbox{%
     \parbox{\textwidth}{%
         ServerPackages = SmartCTF\SmartVersion\\
-        ServerPackages = CountryFlags
+        ServerPackages = CountryFlags2
     }%
 }\\
 
@@ -544,6 +546,24 @@ Now it would be cool to add various resources to SmartCTF.  The list includes
 \item Announcer Sounds for the ``Cover'' and ``Seal''.  And I am talking about the good ol' Classic Announcer-style!
 \item Textures for the Scoreboard including background, FirstBlood, and partition generators.  Animated textures would be cool.  {[es]}Rush has already done awesome job with the CountryFlags textures.  It would be nice to have better textures for FC in the socreboard (Figure \ref{fig:smartscoreboard}).
 \end{itemize}
+
+\section{ChangeLog}
+\begin{changelog}[author=The\_Cowboy,
+                  sectioncmd=\subsection,
+                  title=SmartCTF changelog]
+\begin{version}[v=1C(Unreleased), date=2020-06-19]
+\fixed
+     \item bDisableOvertime not ending the game time.
+\end{version}
+\begin{version}[v=1B, date=2020-06-10]
+\added
+     \item bDisableOvertime
+\fixed
+     \item Statistics replication for players leaving server.
+\end{version}
+\shortversion{v=1A, date=2019-04-16, changes=Initial release.}  
+\end{changelog}
+
 
 \section{Credits}
 SmartCTF has a rich and animated histroy due to the contributions of several outstanding coders and their inspirations.  The list (in no particular order) includes
