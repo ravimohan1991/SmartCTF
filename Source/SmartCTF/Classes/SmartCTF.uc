@@ -77,6 +77,7 @@ class SmartCTF extends Mutator config (SmartCTF);
  var()   config           string       ScoreBoardType;
  var()   config           bool         bShowFCLocation;
  var()   config           bool         bDisableOvertime;
+ var()   config           bool         bShowCountryFlags;
 
  /** Switch for broadcasting Monsterkill and above.*/
  var()   config           bool         bBroadcastMonsterKillsAndAbove;
@@ -100,6 +101,7 @@ class SmartCTF extends Mutator config (SmartCTF);
 
      SaveConfig();
      SCTFGame = Level.Game.Spawn(class'SmartCTFGameReplicationInfo');
+     SCTFGame.bShowCountryFlags = bShowCountryFlags;
      SetSCTFGame();
      SCTFGrules = Level.Game.Spawn(class'SmartCTFGameRules'); // for accessing PreventDeath function
      SCTFGrules.SCTFMut = self;
@@ -567,18 +569,19 @@ class SmartCTF extends Mutator config (SmartCTF);
 
  defaultproperties
  {
-    Version="1B"
+    Version="1C"
     bShowLogo=True
     bAddToServerPackages=True
     CoverReward=2
     CoverAdrenalineUnits=5
     SealAward=2
     SealAdrenalineUnits=5
-    ScoreBoardType="SmartCTF1B.SmartCTFScoreBoard"
+    ScoreBoardType="SmartCTF1C.SmartCTFScoreBoard"
     RedFlagZone="RED BASE LOWER LEVEL"
     BlueFlagZone="BLUE BASE LOWER LEVEL"
     bShowFCLocation=True
     bBroadcastMonsterKillsAndAbove=True
     bDisableOvertime=False
+    bShowCountryFlags=True
  }
 

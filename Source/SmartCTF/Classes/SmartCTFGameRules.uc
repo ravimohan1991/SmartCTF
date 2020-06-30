@@ -34,6 +34,8 @@
 
 class SmartCTFGameRules extends Gamerules;
 
+#exec OBJ LOAD FILE=..\Sounds\AnnouncerMain.uax
+
 /*
  * Global Variables
  */
@@ -107,12 +109,17 @@ class SmartCTFGameRules extends Gamerules;
  * @param Reason
  *
  * @since version 1B
+ * @revision for version 1C
+ * to address the issue
+ * https://github.com/ravimohan1991/SmartCTF/issues/2
  */
 
  function bool CheckEndGame(PlayerReplicationInfo Winner, string Reason){
 
     local Controller P;
     local PlayerController Player;
+    local name EndSound;
+    local sound EndSoundSound;
 
     // Game must not end
     if( (NextGameRules != None) && !NextGameRules.CheckEndGame(Winner, Reason))
@@ -123,20 +130,37 @@ class SmartCTFGameRules extends Gamerules;
 
     // Game must end with draw if scores are same
     if( GameActor.Teams[1].Score == GameActor.Teams[0].Score ){
-       for ( P = Level.ControllerList; P != None; P = P.nextController )
-	   {
+       EndSound = 'That_was_a_close_match';
+       EndSoundSound = sound'AnnouncerMain.That_was_a_close_match';
+       TeamGame(Level.Game).EndGameSoundName[0] = EndSound;
+       TeamGame(Level.Game).EndGameSoundName[1] = EndSound;
+	   TeamGame(Level.Game).AltEndGameSoundName[0] = EndSound;
+	   TeamGame(Level.Game).AltEndGameSoundName[1] = EndSound;
+
+	   DeathMatch(Level.Game).RemainingTime = 0;
+	   Level.Game.GameReplicationInfo.RemainingTime = 0;
+	   Level.Game.GameReplicationInfo.RemainingMinute = 0;
+	   Level.Game.bGameEnded = True;
+
+       for ( P = Level.ControllerList; P != None; P = P.nextController ){
 		   P.GameHasEnded();
 		   Player = PlayerController(P);
 		   if ( Player != None )
 		   {
               Player.ClientGameEnded();
+              //Player.GameHasEnded();
+              Player.ClientPlaySound(EndSoundSound);
            }
 	   }
-        return false;
+
+	   Level.Game.TriggerEvent('EndGame',self,None);
+	   Level.Game.EndLogging("Draw");
+	   Level.Game.Broadcast(Instigator.Controller, "MATCH DRAW", 'CriticalEvent');
+
+       return false;
     }
     return true;
  }
-
 
 defaultproperties
 {
