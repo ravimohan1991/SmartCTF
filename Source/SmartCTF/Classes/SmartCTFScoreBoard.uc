@@ -1002,6 +1002,8 @@ simulated event DrawScoreboard( Canvas C )
 
     if(UnrealPlayer(Owner).PlayerReplicationInfo.Team == none) return "You are Spectating!";
 
+    if(SCTFGame.bGameEndedInDraw) return "Match ended in draw!";
+
     team = UnrealPlayer(Owner).PlayerReplicationInfo.Team.TeamIndex;
 
     if(UnrealPlayer(Owner).bDisplayLoser){

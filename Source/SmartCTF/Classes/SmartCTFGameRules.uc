@@ -153,6 +153,8 @@ class SmartCTFGameRules extends Gamerules;
            }
 	   }
 
+       SCTFMut.SCTFGame.bGameEndedInDraw = true;
+
 	   Level.Game.TriggerEvent('EndGame',self,None);
 	   Level.Game.EndLogging("Draw");
 	   Level.Game.Broadcast(Instigator.Controller, "MATCH DRAW", 'CriticalEvent');

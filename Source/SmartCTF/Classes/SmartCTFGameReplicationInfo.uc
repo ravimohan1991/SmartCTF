@@ -45,11 +45,14 @@ class SmartCTFGameReplicationInfo extends ReplicationInfo;
  /** Show firstblood? */
  var()    bool                                                bShowFirstBlood;
 
+ /** Has game ended in draw? */
+ var()    bool                                                bGameEndedInDraw;
+
 replication
 {
   // Settings
   reliable if(Role == ROLE_Authority)
-    TickRate, bShowFirstBlood;
+    TickRate, bShowFirstBlood, bGameEndedInDraw;
 }
 
 /**
