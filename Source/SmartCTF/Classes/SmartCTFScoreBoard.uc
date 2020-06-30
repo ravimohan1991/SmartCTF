@@ -563,7 +563,7 @@ simulated event DrawScoreboard( Canvas C )
           Canvas.DrawText(playername[i], true);
           FBXL = 0;
           FBYL = 0;
-          if(CurrSmartPRI[i] != none && CurrSmartPRI[i].bFirstBlood){
+          if(CurrSmartPRI[i] != none && CurrSmartPRI[i].bFirstBlood && SCTFGame.bShowFirstBlood){
              Canvas.Font = GetSmallerFontFor(Canvas, FontReduction + 4);
              Canvas.DrawColor = HUDClass.default.RedColor;
              Canvas.StrLen("First Blood", FBXL, FBYL);

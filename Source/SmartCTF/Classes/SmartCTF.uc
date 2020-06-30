@@ -78,6 +78,7 @@ class SmartCTF extends Mutator config (SmartCTF);
  var()   config           bool         bShowFCLocation;
  var()   config           bool         bDisableOvertime;
  var()   config           bool         bShowCountryFlags;
+ var()   config           bool         bShowFirstBlood;
 
  /** Switch for broadcasting Monsterkill and above.*/
  var()   config           bool         bBroadcastMonsterKillsAndAbove;
@@ -145,6 +146,8 @@ class SmartCTF extends Mutator config (SmartCTF);
  */
 
  function SetSCTFGame(){
+
+    SCTFGame.bShowFirstBlood = bShowFirstBlood;
  }
 
 /**
@@ -584,5 +587,6 @@ class SmartCTF extends Mutator config (SmartCTF);
     bBroadcastMonsterKillsAndAbove=True
     bDisableOvertime=False
     bShowCountryFlags=True
+    bShowFirstBlood=True
  }
 
