@@ -90,8 +90,9 @@ Furthermore, admin needs to set the ``Red(Blue)FlagZone'' for each CTF map indiv
 
 \section{Configuration}
 \label{sec:configuration}
-There are three configurable settings for SmartCTF\SmartVersion.
-\subsection{SmartCTF.ini}
+There are three configurable sections of settings for SmartCTF\SmartVersion.  All these categories can be found in the {\color{Purple}UT2004.ini} or {\color{Purple}Server.ini}\footnote{Since version 1C, all configurable settings are stored in single ini.}.
+\subsection{SmartCTF}
+\label{subsec:smartctf}
 The {\color{Orange}SmartCTF.ini} file is included with the package and contains the following section\\
 
  \fbox{%
@@ -107,7 +108,10 @@ The {\color{Orange}SmartCTF.ini} file is included with the package and contains 
         ScoreBoardType=SmartCTF\SmartVersion.SmartCTFScoreBoard\\
         bShowFCLocation=True\\
         bBroadcastMonsterKillAndAbove=True\\
-        bDisableOvertime=False
+        bDisableOvertime=False\\
+        bShowCountryFlags=True\\
+        bShowFirstBlood=True\\
+        bRecoverTotalScore=True
     }%
 } \\
 
@@ -118,6 +122,10 @@ bShowFCLocation if set true will display the team FC location at the top of the 
 bBroadcastMonsterKillAndAbove if set to true will broaccast the Monsterkill message to all the players when someone achieves it.
 
 bDisableOvertime if set to true will disable the default overtime and end the game in draw if both the teams have same score.  This feature was implemented on the request made \href{https://miasma.rocks/index.php?topic=1357.msg19336#msg19336}{\color{Blue}here}.
+
+bShowCountryFlags will hide the country flags of the players when set to false.  bShowFirstBlood will hide the ``{\color{Red}First Blood}'' indicator on the scoreboard if set to false.
+
+bRecoverTotalScore if set to true will recover the total player score when they rejoin the server.  Make sure there are no stats recovery mutators present when set to true.  Note: smart statistics are always restored irrespective of this option being true or false.
 
 \subsection{IpToNation.ini}
 SmartCTF has built in IpToNation mutator which is based on IpToCountry mutator developed by [es]Rush and Matthew 'MSuLL' Sullivan for UT99.  An excerpt from the IpToCountry readme
@@ -135,7 +143,7 @@ different timezones, so Rush just had to get a player's time and compare it to G
 but Cratos was the first to implement it in LeagueAS, Rush got some code from him so big thanks, mate.''
 \end{displayquote}
 
-Now to configure, open IpToNation.ini (a fresh copy is always generated on the first run, if not there in the directory)\\
+Now to configure, open {\color{Purple}UT2004.ini} or {\color{Purple}Server.ini} and browse to section\\
 \fbox{%
     \parbox{\textwidth}{%
         [SmartCTF\SmartVersion.LinkActor]\\
@@ -169,7 +177,7 @@ You can learn from the example given above on configuring QueryServerHosts (righ
 MaxTimeout is the time in seconds after which IpToNation gives up querying the serverhosts.
 ErrorLimit is the limiting number of times before IpToNation starts querying another serverhost after restart.
 
-\subsection{Server.ini}
+\subsection{SmartLogo}
 SmartCTF logo splash can be highly configured in the section SmartCTF\SmartVersion.SmartCTFLogo generated in the  {\color{Purple}UT2004.ini} or {\color{Purple}Server.ini}.
 
 \fbox{%
@@ -249,7 +257,7 @@ SmartCTF has a list of cool features which makes the CTF more fun.
     and server/map name with the ``Tickrate''.
     \end{itemize}
 The body of the scoreboards shows more player statistics.
-\item Statistics Restoration: SmartCTF\SmartVersion~ has the capability to restore the statistics of the player who disconnected due to unfavorable circumstances (poor net connection, power fluctuations etc).  The resoration is done on the name basis.  Note that the total player score is \emph{not} restored by SmartCTF (to avoid the conflict with other stats restoring mutators).
+\item Statistics Restoration: SmartCTF\SmartVersion~ has the capability to restore the statistics of the player who disconnected due to unfavorable circumstances (poor net connection, power fluctuations etc).  The resoration is done on the name basis. Total score can also be restored by setting bRecoverTotalScore to true as mentioned in section \ref{subsec:smartctf}.
 \item Flag Carrier Location: SmartCTF can render the current location of the Flag Carrier at the top of the screen (below the team scores).
   \begin{figure}
 \centering
@@ -551,9 +559,15 @@ Now it would be cool to add various resources to SmartCTF.  The list includes
 \begin{changelog}[author=The\_Cowboy,
                   sectioncmd=\subsection,
                   title=SmartCTF changelog]
-\begin{version}[v=1C(Unreleased), date=2020-06-19]
+\begin{version}[v=1C(Unreleased)]
 \fixed
      \item bDisableOvertime not ending the game time.
+\added
+     \item bShowCountryFlags
+     \item bShowFirstBlood
+     \item bRecoverTotalScore
+\deprecated
+     \item All the SmartCTF settings are now stored in {\color{Purple}UT2004.ini} or {\color{Purple}Server.ini} as per the \href{https://github.com/ravimohan1991/SmartCTF/issues/3}{{\color{Blue}request}}. 
 \end{version}
 \begin{version}[v=1B, date=2020-06-10]
 \added
@@ -578,6 +592,7 @@ SmartCTF has a rich and animated histroy due to the contributions of several out
 For this UT2k4 port, I would like to especially thank
 \begin{itemize}
 \item Wormbo (for his ServerLogo mod and endless contribution in the programming universe of Unreal Engine)
+\item \href{https://github.com/Annihilator}{\color{Blue}Annihilator} for mutator testing and constructive feedback.
 \item {[es]}Rush and Matthew 'MSuLL' Sullivan for IpToCountry methods
 \item Epic Games for releasing new versions of the ``Game we Love''
 \end{itemize}

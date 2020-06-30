@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 JUN 2020 04:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 JUN 2020 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -626,149 +626,149 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--87
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
 
-Overfull \hbox (21.79999pt too wide) in paragraph at lines 112--113
+Overfull \hbox (21.79999pt too wide) in paragraph at lines 116--117
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
 [2 <./img.png (PNG copy)>]
-Overfull \hbox (0.2784pt too wide) in paragraph at lines 118--119
+Overfull \hbox (0.2784pt too wide) in paragraph at lines 122--123
 []\OT1/cmr/m/n/10 bBroadcastMonsterKillAndAbove if set to true will broac-cast 
 the Mon-sterkill
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 165--165
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 138--166
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 146--174
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--166
+Underfull \hbox (badness 10000) in paragraph at lines 146--174
 
  []
 
 
-Overfull \hbox (50.55525pt too wide) in paragraph at lines 173--174
+Overfull \hbox (50.55525pt too wide) in paragraph at lines 181--182
 \OT1/cmr/m/n/10 SmartCTF logo splash can be highly con-fig-ured in the sec-tion
  SmartCTF1C.SmartCTFLogo
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--209
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 
  []
 
 
-Overfull \hbox (21.79999pt too wide) in paragraph at lines 209--210
+Overfull \hbox (21.79999pt too wide) in paragraph at lines 217--218
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
-[4]
-Underfull \hbox (badness 1436) in paragraph at lines 217--217
+
+Underfull \hbox (badness 1436) in paragraph at lines 225--225
 []\OT1/cmr/m/n/10 Logo: The tra-di-tional SmartCTF ``Pow-ered'' logo
  []
 
-<powered.png, id=112, 128.48pt x 128.48pt>
+<powered.png, id=117, 128.48pt x 128.48pt>
 File: powered.png Graphic file (type png)
  <use powered.png>
-Package pdftex.def Info: powered.png used on input line 217.
+Package pdftex.def Info: powered.png used on input line 225.
 (pdftex.def)             Requested size: 51.7479pt x 51.74788pt.
- [5 <./powered.png>] <Is.png, id=120, 2569.6pt x 1868.9825pt>
+ [5]
+<Is.png, id=124, 2569.6pt x 1868.9825pt>
 File: Is.png Graphic file (type png)
  <use Is.png>
-Package pdftex.def Info: Is.png used on input line 235.
+Package pdftex.def Info: Is.png used on input line 243.
 (pdftex.def)             Requested size: 17.25105pt x 12.51955pt.
- [6 <./Is.png>]
-<fcloc.png, id=133, 702.625pt x 186.6975pt>
+ [6 <./powered.png> <./Is.png>] <fcloc.png, id=136, 702.625pt x 186.6975pt>
 File: fcloc.png Graphic file (type png)
  <use fcloc.png>
-Package pdftex.def Info: fcloc.png used on input line 257.
+Package pdftex.def Info: fcloc.png used on input line 265.
 (pdftex.def)             Requested size: 276.00105pt x 73.33875pt.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 271.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 279.
  [7 <./fcloc.png>]
-Overfull \hbox (10.16719pt too wide) in paragraph at lines 300--301
+Overfull \hbox (10.16719pt too wide) in paragraph at lines 308--309
 []\OT1/cmr/m/n/10 Note that the ``Wit-ness'' is never shown in the spec-ta-tor 
 list of the ``SmartScore-
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 310.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 318.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 310.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 318.
  [8] [9] [10]
 [11] [12] [13]
-Overfull \hbox (2.6025pt too wide) in paragraph at lines 532--533
+Overfull \hbox (2.6025pt too wide) in paragraph at lines 540--541
 \OT1/cmr/m/n/10 mated'' snow falling down. Sim-i-lar tech-niques can be ap-plie
 d to the ``SmartScore-
  []
 
-<snowy.png, id=361, 1284.8pt x 803.0pt>
+<snowy.png, id=364, 1284.8pt x 803.0pt>
 File: snowy.png Graphic file (type png)
  <use snowy.png>
-Package pdftex.def Info: snowy.png used on input line 537.
+Package pdftex.def Info: snowy.png used on input line 545.
 (pdftex.def)             Requested size: 379.5021pt x 237.18927pt.
 
-Overfull \hbox (34.5021pt too wide) in paragraph at lines 537--538
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 545--546
  [][] 
  []
 
 .................................................
 . LaTeX info: "xparse/define-environment"
 . 
-. Defining environment 'version' with sig. ' O{} ' on line 553.
+. Defining environment 'version' with sig. ' O{} ' on line 561.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \@shortversion with sig. '' on line 553.
+. Defining command \@shortversion with sig. '' on line 561.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \shortversion with sig. 'm' on line 553.
+. Defining command \shortversion with sig. 'm' on line 561.
 .................................................
 [14] [15 <./snowy.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 591.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 606.
  [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 591.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 606.
  (./smart.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 591.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 591.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 606.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 606.
 Package rerunfilecheck Info: File `smart.out' has not changed.
-(rerunfilecheck)             Checksum: 5249DD01D00591B2A090BC697D18D99C;1034.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 591.
+(rerunfilecheck)             Checksum: 48D56B53A44D12C0CA94C9613A16A08A;1029.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 606.
  ) 
 Here is how much of TeX's memory you used:
- 16743 strings out of 493089
- 297766 string characters out of 6134842
- 729543 words of memory out of 5000000
- 19840 multiletter control sequences out of 15000+600000
+ 16745 strings out of 493089
+ 297794 string characters out of 6134842
+ 729581 words of memory out of 5000000
+ 19841 multiletter control sequences out of 15000+600000
  9890 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,8n,72p,10388b,1816s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,8n,72p,10388b,1814s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
@@ -784,10 +784,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on smart.pdf (16 pages, 3536441 bytes).
+Output written on smart.pdf (16 pages, 3538660 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 230 named destinations out of 1000 (max. 500000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 449 compressed objects within 5 object streams
+ 231 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
