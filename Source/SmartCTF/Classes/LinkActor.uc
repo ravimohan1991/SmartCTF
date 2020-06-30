@@ -16,7 +16,7 @@
  *
  */
 
-class LinkActor extends Mutator config(IpToNation);
+class LinkActor extends Mutator config;
 
 /*
  * Global variables

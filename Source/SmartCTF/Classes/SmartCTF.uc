@@ -32,7 +32,7 @@
  * @since 1A
  */
 
-class SmartCTF extends Mutator config (SmartCTF);
+class SmartCTF extends Mutator config;
 
 
 /*
