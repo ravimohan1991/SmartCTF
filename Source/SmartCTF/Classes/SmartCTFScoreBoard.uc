@@ -652,8 +652,7 @@ simulated event DrawScoreboard( Canvas C )
              Canvas.SetPos(FaceXPos + YL / 3.0 - 8 * 1.2, (PlayerBoxSizeY + BoxSpaceY) * i + BoxTextOffsetY + 0.5 * YL + 0.15 * YL);
              Canvas.bNoSmooth = false;
              Canvas.DrawColor = HUDClass.default.WhiteColor;
-             if(SCTFGame.bShowCountryFlags)
-                Canvas.DrawIcon(FD[GetFlagIndex(CurrSmartPRI[i].NationPrefix)].Tex, 1.2);// IpToCountry Hook
+             Canvas.DrawIcon(FD[GetFlagIndex(CurrSmartPRI[i].NationPrefix)].Tex, 1.2);// IpToCountry Hook
              Canvas.Font = HUDClass.static.LoadFontStatic(8);
              tempstr = "PI:" $ Min(999, 4 * CurrPRI[i].Ping);
              if(Len(tempstr) > 5) TempStr = "P:" $ Min(999, 4 * CurrPRI[i].Ping);

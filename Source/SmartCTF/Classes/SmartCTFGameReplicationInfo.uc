@@ -43,13 +43,13 @@ class SmartCTFGameReplicationInfo extends ReplicationInfo;
  var()    int                                                 TickRate;
 
  /** Show countryflags? */
- var()    bool                                                bShowCountryFlags;
+// var()    bool                                                bShowCountryFlags;
 
 replication
 {
   // Settings
   reliable if(Role == ROLE_Authority)
-    TickRate, bShowCountryFlags;//, GetStats, ReloadBuffer;
+    TickRate;//, bShowCountryFlags, GetStats, ReloadBuffer;
 }
 
 /**

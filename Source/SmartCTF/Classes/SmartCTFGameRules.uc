@@ -148,7 +148,7 @@ class SmartCTFGameRules extends Gamerules;
 		   if ( Player != None )
 		   {
               Player.ClientGameEnded();
-              //Player.GameHasEnded();
+              Player.GameHasEnded();
               Player.ClientPlaySound(EndSoundSound);
            }
 	   }

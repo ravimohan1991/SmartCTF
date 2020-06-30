@@ -101,7 +101,6 @@ class SmartCTF extends Mutator config (SmartCTF);
 
      SaveConfig();
      SCTFGame = Level.Game.Spawn(class'SmartCTFGameReplicationInfo');
-     SCTFGame.bShowCountryFlags = bShowCountryFlags;
      SetSCTFGame();
      SCTFGrules = Level.Game.Spawn(class'SmartCTFGameRules'); // for accessing PreventDeath function
      SCTFGrules.SCTFMut = self;
@@ -118,9 +117,11 @@ class SmartCTF extends Mutator config (SmartCTF);
         Log("ERROR! Couldn't Spawn the Witness", 'SmartCTF');
 
      SetTimer(1, true);
+     if(bShowCountryFlags){
      Log("| Initilaizing IpToNation...", 'SmartCTF');
-     IpToNation = Level.Spawn(class'LinkActor');
-     Level.Game.BaseMutator.AddMutator(IpToNation);// for identifying the Nation of the players
+        IpToNation = Level.Spawn(class'LinkActor');
+        Level.Game.BaseMutator.AddMutator(IpToNation);// for identifying the Nation of the players
+     }
      Level.Game.ScoreBoardType = ScoreBoardType;
      if(bShowLogo){
         foreach DynamicActors(class'SmartCTFLogo', S){
