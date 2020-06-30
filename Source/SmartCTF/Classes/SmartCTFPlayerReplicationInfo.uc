@@ -101,6 +101,7 @@ class SmartCTFPlayerReplicationInfo extends ReplicationInfo;
  var    int             FragSpree;              // FragSpree Counter
  var    int             CoverSpree;             // CoverSpree Counter
  var    int             SpawnKillSpree;         // SpawnKillspree Counter
+ var    float           PlayerScore;            // Total score of the player
 
  /** IpToNation reference.*/
  var    LinkActor       IpToNation;

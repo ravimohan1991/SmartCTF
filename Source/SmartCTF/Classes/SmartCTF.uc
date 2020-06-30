@@ -79,6 +79,7 @@ class SmartCTF extends Mutator config (SmartCTF);
  var()   config           bool         bDisableOvertime;
  var()   config           bool         bShowCountryFlags;
  var()   config           bool         bShowFirstBlood;
+ var()   config           bool         bRecoverTotalScore;
 
  /** Switch for broadcasting Monsterkill and above.*/
  var()   config           bool         bBroadcastMonsterKillsAndAbove;
@@ -201,7 +202,9 @@ class SmartCTF extends Mutator config (SmartCTF);
        for(i = 0; i < GoneSmartPRI.Length; i++){
           if(GoneSmartPRI[i] != none && Other.PlayerReplicationInfo.PlayerName == GoneSmartPRI[i].SPlayerName){// Include IP check?
              NewSPRI.CopyStats(GoneSmartPRI[i]);
-             GoneSmartPRI.Remove(i, 1);// Save the bandwidth :D
+             if(bRecoverTotalScore)
+                Other.PlayerReplicationInfo.Score = GoneSmartPRI[i].PlayerScore;
+             GoneSmartPRI.Remove(i, 1);
           }
        }
  }
@@ -215,10 +218,15 @@ class SmartCTF extends Mutator config (SmartCTF);
  function NotifyLogout(Controller Exiting){
 
     local SmartCTFPlayerReplicationInfo LSPRI;
+    local int PlayerIndex;
 
     foreach DynamicActors(class'SmartCTFPlayerReplicationInfo', LSPRI){
        if(Exiting.PlayerReplicationInfo == LSPRI.Owner){
-          GoneSmartPRI[GoneSmartPRI.length] = LSPRI;
+          PlayerIndex = GoneSmartPRI.Length;
+          GoneSmartPRI[PlayerIndex] = LSPRI;
+          if(bRecoverTotalScore){
+             GoneSmartPRI[PlayerIndex].PlayerScore = Exiting.PlayerReplicationInfo.Score;
+             }
           LSPRI.SetTimer(0.0, false);
           break;
        }
@@ -588,5 +596,6 @@ class SmartCTF extends Mutator config (SmartCTF);
     bDisableOvertime=False
     bShowCountryFlags=True
     bShowFirstBlood=True
+    bRecoverTotalScore=True
  }
 
