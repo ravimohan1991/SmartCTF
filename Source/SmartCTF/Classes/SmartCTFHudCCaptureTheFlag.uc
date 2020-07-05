@@ -31,12 +31,17 @@
 
 class SmartCTFHudCCaptureTheFlag extends HudCCaptureTheFlag;
 
-
+/*
 var vector MapCenter;
 var float RadarTrans, RadarRange;
+*/
 
-
-
+/**
+ * The function gets called at the begning of map.
+ *
+ * @since Experimental for FC on HUD feature
+ */
+/*
 simulated function PostBeginPlay(){
 
   super.PostBeginPlay();
@@ -44,7 +49,7 @@ simulated function PostBeginPlay(){
     if (Level.CustomRadarRange > 0)
         RadarRange = Clamp(Level.CustomRadarRange, 500.0, 500000.000000);
 }
-
+*/
 
 /**
  * The function gets called just at the Client while drawing the CTF HUD.
@@ -137,6 +142,11 @@ simulated function ShowTeamScorePassA(Canvas C)
 	}
  }
 
+/**
+ * @since Experimental for FC on HUD feature
+ */
+
+/*
  simulated function ShowTeamScorePassC(Canvas C){
 
     local float RadarWidth, CenterRadarPosX, CenterRadarPosY;
@@ -192,13 +202,6 @@ simulated static function DrawMapImage( Canvas C, Material Image, float MapX, fl
 	local float MapScale, MapSize;
 	local byte  SavedAlpha;
 
-	/*
-	Dimensions.X = Width
-	Dimensions.Y = Range
-	Dimensions.Z = Alpha
-
-	*/
-
 	if ( Image == None || C == None )
 		return;
 
@@ -218,7 +221,7 @@ simulated static function DrawMapImage( Canvas C, Material Image, float MapX, fl
 
 	C.DrawColor.A = SavedAlpha;
 }
-
+*/
 
 DefaultProperties
 {
